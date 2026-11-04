@@ -6,7 +6,14 @@ const postModules = import.meta.glob('../data/posts/*.json', { eager: true });
 const pageModules = import.meta.glob('../data/pages/*.json', { eager: true });
 let tagModules = import.meta.glob('../data/tags.json', { eager: true });
 
+const imgFromContent = (html = '') => {
+  const m = html.match(/<img[^>]*?src=\\?"([^"\\]+)\\?"[^>]*>/i);
+  if (!m) return null;
+  const alt = (m[0].match(/alt=\\?"([^"\\]*)/i) || [])[1] || '';
+  return { src: m[1].replace(/\?.*$/, ''), alt };
+};
 export const posts = Object.values(postModules).map((m) => m.default)
+  .map((p) => (p.image ? p : { ...p, image: imgFromContent(p.content) }))
   .sort((a, b) => b.date.localeCompare(a.date));
 export const pages = Object.values(pageModules).map((m) => m.default);
 export const categories = categoriesData;
