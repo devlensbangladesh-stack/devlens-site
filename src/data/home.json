@@ -1,0 +1,36 @@
+{
+ "lead": {
+  "slug": "new-garment-wages-to-start-in-december-wage-board-agrees-at-first-meeting",
+  "label": "Labour",
+  "headline": "New garment wages to start in December",
+  "summary": "Owners and workers on the new wage board agreed the timing at its first meeting. The amount is still open, with workers asking for Tk 30,000 a month."
+ },
+ "alsoToday": {
+  "slug": "climate-adaptation-needs-longer-loans-and-guarantees-to-draw-private-money-bankers-say",
+  "label": "Climate",
+  "headline": "Climate adaptation needs longer loans and guarantees to draw private money",
+  "summary": "The National Adaptation Plan puts the need at $230 billion by 2050.",
+  "plus": ["bangladesh-cannot-track-how-much-toxic-lead-chromate-it-imports-study-finds"]
+ },
+ "special": {
+  "slug": "record-pledges-shrinking-ngos-bangladesh-aid",
+  "label": "Special report · Funding intelligence",
+  "headline": "Record pledges, shrinking NGOs: who gets Bangladesh's aid money",
+  "summary": "Foreign grants to NGOs are at a seven-year high, yet about 2,200 small NGOs face cuts. Our analysis shows the money is reaching fewer, larger organisations.",
+  "published": "2026-10-30"
+ },
+ "pills": { "fundingOpen": 1, "newReports": 8, "keyNumbers": 11 },
+ "numbers": [
+  { "value": "$710.5m", "label": "2026 Rohingya appeal, 26% below 2025", "source": "JRP 2026 update" },
+  { "value": "3.4%", "label": "Projected GDP growth, FY26 and FY27", "source": "World Bank, Oct 2026" },
+  { "value": "33.2%", "label": "Of bank loans non-performing, June 2026", "source": "World Bank, Oct 2026" }
+ ],
+ "funding": [
+  { "title": "EbA grants up to $500k", "funder": "Global EbA Fund", "deadline": "2026-11-16",
+    "url": "/2026/10/29/open-call-global-eba-fund-medium-size-grants-of-up-to-500000-for-ecosystem-based-adaptation/" }
+ ],
+ "newsletter": {
+  "formAction": "",
+  "note": "Set formAction to your newsletter provider's form URL (for example Buttondown or MailerLite). Until then, sign-ups go by email."
+ }
+}

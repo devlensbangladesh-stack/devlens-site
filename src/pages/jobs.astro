@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+import { jobsData, dhakaToday, jobLabel, fmtShort, fmtDate, daysBetween } from '../lib/data.js';
+
+const today = dhakaToday();
+const jobs = jobsData.jobs.filter((j) => !j.deadline || j.deadline >= today);
+const sectors = jobsData.sectors.map((s) => ({ ...s, jobs: jobs.filter((j) => j.sector === s.id) })).filter((s) => s.jobs.length);
+const sectorColor = Object.fromEntries(jobsData.sectors.map((s) => [s.id, s.color]));
+const soon = jobs.filter((j) => j.deadline && daysBetween(today, j.deadline) <= 7).sort((a, b) => a.deadline.localeCompare(b.deadline));
+const nationals = jobs.filter((j) => j.nationals).length;
+const orgs = new Set(jobs.map((j) => j.badge)).size;
+const weekOut = new Date(Date.parse(today) + 7 * 86400000).toISOString().slice(0, 10);
+const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
+---
+<Base title="Jobs and careers" description="NGO, INGO, UN and research jobs in Bangladesh, checked every night against the employer's own advert.">
+  <div class="wrap">
+    <section class="jobs-hero">
+      <h1>Find your next role in Bangladesh's development sector</h1>
+      <p class="lede">NGO, INGO, UN and research jobs in one place, checked every night against the employer's own advert. No fees, no middlemen, no expired listings.</p>
+      <div class="stats">
+        <div><strong data-stat="open">{jobs.length}</strong><span>open roles</span></div>
+        <div><strong data-stat="soon">{soon.length}</strong><span>close within 7 days</span></div>
+        <div><strong data-stat="nationals">{nationals}</strong><span>for Bangladeshi nationals</span></div>
+        <div><strong data-stat="orgs">{orgs}</strong><span>hiring organisations</span></div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-green" href="#closing-soon">See what closes soon</a>
+        <a class="btn btn-ghost" style="padding:13px 24px;font-size:15px" href="#job-alerts">Get new jobs by email</a>
+      </div>
+      <p class="checked">Last checked: <span data-today-long>{fmtDate(today)}</span>. Bookmark this page and come back tomorrow for new roles.</p>
+    </section>
+
+    <section id="top-of-jobs" style="margin-bottom:36px">
+      <h2 style="font-size:22px;font-weight:800">Browse by sector</h2>
+      <p class="chips">
+        {sectors.map((s) => <a href={`#${s.id}`} style={`border-color:${s.color}`} data-chip={s.id}><span style={`color:${s.color}`}>●</span> {s.name} <span class="n" data-sector-count={s.id}>{s.jobs.length}</span></a>)}
+      </p>
+    </section>
+
+    <section class="closing">
+      <h2 id="closing-soon">⏰ Closing in the next 7 days</h2>
+      <p style="color:#6b6f76;margin:0 0 20px"><span data-stat="soon">{soon.length}</span> roles have deadlines on or before <span data-week-out>{dayMonth(weekOut)}</span>. Apply now, these go fast.</p>
+      <div class="grid" id="soon-grid">
+        {soon.map((j) => { const l = jobLabel(j.deadline, today); return (
+          <a class="mini" href={j.url} style={`border-top-color:${l.color}`}><span class="lab" style={`color:${l.color}`}>{l.text} · {fmtShort(j.deadline)}</span><span class="t">{j.title}</span><span class="o">{j.org} · {j.location}</span></a>
+        ); })}
+      </div>
+    </section>
+
+    {sectors.map((s) => (
+      <section class="sector" data-sector={s.id}>
+        <h2 id={s.id}><span style={`color:${s.color}`}>■</span> {s.name} <span class="n">(<span data-sector-count={s.id}>{s.jobs.length}</span>)</span></h2>
+        {s.jobs.map((j) => {
+          const l = jobLabel(j.deadline, today);
+          return (
+            <article class="job" style={`border-left-color:${sectorColor[j.sector]}`} data-deadline={j.deadline || ''} data-added={j.added} data-sector={j.sector} data-nationals={j.nationals ? '1' : ''} data-badge={j.badge} data-title={j.title} data-org={j.org} data-location={j.location} data-url={j.url}>
+              <div class="badge" style={`background:${sectorColor[j.sector]}`}>{j.badge}</div>
+              <div class="body">
+                <h3><a href={j.url} rel="noopener">{j.title}</a></h3>
+                <p class="org">{j.org}</p>
+                <p class="pills-row">
+                  <span>📍 {j.location}</span>
+                  {j.nationals && <span class="nat">Bangladeshi nationals</span>}
+                  {j.consultancy && <span class="cons">Consultancy</span>}
+                  <span class="new" data-new hidden={j.added !== today}>NEW TODAY</span>
+                </p>
+                <p class="contract">{j.contract}</p>
+                <p class="ref">{j.ref}</p>
+              </div>
+              <div class="side">
+                <p class="lab" data-label style={`color:${l.color}`}>{l.text}</p>
+                <p class="dl">{j.deadlineText || (j.deadline ? fmtShort(j.deadline) : 'See advert')}</p>
+                <a class="apply" href={j.url} rel="noopener">{j.button} ↗</a>
+              </div>
+            </article>
+          );
+        })}
+        <p class="back"><a href="#top-of-jobs">↑ Back to sectors</a></p>
+      </section>
+    ))}
+
+    <section class="alerts" id="job-alerts">
+      <h2>📬 Never miss a deadline</h2>
+      <p>Get Devlens updates by email, including new development jobs as we add them. Free, and you can unsubscribe any time.</p>
+      <a class="btn btn-dark" style="padding:13px 22px;font-size:15px" href="/subscribe/">Get job alerts</a>
+      <p style="color:#6b6f76;font-size:15px;margin-top:18px">Tip: bookmark this page. New roles go up every night just after midnight Dhaka time, and closed roles come off on their own once the deadline passes.</p>
+    </section>
+
+    <section style="margin-bottom:40px">
+      <h2 style="font-size:30px;font-weight:800">Job seeker toolkit</h2>
+      <div class="grid-3">
+        <div class="number"><strong style="font-size:22px">🚫 Never pay to apply</strong><span>Real NGOs, INGOs and UN agencies never ask for a fee, a deposit or a "processing charge". If anyone does, walk away and report it.</span></div>
+        <div class="number"><strong style="font-size:22px">🔎 Check the reference</strong><span>Every role here shows the official reference number. Search it on the employer's own careers site to confirm the advert is real and still open.</span></div>
+        <div class="number"><strong style="font-size:22px">🇧🇩 Read the eligibility line</strong><span>UN national officer (NO) and many INGO roles are for Bangladeshi nationals only. International (P and D level) roles are open to all nationalities.</span></div>
+      </div>
+      <p style="color:#6b6f76;font-size:14px;margin-top:20px">Links go to the employer's own notice wherever we could reach it. Where a portal could not be linked directly, we name the reference number to search for. Bangla newspaper circulars link to the original Prothom Alo notice. Devlens never charges candidates and never takes applications on behalf of employers. Always check the deadline and eligibility on the original advert.</p>
+    </section>
+
+    <section class="cta-box" style="margin-bottom:72px">
+      <div>
+        <h2>Hiring in Bangladesh's development sector?</h2>
+        <p>Listing a vacancy is free during our launch period. Send us a link to the official advert and its reference number, and we will add it in our next nightly update.</p>
+      </div>
+      <div><a class="btn btn-green" href="/submit/">Send us your vacancy ↗</a></div>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import Archive from '../../components/Archive.astro';
+import { posts, categories } from '../../lib/data.js';
+export function getStaticPaths() {
+  const slugs = new Set([...categories.map((c) => c.slug), ...posts.flatMap((p) => p.categories)]);
+  return [...slugs].map((slug) => ({ params: { slug } }));
+}
+const { slug } = Astro.params;
+const cat = categories.find((c) => c.slug === slug);
+const name = cat?.name || slug.replace(/-/g, ' ');
+const list = posts.filter((p) => p.categories.includes(slug));
+---
+<Base title={name}><Archive title={name} intro={cat?.description} list={list} /></Base>

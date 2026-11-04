@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://devlens-bangladesh.pages.dev/sitemap.xml

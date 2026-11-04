@@ -1,0 +1,225 @@
+---
+import Base from '../layouts/Base.astro';
+import { posts, home, jobsData, bySlug, postUrl, catName, fmtDate, dhakaToday, openJobs, jobLabel, daysBetween } from '../lib/data.js';
+
+const today = dhakaToday();
+const lead = bySlug(home.lead.slug);
+const also = bySlug(home.alsoToday.slug);
+const plus = (home.alsoToday.plus || []).map(bySlug).filter(Boolean);
+const special = bySlug(home.special.slug);
+const jobs = openJobs(today);
+const sectorCounts = jobsData.sectors
+  .map((s) => ({ ...s, n: jobs.filter((j) => j.sector === s.id).length }))
+  .filter((s) => s.n > 0)
+  .sort((a, b) => b.n - a.n);
+const shortName = { 'Food security and agriculture': 'Food security', 'Governance and digital': 'Governance', 'Climate and environment': 'Climate', 'Livelihoods and microfinance': 'Livelihoods' };
+const featured = jobs.filter((j) => j.featured).slice(0, 3);
+const featColors = { 'UN AGENCY': ['#c2410c', '#fff0eb'], INGO: ['#0b8f68', '#e6f7f1'], 'NATIONAL NGO': ['#5b3a8c', '#efeafc'] };
+
+const skip = new Set([home.lead.slug, home.alsoToday.slug, ...(home.alsoToday.plus || [])]);
+const latest = posts.filter((p) => !skip.has(p.slug) && !p.categories.includes('devlens-special')).slice(0, 6);
+const research = posts.filter((p) => p.categories.includes('research')).slice(0, 3);
+
+const soonJobs = jobs.filter((j) => j.deadline).map((j) => ({ kind: 'Job', title: j.title, org: `${j.org} · ${j.location}`, url: j.url, deadline: j.deadline }));
+const soonFunding = (home.funding || []).filter((f) => f.deadline >= today).map((f) => ({ kind: 'Funding', title: f.title, org: f.funder, url: f.url, deadline: f.deadline }));
+const soon = [...soonJobs, ...soonFunding].sort((a, b) => a.deadline.localeCompare(b.deadline)).slice(0, 4);
+const dayMonth = (iso) => { const d = new Date(iso + 'T12:00:00Z'); return [d.getUTCDate(), d.toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })]; };
+const specialActive = special && daysBetween(home.special.published, today) <= 7;
+const leadImg = lead?.image?.src;
+---
+<Base image={leadImg}>
+  {lead && (
+    <section class="lead">
+      {leadImg && <img class="bg" src={leadImg} alt={lead.image.alt} width={lead.image.width} height={lead.image.height} fetchpriority="high" />}
+      <div class="wrap">
+        <div class="lead-inner">
+          <span class="pill">Lead story · {home.lead.label}</span>
+          <h1><a href={postUrl(lead)}>{home.lead.headline || lead.title}</a></h1>
+          <p>{home.lead.summary || lead.excerpt}</p>
+          <div class="actions">
+            <a class="btn btn-light" href={postUrl(lead)}>Read the story</a>
+            <a class="btn btn-ghost" href="/submit/">Share your work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {also && (
+    <section class="also">
+      <div class="wrap">
+        <div style="flex:1 1 600px">
+          <p class="label">Also today · {home.alsoToday.label}</p>
+          <h2><a href={postUrl(also)}>{home.alsoToday.headline || also.title}</a></h2>
+          <p>{home.alsoToday.summary}{plus.length > 0 && <> Plus: {plus.map((p, i) => <>{i > 0 && ', '}<a href={postUrl(p)}>{p.title}</a></>)}.</>}</p>
+        </div>
+        <a class="btn btn-green" href={postUrl(also)}>Read the story</a>
+      </div>
+    </section>
+  )}
+
+  <section class="pills">
+    <div class="wrap">
+      <a href="/funding/" style="background:#e6f7f1;color:#0b8f68"><strong>{home.pills.fundingOpen}</strong>{home.pills.fundingOpen === 1 ? 'funding call open' : 'funding calls open'} ↗</a>
+      <a href="/jobs/" style="background:#fff0eb;color:#c2410c"><strong data-open-jobs>{jobs.length}</strong>open jobs ↗</a>
+      <a href="/research-evidence/" style="background:#efeafc;color:#5b3a8c"><strong>{home.pills.newReports}</strong>new reports ↗</a>
+      <a href="/data/" style="background:#e8f3fb;color:#0b5e8a"><strong>{home.pills.keyNumbers}</strong>key numbers ↗</a>
+    </div>
+  </section>
+
+  <section class="jobs-band">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="pill">Jobs and careers</span>
+          <h2><span><span data-open-jobs>{jobs.length}</span> open roles</span> at NGOs, INGOs and UN agencies</h2>
+          <p class="intro">Collected every day from employer career sites, Impactpool, ReliefWeb, LinkedIn and Bangla newspaper job circulars. Every listing shows its official reference and links straight to the advert.</p>
+          <p class="chips-dark">
+            {sectorCounts.map((s) => <a href={`/jobs/#${s.id}`}>{shortName[s.name] || s.name} · <span data-sector-count={s.id}>{s.n}</span></a>)}
+          </p>
+          <div class="actions">
+            <a class="btn btn-green" href="/jobs/">Browse all jobs ↗</a>
+            <a class="btn btn-ghost" href="/submit/">List a vacancy for free</a>
+          </div>
+        </div>
+        <div><a href="/jobs/"><img src="https://devlensbangladesh.wordpress.com/wp-content/uploads/2026/10/devlens-jobs-hero.jpg" alt="Illustration of three job listing cards labelled UN agency, INGO and national NGO, each with an Apply button, next to a briefcase icon" width="1024" height="1024" loading="lazy" /></a></div>
+      </div>
+      {featured.length > 0 && (
+        <>
+          <p class="eyebrow" style="margin-top:48px;color:#a6abb3">Featured roles</p>
+          <div class="featured">
+            {featured.map((j) => {
+              const [c, bg] = featColors[j.featured] || ['#0b8f68', '#e6f7f1'];
+              const lab = jobLabel(j.deadline, today);
+              return (
+                <div class="card" data-job-deadline={j.deadline || ''}>
+                  <span class="tag" style={`color:${c};background:${bg}`}>{j.featured}</span>
+                  <h3><a href={j.url}>{j.title}</a></h3>
+                  <p><strong style="color:#0e1116">{j.org}</strong> · {j.location}</p>
+                  <p class="when">{j.deadline ? `${lab.text === 'CLOSES TODAY' ? 'Closes today, ' : 'Closes '}${fmtDate(j.deadline)}` : 'Deadline: see advert'}</p>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
+    </div>
+  </section>
+
+  {special && specialActive && (
+    <section class="section special">
+      <div class="wrap">
+        <div class="section-head"><h2><span style="color:#12b886">■</span> Devlens Special</h2><a href="/category/devlens-special/">All special reports ↗</a></div>
+        <div class="box">
+          {special.image && <a href={postUrl(special)}><img src={special.image.src} alt={special.image.alt} loading="lazy" /></a>}
+          <div class="text">
+            <p class="eyebrow" style="color:#0b8f68">{home.special.label}</p>
+            <h3><a href={postUrl(special)}>{home.special.headline || special.title}</a></h3>
+            <p>{home.special.summary || special.excerpt}</p>
+            <a class="btn btn-dark" style="padding:13px 24px;font-size:15px" href={postUrl(special)}>Read the special report</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>Latest stories</h2><a href="/category/news/">All stories ↗</a></div>
+      <div class="grid-3">
+        {latest.map((p) => (
+          <article class="story">
+            {p.image && <a href={postUrl(p)}><img src={p.image.src} alt={p.image.alt} loading="lazy" width="640" height="360" /></a>}
+            <span class="meta">{catName(p.categories[0] || 'news')}</span>
+            <h3><a href={postUrl(p)}>{p.title}</a></h3>
+            <p>{p.excerpt}</p>
+            <span class="date">{fmtDate(p.date)}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="wrap">
+      <div class="section-head"><h2>By the numbers</h2><a href="/data/">Explore the data ↗</a></div>
+      <div class="grid-3">
+        {home.numbers.map((n) => <div class="number"><strong>{n.value}</strong><span>{n.label}</span><small>{n.source}</small></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head"><h2>Closing soon</h2><a href="/jobs/#closing-soon">All opportunities ↗</a></div>
+      <div class="grid-4" id="home-soon">
+        {soon.map((s) => {
+          const [d, m] = dayMonth(s.deadline);
+          const col = s.kind === 'Funding' ? '#12b886' : '#ff6b4a';
+          return (
+            <a class="soon-card" href={s.url} data-job-deadline={s.deadline}>
+              <span class="date-badge" style={`background:${col}`}><b>{d}</b><small>{m}</small></span>
+              <span class="kind" style={`color:${col}`}>{s.kind}</span>
+              <h3>{s.title}</h3>
+              <p>{s.org}</p>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  {research.length > 0 && (
+    <section class="section sand">
+      <div class="wrap">
+        <div class="section-head"><h2>Fresh evidence</h2><a href="/research-evidence/">All research ↗</a></div>
+        <div class="grid-3">
+          {research.map((p) => (
+            <article class="story">
+              {p.image && <a href={postUrl(p)}><img src={p.image.src} alt={p.image.alt} loading="lazy" width="640" height="360" /></a>}
+              <span class="meta">Research</span>
+              <h3><a href={postUrl(p)}>{p.title}</a></h3>
+              <span class="date">{fmtDate(p.date)}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <p class="eyebrow" style="color:#12b886">For NGOs, INGOs and UN agencies</p>
+          <h2>Your work, seen by the whole sector</h2>
+          <p>Send news, research, vacancies, funding calls and events. Our editors review every submission. Free, always.</p>
+          <a class="btn btn-green" href="/submit/">Share your work ↗</a>
+        </div>
+        <div class="kinds">
+          <div><b>News</b><span>Launches and results</span></div>
+          <div><b>Research</b><span>Reports and evaluations</span></div>
+          <div><b>Jobs</b><span>Free vacancy listings</span></div>
+          <div><b>Funding</b><span>Calls, tenders, EOIs</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="newsletter">
+        <div><h2>A clearer view, in your inbox</h2><p>Top stories, open funding and jobs from Bangladesh's development sector. Free.</p></div>
+        {home.newsletter.formAction ? (
+          <form action={home.newsletter.formAction} method="post" target="_blank">
+            <input type="email" name="email" required placeholder="Your email address" aria-label="Email address" />
+            <button class="btn btn-dark" style="padding:13px 22px;font-size:15px" type="submit">Subscribe</button>
+          </form>
+        ) : (
+          <a class="btn btn-dark" style="padding:13px 22px;font-size:15px" href="/subscribe/">Subscribe free</a>
+        )}
+      </div>
+    </div>
+  </section>
+  <script type="application/json" id="jobs-data" set:html={JSON.stringify(jobsData.jobs.map((j) => ({ s: j.sector, d: j.deadline })))} />
+</Base>

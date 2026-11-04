@@ -1,0 +1,12 @@
+---
+import Base from '../../layouts/Base.astro';
+import Archive from '../../components/Archive.astro';
+import { posts, tagName } from '../../lib/data.js';
+export function getStaticPaths() {
+  return [...new Set(posts.flatMap((p) => p.tags || []))].map((slug) => ({ params: { slug } }));
+}
+const { slug } = Astro.params;
+const name = tagName(slug);
+const list = posts.filter((p) => (p.tags || []).includes(slug));
+---
+<Base title={name}><Archive title={name} list={list} /></Base>

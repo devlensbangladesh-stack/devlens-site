@@ -1,0 +1,21 @@
+---
+import { postUrl, catName, fmtDate } from '../lib/data.js';
+const { title, intro, list } = Astro.props;
+---
+<header class="page-head"><div class="wrap"><h1>{title}</h1>{intro && <p style="font-size:19px;color:#3b4450;max-width:760px">{intro}</p>}</div></header>
+<div class="wrap page-body">
+  {list.length === 0 && <p>No stories here yet.</p>}
+  <div class="archive-list">
+    {list.map((p) => (
+      <article class="archive-item">
+        {p.image ? <a href={postUrl(p)}><img src={p.image.src} alt={p.image.alt} loading="lazy" /></a> : <div />}
+        <div class="story">
+          <span class="meta">{p.categories.map(catName).join(' · ')}</span>
+          <h3 style="font-size:24px"><a href={postUrl(p)}>{p.title}</a></h3>
+          <p>{p.excerpt}</p>
+          <span class="date">{fmtDate(p.date)}</span>
+        </div>
+      </article>
+    ))}
+  </div>
+</div>

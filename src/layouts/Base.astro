@@ -1,0 +1,85 @@
+---
+import '../styles/site.css';
+import { dhakaToday } from '../lib/data.js';
+const { title, description = 'News, funding, jobs, research and data for Bangladesh\'s development and humanitarian sector.', image, wpBlocks = false } = Astro.props;
+const fullTitle = title ? `${title} | Devlens Bangladesh` : 'Devlens Bangladesh | Development intelligence for Bangladesh';
+const today = dhakaToday();
+const d = new Date(today + 'T12:00:00Z');
+const weekday = d.toLocaleDateString('en-GB', { weekday: 'long', timeZone: 'UTC' });
+const longDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = image ? new URL(image, Astro.site) : null;
+const nav = [
+  ['News', '/category/news/'], ['Sectors', '/sectors/'], ['Research', '/research-evidence/'], ['Funding', '/funding/'],
+  ['Jobs', '/jobs/'], ['Data', '/data/'], ['Events', '/events/'],
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:site_name" content="Devlens Bangladesh" />
+  <meta property="og:title" content={title || 'Devlens Bangladesh'} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate" type="application/rss+xml" title="Devlens Bangladesh" href="/feed.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  {wpBlocks && <link rel="stylesheet" href="/wp-blocks.css" />}
+  <slot name="head" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <div class="brand">
+        <a href="/" class="logo"><img src="https://devlensbangladesh.wordpress.com/wp-content/uploads/2026/10/devlens-logo.png" alt="Devlens Bangladesh" width="148" height="40" /></a>
+        <p class="today" id="today-date">{weekday}<br />{longDate}</p>
+      </div>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        {nav.map(([label, href]) => <a href={href} aria-current={Astro.url.pathname.startsWith(href) ? 'page' : undefined}>{label}</a>)}
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-outline" href="/submit/">Share your work</a>
+        <a class="btn btn-dark" href="/subscribe/">Subscribe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main"><slot /></main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-about">
+        <a href="/"><img src="https://devlensbangladesh.wordpress.com/wp-content/uploads/2026/10/devlens-logo-white.png" alt="Devlens Bangladesh" width="180" height="48" /></a>
+        <p class="tagline">Development intelligence for Bangladesh</p>
+        <p>A clearer view of Bangladesh's development sector. News, funding, jobs, research and data, independently curated. Coverage cannot be bought; sponsored content is always labelled.</p>
+        <p class="eyebrow">Follow Devlens</p>
+        <p class="social">
+          <a href="https://www.facebook.com/profile.php?id=61596271460489" rel="noopener" target="_blank">Facebook</a>
+          <a href="https://www.linkedin.com/company/144052802/" rel="noopener" target="_blank">LinkedIn</a>
+          <a href="https://www.youtube.com/@DevLensBangladesh" rel="noopener" target="_blank">YouTube</a>
+        </p>
+        <p><a href="mailto:devlensbangladesh@gmail.com">devlensbangladesh@gmail.com</a></p>
+      </div>
+      <div><p class="eyebrow">Explore</p>
+        <a href="/category/news/">News</a><a href="/sectors/">Sectors</a><a href="/research-evidence/">Research</a><a href="/funding/">Funding</a><a href="/jobs/">Jobs</a><a href="/data/">Data</a></div>
+      <div><p class="eyebrow">More</p>
+        <a href="/events/">Events</a><a href="/category/analysis/">Analysis</a><a href="/category/devlens-special/">Devlens Special</a></div>
+      <div><p class="eyebrow">Devlens</p>
+        <a href="/about/">About</a><a href="/editorial-standards/">Editorial standards</a><a href="/submit/">Share your work</a><a href="/for-ngos/">For NGOs</a><a href="/advertise/">Advertise and partner</a><a href="/subscribe/">Subscribe</a></div>
+    </div>
+    <div class="wrap"><p class="copyright">© {today.slice(0, 4)} Devlens Bangladesh · Dhaka</p></div>
+  </footer>
+  <script src="/devlens.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+[
+ {"slug": "news", "name": "News", "description": ""},
+ {"slug": "policy", "name": "Policy", "description": ""},
+ {"slug": "research", "name": "Research", "description": ""},
+ {"slug": "analysis", "name": "Analysis", "description": ""},
+ {"slug": "devlens-special", "name": "Devlens Special", "description": "In-depth reports from Devlens."},
+ {"slug": "funding", "name": "Funding", "description": ""}
+]

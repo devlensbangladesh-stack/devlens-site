@@ -1,0 +1,56 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import { posts, postUrl, catName, fmtDate, firstImage } from '../../../../lib/data.js';
+
+export function getStaticPaths() {
+  return posts.map((p) => {
+    const [year, month, day] = p.date.slice(0, 10).split('-');
+    return { params: { year, month, day, slug: p.slug }, props: { post: p } };
+  });
+}
+const { post } = Astro.props;
+const i = posts.findIndex((p) => p.slug === post.slug);
+const related = posts.filter((p) => p.slug !== post.slug && p.categories.some((c) => post.categories.includes(c))).slice(0, 3);
+---
+<Base title={post.title} description={post.excerpt} image={post.image?.src} wpBlocks>
+  <article>
+    <header class="article-head">
+      <div class="wrap">
+        <p class="meta">
+          {post.categories.map((c) => <a class="pill" style="font-size:11px" href={`/category/${c}/`}>{catName(c)}</a>)}
+          <time datetime={post.date}>{fmtDate(post.date)}</time>
+        </p>
+        <h1>{post.title}</h1>
+        {post.excerpt && <p class="standfirst">{post.excerpt}</p>}
+      </div>
+    </header>
+    <div class="article-body">
+      <div class="wrap">
+        {post.image && !firstImage(post.content) && (
+          <figure style="margin:0 0 1.5em"><img src={post.image.src} alt={post.image.alt} width={post.image.width} height={post.image.height} style="border-radius:16px" /></figure>
+        )}
+        <div class="prose wp-content" set:html={post.content} />
+        <div class="article-foot">
+          {post.tags?.length > 0 && <p>Topics: {post.tags.map((t, k) => <>{k > 0 && ' · '}<a href={`/tag/${t}/`}>{t.replace(/-/g, ' ')}</a></>)}</p>}
+          <p>Spotted an error? <a href="/submit/">Tell us</a> and we will correct it. Read our <a href="/editorial-standards/">editorial standards</a>.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+  {related.length > 0 && (
+    <section class="section sand">
+      <div class="wrap">
+        <div class="section-head"><h2>Related</h2></div>
+        <div class="grid-3">
+          {related.map((p) => (
+            <article class="story">
+              {p.image && <a href={postUrl(p)}><img src={p.image.src} alt={p.image.alt} loading="lazy" /></a>}
+              <h3><a href={postUrl(p)}>{p.title}</a></h3>
+              <span class="date">{fmtDate(p.date)}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>

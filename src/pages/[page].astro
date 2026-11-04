@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { pages } from '../lib/data.js';
+export function getStaticPaths() {
+  return pages.map((p) => ({ params: { page: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+---
+<Base title={p.title} description={p.excerpt?.slice(0, 160)} wpBlocks>
+  <header class="page-head"><div class="wrap"><h1>{p.title}</h1></div></header>
+  <div class="wrap page-body"><div class="prose wp-content" set:html={p.content} /></div>
+</Base>
