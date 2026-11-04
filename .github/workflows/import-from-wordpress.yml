@@ -1,6 +1,8 @@
 name: Import from WordPress (run once)
 on:
   workflow_dispatch:
+  push:
+    paths: ['.github/run-import']
 permissions:
   contents: write
 jobs:
