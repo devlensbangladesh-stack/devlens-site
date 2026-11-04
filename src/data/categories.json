@@ -1,8 +1,62 @@
 [
- {"slug": "news", "name": "News", "description": ""},
- {"slug": "policy", "name": "Policy", "description": ""},
- {"slug": "research", "name": "Research", "description": ""},
- {"slug": "analysis", "name": "Analysis", "description": ""},
- {"slug": "devlens-special", "name": "Devlens Special", "description": "In-depth reports from Devlens."},
- {"slug": "funding", "name": "Funding", "description": ""}
+ {
+  "slug": "analysis",
+  "name": "Analysis",
+  "description": ""
+ },
+ {
+  "slug": "data",
+  "name": "Data",
+  "description": ""
+ },
+ {
+  "slug": "devlens-special",
+  "name": "Devlens Special",
+  "description": "In-depth special reports and analysis from Devlens Bangladesh."
+ },
+ {
+  "slug": "events-learning",
+  "name": "Events & Learning",
+  "description": ""
+ },
+ {
+  "slug": "funding",
+  "name": "Funding",
+  "description": ""
+ },
+ {
+  "slug": "jobs",
+  "name": "Jobs",
+  "description": ""
+ },
+ {
+  "slug": "news",
+  "name": "News",
+  "description": ""
+ },
+ {
+  "slug": "organisations",
+  "name": "Organisations",
+  "description": ""
+ },
+ {
+  "slug": "people-ideas",
+  "name": "People & Ideas",
+  "description": ""
+ },
+ {
+  "slug": "policy",
+  "name": "Policy",
+  "description": ""
+ },
+ {
+  "slug": "research",
+  "name": "Research",
+  "description": ""
+ },
+ {
+  "slug": "uncategorized",
+  "name": "Uncategorized",
+  "description": ""
+ }
 ]
