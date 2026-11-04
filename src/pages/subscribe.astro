@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import SignupForm from '../components/SignupForm.astro';
+---
+<Base title="Subscribe" description="The Devlens Brief: Bangladesh's development sector, open funding, jobs and new research, in your inbox. Free.">
+  <header class="page-head"><div class="wrap" style="max-width:820px">
+    <p class="eyebrow" style="color:#0b8f68">The Devlens Brief</p>
+    <h1>A clearer view, in your inbox</h1>
+    <p style="font-size:20px;color:#3b4450">What is happening in Bangladesh's development sector, plus open funding, jobs and new research. Free.</p>
+  </div></header>
+  <div class="wrap page-body" style="max-width:820px">
+    <div class="newsletter" style="display:block"><SignupForm button="Subscribe free" /></div>
+    <h2 style="margin-top:40px;font-size:24px">What you get</h2>
+    <ul class="prose" style="font-size:17px">
+      <li>The top stories from NGOs, donors and the government, with links to the original sources.</li>
+      <li>New jobs at NGOs, INGOs and UN agencies, and the ones closing soon.</li>
+      <li>Open funding calls, tenders and expressions of interest.</li>
+      <li>New research, evaluations and data on Bangladesh.</li>
+    </ul>
+    <p style="color:#6b6f76;font-size:15px">Your email is used only to send the Devlens Brief. You can unsubscribe from any email with one click.</p>
+  </div>
+</Base>

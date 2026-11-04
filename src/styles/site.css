@@ -239,3 +239,12 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .alerts { background: var(--sand); border-radius: 20px; padding: 32px; margin: 56px 0 72px; }
 .alerts h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
 [hidden] { display: none !important; }
+
+/* Newsletter sign-up */
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.signup { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.signup input[type=email] { flex: 1 1 260px; border: 1.5px solid var(--line); border-radius: 999px; padding: 12px 18px; font: 500 16px var(--font); background: #fff; }
+.signup button { border: 0; cursor: pointer; font-family: var(--font); padding: 13px 22px; font-size: 15px; }
+.signup-note { flex-basis: 100%; margin: 4px 0 0; font-size: 13px; color: var(--faint); }
+.signup-msg { flex-basis: 100%; margin: 4px 0 0; font-weight: 700; color: var(--green-dark); }
+.signup-msg.err { color: var(--orange); }

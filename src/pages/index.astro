@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import SignupForm from '../components/SignupForm.astro';
 import { posts, home, jobsData, bySlug, postUrl, catName, fmtDate, dhakaToday, openJobs, jobLabel, daysBetween } from '../lib/data.js';
 
 const today = dhakaToday();
@@ -210,14 +211,7 @@ const leadImg = lead?.image?.src;
     <div class="wrap">
       <div class="newsletter">
         <div><h2>A clearer view, in your inbox</h2><p>Top stories, open funding and jobs from Bangladesh's development sector. Free.</p></div>
-        {home.newsletter.formAction ? (
-          <form action={home.newsletter.formAction} method="post" target="_blank">
-            <input type="email" name="email" required placeholder="Your email address" aria-label="Email address" />
-            <button class="btn btn-dark" style="padding:13px 22px;font-size:15px" type="submit">Subscribe</button>
-          </form>
-        ) : (
-          <a class="btn btn-dark" style="padding:13px 22px;font-size:15px" href="/subscribe/">Subscribe free</a>
-        )}
+        <SignupForm />
       </div>
     </div>
   </section>

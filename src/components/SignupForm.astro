@@ -1,0 +1,14 @@
+---
+// Devlens Brief sign-up, sent to MailerLite (group "Devlens Brief", double opt-in).
+const { dark = false, button = 'Subscribe' } = Astro.props;
+const action = 'https://assets.mailerlite.com/jsonp/2769076/forms/203227707079657299/subscribe';
+---
+<form class={`signup${dark ? ' dark' : ''}`} action={action} method="post" target="_blank" data-ml-signup>
+  <label class="visually-hidden" for={`em-${button}`}>Email address</label>
+  <input type="email" name="fields[email]" required placeholder="Your email address" autocomplete="email" />
+  <input type="hidden" name="ml-submit" value="1" />
+  <input type="hidden" name="anticsrf" value="true" />
+  <button class="btn btn-dark" type="submit">{button}</button>
+  <p class="signup-msg" role="status" hidden></p>
+  <p class="signup-note">Free. No spam. Unsubscribe any time. We will send a link to confirm your email.</p>
+</form>

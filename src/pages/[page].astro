@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { pages } from '../lib/data.js';
 export function getStaticPaths() {
-  return pages.map((p) => ({ params: { page: p.slug }, props: { p } }));
+  return pages.filter((p) => p.slug !== 'subscribe').map((p) => ({ params: { page: p.slug }, props: { p } }));
 }
 const { p } = Astro.props;
 ---

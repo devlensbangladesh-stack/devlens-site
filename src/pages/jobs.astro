@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import SignupForm from '../components/SignupForm.astro';
 import { jobsData, dhakaToday, jobLabel, fmtShort, fmtDate, daysBetween } from '../lib/data.js';
 
 const today = dhakaToday();
@@ -82,7 +83,7 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
     <section class="alerts" id="job-alerts">
       <h2>📬 Never miss a deadline</h2>
       <p>Get Devlens updates by email, including new development jobs as we add them. Free, and you can unsubscribe any time.</p>
-      <a class="btn btn-dark" style="padding:13px 22px;font-size:15px" href="/subscribe/">Get job alerts</a>
+      <SignupForm button="Get job alerts" />
       <p style="color:#6b6f76;font-size:15px;margin-top:18px">Tip: bookmark this page. New roles go up every night just after midnight Dhaka time, and closed roles come off on their own once the deadline passes.</p>
     </section>
 

@@ -81,3 +81,26 @@
     } catch (e) {}
   }
 })();
+
+// Newsletter sign-up (MailerLite). Falls back to a normal form post if anything fails.
+document.querySelectorAll('form[data-ml-signup]').forEach(function (f) {
+  f.addEventListener('submit', function (e) {
+    if (!window.fetch) return;
+    e.preventDefault();
+    var msg = f.querySelector('.signup-msg'), btn = f.querySelector('button');
+    btn.disabled = true;
+    fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        msg.hidden = false;
+        if (res.ok && res.j.success !== false) {
+          msg.className = 'signup-msg'; msg.textContent = 'Almost done. Check your inbox and click the link to confirm.';
+          f.querySelector('input[type=email]').value = '';
+        } else {
+          msg.className = 'signup-msg err'; msg.textContent = 'That did not work. Please check the email address and try again.';
+        }
+      })
+      .catch(function () { f.submit(); })
+      .finally(function () { btn.disabled = false; });
+  });
+});
