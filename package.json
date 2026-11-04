@@ -4,9 +4,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "import-wp": "node scripts/import-wp.mjs",
-    "mirror-media": "node scripts/mirror-media.mjs"
+    "preview": "astro preview"
   },
   "dependencies": {
     "astro": "^5.18.2"
