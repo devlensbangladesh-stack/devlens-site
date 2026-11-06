@@ -26,6 +26,10 @@ const soonFunding = (home.funding || []).filter((f) => f.deadline >= today).map(
 const soon = [...soonJobs, ...soonFunding].sort((a, b) => a.deadline.localeCompare(b.deadline)).slice(0, 4);
 const dayMonth = (iso) => { const d = new Date(iso + 'T12:00:00Z'); return [d.getUTCDate(), d.toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })]; };
 const specialActive = special && daysBetween(home.special.published, today) <= 7;
+const specialItems = [
+  ...(specialActive ? [{ meta: home.special, post: special }] : []),
+  ...(home.pinnedSpecials || []).map((m) => ({ meta: m, post: bySlug(m.slug) })),
+].filter((x, i, arr) => x.post && arr.findIndex((y) => y.meta.slug === x.meta.slug) === i);
 const leadImg = lead?.image?.src;
 ---
 <Base image={leadImg}>
@@ -107,19 +111,21 @@ const leadImg = lead?.image?.src;
     </div>
   </section>
 
-  {special && specialActive && (
+  {specialItems.length > 0 && (
     <section class="section special">
       <div class="wrap">
         <div class="section-head"><h2><span style="color:#12b886">■</span> Devlens Special</h2><a href="/category/devlens-special/">All special reports ↗</a></div>
-        <div class="box">
-          {special.image && <a href={postUrl(special)}><img src={special.image.src} alt={special.image.alt} loading="lazy" /></a>}
-          <div class="text">
-            <p class="eyebrow" style="color:#0b8f68">{home.special.label}</p>
-            <h3><a href={postUrl(special)}>{home.special.headline || special.title}</a></h3>
-            <p>{home.special.summary || special.excerpt}</p>
-            <a class="btn btn-dark" style="padding:13px 24px;font-size:15px" href={postUrl(special)}>Read the special report</a>
+        {specialItems.map(({ meta, post }) => (
+          <div class="box">
+            {post.image && <a href={postUrl(post)}><img src={post.image.src} alt={post.image.alt} loading="lazy" /></a>}
+            <div class="text">
+              <p class="eyebrow" style="color:#0b8f68">{meta.label}</p>
+              <h3><a href={postUrl(post)}>{meta.headline || post.title}</a></h3>
+              <p>{meta.summary || post.excerpt}</p>
+              <a class="btn btn-dark" style="padding:13px 24px;font-size:15px" href={postUrl(post)}>Read the special report</a>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   )}
