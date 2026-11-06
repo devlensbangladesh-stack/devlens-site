@@ -1,8 +1,9 @@
 ---
 // Devlens workforce survey. Anonymous answers are sent by FormSubmit to the Devlens inbox.
-import Base from '../layouts/Base.astro';
+import Base from '../../layouts/Base.astro';
 
-const endpoint = 'https://formsubmit.co/ajax/devlensbangladesh@gmail.com';
+const endpoint = 'https://formsubmit.co/devlensbangladesh@gmail.com';
+const next = 'https://devlensbd.pages.dev/survey/thanks/';
 const report = '/2026/11/07/where-did-50000-development-workers-go/';
 
 const questions = [
@@ -51,15 +52,15 @@ const questions = [
   <div class="wrap page-body" style="max-width:820px">
     <div class="survey-note">
       <p><strong>Who can take part:</strong> anyone who has worked in Bangladesh's development or humanitarian sector since January 2024, whether you lost your job, kept it or changed roles.</p>
-      <p><strong>Your privacy:</strong> we do not ask for your name, email, phone number or employer's name. Please do not add them. Results will be published only as totals in a follow-up Devlens Special, with no individual or organisation identified. Answers are sent to the Devlens team through the form service FormSubmit.</p>
+      <p><strong>Your privacy:</strong> we do not ask for your name, email, phone number or employer's name. Please do not add them. Results will be published only as totals in a follow-up Devlens Special, with no individual or organisation identified. Answers are sent to the Devlens team by email through the form service FormSubmit, which may ask you to tick a quick security check.</p>
       <p>Read the report: <a href={report}>After the USAID cuts, where did 50,000 development workers go?</a></p>
     </div>
 
-    <form id="survey" class="survey" novalidate>
+    <form id="survey" class="survey" action={endpoint} method="POST" novalidate>
+      <input type="hidden" name="_next" value={next} />
       <input type="hidden" name="_subject" value="Devlens workforce survey response" />
       <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <input type="hidden" name="survey" value="devlens-workforce-2026" />
 
       {questions.map((q, i) => (
@@ -71,12 +72,13 @@ const questions = [
             <div class="opts">
               {q.options.map((o, k) => (
                 <label class="opt">
-                  <input type={q.type} name={q.type === 'checkbox' ? `${q.id}[]` : q.id} value={o} id={`${q.id}-${k}`} />
+                  <input type={q.type} name={q.type === 'checkbox' ? `${q.id}_box` : q.id} value={o} id={`${q.id}-${k}`} />
                   <span>{o}</span>
                 </label>
               ))}
             </div>
           )}
+          {q.type === 'checkbox' && <input type="hidden" name={q.id} value="" />}
           <p class="q-err" role="alert" hidden>Please answer this question.</p>
         </fieldset>
       ))}
@@ -89,11 +91,6 @@ const questions = [
       <p class="survey-msg" role="status" hidden></p>
     </form>
 
-    <div id="thanks" class="survey-thanks" hidden>
-      <h2>Thank you</h2>
-      <p>Your answers have been recorded. Please share this survey with colleagues who worked in the sector, including those who have left it.</p>
-      <p><a class="btn btn-dark" href={report}>Read the special report</a></p>
-    </div>
   </div>
 
   <style>
@@ -118,7 +115,7 @@ const questions = [
     .survey-thanks { background:#f4f4ef; border-radius:16px; padding:28px; }
   </style>
 
-  <script is:inline define:vars={{ endpoint }}>
+  <script is:inline>
     (function () {
       var form = document.getElementById('survey');
       var msg = form.querySelector('.survey-msg');
@@ -136,25 +133,14 @@ const questions = [
         });
         if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); show('Please answer the questions marked in red.'); return; }
         if (!document.getElementById('consent').checked) { show('Please tick the consent box to send your answers.'); return; }
-        var data = {};
-        new FormData(form).forEach(function (v, k) {
-          var key = k.replace(/\[\]$/, '');
-          data[key] = data[key] ? data[key] + '; ' + v : v;
+        form.querySelectorAll('fieldset.q').forEach(function (fs) {
+          var boxes = fs.querySelectorAll('input[type=checkbox]');
+          if (!boxes.length) return;
+          var vals = []; boxes.forEach(function (x) { if (x.checked) vals.push(x.value); x.disabled = true; });
+          fs.querySelector('input[type=hidden]').value = vals.join('; ');
         });
-        data._subject = 'Devlens workforce survey response';
         btn.disabled = true; show('Sending...');
-        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
-          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
-          .then(function (res) {
-            if (res.ok && String(res.j.success) !== 'false') {
-              form.hidden = true;
-              var t = document.getElementById('thanks'); t.hidden = false; t.scrollIntoView({ behavior: 'smooth' });
-            } else { throw new Error(res.j && res.j.message || 'error'); }
-          })
-          .catch(function () {
-            btn.disabled = false;
-            show('Sorry, your answers could not be sent. Please try again in a few minutes, or email devlensbangladesh@gmail.com.');
-          });
+        form.submit();
       });
     })();
   </script>
