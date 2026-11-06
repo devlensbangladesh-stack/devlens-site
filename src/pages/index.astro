@@ -29,7 +29,7 @@ const specialActive = special && daysBetween(home.special.published, today) <= 7
 const specialItems = [
   ...(specialActive ? [{ meta: home.special, post: special }] : []),
   ...(home.pinnedSpecials || []).map((m) => ({ meta: m, post: bySlug(m.slug) })),
-].filter((x, i, arr) => x.post && arr.findIndex((y) => y.meta.slug === x.meta.slug) === i);
+].filter((x, i, arr) => x.post && x.meta.slug !== home.lead.slug && arr.findIndex((y) => y.meta.slug === x.meta.slug) === i);
 const leadImg = lead?.image?.src;
 ---
 <Base image={leadImg}>
