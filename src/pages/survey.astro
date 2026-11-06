@@ -1,0 +1,161 @@
+---
+// Devlens workforce survey. Anonymous answers are sent by FormSubmit to the Devlens inbox.
+import Base from '../layouts/Base.astro';
+
+const endpoint = 'https://formsubmit.co/ajax/devlensbangladesh@gmail.com';
+const report = '/2026/11/07/where-did-50000-development-workers-go/';
+
+const questions = [
+  { id: 'q01_sector_jan2025', label: 'In January 2025, were you working in Bangladesh\'s development or humanitarian sector?', type: 'radio', required: true,
+    options: ['Yes', 'No, I joined the sector later', 'No'] },
+  { id: 'q02_employer_type', label: 'What type of organisation did you work for at that time (or most recently)?', type: 'radio', required: true,
+    options: ['UN agency', 'International NGO', 'National NGO', 'Local or community NGO', 'Research or academic body', 'Contractor or consulting firm', 'Government or donor-funded government project', 'Other'] },
+  { id: 'q03_work_area', label: 'What was your main area of work?', type: 'radio', required: true,
+    options: ['Health and nutrition', 'Education', 'Livelihoods and economic empowerment', 'Humanitarian or Rohingya response', 'Climate change and disaster risk', 'Governance, rights and democracy', 'Water, sanitation and hygiene', 'Gender, protection and GBV', 'Agriculture and food security', 'Other'] },
+  { id: 'q04_impact', label: 'Since January 2025, how has your job been affected by funding cuts?', type: 'radio', required: true,
+    options: ['I lost my job', 'My contract was shortened or not renewed', 'I was moved to a lower grade or lower pay', 'My hours or benefits were cut', 'Not affected'] },
+  { id: 'q05_donor', label: 'If your job was affected, which donor funded the project?', type: 'radio', required: true,
+    options: ['USAID or another US government source', 'UK (FCDO)', 'European Union or a European government', 'A UN agency\'s own funds', 'Another donor', 'I don\'t know', 'Not affected'] },
+  { id: 'q06_notice_severance', label: 'When your job ended or changed, did you receive notice or severance pay?', type: 'radio', required: true,
+    options: ['Both notice and severance', 'Notice only', 'Severance only', 'Neither', 'Not applicable'] },
+  { id: 'q07_situation_now', label: 'What is your work situation today?', type: 'radio', required: true,
+    options: ['Same job as January 2025', 'A different job in the sector', 'Consultancy or freelance work in the sector', 'A job in another sector', 'Running my own business', 'Working abroad', 'Unemployed and looking for work', 'Not looking for work'] },
+  { id: 'q08_months_to_new_work', label: 'If you lost your job, how long did it take to find new work?', type: 'radio', required: true,
+    options: ['Less than 3 months', '3 to 6 months', '6 to 12 months', 'More than 12 months', 'Still looking', 'Not applicable'] },
+  { id: 'q09_income_change', label: 'How does your monthly income now compare with January 2025?', type: 'radio', required: true,
+    options: ['Higher', 'About the same', 'Up to 25% lower', '25% to 50% lower', 'More than 50% lower', 'No income now'] },
+  { id: 'q10_contract_now', label: 'What kind of contract do you have now?', type: 'radio', required: true,
+    options: ['Permanent', 'Fixed-term', 'Consultancy', 'Daily, incentive or volunteer basis', 'No contract or not working'] },
+  { id: 'q11_role_level', label: 'What was your role level in January 2025 (or your most recent sector job)?', type: 'radio', required: true,
+    options: ['Field or community level', 'Officer', 'Manager or coordinator', 'Senior manager or director', 'Specialist or adviser'] },
+  { id: 'q12_experience', label: 'How many years have you worked in the sector?', type: 'radio', required: true,
+    options: ['Less than 3', '3 to 5', '6 to 10', '11 to 15', 'More than 15'] },
+  { id: 'q13_division', label: 'In which division was your main workplace?', type: 'radio', required: true,
+    options: ['Dhaka', 'Chattogram (outside Cox\'s Bazar)', 'Cox\'s Bazar', 'Khulna', 'Rajshahi', 'Barishal', 'Sylhet', 'Rangpur', 'Mymensingh'] },
+  { id: 'q14_gender', label: 'Gender (optional)', type: 'radio', required: false,
+    options: ['Woman', 'Man', 'Another gender', 'Prefer not to say'] },
+  { id: 'q15_plans', label: 'What are you planning in the next 12 months? Tick all that apply.', type: 'checkbox', required: true,
+    options: ['Stay in the development sector', 'Move to another sector', 'Start or grow a business', 'Look for work abroad', 'Study or retrain', 'Not sure yet'] },
+  { id: 'q16_support', label: 'Which ONE kind of support would help you most?', type: 'radio', required: true,
+    options: ['Job matching and referrals', 'Reskilling or certification', 'Tax relief', 'Startup funding or loans', 'Mental health support', 'Other'] },
+  { id: 'q17_comments', label: 'Anything else you want us to know? (optional, please do not include names)', type: 'textarea', required: false },
+];
+---
+<Base title="Devlens workforce survey" description="An anonymous five-minute survey for people who have worked in Bangladesh's development and humanitarian sector since 2024." image="/media/2026/11/devlens-special-workforce-key-numbers.jpg">
+  <header class="page-head"><div class="wrap" style="max-width:820px">
+    <p class="eyebrow" style="color:#0b8f68">Devlens Special · Workforce survey</p>
+    <h1>Count us in</h1>
+    <p style="font-size:20px;color:#3b4450">No one has counted the development workers who lost jobs after the aid cuts. Help us find out. This survey is anonymous and takes about five minutes.</p>
+  </div></header>
+
+  <div class="wrap page-body" style="max-width:820px">
+    <div class="survey-note">
+      <p><strong>Who can take part:</strong> anyone who has worked in Bangladesh's development or humanitarian sector since January 2024, whether you lost your job, kept it or changed roles.</p>
+      <p><strong>Your privacy:</strong> we do not ask for your name, email, phone number or employer's name. Please do not add them. Results will be published only as totals in a follow-up Devlens Special, with no individual or organisation identified. Answers are sent to the Devlens team through the form service FormSubmit.</p>
+      <p>Read the report: <a href={report}>After the USAID cuts, where did 50,000 development workers go?</a></p>
+    </div>
+
+    <form id="survey" class="survey" novalidate>
+      <input type="hidden" name="_subject" value="Devlens workforce survey response" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="survey" value="devlens-workforce-2026" />
+
+      {questions.map((q, i) => (
+        <fieldset class="q" data-required={q.required ? '1' : '0'} data-name={q.id}>
+          <legend><span class="qn">{i + 1}</span>{q.label}{q.required && <span class="req" aria-hidden="true"> *</span>}</legend>
+          {q.type === 'textarea' ? (
+            <textarea name={q.id} rows="4" maxlength="1500" aria-label={q.label}></textarea>
+          ) : (
+            <div class="opts">
+              {q.options.map((o, k) => (
+                <label class="opt">
+                  <input type={q.type} name={q.type === 'checkbox' ? `${q.id}[]` : q.id} value={o} id={`${q.id}-${k}`} />
+                  <span>{o}</span>
+                </label>
+              ))}
+            </div>
+          )}
+          <p class="q-err" role="alert" hidden>Please answer this question.</p>
+        </fieldset>
+      ))}
+
+      <label class="consent">
+        <input type="checkbox" id="consent" />
+        <span>I agree that my anonymous answers can be used in Devlens reporting.</span>
+      </label>
+      <button class="btn btn-dark survey-btn" type="submit">Send my answers</button>
+      <p class="survey-msg" role="status" hidden></p>
+    </form>
+
+    <div id="thanks" class="survey-thanks" hidden>
+      <h2>Thank you</h2>
+      <p>Your answers have been recorded. Please share this survey with colleagues who worked in the sector, including those who have left it.</p>
+      <p><a class="btn btn-dark" href={report}>Read the special report</a></p>
+    </div>
+  </div>
+
+  <style>
+    .survey-note { background:#f4f4ef; border-left:4px solid #12b886; padding:18px 22px; margin:8px 0 28px; font-size:16px; }
+    .survey-note p { margin:0 0 8px; } .survey-note p:last-child { margin:0; }
+    .survey fieldset.q { border:1px solid #e2e4e7; border-radius:14px; padding:18px 20px 14px; margin:0 0 16px; background:#fff; }
+    .survey fieldset.q.invalid { border-color:#c0392b; }
+    .survey legend { font-weight:700; font-size:17px; line-height:1.4; padding:0 6px; }
+    .survey .qn { display:inline-block; min-width:26px; height:26px; line-height:26px; text-align:center; border-radius:50%; background:#0e1116; color:#fff; font-size:13px; margin-right:10px; }
+    .survey .req { color:#c0392b; }
+    .survey .opts { display:grid; gap:6px; margin-top:10px; }
+    .survey .opt { display:flex; gap:10px; align-items:flex-start; font-size:16px; padding:8px 10px; border-radius:10px; cursor:pointer; }
+    .survey .opt:hover { background:#f4f4ef; }
+    .survey .opt input { margin-top:4px; accent-color:#12b886; width:18px; height:18px; flex:none; }
+    .survey textarea { width:100%; margin-top:10px; border:1px solid #cfd3d8; border-radius:10px; padding:10px; font:inherit; font-size:16px; box-sizing:border-box; }
+    .survey .q-err { color:#c0392b; font-size:14px; margin:6px 0 0; }
+    .survey .consent { display:flex; gap:10px; align-items:flex-start; margin:22px 0 18px; font-size:16px; }
+    .survey .consent input { margin-top:4px; width:18px; height:18px; accent-color:#12b886; flex:none; }
+    .survey-btn { padding:14px 28px; font-size:16px; border:0; cursor:pointer; }
+    .survey-btn[disabled] { opacity:.6; cursor:wait; }
+    .survey-msg { margin-top:14px; font-size:15px; }
+    .survey-thanks { background:#f4f4ef; border-radius:16px; padding:28px; }
+  </style>
+
+  <script is:inline define:vars={{ endpoint }}>
+    (function () {
+      var form = document.getElementById('survey');
+      var msg = form.querySelector('.survey-msg');
+      var btn = form.querySelector('.survey-btn');
+      function show(t) { msg.textContent = t; msg.hidden = false; }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var first = null;
+        form.querySelectorAll('fieldset.q').forEach(function (fs) {
+          var ok = true;
+          if (fs.dataset.required === '1') ok = !!fs.querySelector('input:checked');
+          fs.classList.toggle('invalid', !ok);
+          fs.querySelector('.q-err').hidden = ok;
+          if (!ok && !first) first = fs;
+        });
+        if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); show('Please answer the questions marked in red.'); return; }
+        if (!document.getElementById('consent').checked) { show('Please tick the consent box to send your answers.'); return; }
+        var data = {};
+        new FormData(form).forEach(function (v, k) {
+          var key = k.replace(/\[\]$/, '');
+          data[key] = data[key] ? data[key] + '; ' + v : v;
+        });
+        data._subject = 'Devlens workforce survey response';
+        btn.disabled = true; show('Sending...');
+        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (res.ok && String(res.j.success) !== 'false') {
+              form.hidden = true;
+              var t = document.getElementById('thanks'); t.hidden = false; t.scrollIntoView({ behavior: 'smooth' });
+            } else { throw new Error(res.j && res.j.message || 'error'); }
+          })
+          .catch(function () {
+            btn.disabled = false;
+            show('Sorry, your answers could not be sent. Please try again in a few minutes, or email devlensbangladesh@gmail.com.');
+          });
+      });
+    })();
+  </script>
+</Base>
