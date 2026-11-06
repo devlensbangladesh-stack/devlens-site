@@ -1,27 +1,28 @@
 {
  "lead": {
+  "slug": "where-did-50000-development-workers-go",
+  "label": "Devlens Special",
+  "headline": "Where did 50,000 development workers go?",
+  "summary": "Up to 50,000 development jobs have gone since the 2025 aid cuts. There is no official count, and Devlens found no scheme to help the people who lost them.",
+  "holdUntil": "2026-11-08"
+ },
+ "alsoToday": {
   "slug": "70-factories-close-savar-ashulia-nbr-freezes-accounts-garment-unrest",
   "label": "Labour",
   "headline": "Seventy factories close as garment wage protests go on",
-  "summary": "Border guards joined police in Ashulia on 5 November. The NBR has frozen bank accounts of more than 100 people it links to the unrest."
- },
- "alsoToday": {
-  "slug": "world-bank-bangladesh-working-age-population-peaks-2045",
-  "label": "Research",
-  "headline": "About two decades left of the demographic window, World Bank says",
-  "summary": "The working-age share peaks in 2045, while 84% of workers are in informal jobs.",
+  "summary": "Border guards joined police in Ashulia on 5 November. The NBR has frozen bank accounts of more than 100 people it links to the unrest.",
   "plus": [
+   "world-bank-bangladesh-working-age-population-peaks-2045",
    "bangladesh-commits-130-million-eye-care-20-million-people",
-   "fao-youth-agri-startup-olympiad-20-teams-bootcamp",
-   "over-100-garment-factories-shut-savar-ashulia-wage-protests"
+   "fao-youth-agri-startup-olympiad-20-teams-bootcamp"
   ]
  },
  "special": {
-  "slug": "record-pledges-shrinking-ngos-bangladesh-aid",
-  "label": "Special report · Funding intelligence",
-  "headline": "Record pledges, shrinking NGOs: who gets Bangladesh's aid money",
-  "summary": "Foreign grants to NGOs are at a seven-year high, yet about 2,200 small NGOs face cuts. Our analysis shows the money is reaching fewer, larger organisations.",
-  "published": "2026-10-30"
+  "slug": "where-did-50000-development-workers-go",
+  "label": "Special report · Workforce",
+  "headline": "Where did 50,000 development workers go?",
+  "summary": "No official count, no support scheme. Our analysis traces what happened to the people who lost their jobs after the aid cuts.",
+  "published": "2026-11-07"
  },
  "pills": {
   "fundingOpen": 1,
