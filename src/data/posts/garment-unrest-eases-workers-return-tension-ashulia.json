@@ -15,5 +15,12 @@
   "poverty-reduction-decent-employment",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-garment-workers-sewing-line.jpg",
+  "alt": "Garment workers at their sewing machines on a factory floor in Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "Fahad Faisal / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Working_conditions_of_Garment_workers_in_Bangladesh.jpg"
+ }
 }

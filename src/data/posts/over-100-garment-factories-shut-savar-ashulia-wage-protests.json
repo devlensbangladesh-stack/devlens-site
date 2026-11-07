@@ -15,5 +15,12 @@
   "poverty-reduction-decent-employment",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-garment-workers-leaving-factory.jpg",
+  "alt": "Garment workers in Bangladesh streaming out of a factory gate",
+  "width": 1280,
+  "height": 720,
+  "credit": "Nahid Sultan / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Garment_workers_in_Bangladesh_exiting_a_factory_during_break.jpg"
+ }
 }

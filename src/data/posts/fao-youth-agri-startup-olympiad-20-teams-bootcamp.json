@@ -16,5 +16,12 @@
   "innovation-science-and-information-technology",
   "livelihood"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-farmers-planting-paddy.jpg",
+  "alt": "Farmers planting paddy seedlings in a flooded field in Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "Balaram Mahalder / Wikimedia Commons, CC BY-SA 3.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Agriculture_in_Bangladesh_12.jpg"
+ }
 }

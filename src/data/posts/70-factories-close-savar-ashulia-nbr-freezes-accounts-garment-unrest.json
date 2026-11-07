@@ -16,5 +16,12 @@
   "human-rights",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-garment-factory-floor-bangladesh.jpg",
+  "alt": "Rows of sewing lines inside a large garment factory in Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "Fahad Faisal / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg"
+ }
 }

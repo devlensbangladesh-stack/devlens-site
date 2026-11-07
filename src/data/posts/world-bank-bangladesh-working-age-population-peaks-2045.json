@@ -16,5 +16,12 @@
   "research",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-dhaka-busy-street.jpg",
+  "alt": "A crowded Dhaka street packed with cars, rickshaws and people",
+  "width": 1280,
+  "height": 720,
+  "credit": "joiseyshowaa / Wikimedia Commons, CC BY-SA 2.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Traffic_Jam,_New_Market,_Dhaka_(2402764792).jpg"
+ }
 }
