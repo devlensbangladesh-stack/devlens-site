@@ -118,5 +118,12 @@
   "replace": "/media/2026/10/devlens-sundarbans-aerial",
   "prompt": "A community meeting under a large tree in a Bangladeshi village, villagers and NGO staff seen from behind sitting on mats, warm afternoon light",
   "alt": "AI-generated illustration: a village community meeting under a tree, seen from behind"
+ },
+ {
+  "page": "resources",
+  "path": "/media/2026/11/page-resources-library-shelves.jpg",
+  "seed": 51,
+  "prompt": "A calm reference library in Dhaka with wooden shelves of reports and binders, a reading table with an open folder and a laptop, soft daylight, no people",
+  "alt": "AI-generated illustration: a reference library with shelves of reports and a reading table"
  }
 ]

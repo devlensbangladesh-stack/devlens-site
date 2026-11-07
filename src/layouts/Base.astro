@@ -11,7 +11,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = image ? new URL(image, Astro.site) : null;
 const nav = [
   ['News', '/category/news/'], ['Sectors', '/sectors/'], ['Research', '/research-evidence/'], ['Funding', '/funding/'],
-  ['Jobs', '/jobs/'], ['Data', '/data/'], ['Events', '/events/'],
+  ['Jobs', '/jobs/'], ['Data', '/data/'], ['Events', '/events/'], ['Resources', '/resources/'],
 ];
 ---
 <!doctype html>
@@ -74,7 +74,7 @@ const nav = [
       <div><p class="eyebrow">Explore</p>
         <a href="/category/news/">News</a><a href="/sectors/">Sectors</a><a href="/research-evidence/">Research</a><a href="/funding/">Funding</a><a href="/jobs/">Jobs</a><a href="/data/">Data</a></div>
       <div><p class="eyebrow">More</p>
-        <a href="/events/">Events</a><a href="/category/analysis/">Analysis</a><a href="/category/devlens-special/">Devlens Special</a></div>
+        <a href="/events/">Events</a><a href="/resources/">Resources</a><a href="/category/analysis/">Analysis</a><a href="/category/devlens-special/">Devlens Special</a></div>
       <div><p class="eyebrow">Devlens</p>
         <a href="/about/">About</a><a href="/editorial-standards/">Editorial standards</a><a href="/submit/">Share your work</a><a href="/for-ngos/">For NGOs</a><a href="/advertise/">Advertise and partner</a><a href="/subscribe/">Subscribe</a></div>
     </div>
