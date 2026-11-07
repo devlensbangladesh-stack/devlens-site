@@ -2,5 +2,11 @@
  "slug": "submit",
  "title": "Share your work",
  "excerpt": "Send us news, research, funding opportunities, vacancies, events or corrections. Submissions are reviewed by our editors. Sending us information does not guarantee coverage, and we may contact you to verify details. Please include a link to the original source or document wherever possible.",
- "content": "\n<p class=\"wp-block-paragraph\" style=\"font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.588), 20px);line-height:1.5\">Send us news, research, funding opportunities, vacancies, events or corrections.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Submissions are reviewed by our editors. Sending us information does not guarantee coverage, and we may contact you to verify details. Please include a link to the original source or document wherever possible.</p>\n\n\n<div class=\"wp-block-jetpack-contact-form is-layout-flex wp-container-jetpack-contact-form-is-layout-18d78099 wp-block-jetpack-contact-form-is-layout-flex\"><a href=\"/submit/\" target=\"_blank\" rel=\"noopener noreferrer\">Submit a form.</a></div>\n\n"
+ "content": "\n<p class=\"wp-block-paragraph\" style=\"font-size:clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.588), 20px);line-height:1.5\">Send us news, research, funding opportunities, vacancies, events or corrections.</p>\n\n\n\n<p class=\"wp-block-paragraph\">Submissions are reviewed by our editors. Sending us information does not guarantee coverage, and we may contact you to verify details. Please include a link to the original source or document wherever possible.</p>\n\n\n<div class=\"wp-block-jetpack-contact-form is-layout-flex wp-container-jetpack-contact-form-is-layout-18d78099 wp-block-jetpack-contact-form-is-layout-flex\"><a href=\"/submit/\" target=\"_blank\" rel=\"noopener noreferrer\">Submit a form.</a></div>\n\n",
+ "hero": {
+  "src": "/media/2026/11/page-submit-story-ngo-field-office.jpg",
+  "alt": "AI-generated illustration: an NGO field office veranda with a laptop and camera",
+  "width": 1280,
+  "height": 720
+ }
 }
