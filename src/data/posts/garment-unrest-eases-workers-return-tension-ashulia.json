@@ -15,5 +15,10 @@
   "poverty-reduction-decent-employment",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/garment-workers-return-factory-gate.jpg",
+  "alt": "AI-generated illustration: garment workers seen from behind returning through a factory gate",
+  "width": 1280,
+  "height": 720
+ }
 }
