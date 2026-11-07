@@ -8,7 +8,13 @@
   "news",
   "research"
  ],
- "tags": [],
+ "tags": [
+  "health",
+  "health-nutrition",
+  "health-support",
+  "research",
+  "national"
+ ],
  "image": {
   "src": "/media/2026/11/devlens-lead-chromate-paint-pigments.jpg",
   "alt": "AI-generated illustration for the story: Bangladesh cannot track how much toxic lead chromate it imports, study finds",

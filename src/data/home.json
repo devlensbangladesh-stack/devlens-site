@@ -7,14 +7,14 @@
     "holdUntil": "2026-11-08"
   },
   "alsoToday": {
-    "slug": "70-factories-close-savar-ashulia-nbr-freezes-accounts-garment-unrest",
-    "label": "Labour",
-    "headline": "Seventy factories close as garment wage protests go on",
-    "summary": "Border guards joined police in Ashulia on 5 November. The NBR has frozen bank accounts of more than 100 people it links to the unrest.",
+    "slug": "world-bank-300-million-primary-education-bangladesh",
+    "label": "Education",
+    "headline": "World Bank approves $300 million to improve primary education",
+    "summary": "About half of 10-year-olds cannot read a simple text. The money targets reading, numeracy and the districts falling furthest behind.",
     "plus": [
-      "world-bank-bangladesh-working-age-population-peaks-2045",
-      "bangladesh-commits-130-million-eye-care-20-million-people",
-      "fao-youth-agri-startup-olympiad-20-teams-bootcamp"
+      "garment-unrest-eases-workers-return-tension-ashulia",
+      "70-factories-close-savar-ashulia-nbr-freezes-accounts-garment-unrest",
+      "world-bank-bangladesh-working-age-population-peaks-2045"
     ]
   },
   "special": {
@@ -25,33 +25,45 @@
     "published": "2026-11-07"
   },
   "pills": {
-    "fundingOpen": 1,
-    "newReports": 8,
-    "keyNumbers": 11
+    "fundingOpen": 3,
+    "newReports": 9,
+    "keyNumbers": 16
   },
   "numbers": [
+    {
+      "value": "26m",
+      "label": "Children the new $300m World Bank primary education programme aims to reach",
+      "source": "World Bank, Nov 2026"
+    },
+    {
+      "value": "84%",
+      "label": "Of workers in informal jobs, about 58 million people",
+      "source": "World Bank, Nov 2026"
+    },
     {
       "value": "$710.5m",
       "label": "2026 Rohingya appeal, 26% below 2025",
       "source": "JRP 2026 update"
-    },
-    {
-      "value": "3.4%",
-      "label": "Projected GDP growth, FY26 and FY27",
-      "source": "World Bank, Oct 2026"
-    },
-    {
-      "value": "33.2%",
-      "label": "Of bank loans non-performing, June 2026",
-      "source": "World Bank, Oct 2026"
     }
   ],
   "funding": [
+    {
+      "title": "Ocean Innovation Challenge, up to $100k",
+      "funder": "UNDP · Sida",
+      "deadline": "2026-11-15",
+      "url": "https://www.undp.org/press-releases/innovators-wanted-undp-launches-usd-1-million-global-challenge-healthier-ocean"
+    },
     {
       "title": "EbA grants up to $500k",
       "funder": "Global EbA Fund",
       "deadline": "2026-11-16",
       "url": "/2026/10/29/open-call-global-eba-fund-medium-size-grants-of-up-to-500000-for-ecosystem-based-adaptation/"
+    },
+    {
+      "title": "Terre de Femmes Award, €10k",
+      "funder": "Yves Rocher Foundation",
+      "deadline": "2026-11-30",
+      "url": "https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/"
     }
   ],
   "pinnedSpecials": [
