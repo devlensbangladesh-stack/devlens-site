@@ -1,17 +1,51 @@
 [
- {"slug": "70-factories-close-savar-ashulia-nbr-freezes-accounts-garment-unrest", "path": "/media/2026/11/garment-factory-gates-closed-ashulia.jpg", "seed": 11,
+ {
+  "slug": "70-factories-close-savar-ashulia-nbr-freezes-accounts-garment-unrest",
+  "path": "/media/2026/11/garment-factory-gates-closed-ashulia.jpg",
+  "seed": 11,
   "prompt": "A quiet industrial road outside Dhaka lined with closed garment factory gates and lowered metal shutters, a police van parked far in the distance, early morning haze",
-  "alt": "AI-generated illustration: closed garment factory gates on a quiet industrial road near Dhaka"},
- {"slug": "over-100-garment-factories-shut-savar-ashulia-wage-protests", "path": "/media/2026/11/garment-district-shutdown-savar.jpg", "seed": 12,
+  "alt": "AI-generated illustration: a quiet street of shuttered buildings near Dhaka, with one person walking away"
+ },
+ {
+  "slug": "over-100-garment-factories-shut-savar-ashulia-wage-protests",
+  "path": "/media/2026/11/garment-district-shutdown-savar.jpg",
+  "seed": 12,
   "prompt": "Aerial view of a dense garment factory district in Savar with idle buildings, empty loading yards and a wide road, overcast sky",
-  "alt": "AI-generated illustration: aerial view of an idle garment factory district in Savar"},
- {"slug": "world-bank-bangladesh-working-age-population-peaks-2045", "path": "/media/2026/11/working-age-population-dhaka-commute.jpg", "seed": 13,
+  "alt": "AI-generated illustration: an empty industrial road between idle factory buildings in haze"
+ },
+ {
+  "slug": "world-bank-bangladesh-working-age-population-peaks-2045",
+  "path": "/media/2026/11/working-age-population-dhaka-commute.jpg",
+  "seed": 13,
   "prompt": "Large crowd of young workers seen from behind walking to work along a busy Dhaka street at dawn, rickshaws and buses, warm light",
-  "alt": "AI-generated illustration: young workers seen from behind on their way to work in Dhaka"},
- {"slug": "bangladesh-commits-130-million-eye-care-20-million-people", "path": "/media/2026/11/eye-care-clinic-bangladesh.jpg", "seed": 14,
+  "alt": "AI-generated illustration: young workers seen from behind on their way to work in Dhaka"
+ },
+ {
+  "slug": "bangladesh-commits-130-million-eye-care-20-million-people",
+  "path": "/media/2026/11/eye-care-clinic-bangladesh.jpg",
+  "seed": 14,
   "prompt": "A clean rural eye care clinic in Bangladesh with an eye chart on the wall, rows of spectacles on a table and an examination chair, soft daylight, no people",
-  "alt": "AI-generated illustration: a rural eye care clinic with spectacles laid out on a table"},
- {"slug": "fao-youth-agri-startup-olympiad-20-teams-bootcamp", "path": "/media/2026/11/youth-agri-startups-greenhouse.jpg", "seed": 15,
+  "alt": "AI-generated illustration: an empty rural clinic room in soft daylight"
+ },
+ {
+  "slug": "fao-youth-agri-startup-olympiad-20-teams-bootcamp",
+  "path": "/media/2026/11/youth-agri-startups-greenhouse.jpg",
+  "seed": 15,
   "prompt": "Young agri entrepreneurs seen from behind working with tablets and seedling trays inside a small greenhouse beside green rice fields in Bangladesh",
-  "alt": "AI-generated illustration: young farmers seen from behind with seedling trays in a greenhouse"}
+  "alt": "AI-generated illustration: young farmers seen from behind with seedling trays in a greenhouse"
+ },
+ {
+  "slug": "world-bank-300-million-primary-education-bangladesh",
+  "path": "/media/2026/11/primary-classroom-bangladesh.jpg",
+  "seed": 21,
+  "prompt": "A bright primary school classroom in rural Bangladesh with wooden benches, picture books and colourful learning materials on the desks, children seen from behind facing a blackboard",
+  "alt": "AI-generated illustration: a rural primary classroom with children seen from behind"
+ },
+ {
+  "slug": "garment-unrest-eases-workers-return-tension-ashulia",
+  "path": "/media/2026/11/garment-workers-return-factory-gate.jpg",
+  "seed": 22,
+  "prompt": "Garment workers seen from behind walking through an open factory gate in the morning, an industrial area near Dhaka, calm atmosphere",
+  "alt": "AI-generated illustration: garment workers seen from behind returning through a factory gate"
+ }
 ]
