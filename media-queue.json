@@ -47,5 +47,76 @@
   "seed": 22,
   "prompt": "Garment workers seen from behind walking through an open factory gate in the morning, an industrial area near Dhaka, calm atmosphere",
   "alt": "AI-generated illustration: two workers seen from behind walking through a factory gate"
+ },
+ {
+  "page": "about",
+  "path": "/media/2026/11/page-about-devlens-newsroom.jpg",
+  "seed": 31,
+  "prompt": "A small bright newsroom office in Dhaka with laptops, newspapers and a window view of the city skyline at golden hour, no people",
+  "alt": "AI-generated illustration: a small newsroom office in Dhaka at golden hour"
+ },
+ {
+  "page": "funding",
+  "path": "/media/2026/11/page-funding-community-project-bangladesh.jpg",
+  "seed": 32,
+  "prompt": "A community water and solar project in a green Bangladeshi village, a new hand pump and solar panels beside a pond, bright morning",
+  "alt": "AI-generated illustration: a village water pump and solar panels beside a pond"
+ },
+ {
+  "page": "research-evidence",
+  "path": "/media/2026/11/page-research-field-survey-bangladesh.jpg",
+  "seed": 33,
+  "prompt": "A field researcher seen from behind with a clipboard walking along a raised path between rice fields toward a village, soft daylight",
+  "alt": "AI-generated illustration: a field researcher seen from behind walking between rice fields"
+ },
+ {
+  "page": "sectors",
+  "path": "/media/2026/11/page-sectors-bangladesh-landscape-mosaic.jpg",
+  "seed": 34,
+  "prompt": "A wide landscape of Bangladesh showing a river with boats, rice fields, a small health clinic, a school building and a town in the distance",
+  "alt": "AI-generated illustration: a wide Bangladesh landscape with river, fields, a school and a clinic"
+ },
+ {
+  "page": "events",
+  "path": "/media/2026/11/page-events-conference-hall-dhaka.jpg",
+  "seed": 35,
+  "prompt": "An empty modern conference hall in Dhaka set up for a development sector event, rows of chairs, a stage and large windows, morning light",
+  "alt": "AI-generated illustration: an empty conference hall set up for an event"
+ },
+ {
+  "page": "data",
+  "path": "/media/2026/11/page-data-desk-charts-dhaka.jpg",
+  "seed": 36,
+  "prompt": "A wooden desk with printed bar charts, a laptop and a cup of tea by a window overlooking Dhaka rooftops, no people",
+  "alt": "AI-generated illustration: a desk with printed charts by a window over Dhaka rooftops"
+ },
+ {
+  "page": "submit",
+  "path": "/media/2026/11/page-submit-story-ngo-field-office.jpg",
+  "seed": 37,
+  "prompt": "A tidy NGO field office veranda in rural Bangladesh with a laptop, notebooks and a camera on a table, green trees outside",
+  "alt": "AI-generated illustration: an NGO field office veranda with a laptop and camera"
+ },
+ {
+  "page": "advertise",
+  "path": "/media/2026/11/page-advertise-dhaka-street-morning.jpg",
+  "seed": 38,
+  "prompt": "A busy Dhaka street in the morning seen from above with rickshaws, buses and shops, warm light, people only far away",
+  "alt": "AI-generated illustration: a busy Dhaka street in the morning seen from above"
+ },
+ {
+  "page": "editorial-standards",
+  "path": "/media/2026/11/page-editorial-desk-fact-check.jpg",
+  "seed": 39,
+  "prompt": "An editor's desk with printed articles, a pen, reading glasses and a magnifying glass, soft lamp light, no people",
+  "alt": "AI-generated illustration: an editor's desk with printed articles and a magnifying glass"
+ },
+ {
+  "page": "for-ngos",
+  "path": "/media/2026/11/page-for-ngos-community-meeting.jpg",
+  "seed": 41,
+  "replace": "/media/2026/10/devlens-sundarbans-aerial",
+  "prompt": "A community meeting under a large tree in a Bangladeshi village, villagers and NGO staff seen from behind sitting on mats, warm afternoon light",
+  "alt": "AI-generated illustration: a village community meeting under a tree, seen from behind"
  }
 ]

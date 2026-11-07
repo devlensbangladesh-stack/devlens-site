@@ -8,5 +8,6 @@ const { p } = Astro.props;
 ---
 <Base title={p.title} description={p.excerpt?.slice(0, 160)} wpBlocks>
   <header class="page-head"><div class="wrap"><h1>{p.title}</h1></div></header>
+  {p.hero && <div class="wrap"><figure class="page-hero"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.width} height={p.hero.height} fetchpriority="high" /><figcaption>AI-generated illustration</figcaption></figure></div>}
   <div class="wrap page-body"><div class="prose wp-content" set:html={p.content} /></div>
 </Base>

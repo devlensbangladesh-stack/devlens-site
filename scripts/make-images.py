@@ -4,7 +4,7 @@ Runs on GitHub Actions (the image service is reachable there). For each queued
 item whose file does not exist yet, it fetches an AI-generated image, saves it
 as a 1280x720 JPEG under public/media/, and sets the story's "image" field.
 """
-import io, json, pathlib, sys, time, urllib.parse, urllib.request
+import io, json, pathlib, re, sys, time, urllib.parse, urllib.request
 from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -25,7 +25,8 @@ def main():
     made, failed = 0, 0
     for it in items:
         out = ROOT / "public" / it["path"].lstrip("/")
-        post = ROOT / "src/data/posts" / f"{it['slug']}.json"
+        post = ROOT / "src/data/posts" / f"{it.get('slug', '')}.json"
+        page = ROOT / "src/data/pages" / f"{it.get('page', '')}.json"
         if out.exists():
             continue
         data = None
@@ -37,7 +38,7 @@ def main():
                     raise ValueError(f"image too small: {img.size}")
                 break
             except Exception as e:
-                print(f"{it['slug']}: attempt {attempt + 1} failed: {e}")
+                print(f"{it.get('slug') or it.get('page')}: attempt {attempt + 1} failed: {e}")
                 data = None
                 time.sleep(45 + 15 * attempt)
         if data is None:
@@ -48,7 +49,14 @@ def main():
         img = img.crop((0, 0, W, H))
         out.parent.mkdir(parents=True, exist_ok=True)
         img.save(out, "JPEG", quality=82, optimize=True, progressive=True)
-        if post.exists():
+        if it.get("page") and page.exists():
+            pg = json.loads(page.read_text())
+            if it.get("replace"):
+                pg["content"] = re.sub(re.escape(it["replace"]) + r'[^"\s,]*', it["path"], pg["content"])
+            else:
+                pg["hero"] = {"src": it["path"], "alt": it["alt"], "width": W, "height": H}
+            page.write_text(json.dumps(pg, ensure_ascii=False, indent=1))
+        elif it.get("slug") and post.exists():
             p = json.loads(post.read_text())
             p["image"] = {"src": it["path"], "alt": it["alt"], "width": W, "height": H}
             post.write_text(json.dumps(p, ensure_ascii=False, indent=1))
