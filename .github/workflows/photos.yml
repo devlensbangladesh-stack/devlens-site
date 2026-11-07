@@ -1,0 +1,44 @@
+name: Free-licence photos
+on:
+  workflow_dispatch:
+    inputs:
+      queries:
+        description: 'JSON object of search key -> words, to search for candidates'
+        required: false
+  push:
+    branches: [main]
+    paths: [photo-queue.json]
+permissions:
+  contents: write
+concurrency: photos
+jobs:
+  search:
+    if: github.event_name == 'workflow_dispatch' && inputs.queries != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pillow
+      - run: python scripts/photo-search.py
+        env:
+          PHOTO_QUERIES: ${{ inputs.queries }}
+      - uses: actions/upload-artifact@v4
+        with: { name: candidates, path: candidates/ }
+  fetch:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pillow
+      - run: python scripts/fetch-photos.py
+      - run: |
+          git config user.name "devlens-bot"
+          git config user.email "devlens-bot@users.noreply.github.com"
+          git add public/media src/data/posts
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add free-licence photos with credits"
+          git pull --rebase origin main
+          git push origin HEAD:main

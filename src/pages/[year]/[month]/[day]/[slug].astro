@@ -50,7 +50,7 @@ const share = [
     <div class="article-body">
       <div class="wrap">
         {post.image && !firstImage(post.content) && (
-          <figure style="margin:0 0 1.5em"><img src={post.image.src} alt={post.image.alt} width={post.image.width} height={post.image.height} style="border-radius:16px" />{/AI-generated/i.test(post.image.alt || '') && <figcaption class="img-credit">AI-generated illustration</figcaption>}</figure>
+          <figure style="margin:0 0 1.5em"><img src={post.image.src} alt={post.image.alt} width={post.image.width} height={post.image.height} style="border-radius:16px" />{post.image.credit ? <figcaption class="img-credit">Photo: {post.image.creditUrl ? <a href={post.image.creditUrl} rel="noopener">{post.image.credit}</a> : post.image.credit}</figcaption> : /AI-generated/i.test(post.image.alt || '') && <figcaption class="img-credit">AI-generated illustration</figcaption>}</figure>
         )}
         <div class="prose wp-content" set:html={post.content} />
         <div class="share" aria-label="Share this story"><span>Share</span>{share.map(([n, h]) => <a href={h} target="_blank" rel="noopener">{n}</a>)}</div>
