@@ -14,5 +14,12 @@
   "health-support",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-aedes-mosquito.jpg",
+  "alt": "An Aedes mosquito, which spreads dengue, resting on a leaf",
+  "width": 1280,
+  "height": 720,
+  "credit": "Wee Hong / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Aedes_aegypti_on_leaf.jpg"
+ }
 }

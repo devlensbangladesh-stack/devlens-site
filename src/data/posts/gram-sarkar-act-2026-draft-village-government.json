@@ -14,5 +14,12 @@
   "localisation",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-union-parishad-office.jpg",
+  "alt": "The Dabuya Union Parishad building in Raozan, Chattogram",
+  "width": 1280,
+  "height": 720,
+  "credit": "Rafi Bin Tofa / Wikimedia Commons, CC BY 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Dabuya_Union_Building.jpg"
+ }
 }
