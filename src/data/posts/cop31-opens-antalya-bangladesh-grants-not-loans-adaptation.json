@@ -15,5 +15,12 @@
   "aid-financing",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-coastal-village-flooded-aerial.jpg",
+  "alt": "Aerial view of a flooded coastal village beside mangrove forest in Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "Amdadphoto / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Flooded_Coastal_Village.jpg"
+ }
 }

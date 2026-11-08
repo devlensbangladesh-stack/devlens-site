@@ -15,5 +15,12 @@
   "research",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-jatiya-sangsad-bhaban.jpg",
+  "alt": "The Jatiya Sangsad Bhaban, Bangladesh’s parliament building, in Dhaka",
+  "width": 1280,
+  "height": 720,
+  "credit": "MD SAIFUL AMIN / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%9C%E0%A6%BE%E0%A6%A4%E0%A7%80%E0%A6%AF%E0%A6%BC_%E0%A6%B8%E0%A6%82%E0%A6%B8%E0%A6%A6_%E0%A6%AD%E0%A6%AC%E0%A6%A8_16.jpg"
+ }
 }

@@ -15,5 +15,12 @@
   "livelihood",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-dhaka-airport-departures.jpg",
+  "alt": "The departure area of Hazrat Shahjalal International Airport in Dhaka",
+  "width": 1280,
+  "height": 720,
+  "credit": "CAPTAIN RAJU / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Hazrat_Shahjalal_International_Airport_in_2022.01.jpg"
+ }
 }

@@ -14,5 +14,12 @@
   "livelihood",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-dhaka-airport-terminal-night.jpg",
+  "alt": "Terminal 2 of Hazrat Shahjalal International Airport in Dhaka at night",
+  "width": 1280,
+  "height": 720,
+  "credit": "Jubair Bin Iqbal / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Hazrat_Shahjalal_International_Airport.jpg"
+ }
 }
