@@ -107,22 +107,6 @@
   },
   {
    "location": "Dhaka",
-   "nationals": true,
-   "consultancy": true,
-   "deadlineText": null,
-   "button": "Apply on official site",
-   "added": "2026-11-08",
-   "title": "National Consultant for Hygiene Programming, Evidence Generation and Knowledge Management",
-   "org": "UNICEF",
-   "badge": "UNICEF",
-   "sector": "health-nutrition",
-   "url": "https://www.impactpool.org/jobs/1245569",
-   "contract": "Consultancy, 12 months, office based with travel · Bangladeshi nationals only",
-   "ref": "Ref: 596733 (ToR TMC0007104) · UNICEF careers",
-   "deadline": "2026-11-09"
-  },
-  {
-   "location": "Dhaka",
    "nationals": false,
    "consultancy": true,
    "deadlineText": null,
@@ -152,22 +136,6 @@
    "contract": "Senior level · see advert",
    "ref": "Ref: Impactpool listing 1244312 · IRC careers",
    "deadline": null
-  },
-  {
-   "location": "Dhaka",
-   "nationals": true,
-   "consultancy": false,
-   "deadlineText": null,
-   "button": "Apply on official site",
-   "added": "2026-11-08",
-   "title": "Office and Guest House Cleaner",
-   "org": "Danish Refugee Council (DRC)",
-   "badge": "DRC",
-   "sector": "finance-operations",
-   "url": "https://www.impactpool.org/jobs/1245549",
-   "contract": "National contract",
-   "ref": "Ref: Impactpool listing 1245549 · DRC careers",
-   "deadline": "2026-11-09"
   },
   {
    "title": "Medical Doctor (maternity cover)",
@@ -780,22 +748,6 @@
    "added": "2026-11-04"
   },
   {
-   "title": "National Consultant: Hygiene Programming, Evidence Generation and Knowledge Management",
-   "org": "UNICEF",
-   "badge": "UNICEF",
-   "sector": "health-nutrition",
-   "url": "https://unjobs.org/vacancies/1793638879095",
-   "location": "Dhaka",
-   "nationals": false,
-   "consultancy": true,
-   "contract": "National consultant · Bangla and English required",
-   "ref": "Ref: UNjobs vacancy 1793638879095 · UNjobs (apply through UNICEF careers)",
-   "deadline": "2026-11-09",
-   "deadlineText": null,
-   "button": "Apply on official site",
-   "added": "2026-11-04"
-  },
-  {
    "title": "Rapid Response and Outbreak Specialist",
    "org": "FHI 360",
    "badge": "FHI",
@@ -840,22 +792,6 @@
    "ref": "Ref: UNjobs vacancy 1793399167417 · UNjobs (apply through Winrock careers)",
    "deadline": null,
    "deadlineText": "See advert",
-   "button": "Apply on official site",
-   "added": "2026-11-04"
-  },
-  {
-   "title": "Office and Guest House Cleaner",
-   "org": "Danish Refugee Council (DRC)",
-   "badge": "DRC",
-   "sector": "finance-operations",
-   "url": "https://unjobs.org/vacancies/1793682073768",
-   "location": "Dhaka",
-   "nationals": false,
-   "consultancy": false,
-   "contract": "Support staff · See advert",
-   "ref": "Ref: UNjobs vacancy 1793682073768 · UNjobs (apply through DRC careers)",
-   "deadline": "2026-11-09",
-   "deadlineText": null,
    "button": "Apply on official site",
    "added": "2026-11-04"
   }
