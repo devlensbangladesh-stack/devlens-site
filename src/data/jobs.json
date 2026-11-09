@@ -58,6 +58,38 @@
  ],
  "jobs": [
   {
+   "title": "MEAL Manager",
+   "org": "International Rescue Committee (IRC)",
+   "badge": "IRC",
+   "sector": "humanitarian-rohingya-response",
+   "url": "https://www.impactpool.org/jobs/1246745",
+   "location": "Bangladesh",
+   "nationals": false,
+   "consultancy": false,
+   "contract": "Mid level · see advert",
+   "ref": "Ref: Impactpool listing 1246745 · IRC careers",
+   "deadline": null,
+   "deadlineText": "See advert",
+   "button": "Apply on official site",
+   "added": "2026-11-09"
+  },
+  {
+   "title": "Consultant: Operational Guidelines for the National Action Plan on the Global Compact for Migration (2026 to 2030)",
+   "org": "International Organization for Migration (IOM)",
+   "badge": "IOM",
+   "sector": "governance-human-rights",
+   "url": "https://www.impactpool.org/jobs/1228097",
+   "location": "Bangladesh",
+   "nationals": false,
+   "consultancy": true,
+   "contract": "Consultancy, up to 11 months · national or international",
+   "ref": "Ref: Impactpool listing 1228097 (readvertisement) · IOM careers",
+   "deadline": "2026-11-10",
+   "deadlineText": null,
+   "button": "Apply on official site",
+   "added": "2026-11-09"
+  },
+  {
    "location": "Dhaka",
    "nationals": true,
    "consultancy": true,
