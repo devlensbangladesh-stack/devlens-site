@@ -16,5 +16,12 @@
   "aid-financing",
   "humanitarian-response"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-kutupalong-camp-shelters.jpg",
+  "alt": "Shelters spread across the hills of the Kutupalong refugee camp in Cox's Bazar",
+  "width": 1280,
+  "height": 720,
+  "credit": "Maaz Hussain (VOA) / Wikimedia Commons, Public domain",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Kutupalong_Refugee_Camp_(Maaz_Hussain-VOA).jpg"
+ }
 }
