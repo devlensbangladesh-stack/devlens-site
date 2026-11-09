@@ -1,20 +1,20 @@
 {
   "lead": {
+    "slug": "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
+    "label": "Climate",
+    "headline": "COP31 opens: Bangladesh asks for grants, not loans",
+    "summary": "The summit runs in Antalya until 20 November. Bangladesh wants three times more adaptation money and a Loss and Damage Fund that pays out."
+  },
+  "alsoToday": {
     "slug": "department-of-primary-healthcare-family-planning-restructure",
     "label": "Health",
     "headline": "Family planning field staff to move into a new primary healthcare department",
-    "summary": "Three groups of field workers would come under one department and visit every household every two months. A committee has 20 working days to design it."
-  },
-  "alsoToday": {
-    "slug": "shyamnagar-salinity-debt-ngo-loans-climate-migration",
-    "label": "Climate",
-    "headline": "Salinity and debt push coastal families out of Shyamnagar",
-    "summary": "Nearly 90% of surveyed households had borrowed, mostly from NGOs. Average debt: Tk 58,782.",
+    "summary": "Three groups of field workers would come under one department and visit every household every two months.",
     "plus": [
+      "eu-16-million-humanitarian-aid-myanmar-rohingya-bangladesh",
+      "shyamnagar-salinity-debt-ngo-loans-climate-migration",
       "bangladeshi-women-workers-saudi-arabia-deaths-abuse-data",
-      "union-parishad-elections-old-laws-reforms-left-out",
-      "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
-      "uk-fact-finding-mission-bangladesh-ngos-civic-space-report"
+      "union-parishad-elections-old-laws-reforms-left-out"
     ]
   },
   "special": {
