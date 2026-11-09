@@ -16,5 +16,12 @@
   "migration",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-shyamnagar-village-road.jpg",
+  "alt": "A village road in Shyamnagar, Satkhira, with goods carried on a van",
+  "width": 1280,
+  "height": 720,
+  "credit": "Cayambe / Wikimedia Commons, CC BY 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Bangladesh,_road_in_Shyamnagar_Upazila_2024c.jpg"
+ }
 }

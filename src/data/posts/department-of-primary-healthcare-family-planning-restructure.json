@@ -16,5 +16,12 @@
   "governance",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-community-clinic-bangladesh.jpg",
+  "alt": "A rural community clinic building in Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "Asivechowdhury / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Local_Community_clinic_01.jpg"
+ }
 }
