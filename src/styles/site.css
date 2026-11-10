@@ -86,6 +86,26 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .also p a { text-decoration: underline; }
 .also .btn { border-radius: 6px; padding: 12px 22px; font-size: 15px; }
 
+.spotlight { background: #eef7f3; border-top: 1px solid #cfe9df; border-bottom: 1px solid #cfe9df; padding: 40px 0; }
+.spotlight .label { color: var(--green-dark); font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 8px; }
+.spotlight h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; margin: 0; }
+.spotlight .dates { color: var(--ink-2); font-weight: 600; margin: 4px 0 10px; }
+.spotlight .intro { color: var(--ink-2); max-width: 760px; margin: 0 0 24px; }
+.spot-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; }
+.spotlight h3 { font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin: 0 0 10px; }
+.spotlight h3 + p, .spotlight ul { margin: 0 0 22px; }
+.spotlight ul { padding-left: 18px; }
+.spotlight li { margin-bottom: 8px; color: var(--ink-2); }
+.spotlight .src { color: var(--muted); font-size: 13px; }
+.spotlight a { color: var(--green-dark); }
+.spot-stories, .spot-links { list-style: none; padding: 0 !important; }
+.spot-stories li { border-top: 1px solid #cfe9df; padding: 10px 0; margin: 0; }
+.spot-stories a { color: var(--ink); font-weight: 700; text-decoration: none; display: block; }
+.spot-stories a:hover { text-decoration: underline; }
+.spot-stories span { color: var(--muted); font-size: 13px; }
+.spot-links li { margin-bottom: 6px; }
+@media (max-width: 800px) { .spot-grid { grid-template-columns: minmax(0, 1fr); gap: 8px; } .spotlight h2 { font-size: 26px; } }
+
 .pills { padding: 40px 0; }
 .pills .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .pills a { display: block; border-radius: 999px; padding: 16px; text-decoration: none; font-size: 15px; font-weight: 600; }
