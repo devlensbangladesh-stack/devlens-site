@@ -1,18 +1,23 @@
 {
- "slug": "dengue-2260-admissions-466-deaths-november-9",
- "date": "2026-11-10T06:35:00",
- "title": "Dengue admissions jump to 2,260 in a day; deaths reach 466",
- "excerpt": "Admissions rose by more than a third in 48 hours, and over 6,000 people are now in hospital with dengue.",
- "categories": [
-  "news"
- ],
- "content": "<p class=\"wp-block-paragraph\">At least five people died of dengue and 2,260 were admitted to hospital in the 24 hours to 8am on Monday, 9 November, according to the Directorate General of Health Services (DGHS), The Daily Star and Views Bangladesh reported.</p>\n\n<h3 class=\"wp-block-heading\">The numbers</h3>\n\n<ul class=\"wp-block-list\">\n<li><strong>Deaths this year:</strong> 466. Three of the latest deaths were in Dhaka division, one in Mymensingh and one in Barishal.</li>\n<li><strong>Admissions this year:</strong> 152,173, of whom 145,593 have recovered and 6,114 are still in hospital.</li>\n<li><strong>Trend:</strong> on 7 November, DGHS reported 1,674 admissions in 24 hours. The 9 November figure of 2,260 is about 35% higher.</li>\n</ul>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">Health experts had warned the outbreak would not ease before December, and the jump in admissions supports that. More than 6,000 people in hospital at once puts pressure on district hospitals that are also treating children in the measles outbreak. NGOs running community health, WASH and urban programmes can support clean-ups of breeding sites and early referral, especially outside Dhaka.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">Whether daily admissions keep rising this week, and whether DGHS reports a new single-day high.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.thedailystar.net/news/healthcare/disease/news/5-die-dengue-24-hours-4319351\">5 die of dengue in 24 hours</a>, The Daily Star, 9 November 2026</li>\n<li><a href=\"https://viewsbangladesh.com/5-more-die-of-dengue-2260-hospitalised-in-24-hours/\">5 more die of dengue, 2,260 hospitalised in 24 hours</a>, Views Bangladesh, 9 November 2026</li>\n<li><a href=\"/2026/11/08/dengue-458-deaths-147580-cases-november-2026/\">Dengue deaths reach 458 as admissions stay high into November</a>, Devlens, 8 November 2026</li>\n</ul>\n",
- "modified": "2026-11-10T06:35:00",
- "tags": [
-  "health",
-  "health-nutrition",
-  "health-support",
-  "national"
- ],
- "image": null
+  "slug": "dengue-2260-admissions-466-deaths-november-9",
+  "date": "2026-11-10T06:35:00",
+  "title": "Dengue admissions jump to 2,260 in a day; deaths reach 466",
+  "excerpt": "Admissions rose by more than a third in 48 hours, and over 6,000 people are now in hospital with dengue.",
+  "categories": [
+    "news"
+  ],
+  "content": "<p class=\"wp-block-paragraph\">At least five people died of dengue and 2,260 were admitted to hospital in the 24 hours to 8am on Monday, 9 November, according to the Directorate General of Health Services (DGHS), The Daily Star and Views Bangladesh reported.</p>\n\n<h3 class=\"wp-block-heading\">The numbers</h3>\n\n<ul class=\"wp-block-list\">\n<li><strong>Deaths this year:</strong> 466. Three of the latest deaths were in Dhaka division, one in Mymensingh and one in Barishal.</li>\n<li><strong>Admissions this year:</strong> 152,173, of whom 145,593 have recovered and 6,114 are still in hospital.</li>\n<li><strong>Trend:</strong> on 7 November, DGHS reported 1,674 admissions in 24 hours. The 9 November figure of 2,260 is about 35% higher.</li>\n</ul>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">Health experts had warned the outbreak would not ease before December, and the jump in admissions supports that. More than 6,000 people in hospital at once puts pressure on district hospitals that are also treating children in the measles outbreak. NGOs running community health, WASH and urban programmes can support clean-ups of breeding sites and early referral, especially outside Dhaka.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">Whether daily admissions keep rising this week, and whether DGHS reports a new single-day high.</p>\n\n<p class=\"has-small-font-size wp-block-paragraph\">Image: an illustration generated with Google Gemini. It is not a photograph.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.thedailystar.net/news/healthcare/disease/news/5-die-dengue-24-hours-4319351\">5 die of dengue in 24 hours</a>, The Daily Star, 9 November 2026</li>\n<li><a href=\"https://viewsbangladesh.com/5-more-die-of-dengue-2260-hospitalised-in-24-hours/\">5 more die of dengue, 2,260 hospitalised in 24 hours</a>, Views Bangladesh, 9 November 2026</li>\n<li><a href=\"/2026/11/08/dengue-458-deaths-147580-cases-november-2026/\">Dengue deaths reach 458 as admissions stay high into November</a>, Devlens, 8 November 2026</li>\n</ul>\n",
+  "modified": "2026-11-10T06:35:00",
+  "tags": [
+    "health",
+    "health-nutrition",
+    "health-support",
+    "national"
+  ],
+  "image": {
+    "src": "/media/2026/11/gemini-dengue-ward-mosquito-nets.jpg",
+    "alt": "AI-generated illustration: a hospital ward with rows of beds under mosquito nets and a nurse walking away down the aisle",
+    "width": 1280,
+    "height": 720
+  }
 }

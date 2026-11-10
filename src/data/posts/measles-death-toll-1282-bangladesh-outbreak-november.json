@@ -1,19 +1,24 @@
 {
- "slug": "measles-death-toll-1282-bangladesh-outbreak-november",
- "date": "2026-11-08T23:10:00",
- "title": "Measles outbreak death toll reaches 1,282",
- "excerpt": "Two more children died in the 24 hours to Sunday morning. Suspected cases since March now pass 238,000.",
- "categories": [
-  "news"
- ],
- "content": "<p class=\"wp-block-paragraph\">Two more children died with measles or measles-like symptoms in the 24 hours to 8am on Sunday, 8 November, taking the outbreak&#8217;s death toll to 1,282 since 15 March, according to the Directorate General of Health Services (DGHS), The Business Standard reported.</p>\n\n<h3 class=\"wp-block-heading\">The numbers</h3>\n\n<ul class=\"wp-block-list\">\n<li><strong>Deaths since 15 March:</strong> 1,282, of which 105 were laboratory-confirmed measles and 1,177 had measles-like symptoms.</li>\n<li><strong>Suspected cases:</strong> 238,840, including 1,138 in the latest 24 hours.</li>\n<li><strong>Confirmed cases:</strong> 24,442, including 87 in the latest 24 hours.</li>\n<li><strong>Hospital admissions:</strong> 212,979 suspected patients, of whom 204,049 have recovered.</li>\n</ul>\n\n<p class=\"wp-block-paragraph\">The pace has slowed since the peak months. On 22 June, DGHS reported 683 deaths and about 94,000 suspected cases, so the death toll has nearly doubled in the four and a half months since.</p>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">The outbreak has killed mostly young children. Health and nutrition NGOs running community programmes can help trace children who missed routine doses, refer sick children early, and support catch-up vaccination. The outbreak also strains the same hospitals now treating a heavy dengue season.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">Whether daily deaths keep falling, the reach of catch-up vaccination in Dhaka and Rajshahi divisions, which recorded the most deaths earlier in the outbreak, and what officials report about measles vaccine failures.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.tbsnews.net/bangladesh/health/measles-death-toll-reaches-1282-2-more-children-die-1596266\">Measles: Death toll reaches 1,282 as 2 more children die</a>, The Business Standard, 8 November 2026</li>\n<li><a href=\"https://www.tbsnews.net/bangla/node/505656\">হামের উপসর্গে ২৪ ঘণ্টায় আরও ৩ শিশুর মৃত্যু, মোট প্রাণহানি ৬৮৩ (Three more children die with measles symptoms; total 683)</a>, The Business Standard Bangla, 22 June 2026</li>\n</ul>\n",
- "modified": "2026-11-08T23:10:00",
- "tags": [
-  "health",
-  "health-nutrition",
-  "child-rights-protection",
-  "humanitarian-response",
-  "national"
- ],
- "image": null
+  "slug": "measles-death-toll-1282-bangladesh-outbreak-november",
+  "date": "2026-11-08T23:10:00",
+  "title": "Measles outbreak death toll reaches 1,282",
+  "excerpt": "Two more children died in the 24 hours to Sunday morning. Suspected cases since March now pass 238,000.",
+  "categories": [
+    "news"
+  ],
+  "content": "<p class=\"wp-block-paragraph\">Two more children died with measles or measles-like symptoms in the 24 hours to 8am on Sunday, 8 November, taking the outbreak&#8217;s death toll to 1,282 since 15 March, according to the Directorate General of Health Services (DGHS), The Business Standard reported.</p>\n\n<h3 class=\"wp-block-heading\">The numbers</h3>\n\n<ul class=\"wp-block-list\">\n<li><strong>Deaths since 15 March:</strong> 1,282, of which 105 were laboratory-confirmed measles and 1,177 had measles-like symptoms.</li>\n<li><strong>Suspected cases:</strong> 238,840, including 1,138 in the latest 24 hours.</li>\n<li><strong>Confirmed cases:</strong> 24,442, including 87 in the latest 24 hours.</li>\n<li><strong>Hospital admissions:</strong> 212,979 suspected patients, of whom 204,049 have recovered.</li>\n</ul>\n\n<p class=\"wp-block-paragraph\">The pace has slowed since the peak months. On 22 June, DGHS reported 683 deaths and about 94,000 suspected cases, so the death toll has nearly doubled in the four and a half months since.</p>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">The outbreak has killed mostly young children. Health and nutrition NGOs running community programmes can help trace children who missed routine doses, refer sick children early, and support catch-up vaccination. The outbreak also strains the same hospitals now treating a heavy dengue season.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">Whether daily deaths keep falling, the reach of catch-up vaccination in Dhaka and Rajshahi divisions, which recorded the most deaths earlier in the outbreak, and what officials report about measles vaccine failures.</p>\n\n<p class=\"has-small-font-size wp-block-paragraph\">Image: an illustration generated with Google Gemini. It is not a photograph.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.tbsnews.net/bangladesh/health/measles-death-toll-reaches-1282-2-more-children-die-1596266\">Measles: Death toll reaches 1,282 as 2 more children die</a>, The Business Standard, 8 November 2026</li>\n<li><a href=\"https://www.tbsnews.net/bangla/node/505656\">হামের উপসর্গে ২৪ ঘণ্টায় আরও ৩ শিশুর মৃত্যু, মোট প্রাণহানি ৬৮৩ (Three more children die with measles symptoms; total 683)</a>, The Business Standard Bangla, 22 June 2026</li>\n</ul>\n",
+  "modified": "2026-11-08T23:10:00",
+  "tags": [
+    "health",
+    "health-nutrition",
+    "child-rights-protection",
+    "humanitarian-response",
+    "national"
+  ],
+  "image": {
+    "src": "/media/2026/11/gemini-vaccine-cold-box-clinic.jpg",
+    "alt": "AI-generated illustration: a vaccine cold box, vials and syringes laid out on a table at a rural clinic",
+    "width": 1280,
+    "height": 720
+  }
 }
