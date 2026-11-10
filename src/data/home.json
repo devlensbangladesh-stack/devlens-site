@@ -3,21 +3,17 @@
     "slug": "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
     "label": "Climate",
     "headline": "Prime Minister heads to COP31 to press for climate finance",
-    "summary": "In Antalya until 12 November, with meetings including the UNDP Administrator. His plenary speech is on the last day."
+    "summary": "Tarique Rahman is in Antalya until 12 November to push for grants, not loans. A new study finds 92% of the energy sector's climate finance since 2002 came as loans."
   },
   "alsoToday": {
-    "slug": "devlens-analysis-jobs-market-snapshot-10-november-2026",
-    "label": "Analysis",
-    "headline": "Who is hiring in Bangladesh's development sector this week",
-    "summary": "Almost two in five open roles are in Cox's Bazar, and national NGOs barely appear on job portals.",
+    "slug": "world-bank-half-of-poorest-households-get-no-safety-net",
+    "label": "Research · Social protection",
+    "headline": "Half of the poorest households get no safety net, World Bank finds",
+    "summary": "Bangladesh spends 3.5% of GDP on subsidies and social protection, yet much of it reaches better-off families while poverty rises for a fourth year.",
     "plus": [
       "garment-workers-propose-tk-32000-minimum-wage-board",
-      "energy-climate-finance-92-percent-loans-change-initiative-study",
-      "hsbc-1-million-disaster-preparedness-bangladesh-unicef-red-cross-save-the-children",
-      "world-bank-half-of-poorest-households-get-no-safety-net",
       "dengue-2260-admissions-466-deaths-november-9",
-      "department-of-primary-healthcare-family-planning-restructure",
-      "eu-16-million-humanitarian-aid-myanmar-rohingya-bangladesh"
+      "hsbc-1-million-disaster-preparedness-bangladesh-unicef-red-cross-save-the-children"
     ]
   },
   "special": {
@@ -34,19 +30,19 @@
   },
   "numbers": [
     {
-      "value": "26m",
-      "label": "Children the new $300m World Bank primary education programme aims to reach",
-      "source": "World Bank, Nov 2026"
+      "value": "1 in 2",
+      "label": "Poorest households outside every safety net programme",
+      "source": "World Bank, Oct 2026"
     },
     {
-      "value": "84%",
-      "label": "Of workers in informal jobs, about 58 million people",
-      "source": "World Bank, Nov 2026"
+      "value": "92%",
+      "label": "Of the energy sector's climate finance came as loans, 2002 to 2023",
+      "source": "Change Initiative, Nov 2026"
     },
     {
-      "value": "$710.5m",
-      "label": "2026 Rohingya appeal, 26% below 2025",
-      "source": "JRP 2026 update"
+      "value": "466",
+      "label": "Dengue deaths this year, with over 6,000 people in hospital",
+      "source": "DGHS, 9 Nov 2026"
     }
   ],
   "funding": [
