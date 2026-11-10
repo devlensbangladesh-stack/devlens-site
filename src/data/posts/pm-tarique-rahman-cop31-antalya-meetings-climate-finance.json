@@ -15,5 +15,12 @@
   "aid-financing",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-file-un-climate-conference-bonn.jpg",
+  "alt": "File photo: UN flags outside the World Conference Center Bonn, a regular venue for UN climate negotiations",
+  "width": 1280,
+  "height": 720,
+  "credit": "File photo, Dietmar Rabich / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Bonn,_World_Conference_Center_Bonn_(WCCB)_--_2017_--_2111.jpg"
+ }
 }
