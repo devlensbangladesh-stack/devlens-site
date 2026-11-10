@@ -31,6 +31,10 @@ const specialItems = [
   ...(home.pinnedSpecials || []).map((m) => ({ meta: m, post: bySlug(m.slug) })),
 ].filter((x, i, arr) => x.post && x.meta.slug !== home.lead.slug && arr.findIndex((y) => y.meta.slug === x.meta.slug) === i);
 const leadImg = lead?.image?.src;
+const spot = home.spotlight;
+const spotOn = spot && today >= spot.start && today <= spot.until;
+const spotStories = spotOn ? (spot.stories || []).map(bySlug).filter(Boolean) : [];
+const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
 ---
 <Base image={leadImg}>
   {lead && (
@@ -59,6 +63,36 @@ const leadImg = lead?.image?.src;
           <p>{home.alsoToday.summary}{plus.length > 0 && <> Plus: {plus.map((p, i) => <>{i > 0 && ', '}<a href={postUrl(p)}>{p.title}</a></>)}.</>}</p>
         </div>
         <a class="btn btn-green" href={postUrl(also)}>Read the story</a>
+      </div>
+    </section>
+  )}
+
+  {spotOn && (
+    <section class="spotlight" data-spot-start={spot.start} data-spot-until={spot.until} data-spot-days={spot.days}>
+      <div class="wrap">
+        <div class="spot-head">
+          <p class="label">{spot.label} · <span data-spot-day>Day {spotDay} of {spot.days}</span></p>
+          <h2>{spot.title}</h2>
+          <p class="dates">{spot.dates}</p>
+          <p class="intro">{spot.intro}</p>
+        </div>
+        <div class="spot-grid">
+          <div>
+            <h3>Today in Antalya · {spot.today.date}</h3>
+            <p>{spot.today.text} <span class="src">Source: <a href={spot.today.url} rel="noopener">{spot.today.source}</a></span></p>
+            <h3>What to watch for Bangladesh</h3>
+            <ul>{spot.watch.map((w) => <li>{w}</li>)}</ul>
+            <p class="src">Source: <a href={spot.watchSource.url} rel="noopener">{spot.watchSource.name}</a></p>
+          </div>
+          <div>
+            <h3>Devlens coverage</h3>
+            <ul class="spot-stories">
+              {spotStories.map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}
+            </ul>
+            <h3>Follow the summit</h3>
+            <ul class="spot-links">{spot.links.map((l) => <li><a href={l.url} rel="noopener">{l.label} ↗</a></li>)}</ul>
+          </div>
+        </div>
       </div>
     </section>
   )}
@@ -233,5 +267,14 @@ const leadImg = lead?.image?.src;
       </div>
     </div>
   </section>
+  <script is:inline>
+    (function () {
+      var s = document.querySelector('[data-spot-until]'); if (!s) return;
+      var t = new Date(Date.now() + 6 * 3600e3).toISOString().slice(0, 10);
+      if (t > s.dataset.spotUntil || t < s.dataset.spotStart) { s.remove(); return; }
+      var n = Math.round((Date.parse(t) - Date.parse(s.dataset.spotStart)) / 864e5) + 1;
+      var d = s.querySelector('[data-spot-day]'); if (d) d.textContent = 'Day ' + n + ' of ' + s.dataset.spotDays;
+    })();
+  </script>
   <script type="application/json" id="jobs-data" set:html={JSON.stringify(jobsData.jobs.map((j) => ({ s: j.sector, d: j.deadline })))} />
 </Base>
