@@ -72,5 +72,46 @@
       "headline": "Record pledges, shrinking NGOs: who gets Bangladesh's aid money",
       "summary": "Foreign grants to NGOs are at a seven-year high, yet about 2,200 small NGOs face cuts. Our analysis of six years of data shows the money is reaching fewer, larger organisations."
     }
-  ]
+  ],
+  "spotlight": {
+    "id": "cop31",
+    "start": "2026-11-09",
+    "until": "2026-11-20",
+    "days": 12,
+    "label": "Spotlight",
+    "title": "COP31 in Antalya",
+    "dates": "9 to 20 November 2026 · Antalya, Türkiye",
+    "intro": "Bangladesh is asking for grant-based adaptation money and loss and damage support, not more loans. Devlens follows what the summit means for the sector until the talks close.",
+    "today": {
+      "date": "10 Nov",
+      "text": "Day 2 focuses on energy security and transport. The leaders' segment runs on 11 and 12 November, and Prime Minister Tarique Rahman is in Antalya until 12 November.",
+      "source": "Anadolu Agency",
+      "url": "https://www.aa.com.tr/en/turkiye/cop31-enters-2nd-day-with-focus-on-energy-transport/4118177"
+    },
+    "watch": [
+      "Adaptation finance: whether the COP30 pledge to at least triple it by 2035 gets a baseline, an amount and a delivery plan.",
+      "Adaptation indicators: how countries put the 59 Global Goal on Adaptation indicators into practice.",
+      "Just transition: whether a mechanism is set up in Antalya, and what it covers."
+    ],
+    "watchSource": {
+      "name": "Climate Home News",
+      "url": "https://www.climatechangenews.com/2026/11/05/cop31-briefing-what-to-expect-from-the-antalya-climate-summit/"
+    },
+    "stories": [
+      "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
+      "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
+      "energy-climate-finance-92-percent-loans-change-initiative-study",
+      "climate-adaptation-needs-longer-loans-and-guarantees-to-draw-private-money-bankers-say"
+    ],
+    "links": [
+      {
+        "label": "Official COP31 host portal (Zero Waste Foundation, Türkiye)",
+        "url": "https://cop.sifiratikvakfi.org/en/"
+      },
+      {
+        "label": "UNFCCC COP31 schedule",
+        "url": "https://unfccc.int/sites/default/files/resource/COP_31_Overview_Schedule.pdf"
+      }
+    ]
+  }
 }
