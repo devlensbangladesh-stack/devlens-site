@@ -11,14 +11,14 @@
     "headline": "722 NGOs lost registration in 15 years, minister tells Parliament",
     "summary": "Late renewals, forged donor letters and misused grants were among the reasons. The government says it will stay strict.",
     "plus": [
+      "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
+      "dengue-1900-admissions-478-deaths-november-11",
       "un-rapporteur-kelley-currie-dhaka-icj-myanmar-genocide-ruling-november-19",
       "measles-dengue-co-infection-children-dhaka-hospitals",
       "measles-deaths-1289-241556-suspected-cases-november-10",
       "pmi-october-2026-economy-returns-to-expansion-mcci-policy-exchange",
       "arson-crude-bombs-11-districts-banned-awami-league-blockade",
-      "dengue-1595-admissions-474-deaths-november-10",
-      "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
-      "special-solar-power-installation-bill-2026-parliament"
+      "pm-tarique-rahman-cop31-antalya-meetings-climate-finance"
     ]
   },
   "special": {
@@ -89,15 +89,19 @@
     "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
       "date": "11 Nov",
-      "text": "The two-day leaders' summit opened at the Antalya Expo Center with President Erdoğan and UN Secretary-General António Guterres, with a focus on zero waste. Prime Minister Tarique Rahman meets Uzbek President Shavkat Mirziyoyev and Chinese Vice-President Han Zheng today, after talks with Erdoğan on Tuesday. He gives Bangladesh's national statement on 12 November, a day on resilient cities and buildings. Finance and trade follow on 13 November.",
+      "text": "The Antalya Leaders' Summit opened with UN Secretary-General António Guterres warning that the climate crisis is \"outrunning us\" and President Erdoğan pushing a zero-waste pledge. The United States is absent for a second year. Prime Minister Tarique Rahman met Uzbek President Shavkat Mirziyoyev and toured the Bangladesh Pavilion; a meeting with Chinese Vice-President Han Zheng was scheduled, with no read-out yet. He gives Bangladesh's national statement on 12 November. Finance and trade follow on 13 November.",
       "sources": [
         {
-          "name": "Hürriyet Daily News",
-          "url": "https://www.hurriyetdailynews.com/cop31-leaders-summit-set-to-open-in-turkiye-with-electrification-in-focus-229258"
+          "name": "Al Jazeera",
+          "url": "https://www.aljazeera.com/news/2026/11/11/climate-crisis-is-outrunning-us-un-chief-guterres-says-at-cop31"
         },
         {
-          "name": "The Business Standard",
-          "url": "https://www.tbsnews.net/bangladesh/environment/cop31-bangladesh-awaits-action-climate-pledges-pm-meets-world-leaders-today"
+          "name": "The Daily Star",
+          "url": "https://www.thedailystar.net/news/bangladesh/diplomacy/news/pm-tarique-uzbek-president-discuss-strengthening-bilateral-ties-4321276"
+        },
+        {
+          "name": "bdnews24.com",
+          "url": "https://bdnews24.com/bangladesh/tb6zhbllgg"
         }
       ]
     },
@@ -108,6 +112,7 @@
       "Just transition: whether a mechanism is set up in Antalya, and what it covers."
     ],
     "stories": [
+      "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
       "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
       "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
       "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
