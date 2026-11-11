@@ -1,22 +1,22 @@
 {
   "lead": {
-    "slug": "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
-    "label": "Climate",
-    "headline": "Prime Minister heads to COP31 to press for climate finance",
-    "summary": "Tarique Rahman is in Antalya until 12 November to push for grants, not loans. A new study finds 92% of the energy sector's climate finance since 2002 came as loans."
+    "slug": "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
+    "label": "Climate · COP31",
+    "headline": "Bangladesh asks COP31 for three times more adaptation finance",
+    "summary": "The Prime Minister met President Erdogan in Antalya and speaks to the plenary on 12 November. Dhaka wants grants, not loans."
   },
   "alsoToday": {
-    "slug": "world-bank-half-of-poorest-households-get-no-safety-net",
-    "label": "Research · Social protection",
-    "headline": "Half of the poorest households get no safety net, World Bank finds",
-    "summary": "Bangladesh spends 3.5% of GDP on subsidies and social protection, yet much of it reaches better-off families while poverty rises for a fourth year.",
+    "slug": "722-ngo-registrations-cancelled-15-years-home-minister-parliament",
+    "label": "Governance · NGOs",
+    "headline": "722 NGOs lost registration in 15 years, minister tells Parliament",
+    "summary": "Late renewals, forged donor letters and misused grants were among the reasons. The government says it will stay strict.",
     "plus": [
+      "measles-deaths-1289-241556-suspected-cases-november-10",
+      "pmi-october-2026-economy-returns-to-expansion-mcci-policy-exchange",
       "arson-crude-bombs-11-districts-banned-awami-league-blockade",
       "dengue-1595-admissions-474-deaths-november-10",
-      "special-solar-power-installation-bill-2026-parliament",
-      "pedp5-ecnec-tk-41090-crore-primary-education-programme",
-      "garment-workers-propose-tk-32000-minimum-wage-board",
-      "hsbc-1-million-disaster-preparedness-bangladesh-unicef-red-cross-save-the-children"
+      "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
+      "special-solar-power-installation-bill-2026-parliament"
     ]
   },
   "special": {
@@ -29,7 +29,7 @@
   "pills": {
     "fundingOpen": 3,
     "newReports": 11,
-    "keyNumbers": 21
+    "keyNumbers": 25
   },
   "numbers": [
     {
