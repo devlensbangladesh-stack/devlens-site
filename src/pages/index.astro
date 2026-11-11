@@ -79,10 +79,10 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
         <div class="spot-grid">
           <div>
             <h3>Today in Antalya · {spot.today.date}</h3>
-            <p>{spot.today.text} <span class="src">Source: <a href={spot.today.url} rel="noopener">{spot.today.source}</a></span></p>
+            <p>{spot.today.text} <span class="src">{(spot.today.sources || [{ name: spot.today.source, url: spot.today.url }]).length > 1 ? 'Sources: ' : 'Source: '}{(spot.today.sources || [{ name: spot.today.source, url: spot.today.url }]).map((s, i) => <>{i > 0 && ', '}<a href={s.url} rel="noopener">{s.name}</a></>)}</span></p>
             <h3>What to watch for Bangladesh</h3>
             <ul>{spot.watch.map((w) => <li>{w}</li>)}</ul>
-            <p class="src">Source: <a href={spot.watchSource.url} rel="noopener">{spot.watchSource.name}</a></p>
+            <p class="src">{(spot.watchSources || [spot.watchSource]).length > 1 ? 'Sources: ' : 'Source: '}{(spot.watchSources || [spot.watchSource]).map((s, i) => <>{i > 0 && ', '}<a href={s.url} rel="noopener">{s.name}</a></>)}</p>
           </div>
           <div>
             <h3>Devlens coverage</h3>

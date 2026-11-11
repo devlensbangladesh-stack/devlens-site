@@ -86,26 +86,33 @@
     "label": "Spotlight",
     "title": "COP31 in Antalya",
     "dates": "9 to 20 November 2026 · Antalya, Türkiye",
-    "intro": "Bangladesh is asking for grant-based adaptation money and loss and damage support, not more loans. Devlens follows what the summit means for the sector until the talks close.",
+    "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
-      "date": "10 Nov",
-      "text": "Day 2 focuses on energy security and transport. The leaders' segment runs on 11 and 12 November, and Prime Minister Tarique Rahman is in Antalya until 12 November.",
-      "source": "Anadolu Agency",
-      "url": "https://www.aa.com.tr/en/turkiye/cop31-enters-2nd-day-with-focus-on-energy-transport/4118177"
+      "date": "11 Nov",
+      "text": "The two-day leaders' summit opened at the Antalya Expo Center with President Erdoğan and UN Secretary-General António Guterres, with a focus on zero waste. Prime Minister Tarique Rahman meets Uzbek President Shavkat Mirziyoyev and Chinese Vice-President Han Zheng today, after talks with Erdoğan on Tuesday. He gives Bangladesh's national statement on 12 November, a day on resilient cities and buildings. Finance and trade follow on 13 November.",
+      "sources": [
+        {
+          "name": "Hürriyet Daily News",
+          "url": "https://www.hurriyetdailynews.com/cop31-leaders-summit-set-to-open-in-turkiye-with-electrification-in-focus-229258"
+        },
+        {
+          "name": "The Business Standard",
+          "url": "https://www.tbsnews.net/bangladesh/environment/cop31-bangladesh-awaits-action-climate-pledges-pm-meets-world-leaders-today"
+        }
+      ]
     },
     "watch": [
+      "Finance on the agenda: developing countries, led by African states, want tripling adaptation finance formally discussed; developed countries are resisting, and an EU official has warned of no political will for new pledges.",
       "Adaptation finance: whether the COP30 pledge to at least triple it by 2035 gets a baseline, an amount and a delivery plan.",
       "Adaptation indicators: how countries put the 59 Global Goal on Adaptation indicators into practice.",
       "Just transition: whether a mechanism is set up in Antalya, and what it covers."
     ],
-    "watchSource": {
-      "name": "Climate Home News",
-      "url": "https://www.climatechangenews.com/2026/11/05/cop31-briefing-what-to-expect-from-the-antalya-climate-summit/"
-    },
     "stories": [
+      "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
       "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
       "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
       "energy-climate-finance-92-percent-loans-change-initiative-study",
+      "special-solar-power-installation-bill-2026-parliament",
       "climate-adaptation-needs-longer-loans-and-guarantees-to-draw-private-money-bankers-say"
     ],
     "links": [
@@ -116,6 +123,20 @@
       {
         "label": "UNFCCC COP31 schedule",
         "url": "https://unfccc.int/sites/default/files/resource/COP_31_Overview_Schedule.pdf"
+      },
+      {
+        "label": "Carbon Brief: tracking COP31 negotiating texts",
+        "url": "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop31-climate-summit"
+      }
+    ],
+    "watchSources": [
+      {
+        "name": "Climate Home News",
+        "url": "https://www.climatechangenews.com/2026/11/05/cop31-briefing-what-to-expect-from-the-antalya-climate-summit/"
+      },
+      {
+        "name": "Daily Tribune (Philippines)",
+        "url": "https://tribune.net.ph/2026/11/09/early-fight-over-climate-finance-at-cop31"
       }
     ]
   }
