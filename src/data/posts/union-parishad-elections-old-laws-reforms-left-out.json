@@ -14,5 +14,12 @@
   "localisation",
   "national"
  ],
- "image": null
+ "image": {
+  "src": "/media/2026/11/photo-halodia-union-parishad-building.jpg",
+  "alt": "The Halodia Union Parishad building, a local government office in rural Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "Rafi Bin Tofa / Wikimedia Commons, CC BY 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Halodia_Union_Building.jpg"
+ }
 }
