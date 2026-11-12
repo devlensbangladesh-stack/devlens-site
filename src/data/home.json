@@ -11,6 +11,7 @@
     "headline": "Garment owners weigh shutting 210 Ashulia factories without pay",
     "summary": "About 140 factories stopped work on 11 November. A decision on closures under Section 13(1) is due on Saturday, with 300,000 workers in the belt.",
     "plus": [
+      "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
       "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
       "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall",
       "rmmru-study-climate-risks-push-rural-people-to-cities",
@@ -90,25 +91,26 @@
     "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
       "date": "12 Nov",
-      "text": "Prime Minister Tarique Rahman delivers Bangladesh's national statement today, on a summit day focused on resilient cities and buildings. On Wednesday he met Chinese Vice-President Han Zheng to discuss more Chinese investment and climate cooperation; no agreement was announced. Finance and trade are on the agenda on 13 November.",
+      "text": "Prime Minister Tarique Rahman gave Bangladesh's national statement, asking that at least half of all climate finance go to adaptation, as grants, with debt relief and a just transition mechanism. UN Climate Change launched its Net-Zero Recognition Framework for companies, cities and other non-state actors, and leaders met on methane. On Wednesday, Guterres told the leaders' summit emissions must fall about 6% a year; current plans deliver at best a third of that.",
       "sources": [
         {
-          "name": "The Daily Star",
-          "url": "https://www.thedailystar.net/news/bangladesh/diplomacy/news/cop31-sidelines-pm-tarique-chinese-vice-president-discuss-investment-climate-cooperation-4321326"
+          "name": "The Business Standard",
+          "url": "https://www.tbsnews.net/bangladesh/pm-outlines-five-actions-address-needs-climate-vulnerable-countries-1600296"
         },
         {
-          "name": "Hürriyet Daily News",
-          "url": "https://www.hurriyetdailynews.com/cop31-leaders-summit-set-to-open-in-turkiye-with-electrification-in-focus-229258"
+          "name": "UN Climate Change live updates",
+          "url": "https://unfccc.int/cop-31-live-updates-archive"
         }
       ]
     },
     "watch": [
-      "Finance on the agenda: developing countries, led by African states, want tripling adaptation finance formally discussed; developed countries are resisting, and an EU official has warned of no political will for new pledges.",
-      "Adaptation finance: whether the COP30 pledge to at least triple it by 2035 gets a baseline, an amount and a delivery plan.",
-      "Adaptation indicators: how countries put the 59 Global Goal on Adaptation indicators into practice.",
-      "Just transition: whether a mechanism is set up in Antalya, and what it covers."
+      "Adaptation finance: whether a draft text sets a baseline or share for adaptation money, after Bangladesh asked for at least 50%.",
+      "Just transition: whether the Belém-Antalya Action Mechanism is adopted.",
+      "Finance on the agenda: developing countries want tripling adaptation finance discussed; developed countries are resisting, and an EU official has warned of no political will for new pledges.",
+      "Gender: UN Women found 73% of countries recognise gender-specific climate risks, but just over one in three address them fully."
     ],
     "stories": [
+      "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
       "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
       "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
       "rmmru-study-climate-risks-push-rural-people-to-cities",
@@ -119,6 +121,10 @@
       "climate-adaptation-needs-longer-loans-and-guarantees-to-draw-private-money-bankers-say"
     ],
     "links": [
+      {
+        "label": "UN Climate Change: COP31 live updates",
+        "url": "https://unfccc.int/cop-31-live-updates-archive"
+      },
       {
         "label": "Official COP31 host portal (Zero Waste Foundation, Türkiye)",
         "url": "https://cop.sifiratikvakfi.org/en/"
@@ -134,12 +140,12 @@
     ],
     "watchSources": [
       {
-        "name": "Climate Home News",
-        "url": "https://www.climatechangenews.com/2026/11/05/cop31-briefing-what-to-expect-from-the-antalya-climate-summit/"
+        "name": "UN Climate Change",
+        "url": "https://unfccc.int/cop-31-live-updates-archive"
       },
       {
-        "name": "Daily Tribune (Philippines)",
-        "url": "https://tribune.net.ph/2026/11/09/early-fight-over-climate-finance-at-cop31"
+        "name": "Climate Home News",
+        "url": "https://www.climatechangenews.com/2026/11/05/cop31-briefing-what-to-expect-from-the-antalya-climate-summit/"
       }
     ]
   }
