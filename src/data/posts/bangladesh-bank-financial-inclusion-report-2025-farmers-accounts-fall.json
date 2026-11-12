@@ -1,21 +1,28 @@
 {
-  "slug": "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall",
-  "date": "2026-11-12T06:20:00",
-  "modified": "2026-11-12T06:20:00",
-  "title": "Farmers' Tk 10 accounts and deposits fall, central bank report shows",
-  "excerpt": "Bangladesh Bank's Financial Inclusion Report 2025 puts formal access at 64.5% of adults, but government-to-person payments through mobile money fell.",
-  "categories": [
-    "news",
-    "research"
-  ],
-  "tags": [
-    "livelihoods-economic-empowerment",
-    "social-protection",
-    "women-empowerment",
-    "agriculture",
-    "national",
-    "research"
-  ],
-  "image": null,
-  "content": "<p class=\"wp-block-paragraph\">About 64.5% of adults in Bangladesh have access to formal financial services, according to Bangladesh Bank&#8217;s Financial Inclusion Report 2025, <a href=\"https://www.tbsnews.net/economy/banking/financial-inclusion-reaches-645-adults-farmers-students-savings-decline-cenbank\">The Business Standard</a> reported on 10 November. The report also shows falling numbers in accounts meant for farmers and in government payments through mobile money.</p>\n\n<figure class=\"wp-block-table\"><table><thead><tr><th>Service</th><th>2025</th><th>Change</th></tr></thead><tbody><tr><td>Farmers&#8217; Tk 10 accounts</td><td>9.26 million accounts, Tk 819 crore deposits</td><td>Accounts -6.28%, deposits -8.77%</td></tr><tr><td>School banking</td><td>4.76 million accounts, Tk 1,994 crore deposits</td><td>Accounts +8.57%, deposits -3.69%</td></tr><tr><td>No-frills accounts</td><td>Tk 9,328 crore deposits</td><td>+1.26%</td></tr><tr><td>Mobile financial services</td><td>250.2 million accounts; 9.57 billion transactions worth Tk 21.83 lakh crore</td><td>Transactions +31.35%, value +25.58%</td></tr><tr><td>Government-to-person payments via mobile money</td><td>n/a</td><td>-5.36%</td></tr><tr><td>Agent banking</td><td>20,501 outlets, 25.8 million customers, Tk 35,023 crore loans</td><td>Outlets -3.5%, loans +46%</td></tr></tbody></table><figcaption class=\"wp-element-caption\">Source: Bangladesh Bank, Financial Inclusion Report 2025, via The Business Standard.</figcaption></figure>\n\n<h3 class=\"wp-block-heading\">The gaps</h3>\n\n<ul class=\"wp-block-list\">\n<li>Women hold about 42% of mobile money accounts (105.6 million of 250.2 million).</li>\n<li>Girls hold 45.1% of school banking deposits, boys 54.9%.</li>\n<li>Rural areas have most school banking accounts (52.24%), but urban areas hold most of the money (70.29% of deposits).</li>\n<li>No-frills deposits grew mainly because of safety-net beneficiaries and very poor savers, the report found.</li>\n</ul>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">Falling balances in farmers&#8217; and students&#8217; accounts fit the picture of household strain in the <a href=\"/2026/11/10/world-bank-half-of-poorest-households-get-no-safety-net/\">World Bank&#8217;s latest poverty estimates</a>. The drop in government-to-person mobile payments matters for cash transfer programmes, including the new Family Card. Microfinance NGOs and women&#8217;s economic empowerment programmes can use the gender figures to target outreach, since women still hold well under half of mobile money accounts.</p>\n\n<h3 class=\"wp-block-heading\">Limitations</h3>\n\n<p class=\"wp-block-paragraph\">Account counts include dormant and duplicate accounts, so they overstate the number of people served. The 64.5% access figure depends on the report&#8217;s definition, which the news coverage does not set out. Devlens has not seen the full report.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.tbsnews.net/economy/banking/financial-inclusion-reaches-645-adults-farmers-students-savings-decline-cenbank\">Financial inclusion reaches 64.5% of adults, but farmers&#8217;, students&#8217; savings decline: Cenbank report</a>, The Business Standard, 10 November 2026</li>\n</ul>\n"
+ "slug": "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall",
+ "date": "2026-11-12T06:20:00",
+ "modified": "2026-11-12T06:20:00",
+ "title": "Farmers' Tk 10 accounts and deposits fall, central bank report shows",
+ "excerpt": "Bangladesh Bank's Financial Inclusion Report 2025 puts formal access at 64.5% of adults, but government-to-person payments through mobile money fell.",
+ "categories": [
+  "news",
+  "research"
+ ],
+ "tags": [
+  "livelihoods-economic-empowerment",
+  "social-protection",
+  "women-empowerment",
+  "agriculture",
+  "national",
+  "research"
+ ],
+ "image": {
+  "src": "/media/2026/11/photo-rice-harvest-wetland-field.jpg",
+  "alt": "Farmers harvesting rice in a wetland field in Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "A S M Jobaer / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Rice_harvesting_by_farmers_in_a_wetland_field%2C_Bangladesh_2026_05.jpg"
+ },
+ "content": "<p class=\"wp-block-paragraph\">About 64.5% of adults in Bangladesh have access to formal financial services, according to Bangladesh Bank&#8217;s Financial Inclusion Report 2025, <a href=\"https://www.tbsnews.net/economy/banking/financial-inclusion-reaches-645-adults-farmers-students-savings-decline-cenbank\">The Business Standard</a> reported on 10 November. The report also shows falling numbers in accounts meant for farmers and in government payments through mobile money.</p>\n\n<figure class=\"wp-block-table\"><table><thead><tr><th>Service</th><th>2025</th><th>Change</th></tr></thead><tbody><tr><td>Farmers&#8217; Tk 10 accounts</td><td>9.26 million accounts, Tk 819 crore deposits</td><td>Accounts -6.28%, deposits -8.77%</td></tr><tr><td>School banking</td><td>4.76 million accounts, Tk 1,994 crore deposits</td><td>Accounts +8.57%, deposits -3.69%</td></tr><tr><td>No-frills accounts</td><td>Tk 9,328 crore deposits</td><td>+1.26%</td></tr><tr><td>Mobile financial services</td><td>250.2 million accounts; 9.57 billion transactions worth Tk 21.83 lakh crore</td><td>Transactions +31.35%, value +25.58%</td></tr><tr><td>Government-to-person payments via mobile money</td><td>n/a</td><td>-5.36%</td></tr><tr><td>Agent banking</td><td>20,501 outlets, 25.8 million customers, Tk 35,023 crore loans</td><td>Outlets -3.5%, loans +46%</td></tr></tbody></table><figcaption class=\"wp-element-caption\">Source: Bangladesh Bank, Financial Inclusion Report 2025, via The Business Standard.</figcaption></figure>\n\n<h3 class=\"wp-block-heading\">The gaps</h3>\n\n<ul class=\"wp-block-list\">\n<li>Women hold about 42% of mobile money accounts (105.6 million of 250.2 million).</li>\n<li>Girls hold 45.1% of school banking deposits, boys 54.9%.</li>\n<li>Rural areas have most school banking accounts (52.24%), but urban areas hold most of the money (70.29% of deposits).</li>\n<li>No-frills deposits grew mainly because of safety-net beneficiaries and very poor savers, the report found.</li>\n</ul>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">Falling balances in farmers&#8217; and students&#8217; accounts fit the picture of household strain in the <a href=\"/2026/11/10/world-bank-half-of-poorest-households-get-no-safety-net/\">World Bank&#8217;s latest poverty estimates</a>. The drop in government-to-person mobile payments matters for cash transfer programmes, including the new Family Card. Microfinance NGOs and women&#8217;s economic empowerment programmes can use the gender figures to target outreach, since women still hold well under half of mobile money accounts.</p>\n\n<h3 class=\"wp-block-heading\">Limitations</h3>\n\n<p class=\"wp-block-paragraph\">Account counts include dormant and duplicate accounts, so they overstate the number of people served. The 64.5% access figure depends on the report&#8217;s definition, which the news coverage does not set out. Devlens has not seen the full report.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.tbsnews.net/economy/banking/financial-inclusion-reaches-645-adults-farmers-students-savings-decline-cenbank\">Financial inclusion reaches 64.5% of adults, but farmers&#8217;, students&#8217; savings decline: Cenbank report</a>, The Business Standard, 10 November 2026</li>\n</ul>\n"
 }
