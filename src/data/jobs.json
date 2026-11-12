@@ -913,7 +913,7 @@
    "org": "Islamic Relief Bangladesh",
    "badge": "IR",
    "sector": "humanitarian-rohingya-response",
-   "url": "https://islamicrelief.org.bd/stay-informed/jobs/",
+   "url": "https://bdjobs.com/h/details/1554621?ln=1",
    "location": "Ukhiya, Cox's Bazar",
    "nationals": false,
    "consultancy": false,
@@ -1258,6 +1258,22 @@
    "deadline": "2026-11-15",
    "deadlineText": "15 November 2026",
    "button": "View circular",
+   "added": "2026-11-12"
+  },
+  {
+   "title": "Admin Assistant (Economic Empowerment and Governance Programme)",
+   "org": "Islamic Relief Bangladesh",
+   "badge": "IR",
+   "sector": "livelihoods-microfinance",
+   "url": "https://bdjobs.com/h/details/1555302?ln=1",
+   "location": "Kurigram (Rajarhat and Sadar)",
+   "nationals": true,
+   "consultancy": false,
+   "contract": "See advert",
+   "ref": "Ref: Islamic Relief Bangladesh jobs page and Bdjobs",
+   "deadline": "2026-11-16",
+   "deadlineText": "16 November 2026",
+   "button": "Apply on Bdjobs",
    "added": "2026-11-12"
   }
  ]
