@@ -149,7 +149,7 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
     <section class="section special">
       <div class="wrap">
         <div class="section-head"><h2><span style="color:#12b886">■</span> Devlens Special</h2><a href="/category/devlens-special/">All special reports ↗</a></div>
-        {specialItems.map(({ meta, post }) => (
+        {specialItems.slice(0, 1).map(({ meta, post }) => (
           <div class="box">
             {post.image && <a href={postUrl(post)}><img src={post.image.src} alt={post.image.alt} loading="lazy" /></a>}
             <div class="text">
@@ -160,6 +160,16 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
             </div>
           </div>
         ))}
+        {specialItems.length > 1 && (
+          <div class="special-prev">
+            <p class="eyebrow">Previous special reports</p>
+            <ul>
+              {specialItems.slice(1).map(({ meta, post }) => (
+                <li><a href={postUrl(post)}>{meta.headline || post.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   )}
