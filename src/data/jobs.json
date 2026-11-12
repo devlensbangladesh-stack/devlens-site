@@ -923,6 +923,54 @@
    "deadlineText": "15 November 2026",
    "button": "Apply on official site",
    "added": "2026-11-11"
+  },
+  {
+   "title": "Senior MEAL Manager",
+   "org": "International Rescue Committee (IRC)",
+   "badge": "IRC",
+   "sector": "humanitarian-rohingya-response",
+   "url": "https://www.impactpool.org/jobs/1247433",
+   "location": "Cox's Bazar",
+   "nationals": false,
+   "consultancy": false,
+   "contract": "See advert",
+   "ref": "Ref: Impactpool listing 1247433",
+   "deadline": null,
+   "deadlineText": "See advert",
+   "button": "Apply on official site",
+   "added": "2026-11-12"
+  },
+  {
+   "title": "WASH Officer",
+   "org": "Norwegian Refugee Council (NRC)",
+   "badge": "NRC",
+   "sector": "humanitarian-rohingya-response",
+   "url": "https://www.impactpool.org/jobs/1247291",
+   "location": "Ukhiya, Cox's Bazar",
+   "nationals": true,
+   "consultancy": false,
+   "contract": "See advert",
+   "ref": "Ref: Impactpool listing 1247291",
+   "deadline": null,
+   "deadlineText": "See advert",
+   "button": "Apply on official site",
+   "added": "2026-11-12"
+  },
+  {
+   "title": "Project Manager, EU CEF Programme",
+   "org": "UNOPS",
+   "badge": "UNOPS",
+   "sector": "development-cooperation",
+   "url": "https://www.impactpool.org/jobs/1247283",
+   "location": "Dhaka",
+   "nationals": false,
+   "consultancy": false,
+   "contract": "See advert",
+   "ref": "Ref: Impactpool listing 1247283",
+   "deadline": null,
+   "deadlineText": "See advert",
+   "button": "Apply on official site",
+   "added": "2026-11-12"
   }
  ]
 }

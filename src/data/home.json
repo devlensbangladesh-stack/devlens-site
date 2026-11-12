@@ -1,9 +1,9 @@
 {
   "lead": {
-    "slug": "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
-    "label": "Climate · COP31",
-    "headline": "Bangladesh asks COP31 for three times more adaptation finance",
-    "summary": "The Prime Minister met President Erdogan in Antalya and speaks to the plenary on 12 November. Dhaka wants grants, not loans."
+    "slug": "garment-owners-consider-closing-210-ashulia-factories-section-13",
+    "label": "Labour · Garments",
+    "headline": "Garment owners weigh shutting 210 Ashulia factories without pay",
+    "summary": "About 140 factories stopped work on 11 November. A decision on closures under Section 13(1) is due on Saturday, with 300,000 workers in the belt."
   },
   "alsoToday": {
     "slug": "722-ngo-registrations-cancelled-15-years-home-minister-parliament",
@@ -11,14 +11,15 @@
     "headline": "722 NGOs lost registration in 15 years, minister tells Parliament",
     "summary": "Late renewals, forged donor letters and misused grants were among the reasons. The government says it will stay strict.",
     "plus": [
+      "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
+      "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall",
+      "rmmru-study-climate-risks-push-rural-people-to-cities",
       "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
       "dengue-1900-admissions-478-deaths-november-11",
       "un-rapporteur-kelley-currie-dhaka-icj-myanmar-genocide-ruling-november-19",
       "measles-dengue-co-infection-children-dhaka-hospitals",
       "measles-deaths-1289-241556-suspected-cases-november-10",
-      "pmi-october-2026-economy-returns-to-expansion-mcci-policy-exchange",
-      "arson-crude-bombs-11-districts-banned-awami-league-blockade",
-      "pm-tarique-rahman-cop31-antalya-meetings-climate-finance"
+      "pmi-october-2026-economy-returns-to-expansion-mcci-policy-exchange"
     ]
   },
   "special": {
@@ -30,7 +31,7 @@
   },
   "pills": {
     "fundingOpen": 3,
-    "newReports": 11,
+    "newReports": 13,
     "keyNumbers": 25
   },
   "numbers": [
@@ -88,20 +89,16 @@
     "dates": "9 to 20 November 2026 · Antalya, Türkiye",
     "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
-      "date": "11 Nov",
-      "text": "The Antalya Leaders' Summit opened with UN Secretary-General António Guterres warning that the climate crisis is \"outrunning us\" and President Erdoğan pushing a zero-waste pledge. The United States is absent for a second year. Prime Minister Tarique Rahman met Uzbek President Shavkat Mirziyoyev and toured the Bangladesh Pavilion; a meeting with Chinese Vice-President Han Zheng was scheduled, with no read-out yet. He gives Bangladesh's national statement on 12 November. Finance and trade follow on 13 November.",
+      "date": "12 Nov",
+      "text": "Prime Minister Tarique Rahman delivers Bangladesh's national statement today, on a summit day focused on resilient cities and buildings. On Wednesday he met Chinese Vice-President Han Zheng to discuss more Chinese investment and climate cooperation; no agreement was announced. Finance and trade are on the agenda on 13 November.",
       "sources": [
         {
-          "name": "Al Jazeera",
-          "url": "https://www.aljazeera.com/news/2026/11/11/climate-crisis-is-outrunning-us-un-chief-guterres-says-at-cop31"
-        },
-        {
           "name": "The Daily Star",
-          "url": "https://www.thedailystar.net/news/bangladesh/diplomacy/news/pm-tarique-uzbek-president-discuss-strengthening-bilateral-ties-4321276"
+          "url": "https://www.thedailystar.net/news/bangladesh/diplomacy/news/cop31-sidelines-pm-tarique-chinese-vice-president-discuss-investment-climate-cooperation-4321326"
         },
         {
-          "name": "bdnews24.com",
-          "url": "https://bdnews24.com/bangladesh/tb6zhbllgg"
+          "name": "Hürriyet Daily News",
+          "url": "https://www.hurriyetdailynews.com/cop31-leaders-summit-set-to-open-in-turkiye-with-electrification-in-focus-229258"
         }
       ]
     },
@@ -114,6 +111,7 @@
     "stories": [
       "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
       "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
+      "rmmru-study-climate-risks-push-rural-people-to-cities",
       "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
       "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
       "energy-climate-finance-92-percent-loans-change-initiative-study",
