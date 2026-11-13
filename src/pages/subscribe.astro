@@ -1,27 +1,14 @@
 ---
 // Subscribe: sign-up for the Devlens Brief, sent to MailerLite (group "Devlens Brief", double opt-in).
-// Same layout as the Submit page. The right-hand preview is built from the site's real data
-// (lead story, Also today, jobs closing soon, funding deadlines) and greets the reader by name as they type.
+// Same card style as the Submit page, in a single column.
 import Base from '../layouts/Base.astro';
-import { home, posts, postUrl, bySlug, openJobs, dhakaToday, fmtShort, jobsData } from '../lib/data.js';
+import { home, openJobs, dhakaToday } from '../lib/data.js';
 
 const action = 'https://assets.mailerlite.com/jsonp/2769076/forms/203227707079657299/subscribe';
 const today = dhakaToday();
 
-const story = (slug, fallback) => {
-  const p = bySlug(slug);
-  return p ? { headline: fallback?.headline || p.title, url: postUrl(p) } : fallback ? { headline: fallback.headline, url: '/' } : null;
-};
-const lead = story(home.lead?.slug, home.lead);
-const also = story(home.alsoToday?.slug, home.alsoToday);
-const more = (home.alsoToday?.plus || []).map((s) => story(s)).filter(Boolean).slice(0, 2);
-const stories = [lead, also, ...more].filter(Boolean).filter((s, i, a) => a.findIndex((x) => x.url === s.url) === i).slice(0, 4);
-
 const open = openJobs(today);
-const closing = open.filter((j) => j.deadline).sort((a, b) => a.deadline.localeCompare(b.deadline)).slice(0, 6);
 const funding = (home.funding || []).filter((f) => !f.deadline || f.deadline >= today);
-const number = (home.numbers || [])[0];
-const sectorName = Object.fromEntries((jobsData.sectors || []).map((s) => [s.id, s.name]));
 
 const perks = [
   ['01', 'Top stories', 'The week\'s most important news from NGOs, donors and the government, with links to the original sources.'],
@@ -100,49 +87,13 @@ const faqs = [
         </section>
       </div>
 
-      <aside class="sub-side">
-        <p class="eyebrow">Preview of a recent Brief</p>
-        <article class="brief-mail" aria-label="Example of the Devlens Brief email">
-          <div class="brief-mail-head">
-            <p><strong>From:</strong> Devlens Bangladesh</p>
-            <p><strong>To:</strong> <span id="p-email">you@example.org</span></p>
-            <p><strong>Subject:</strong> The Devlens Brief: {lead ? lead.headline : 'this week in development'}</p>
-          </div>
-          <div class="brief-mail-body">
-            <p class="brief-hello" id="p-hello">Hello,</p>
-            <p class="brief-intro">Here is what matters in Bangladesh's development sector right now.</p>
-
-            {stories.length > 0 && <>
-              <h3>Top stories</h3>
-              <ul class="brief-list">{stories.map((s) => <li><a href={s.url}>{s.headline}</a></li>)}</ul>
-            </>}
-
-            {closing.length > 0 && <>
-              <h3>Jobs closing soon</h3>
-              <ul class="brief-list brief-dated">{closing.map((j) => (
-                <li data-deadline={j.deadline}><a href={j.url} target="_blank" rel="noopener">{j.title}</a><span>{j.org} · closes {fmtShort(j.deadline)}{sectorName[j.sector] ? ` · ${sectorName[j.sector]}` : ''}</span></li>
-              ))}</ul>
-            </>}
-
-            {funding.length > 0 && <>
-              <h3>Funding deadlines</h3>
-              <ul class="brief-list brief-dated">{funding.map((f) => (
-                <li data-deadline={f.deadline}><a href={f.url}>{f.title}</a><span>{f.funder}{f.deadline ? ` · closes ${fmtShort(f.deadline)}` : ''}</span></li>
-              ))}</ul>
-            </>}
-
-            {number && <div class="brief-number"><strong>{number.value}</strong><p>{number.label}</p><span>{number.source}</span></div>}
-          </div>
-        </article>
-        <p class="sub-note">Links in the preview work. Every Brief is different, and editors choose what goes in.</p>
-      </aside>
     </div>
   </div>
 </Base>
 
 <style is:global>
   .sub-lede { font-size: 20px; color: var(--ink-2); max-width: 760px; margin: 0; }
-  .sub-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 36px; align-items: start; margin-top: 28px; }
+  .sub-grid { max-width: 760px; margin-top: 28px; }
   .sub-form { display: grid; gap: 22px; }
   .sub-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: #fff; display: grid; gap: 16px; }
   .sub-card[hidden] { display: none; }
@@ -176,29 +127,6 @@ const faqs = [
   .brief-faq details:last-child { border-bottom: 1px solid var(--line); }
   .brief-faq summary { font-weight: 700; cursor: pointer; }
   .brief-faq p { margin: 8px 0 0; color: var(--ink-2); font-size: 15px; }
-  .sub-side { position: sticky; top: 24px; display: grid; gap: 14px; }
-  .sub-side .eyebrow { margin: 0; }
-  .brief-mail { border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: 0 10px 30px rgba(14,17,22,.06); overflow: hidden; }
-  .brief-mail-head { background: var(--sand); padding: 14px 20px; font-size: 13px; color: var(--muted); }
-  .brief-mail-head p { margin: 2px 0; overflow-wrap: anywhere; }
-  .brief-mail-head strong { color: var(--ink); }
-  .brief-mail-body { padding: 20px; max-height: 70vh; overflow: auto; }
-  .brief-hello { font-size: 18px; font-weight: 800; margin: 0 0 4px; overflow-wrap: anywhere; }
-  .brief-intro { color: var(--ink-2); margin: 0 0 8px; font-size: 15px; }
-  .brief-mail-body h3 { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); margin: 18px 0 8px; }
-  .brief-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
-  .brief-list a { color: var(--ink); font-weight: 700; font-size: 15px; text-decoration: none; }
-  .brief-list a:hover { text-decoration: underline; }
-  .brief-list span { display: block; font-size: 13px; color: var(--muted); }
-  .brief-number { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
-  .brief-number strong { font-size: 30px; font-weight: 800; color: var(--green-dark); }
-  .brief-number p { margin: 2px 0; font-size: 14px; color: var(--ink-2); }
-  .brief-number span { font-size: 12px; color: var(--faint); }
-  .sub-note { font-size: 13px; color: var(--faint); margin: 0; }
-  @media (max-width: 900px) {
-    .sub-grid { grid-template-columns: 1fr; }
-    .sub-side { position: static; }
-  }
   @media (max-width: 560px) {
     .sub-row, .brief-perks { grid-template-columns: 1fr; }
     .sub-card { padding: 18px; }
@@ -213,16 +141,6 @@ const faqs = [
   const email = $('f-email'), name = $('f-name'), ok = $('f-ok'), btn = $('brief-btn'), msg = $('brief-msg');
   const valid = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-  // Hide jobs and funding calls whose deadline has passed since the last build.
-  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Dhaka' }).format(new Date());
-  document.querySelectorAll('.brief-dated li[data-deadline]').forEach((li) => { if (li.dataset.deadline && li.dataset.deadline < today) li.remove(); });
-
-  function preview() {
-    const n = name.value.trim().split(/\s+/)[0];
-    $('p-hello').textContent = n ? 'Hello ' + n + ',' : 'Hello,';
-    $('p-email').textContent = email.value.trim() || 'you@example.org';
-  }
-  form.addEventListener('input', preview);
 
   function err(k, text) { $('e-' + k).textContent = text; const i = $('f-' + k); if (i && i.tagName === 'INPUT' && i.type !== 'checkbox') i.classList.toggle('bad', !!text); }
 
@@ -250,7 +168,6 @@ const faqs = [
       .finally(() => { btn.disabled = false; btn.textContent = 'Subscribe free'; });
   });
 
-  $('brief-again').addEventListener('click', () => { form.reset(); preview(); $('brief-done').hidden = true; form.hidden = false; email.focus(); });
-  preview();
+  $('brief-again').addEventListener('click', () => { form.reset(); $('brief-done').hidden = true; form.hidden = false; email.focus(); });
 })();
 </script>
