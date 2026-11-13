@@ -1,13 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
-import { pages } from '../lib/data.js';
+import { pages, fmtDate } from '../lib/data.js';
+import hdx from '../data/indicators.json';
 export function getStaticPaths() {
   return pages.filter((p) => p.slug !== 'subscribe' && p.slug !== 'submit').map((p) => ({ params: { page: p.slug }, props: { p } }));
 }
 const { p } = Astro.props;
+const live = p.slug === 'data' && hdx.indicators.length ? hdx : null;
 ---
 <Base title={p.title} description={p.excerpt?.slice(0, 160)} wpBlocks>
   <header class="page-head"><div class="wrap"><h1>{p.title}</h1></div></header>
   {p.hero && <div class="wrap"><figure class="page-hero"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.width} height={p.hero.height} fetchpriority="high" /><figcaption>AI-generated illustration</figcaption></figure></div>}
-  <div class="wrap page-body"><div class="prose wp-content" set:html={p.content} /></div>
+  <div class="wrap page-body"><div class="prose wp-content" set:html={p.content} />
+    {live && (
+      <div class="prose wp-content">
+        <h2>Humanitarian figures, updated automatically</h2>
+        <p>Pulled daily from the Humanitarian Data Exchange (HDX). Last checked {fmtDate(live.fetched)}.</p>
+        <figure class="wp-block-table"><table>
+          <thead><tr><th>Indicator</th><th>Value</th><th>Period</th><th>Source</th></tr></thead>
+          <tbody>{live.indicators.map((i) => <tr><td>{i.label}</td><td>{i.value}</td><td>{i.period}</td><td><a href={i.sourceUrl}>{i.source}</a></td></tr>)}</tbody>
+        </table></figure>
+      </div>
+    )}
+  </div>
 </Base>

@@ -1,0 +1,29 @@
+name: HDX indicators
+on:
+  schedule:
+    - cron: '17 1 * * *'   # 07:17 in Dhaka, every day
+  workflow_dispatch:
+  push:
+    branches: [hdx-indicators]
+    paths: [scripts/fetch-hdx.py, .github/workflows/hdx.yml]
+permissions:
+  contents: write
+concurrency: hdx
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python scripts/fetch-hdx.py
+        env:
+          HDX_APP_IDENTIFIER: ${{ secrets.HDX_APP_IDENTIFIER }}
+      - run: |
+          git config user.name "devlens-bot"
+          git config user.email "devlens-bot@users.noreply.github.com"
+          git add src/data/indicators.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Update HDX indicators"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push origin "HEAD:${{ github.ref_name }}"

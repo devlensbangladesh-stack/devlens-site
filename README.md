@@ -13,3 +13,7 @@ Every push to the `main` branch rebuilds and publishes the site.
 ## Cloudflare Pages settings
 - Build command: `npm run build`
 - Build output directory: `dist`
+
+## Automatic humanitarian figures (HDX)
+- `scripts/fetch-hdx.py` pulls Rohingya refugee numbers and response-appeal funding from the Humanitarian Data Exchange into `src/data/indicators.json`. The Data page shows them in their own table.
+- `.github/workflows/hdx.yml` runs it every morning. It needs a repository secret named `HDX_APP_IDENTIFIER` (free, generated at https://hapi.humdata.org/docs).
