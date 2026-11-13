@@ -1,9 +1,9 @@
 {
   "lead": {
-    "slug": "722-ngo-registrations-cancelled-15-years-home-minister-parliament",
-    "label": "NGO sector · Regulation",
-    "headline": "722 NGOs lost registration in 15 years, minister tells Parliament",
-    "summary": "Late renewals, forged donor letters and misused grants were among the reasons. Check your renewal date: FDVA registration runs for 10 years."
+    "slug": "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
+    "label": "Climate finance · COP31",
+    "headline": "Plan to triple adaptation finance kept off COP31's formal agenda",
+    "summary": "There is now no negotiating track to define or track the pledge Bangladesh backs. African countries will push for it in the final cover text."
   },
   "alsoToday": {
     "slug": "garment-owners-consider-closing-210-ashulia-factories-section-13",
@@ -11,16 +11,15 @@
     "headline": "Garment owners weigh shutting 210 Ashulia factories without pay",
     "summary": "About 140 factories stopped work on 11 November. A decision on closures under Section 13(1) is due on Saturday, with 300,000 workers in the belt.",
     "plus": [
+      "722-ngo-registrations-cancelled-15-years-home-minister-parliament",
+      "dengue-1960-admissions-481-deaths-november-12",
       "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
       "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
       "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall",
       "rmmru-study-climate-risks-push-rural-people-to-cities",
       "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
-      "dengue-1900-admissions-478-deaths-november-11",
       "un-rapporteur-kelley-currie-dhaka-icj-myanmar-genocide-ruling-november-19",
-      "measles-dengue-co-infection-children-dhaka-hospitals",
-      "measles-deaths-1289-241556-suspected-cases-november-10",
-      "pmi-october-2026-economy-returns-to-expansion-mcci-policy-exchange"
+      "measles-dengue-co-infection-children-dhaka-hospitals"
     ]
   },
   "special": {
@@ -90,12 +89,12 @@
     "dates": "9 to 20 November 2026 · Antalya, Türkiye",
     "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
-      "date": "12 Nov",
-      "text": "Prime Minister Tarique Rahman gave Bangladesh's national statement, asking that at least half of all climate finance go to adaptation, as grants, with debt relief and a just transition mechanism. UN Climate Change launched its Net-Zero Recognition Framework for companies, cities and other non-state actors, and leaders met on methane. On Wednesday, Guterres told the leaders' summit emissions must fall about 6% a year; current plans deliver at best a third of that.",
+      "date": "13 Nov",
+      "text": "Finance and trade are on the agenda today. The African Group's call for a separate agenda item on tripling adaptation finance failed at the opening session, so the pledge has no formal negotiating track; the group now wants it in the final cover text. Bangladesh's Prime Minister asked on Thursday for at least half of all climate finance to go to adaptation.",
       "sources": [
         {
-          "name": "The Business Standard",
-          "url": "https://www.tbsnews.net/bangladesh/pm-outlines-five-actions-address-needs-climate-vulnerable-countries-1600296"
+          "name": "allAfrica",
+          "url": "https://allafrica.com/stories/202611120246.html"
         },
         {
           "name": "UN Climate Change live updates",
@@ -110,6 +109,7 @@
       "Gender: UN Women found 73% of countries recognise gender-specific climate risks, but just over one in three address them fully."
     ],
     "stories": [
+      "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
       "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
       "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
       "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
