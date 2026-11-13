@@ -1,0 +1,327 @@
+---
+// Share your work: a submission form for news, research, funding, jobs, events and corrections.
+// The site is static, so a completed form opens the sender's email app addressed to the Devlens inbox,
+// with a "copy text" fallback. Sectors come from jobs.json so they match the rest of the site.
+import Base from '../layouts/Base.astro';
+import jobsData from '../data/jobs.json';
+import page from '../data/pages/submit.json';
+const inbox = 'devlensbangladesh@gmail.com';
+const sectors = jobsData.sectors || [];
+const types = [
+  ['news', 'News or press release'],
+  ['research', 'Research or report'],
+  ['funding', 'Funding call'],
+  ['job', 'Job vacancy'],
+  ['event', 'Event'],
+  ['correction', 'Correction'],
+];
+const places = ['Nationwide', 'Dhaka', 'Chattogram', "Cox's Bazar", 'Khulna', 'Rajshahi', 'Sylhet', 'Barishal', 'Rangpur', 'Mymensingh', 'Outside Bangladesh'];
+---
+<Base title={page.title} description="Send Devlens Bangladesh news, research, funding calls, vacancies, events or corrections. Our editors review every submission.">
+  <header class="page-head"><div class="wrap">
+    <p class="eyebrow" style="color:#0b8f68">Share your work</p>
+    <h1>Send us news, research or opportunities</h1>
+    <p class="sub-lede">News, research, funding calls, vacancies, events or corrections from Bangladesh's development and humanitarian sector. Our editors review every submission.</p>
+  </div></header>
+
+  <div class="wrap page-body">
+    <div class="sub-grid">
+      <form id="sub-form" class="sub-form" novalidate>
+
+        <section class="sub-card">
+          <h2><span>01</span> What are you sending?</h2>
+          <div class="sub-types" role="radiogroup" aria-label="Type of submission">
+            {types.map(([v, label], i) => (
+              <label class="sub-chip"><input type="radio" name="type" value={v} checked={i === 0} /><span>{label}</span></label>
+            ))}
+          </div>
+        </section>
+
+        <section class="sub-card">
+          <h2><span>02</span> The details <small>* required</small></h2>
+          <div class="sub-field">
+            <div class="sub-label-row"><label for="f-title">Headline or title *</label><span class="sub-count" id="c-title">0 / 140</span></div>
+            <input id="f-title" maxlength="140" placeholder="e.g. New report on climate migration in coastal Khulna" />
+            <p class="sub-err" id="e-title"></p>
+          </div>
+          <div class="sub-row">
+            <div class="sub-field">
+              <label for="f-org">Organisation *</label>
+              <input id="f-org" maxlength="120" placeholder="e.g. BRAC, UNDP, a district NGO" />
+              <p class="sub-err" id="e-org"></p>
+            </div>
+            <div class="sub-field">
+              <label for="f-date" id="l-date">Date published</label>
+              <input id="f-date" type="date" />
+            </div>
+          </div>
+          <div class="sub-field">
+            <label for="f-url" id="l-url">Link to the original source *</label>
+            <input id="f-url" type="url" inputmode="url" placeholder="https://" />
+            <p class="sub-hint" id="h-url">A press release, report PDF, circular or official page. We cite original sources.</p>
+            <p class="sub-err" id="e-url"></p>
+          </div>
+          <div class="sub-field">
+            <div class="sub-label-row"><label for="f-summary" id="l-summary">Short summary *</label><span class="sub-count" id="c-summary">0 / 800</span></div>
+            <textarea id="f-summary" rows="5" maxlength="800" placeholder="What happened or what is offered, key figures, who it is for, and why it matters."></textarea>
+            <p class="sub-err" id="e-summary"></p>
+          </div>
+        </section>
+
+        <section class="sub-card">
+          <h2><span>03</span> Sector and location</h2>
+          <div class="sub-field">
+            <div class="sub-label-row"><label>Sectors *</label><span class="sub-count">Choose up to 3</span></div>
+            <div class="sub-sectors">
+              {sectors.map((s) => (
+                <label class="sub-chip sub-chip-sm"><input type="checkbox" name="sector" value={s.id} data-name={s.name} data-color={s.color} /><span>{s.name}</span></label>
+              ))}
+            </div>
+            <p class="sub-err" id="e-sector"></p>
+          </div>
+          <div class="sub-field">
+            <label for="f-place">Location</label>
+            <select id="f-place">{places.map((p) => <option value={p}>{p}</option>)}</select>
+          </div>
+        </section>
+
+        <section class="sub-card">
+          <h2><span>04</span> Your details</h2>
+          <div class="sub-row">
+            <div class="sub-field">
+              <label for="f-name">Your name *</label>
+              <input id="f-name" maxlength="80" autocomplete="name" />
+              <p class="sub-err" id="e-name"></p>
+            </div>
+            <div class="sub-field">
+              <label for="f-email">Email address *</label>
+              <input id="f-email" type="email" autocomplete="email" />
+              <p class="sub-err" id="e-email"></p>
+            </div>
+          </div>
+          <div class="sub-row">
+            <div class="sub-field">
+              <label for="f-role">Your role</label>
+              <input id="f-role" maxlength="80" placeholder="e.g. Communications officer" />
+            </div>
+            <div class="sub-field">
+              <label for="f-phone">Phone (optional)</label>
+              <input id="f-phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+          <label class="sub-check"><input type="checkbox" id="f-public" /><span>The information is public, or I am authorised to share it. *</span></label>
+          <p class="sub-err" id="e-public"></p>
+          <label class="sub-check"><input type="checkbox" id="f-anon" /><span>Do not name me as the source if this is published.</span></label>
+        </section>
+
+        <div class="sub-actions">
+          <button type="button" class="btn btn-outline" id="sub-reset">Clear form</button>
+          <button type="submit" class="btn btn-green">Send to Devlens</button>
+        </div>
+      </form>
+
+      <aside class="sub-side">
+        <p class="eyebrow">Preview</p>
+        <article class="sub-preview" aria-live="polite">
+          <span class="pill" id="p-type">News</span>
+          <h3 id="p-title">Your headline will appear here</h3>
+          <p class="sub-p-sum" id="p-summary">A short summary of what happened or what is on offer, with the key facts readers need.</p>
+          <div class="sub-p-tags" id="p-sectors"></div>
+          <p class="sub-p-meta"><strong id="p-org">Organisation</strong> <span id="p-place">· Nationwide</span> <span id="p-date"></span></p>
+        </article>
+        <p class="sub-note">This is a rough guide. Our editors decide how a story is written and where it appears.</p>
+
+        <div class="sub-guide">
+          <h3>Before you send</h3>
+          <ul>
+            <li>Include a link to the original source or document wherever possible.</li>
+            <li>Give the numbers, dates and names that matter, with job titles.</li>
+            <li>For jobs and funding, add the closing date and the official application link.</li>
+            <li>Sending information does not guarantee coverage. We may contact you to verify details.</li>
+            <li>To send files, attach them to the email that opens, or write to <a href={`mailto:${inbox}`}>{inbox}</a>.</li>
+          </ul>
+          <p>Read our <a href="/editorial-standards/">editorial standards</a>.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="sub-done" id="sub-done" hidden>
+      <div class="sub-done-box" role="dialog" aria-modal="true" aria-labelledby="sub-done-h">
+        <h2 id="sub-done-h">Almost done</h2>
+        <p>Your email app should open with the submission ready to send to <strong>{inbox}</strong>. Please press send there.</p>
+        <p>If nothing opened, copy the text below and email it to us.</p>
+        <pre id="sub-text"></pre>
+        <div class="sub-actions">
+          <button type="button" class="btn btn-outline" id="sub-copy">Copy text</button>
+          <a class="btn btn-dark" id="sub-mail" href={`mailto:${inbox}`}>Open email again</a>
+          <button type="button" class="btn btn-outline" id="sub-close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style is:global>
+  .sub-lede { font-size: 20px; color: var(--ink-2); max-width: 760px; margin: 0; }
+  .sub-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 36px; align-items: start; margin-top: 28px; }
+  .sub-form { display: grid; gap: 22px; }
+  .sub-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: #fff; display: grid; gap: 16px; }
+  .sub-card h2 { font-size: 19px; font-weight: 800; display: flex; align-items: center; gap: 10px; margin: 0; }
+  .sub-card h2 span { background: var(--sand); color: var(--green-dark); font-size: 12px; border-radius: 8px; padding: 3px 7px; }
+  .sub-card h2 small { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--faint); }
+  .sub-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .sub-field { display: grid; gap: 6px; }
+  .sub-field label, .sub-label-row label { font-size: 14px; font-weight: 700; }
+  .sub-label-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .sub-count, .sub-hint { font-size: 12px; color: var(--faint); margin: 0; }
+  .sub-field input, .sub-field select, .sub-field textarea { width: 100%; font: 500 16px var(--font); color: var(--ink); background: var(--sand); border: 1.5px solid var(--line); border-radius: 12px; padding: 11px 14px; }
+  .sub-field textarea { resize: vertical; }
+  .sub-field input:focus, .sub-field select:focus, .sub-field textarea:focus { outline: none; border-color: var(--green); background: #fff; }
+  .sub-field .bad { border-color: var(--orange); }
+  .sub-err { color: var(--orange); font-size: 13px; font-weight: 600; margin: 0; }
+  .sub-err:empty { display: none; }
+  .sub-types, .sub-sectors { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sub-chip { cursor: pointer; position: relative; }
+  .sub-chip input { position: absolute; left: 0; top: 0; width: 1px; height: 1px; margin: 0; opacity: 0; pointer-events: none; }
+  .sub-chip span { display: inline-block; border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; font-weight: 700; color: var(--ink-2); background: #fff; }
+  .sub-chip-sm span { padding: 6px 12px; font-size: 13px; }
+  .sub-chip input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .sub-chip input:focus-visible + span { outline: 2px solid var(--green); outline-offset: 2px; }
+  .sub-check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ink-2); cursor: pointer; }
+  .sub-check input { margin-top: 4px; accent-color: var(--green-dark); width: 16px; height: 16px; }
+  .sub-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
+  .sub-actions .btn { cursor: pointer; font-family: var(--font); }
+  .sub-side { position: sticky; top: 24px; display: grid; gap: 14px; }
+  .sub-side .eyebrow { margin: 0; }
+  .sub-preview { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: #fff; box-shadow: 0 10px 30px rgba(14,17,22,.06); }
+  .sub-preview h3 { font-size: 24px; font-weight: 800; margin: 14px 0 10px; overflow-wrap: anywhere; }
+  .sub-p-sum { color: var(--ink-2); font-size: 16px; margin: 0 0 14px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+  .sub-p-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .sub-p-tags span { font-size: 12px; font-weight: 700; border-radius: 999px; padding: 3px 10px; color: #fff; }
+  .sub-p-meta { font-size: 14px; color: var(--muted); margin: 0; border-top: 1px solid var(--line); padding-top: 12px; overflow-wrap: anywhere; }
+  .sub-p-meta strong { color: var(--ink); }
+  .sub-note { font-size: 13px; color: var(--faint); margin: 0; }
+  .sub-guide { background: var(--sand); border-radius: var(--radius); padding: 22px; font-size: 15px; color: var(--ink-2); }
+  .sub-guide h3 { font-size: 16px; color: var(--ink); }
+  .sub-guide ul { padding-left: 18px; margin: 0 0 10px; }
+  .sub-guide li { margin-bottom: 6px; }
+  .sub-guide a { color: var(--green-dark); overflow-wrap: anywhere; }
+  .sub-guide p { margin: 0; }
+  .sub-done { position: fixed; inset: 0; z-index: 50; background: rgba(14,17,22,.6); display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .sub-done[hidden] { display: none; }
+  .sub-done-box { background: #fff; border-radius: var(--radius); padding: 26px; width: 100%; max-width: 640px; max-height: 90vh; overflow: auto; }
+  .sub-done-box h2 { font-size: 26px; font-weight: 800; }
+  .sub-done-box p { color: var(--ink-2); font-size: 16px; margin: 0 0 10px; overflow-wrap: anywhere; }
+  .sub-done-box pre { background: var(--sand); border-radius: 12px; padding: 14px; font-size: 13px; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 260px; overflow: auto; margin: 0 0 16px; }
+  @media (max-width: 900px) {
+    .sub-grid { grid-template-columns: 1fr; }
+    .sub-side { position: static; }
+  }
+  @media (max-width: 560px) {
+    .sub-row { grid-template-columns: 1fr; }
+    .sub-card { padding: 18px; }
+    .sub-actions .btn { flex: 1 1 auto; text-align: center; }
+  }
+</style>
+
+<script is:inline define:vars={{ inbox, types }}>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const form = $('sub-form');
+  const typeName = Object.fromEntries(types);
+  const labels = {
+    news: { date: 'Date published', url: 'Link to the original source *', summary: 'Short summary *', hint: 'A press release, report or official page. We cite original sources.' },
+    research: { date: 'Date published', url: 'Link to the report or PDF *', summary: 'Key findings *', hint: 'Link to the full report or the publisher page.' },
+    funding: { date: 'Application deadline', url: 'Link to the official call *', summary: 'Who can apply, amount and focus *', hint: 'The funder\'s own page or call document.' },
+    job: { date: 'Application deadline', url: 'Link to the job advert *', summary: 'Role, duty station and contract *', hint: 'The employer\'s own vacancy page or circular.' },
+    event: { date: 'Event date', url: 'Link to the event or registration page *', summary: 'What, where, who should attend *', hint: 'Registration or information page.' },
+    correction: { date: 'Date of the Devlens story', url: 'Link to the Devlens story *', summary: 'What is wrong and what is correct *', hint: 'Please give a source for the correct information in your summary.' },
+  };
+  const f = (id) => $(id).value.trim();
+  const type = () => (form.querySelector('input[name="type"]:checked') || {}).value || 'news';
+  const chosen = () => [...form.querySelectorAll('input[name="sector"]:checked')];
+  const fmtDate = (v) => v ? new Date(v + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
+
+  function preview() {
+    const t = type();
+    const l = labels[t];
+    $('l-date').textContent = l.date; $('l-url').textContent = l.url; $('l-summary').textContent = l.summary; $('h-url').textContent = l.hint;
+    $('c-title').textContent = $('f-title').value.length + ' / 140';
+    $('c-summary').textContent = $('f-summary').value.length + ' / 800';
+    $('p-type').textContent = typeName[t];
+    $('p-title').textContent = f('f-title') || 'Your headline will appear here';
+    $('p-summary').textContent = f('f-summary') || 'A short summary of what happened or what is on offer, with the key facts readers need.';
+    $('p-org').textContent = f('f-org') || 'Organisation';
+    $('p-place').textContent = '· ' + $('f-place').value;
+    const d = fmtDate($('f-date').value);
+    $('p-date').textContent = d ? '· ' + (t === 'funding' || t === 'job' ? 'Closes ' : '') + d : '';
+    const box = $('p-sectors'); box.textContent = '';
+    chosen().forEach((c) => { const s = document.createElement('span'); s.textContent = c.dataset.name; s.style.background = c.dataset.color; box.appendChild(s); });
+  }
+
+  form.addEventListener('input', preview);
+  form.addEventListener('change', (e) => {
+    if (e.target.name === 'sector' && chosen().length > 3) { e.target.checked = false; err('sector', 'Choose up to 3 sectors.'); }
+    preview();
+  });
+
+  function err(k, msg) { $('e-' + k).textContent = msg; const i = $('f-' + k); if (i) i.classList.toggle('bad', !!msg); }
+  function validUrl(s) { try { const u = new URL(s); return u.protocol === 'https:' || u.protocol === 'http:'; } catch (_) { return false; } }
+
+  function validate() {
+    let ok = true;
+    const check = (k, cond, msg) => { if (!cond) { err(k, msg); ok = false; } else err(k, ''); };
+    check('title', f('f-title').length >= 10, 'Please give a headline of at least 10 characters.');
+    check('org', f('f-org').length >= 2, 'Please name the organisation.');
+    check('url', validUrl(f('f-url')), 'Please add a full link starting with https://');
+    check('summary', f('f-summary').length >= 40, 'Please add a summary of at least 40 characters.');
+    check('sector', chosen().length > 0, 'Choose at least one sector.');
+    check('name', f('f-name').length >= 2, 'Please enter your name.');
+    check('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f('f-email')), 'Please enter a valid email address.');
+    check('public', $('f-public').checked, 'Please confirm you can share this.');
+    return ok;
+  }
+
+  function buildText() {
+    const t = type();
+    const lines = [
+      'Type: ' + typeName[t],
+      'Title: ' + f('f-title'),
+      'Organisation: ' + f('f-org'),
+      'Sectors: ' + chosen().map((c) => c.dataset.name).join(', '),
+      'Location: ' + $('f-place').value,
+    ];
+    if ($('f-date').value) lines.push(labels[t].date + ': ' + fmtDate($('f-date').value));
+    lines.push('Link: ' + f('f-url'), '', 'Summary:', f('f-summary'), '', '---',
+      'From: ' + f('f-name') + (f('f-role') ? ', ' + f('f-role') : ''),
+      'Email: ' + f('f-email'));
+    if (f('f-phone')) lines.push('Phone: ' + f('f-phone'));
+    lines.push('Public or authorised to share: yes', 'Name me as the source: ' + ($('f-anon').checked ? 'no' : 'yes'), '', 'Sent from devlensbd.pages.dev/submit/');
+    return lines.join('\n');
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!validate()) { const first = form.querySelector('.sub-err:not(:empty)'); if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+    const text = buildText();
+    const subject = '[Devlens submission] ' + typeName[type()] + ': ' + f('f-title');
+    const href = 'mailto:' + inbox + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
+    $('sub-text').textContent = 'To: ' + inbox + '\nSubject: ' + subject + '\n\n' + text;
+    $('sub-mail').href = href;
+    $('sub-done').hidden = false;
+    window.location.href = href;
+  });
+
+  $('sub-copy').addEventListener('click', () => {
+    const txt = $('sub-text').textContent;
+    const done = () => { $('sub-copy').textContent = 'Copied'; setTimeout(() => { $('sub-copy').textContent = 'Copy text'; }, 2000); };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, () => {});
+    else { const a = document.createElement('textarea'); a.value = txt; document.body.appendChild(a); a.select(); try { document.execCommand('copy'); done(); } catch (_) {} a.remove(); }
+  });
+  $('sub-close').addEventListener('click', () => { $('sub-done').hidden = true; });
+  $('sub-done').addEventListener('click', (e) => { if (e.target.id === 'sub-done') $('sub-done').hidden = true; });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('sub-done').hidden = true; });
+  $('sub-reset').addEventListener('click', () => { form.reset(); form.querySelectorAll('.sub-err').forEach((x) => { x.textContent = ''; }); form.querySelectorAll('.bad').forEach((x) => x.classList.remove('bad')); preview(); });
+  preview();
+})();
+</script>
