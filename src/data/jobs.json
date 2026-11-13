@@ -84,9 +84,9 @@
    "nationals": true,
    "consultancy": false,
    "contract": "Multiple grades · see circular",
-   "ref": "Ref: Circular published 30 Oct 2026, Prothom Alo and sss-bangladesh.org",
-   "deadline": "2026-11-30",
-   "deadlineText": "30 November 2026",
+   "ref": "Ref: Circular in Prothom Alo and sss-bangladesh.org",
+   "deadline": "2026-11-20",
+   "deadlineText": "20 November 2026 (check the circular: one listing gave 30 November)",
    "button": "Apply on official site",
    "added": "2026-11-11"
   },
@@ -569,22 +569,6 @@
    "deadline": null,
    "deadlineText": "Open until filled",
    "button": "Apply on official site",
-   "added": "2026-11-01"
-  },
-  {
-   "title": "Multiple roles in 17 job categories (1,782 vacancies)",
-   "org": "Society for Social Service (SSS)",
-   "badge": "SSS",
-   "sector": "livelihoods-microfinance",
-   "url": "https://www.prothomalo.com/chakri/employment/aeoo2to2yo",
-   "location": "Multiple districts, see circular",
-   "nationals": true,
-   "consultancy": false,
-   "contract": "Mass recruitment across 17 job categories · Bangladeshi nationals",
-   "ref": "Ref: Prothom Alo job circular · Prothom Alo Chakri (in Bangla)",
-   "deadline": "2026-11-20",
-   "deadlineText": null,
-   "button": "Read the circular",
    "added": "2026-11-01"
   },
   {
