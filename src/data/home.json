@@ -1,16 +1,18 @@
 {
   "lead": {
+    "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
+    "label": "Devlens Special",
+    "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
+    "summary": "BIDS finds the aid fall is permanent. Small NGOs are cutting health, legal and education work first and turning into lenders, and the state would pay 2.9 times as much to replace them.",
+    "holdUntil": "2026-11-13"
+  },
+  "alsoToday": {
     "slug": "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
     "label": "Climate finance · COP31",
     "headline": "Plan to triple adaptation finance kept off COP31's formal agenda",
-    "summary": "There is now no negotiating track to define or track the pledge Bangladesh backs. African countries will push for it in the final cover text."
-  },
-  "alsoToday": {
-    "slug": "garment-owners-consider-closing-210-ashulia-factories-section-13",
-    "label": "Labour · Garments",
-    "headline": "Garment owners weigh shutting 210 Ashulia factories without pay",
-    "summary": "About 140 factories stopped work on 11 November. A decision on closures under Section 13(1) is due on Saturday, with 300,000 workers in the belt.",
+    "summary": "There is now no negotiating track to define or track the pledge Bangladesh backs. African countries will push for it in the final cover text.",
     "plus": [
+      "garment-owners-consider-closing-210-ashulia-factories-section-13",
       "722-ngo-registrations-cancelled-15-years-home-minister-parliament",
       "dengue-1960-admissions-481-deaths-november-12",
       "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
@@ -23,11 +25,11 @@
     ]
   },
   "special": {
-    "slug": "where-did-50000-development-workers-go",
-    "label": "Special report · Workforce",
-    "headline": "After the USAID cuts, where did 50,000 development workers go?",
-    "summary": "No official count, no support scheme. Our analysis traces what happened to the people who lost their jobs after the aid cuts.",
-    "published": "2026-11-07"
+    "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
+    "label": "Special report · NGO financing",
+    "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
+    "summary": "A BIDS study finds 2,170 NGOs have no lending income, and many are cutting services first and turning into lenders.",
+    "published": "2026-11-13"
   },
   "pills": {
     "fundingOpen": 3,
@@ -72,6 +74,12 @@
     }
   ],
   "pinnedSpecials": [
+    {
+      "slug": "where-did-50000-development-workers-go",
+      "label": "Special report · Workforce",
+      "headline": "After the USAID cuts, where did 50,000 development workers go?",
+      "summary": "No official count, no support scheme."
+    },
     {
       "slug": "record-pledges-shrinking-ngos-bangladesh-aid",
       "label": "Special report · Funding Intelligence",
