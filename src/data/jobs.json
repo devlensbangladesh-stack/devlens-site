@@ -91,22 +91,6 @@
    "added": "2026-11-11"
   },
   {
-   "title": "MEAL Manager",
-   "org": "International Rescue Committee (IRC)",
-   "badge": "IRC",
-   "sector": "humanitarian-rohingya-response",
-   "url": "https://www.impactpool.org/jobs/1246745",
-   "location": "Bangladesh",
-   "nationals": false,
-   "consultancy": false,
-   "contract": "Mid level · see advert",
-   "ref": "Ref: Impactpool listing 1246745 · IRC careers",
-   "deadline": null,
-   "deadlineText": "See advert",
-   "button": "Apply on official site",
-   "added": "2026-11-09"
-  },
-  {
    "location": "Dhaka",
    "nationals": true,
    "consultancy": true,
@@ -459,22 +443,6 @@
    "added": "2026-11-01"
   },
   {
-   "title": "Senior Manager, Environmental Health",
-   "org": "International Rescue Committee (IRC)",
-   "badge": "IRC",
-   "sector": "humanitarian-rohingya-response",
-   "url": "https://www.impactpool.org/jobs/1243937",
-   "location": "Ukhiya, Cox's Bazar",
-   "nationals": true,
-   "consultancy": false,
-   "contract": "1 year, possible extension · Bangladeshi nationals only",
-   "ref": "Ref: Impactpool 1243937 · Impactpool (apply through IRC careers)",
-   "deadline": null,
-   "deadlineText": "See advert",
-   "button": "Apply on official site",
-   "added": "2026-11-01"
-  },
-  {
    "title": "Protection Manager, PRoL",
    "org": "International Rescue Committee (IRC)",
    "badge": "IRC",
@@ -634,22 +602,6 @@
    "deadlineText": "23 Nov 2026, 4pm Dhaka time",
    "button": "Read the advert",
    "added": "2026-11-01"
-  },
-  {
-   "title": "National Consultant: Technical Expert (WASH)",
-   "org": "UNICEF",
-   "badge": "UNICEF",
-   "sector": "health-nutrition",
-   "url": "https://unjobs.org/vacancies/1793725268001",
-   "location": "Dhaka",
-   "nationals": true,
-   "consultancy": true,
-   "contract": "National consultant, 12 months, office based · Bangladeshi nationals only; Bangla and English",
-   "ref": "Ref: Req #596781 · UNjobs (apply through UNICEF careers)",
-   "deadline": "2026-11-17",
-   "deadlineText": null,
-   "button": "Apply on official site",
-   "added": "2026-11-04"
   },
   {
    "title": "Rapid Response and Outbreak Specialist",
@@ -1178,6 +1130,38 @@
    "deadlineText": "16 November 2026",
    "button": "Apply on Bdjobs",
    "added": "2026-11-12"
+  },
+  {
+   "org": "UNHCR, the UN Refugee Agency",
+   "badge": "UNHCR",
+   "sector": "humanitarian-rohingya-response",
+   "location": "Cox's Bazar, with travel to Bhasan Char",
+   "nationals": false,
+   "consultancy": false,
+   "deadline": "2026-11-25",
+   "deadlineText": null,
+   "button": "Apply on official site",
+   "added": "2026-11-14",
+   "title": "Associate Protection Officer (Data Protection)",
+   "url": "https://www.impactpool.org/jobs/1247620",
+   "contract": "UNOPS IICA-1 affiliate contract · start January 2027 · 3-5 years in data protection or registration",
+   "ref": "Ref: Impactpool 1247620 (apply through UNHCR careers)"
+  },
+  {
+   "org": "UNHCR, the UN Refugee Agency",
+   "badge": "UNHCR",
+   "sector": "humanitarian-rohingya-response",
+   "location": "Cox's Bazar, roving across Ukhia, Teknaf and Bhasan Char",
+   "nationals": false,
+   "consultancy": false,
+   "deadline": "2026-11-25",
+   "deadlineText": null,
+   "button": "Apply on official site",
+   "added": "2026-11-14",
+   "title": "Associate Registration and Identity Management Officer",
+   "url": "https://www.impactpool.org/jobs/1247619",
+   "contract": "UNOPS IICA-1 affiliate contract · start January 2027 · 3-5 years in refugee registration",
+   "ref": "Ref: Impactpool 1247619 (apply through UNHCR careers)"
   }
  ]
 }

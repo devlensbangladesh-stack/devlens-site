@@ -7,22 +7,22 @@
     "holdUntil": "2026-11-13"
   },
   "alsoToday": {
-    "slug": "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
+    "slug": "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
     "label": "Climate finance · COP31",
-    "headline": "Plan to triple adaptation finance kept off COP31's formal agenda",
-    "summary": "There is now no negotiating track to define or track the pledge Bangladesh backs. African countries will push for it in the final cover text.",
+    "headline": "At COP31, Bangladesh puts its climate needs at $10-11 billion a year",
+    "summary": "The country spends $4.5-5 billion of its own money each year. Its delegation wants faster delivery, direct access to the big funds and more for loss and damage.",
     "plus": [
+      "afd-100-million-euro-climate-policy-loan-40-million-water-sanitation",
+      "pedp5-to-be-split-into-six-projects-adb-non-formal-education",
+      "measles-deaths-1304-245562-suspected-cases-november-13",
+      "dengue-1255-admissions-483-deaths-november-13",
+      "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
       "devlens-analysis-jobs-market-13-november-2026",
       "722-ngo-registrations-cancelled-15-years-home-minister-parliament",
       "garment-owners-consider-closing-210-ashulia-factories-section-13",
-      "dengue-1960-admissions-481-deaths-november-12",
       "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
       "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
-      "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall",
-      "rmmru-study-climate-risks-push-rural-people-to-cities",
-      "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
-      "un-rapporteur-kelley-currie-dhaka-icj-myanmar-genocide-ruling-november-19",
-      "measles-dengue-co-infection-children-dhaka-hospitals"
+      "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall"
     ]
   },
   "special": {
@@ -49,9 +49,9 @@
       "source": "Change Initiative, Nov 2026"
     },
     {
-      "value": "466",
-      "label": "Dengue deaths this year, with over 6,000 people in hospital",
-      "source": "DGHS, 9 Nov 2026"
+      "value": "483",
+      "label": "Dengue deaths this year, with 158,883 hospital cases",
+      "source": "DGHS, 13 Nov 2026"
     }
   ],
   "funding": [
