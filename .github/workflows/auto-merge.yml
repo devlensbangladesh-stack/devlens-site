@@ -1,0 +1,48 @@
+name: Publish automatic updates
+# Scheduled Claude runs push their work to a branch named auto/<something>.
+# This workflow checks the JSON, merges the branch into main (which makes
+# Cloudflare Pages deploy the site) and then deletes the branch.
+on:
+  push:
+    branches: ['auto/**']
+permissions:
+  contents: write
+concurrency:
+  group: auto-merge
+  cancel-in-progress: false
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Merge the update branch into main
+        run: |
+          git config user.name "devlens-bot"
+          git config user.email "devlens-bot@users.noreply.github.com"
+          git fetch origin "${GITHUB_REF_NAME}"
+          git merge --no-edit "origin/${GITHUB_REF_NAME}"
+      - name: Check every JSON file is valid
+        run: |
+          python3 - <<'EOF'
+          import json, pathlib, sys
+          bad = []
+          for p in pathlib.Path('src/data').rglob('*.json'):
+              try:
+                  json.loads(p.read_text(encoding='utf-8'))
+              except Exception as e:
+                  bad.append(f'{p}: {e}')
+          if bad:
+              print('\n'.join(bad)); sys.exit(1)
+          EOF
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build the site
+        run: npm ci || npm install && npm run build
+      - name: Push to main and remove the branch
+        run: |
+          git push origin HEAD:main
+          git push origin --delete "${GITHUB_REF_NAME}"
