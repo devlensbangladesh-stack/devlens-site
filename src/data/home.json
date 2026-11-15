@@ -157,6 +157,12 @@
         "name": "Climate Home News",
         "url": "https://www.climatechangenews.com/2026/11/05/cop31-briefing-what-to-expect-from-the-antalya-climate-summit/"
       }
-    ]
+    ],
+    "image": {
+      "src": "/media/2026/11/photo-cop31-plenary-hall-antalya.jpg",
+      "alt": "The COP31 plenary hall in Antalya, with UN Climate Change and COP31 Türkiye branding on the stage",
+      "credit": "Xuthoria / Wikimedia Commons, CC BY-SA 4.0",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:COP31_-_Mohammad_Mustafa_09.jpg"
+    }
   }
 }
