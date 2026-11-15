@@ -1,28 +1,36 @@
 {
   "lead": {
-    "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
-    "label": "Devlens Special",
-    "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
-    "summary": "BIDS finds the aid fall is permanent. Small NGOs are cutting health, legal and education work first and turning into lenders, and the state would pay 2.9 times as much to replace them.",
-    "holdUntil": "2026-11-13"
+    "slug": "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
+    "label": "Civic space · Cyber law",
+    "headline": "Cyber law draft halves rumour penalty; public comments due 25 Nov",
+    "summary": "The revised Cyber Security (Amendment) Act draft cuts the rumour penalty to five years, but agencies could still block content without a court. NGOs and rights groups can comment until 25 November."
   },
   "alsoToday": {
-    "slug": "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
-    "label": "Climate finance · COP31",
-    "headline": "At COP31, Bangladesh puts its climate needs at $10-11 billion a year",
-    "summary": "The country spends $4.5-5 billion of its own money each year. Its delegation wants faster delivery, direct access to the big funds and more for loss and damage.",
+    "slug": "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
+    "label": "Humanitarian · Rohingya response",
+    "headline": "Rohingya food aid funded only to April 2027, commissioner warns",
+    "summary": "Most refugees now get $7 to $10 a month for food instead of $12, and acute malnutrition among young Rohingya children has risen to 14.6%.",
     "plus": [
+      "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
+      "bgmea-no-work-no-pay-section-13-147-factories-wage-board-november-16",
+      "dengue-64-deaths-23880-admissions-first-13-days-november",
+      "press-council-act-amendment-journalist-registration-education-criteria",
+      "usda-cuts-bangladesh-rice-import-forecast-1-1-million-tonnes",
+      "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
+      "information-commission-resumes-rti-hearings-november-16-after-two-years",
+      "class-one-admission-age-raised-to-six-government-schools-2027",
+      "government-plans-tk-300-crore-animal-vaccine-plant-cut-imports",
+      "malaysia-migration-cost-capped-tk-1-54-lakh-boesl-zero-cost",
+      "diabetes-seven-in-10-unaware-bdhs-world-diabetes-day",
+      "garment-workers-oms-rice-tk-30-kg-66-trucks",
       "afd-100-million-euro-climate-policy-loan-40-million-water-sanitation",
       "pedp5-to-be-split-into-six-projects-adb-non-formal-education",
       "measles-deaths-1304-245562-suspected-cases-november-13",
       "dengue-1255-admissions-483-deaths-november-13",
-      "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
-      "devlens-analysis-jobs-market-13-november-2026",
-      "722-ngo-registrations-cancelled-15-years-home-minister-parliament",
-      "garment-owners-consider-closing-210-ashulia-factories-section-13",
-      "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
-      "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
-      "bangladesh-bank-financial-inclusion-report-2025-farmers-accounts-fall"
+      "plan-international-ceo-reena-ghelani-visits-bangladesh-girls-education",
+      "cop31-bangladesh-adaptation-need-8-5-billion-under-half-billion-international",
+      "government-plans-cancer-centres-divisions-national-molecular-biology-lab",
+      "cpd-nazneen-ahmed-late-wage-board-garment-unrest"
     ]
   },
   "special": {
@@ -35,7 +43,7 @@
   "pills": {
     "fundingOpen": 3,
     "newReports": 13,
-    "keyNumbers": 25
+    "keyNumbers": 29
   },
   "numbers": [
     {
@@ -44,9 +52,9 @@
       "source": "World Bank, Oct 2026"
     },
     {
-      "value": "92%",
-      "label": "Of the energy sector's climate finance came as loans, 2002 to 2023",
-      "source": "Change Initiative, Nov 2026"
+      "value": "14.6%",
+      "label": "Rohingya children aged 6 to 59 months with acute malnutrition, up from 8.6% in 2024",
+      "source": "Nutrition SMART Survey 2026"
     },
     {
       "value": "483",
@@ -74,20 +82,7 @@
       "url": "https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/"
     }
   ],
-  "pinnedSpecials": [
-    {
-      "slug": "where-did-50000-development-workers-go",
-      "label": "Special report · Workforce",
-      "headline": "After the USAID cuts, where did 50,000 development workers go?",
-      "summary": "No official count, no support scheme."
-    },
-    {
-      "slug": "record-pledges-shrinking-ngos-bangladesh-aid",
-      "label": "Special report · Funding Intelligence",
-      "headline": "Record pledges, shrinking NGOs: who gets Bangladesh's aid money",
-      "summary": "Foreign grants to NGOs are at a seven-year high, yet about 2,200 small NGOs face cuts. Our analysis of six years of data shows the money is reaching fewer, larger organisations."
-    }
-  ],
+  "pinnedSpecials": [],
   "spotlight": {
     "id": "cop31",
     "start": "2026-11-09",
@@ -98,12 +93,16 @@
     "dates": "9 to 20 November 2026 · Antalya, Türkiye",
     "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
-      "date": "13 Nov",
-      "text": "Finance and trade are on the agenda today. The African Group's call for a separate agenda item on tripling adaptation finance failed at the opening session, so the pledge has no formal negotiating track; the group now wants it in the final cover text. Bangladesh's Prime Minister asked on Thursday for at least half of all climate finance to go to adaptation.",
+      "date": "15 Nov",
+      "text": "The talks reached their halfway point with the 1.5C goal as the main fight. Australia, which chairs the talks, has released a summary of positions: some countries want the final deal to say 1.5C remains the goal, while observers say the Arab Group and the Like-Minded Developing Countries may try to drop it. Some developing countries worry that a stronger 1.5C line would mean more pressure to cut emissions without more finance. Bangladesh's delegation is pressing for grant-based adaptation money; its adaptation need is about $8.5 billion a year, with under $0.5 billion coming from abroad.",
       "sources": [
         {
-          "name": "allAfrica",
-          "url": "https://allafrica.com/stories/202611120246.html"
+          "name": "The Daily Star (AFP)",
+          "url": "https://www.thedailystar.net/news/world/news/nations-grapple-loss-15c-target-un-climate-summit-4324171"
+        },
+        {
+          "name": "UNDP Bangladesh",
+          "url": "https://www.undp.org/bangladesh/press-releases/grant-based-adaptation-finance-essential-scale-bangladeshs-adaptation-success-globally-state-minister-environment"
         },
         {
           "name": "UN Climate Change live updates",
@@ -118,6 +117,8 @@
       "Gender: UN Women found 73% of countries recognise gender-specific climate risks, but just over one in three address them fully."
     ],
     "stories": [
+      "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
+      "cop31-bangladesh-adaptation-need-8-5-billion-under-half-billion-international",
       "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
       "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
       "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
