@@ -493,5 +493,32 @@
   "credit": "Xuthoria / Wikimedia Commons, CC BY-SA 4.0",
   "creditUrl": "https://commons.wikimedia.org/wiki/File:COP31_-_Mohammad_Mustafa_09.jpg",
   "focusY": 0.5
+ },
+ {
+  "slug": "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/La_haye_palais_paix_jardin_face.JPG/1920px-La_haye_palais_paix_jardin_face.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "path": "/media/2026/11/photo-peace-palace-the-hague.jpg",
+  "alt": "The Peace Palace in The Hague, seat of the International Court of Justice, seen across its front garden",
+  "credit": "Velvet / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:La_haye_palais_paix_jardin_face.JPG",
+  "focusY": 0.55
+ },
+ {
+  "slug": "eu-16-million-humanitarian-aid-myanmar-rohingya-refugees-bangladesh",
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/A_Landscape_of_Displacement.jpg/1920px-A_Landscape_of_Displacement.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "path": "/media/2026/11/photo-rohingya-camps-aerial-ukhiya.jpg",
+  "alt": "Aerial view of densely packed Rohingya refugee shelters on the hills of Ukhiya, Cox's Bazar",
+  "credit": "Md Shameem ul Islam / Wikimedia Commons, CC BY 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:A_Landscape_of_Displacement.jpg",
+  "focusY": 0.5
+ },
+ {
+  "slug": "shujan-badiul-alam-majumdar-police-political-patronage-narayanganj",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/BD_Sitalakhya_River.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "path": "/media/2026/11/photo-shitalakshya-river-narayanganj.jpg",
+  "alt": "The Shitalakshya river near Narayanganj",
+  "credit": "P.K. Niyogi / Wikimedia Commons, public domain",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:BD_Sitalakhya_River.JPG",
+  "focusY": 0.5
  }
 ]
