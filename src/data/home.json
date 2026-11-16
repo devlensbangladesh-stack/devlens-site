@@ -1,16 +1,18 @@
 {
   "lead": {
-    "slug": "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
-    "label": "Civic space · Cyber law",
-    "headline": "Cyber law draft halves rumour penalty; public comments due 25 Nov",
-    "summary": "The revised Cyber Security (Amendment) Act draft cuts the rumour penalty to five years, but agencies could still block content without a court. NGOs and rights groups can comment until 25 November."
+    "slug": "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
+    "label": "Humanitarian · Child protection",
+    "headline": "Aid cuts drive 28% surge in Rohingya trafficking in Cox's Bazar, UNHCR study finds",
+    "summary": "Sharp reductions in humanitarian funding and essential protection services have weakened camp safeguards, driving a 28% surge in human trafficking cases with children increasingly targeted."
   },
   "alsoToday": {
-    "slug": "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
-    "label": "Humanitarian · Rohingya response",
-    "headline": "Rohingya food aid funded only to April 2027, commissioner warns",
-    "summary": "Most refugees now get $7 to $10 a month for food instead of $12, and acute malnutrition among young Rohingya children has risen to 14.6%.",
+    "slug": "us-dfc-declares-bangladesh-eligible-private-capital-infrastructure-energy",
+    "label": "Finance · Development cooperation",
+    "headline": "US DFC opens financing and risk insurance for Bangladesh private projects",
+    "summary": "The US International Development Finance Corporation has declared Bangladesh eligible for direct debt, equity and political risk insurance to mobilize private capital for infrastructure, clean energy and tech.",
     "plus": [
+      "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
+      "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
       "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
       "eu-16-million-humanitarian-aid-myanmar-rohingya-refugees-bangladesh",
       "fertiliser-dealerships-party-ties-bribery-allegations-boro-season",
@@ -44,14 +46,14 @@
   },
   "pills": {
     "fundingOpen": 2,
-    "newReports": 13,
-    "keyNumbers": 29
+    "newReports": 14,
+    "keyNumbers": 30
   },
   "numbers": [
     {
-      "value": "1 in 2",
-      "label": "Poorest households outside every safety net programme",
-      "source": "World Bank, Oct 2026"
+      "value": "28%",
+      "label": "Increase in detected human trafficking cases in Rohingya camps after aid cuts",
+      "source": "UNHCR & Oxford University, Nov 2026"
     },
     {
       "value": "14.6%",
@@ -59,9 +61,9 @@
       "source": "Nutrition SMART Survey 2026"
     },
     {
-      "value": "483",
-      "label": "Dengue deaths this year, with 158,883 hospital cases",
-      "source": "DGHS, 13 Nov 2026"
+      "value": "1 in 2",
+      "label": "Poorest households outside every safety net programme",
+      "source": "World Bank, Oct 2026"
     }
   ],
   "funding": [
