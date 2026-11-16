@@ -43,7 +43,7 @@
     "published": "2026-11-13"
   },
   "pills": {
-    "fundingOpen": 3,
+    "fundingOpen": 2,
     "newReports": 13,
     "keyNumbers": 29
   },
@@ -65,12 +65,6 @@
     }
   ],
   "funding": [
-    {
-      "title": "Ocean Innovation Challenge, up to $100k",
-      "funder": "UNDP · Sida",
-      "deadline": "2026-11-15",
-      "url": "https://www.undp.org/press-releases/innovators-wanted-undp-launches-usd-1-million-global-challenge-healthier-ocean"
-    },
     {
       "title": "EbA grants up to $500k",
       "funder": "Global EbA Fund",
@@ -95,8 +89,8 @@
     "dates": "9 to 20 November 2026 · Antalya, Türkiye",
     "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
-      "date": "15 Nov",
-      "text": "The talks reached their halfway point with the 1.5C goal as the main fight. Australia, which chairs the talks, has released a summary of positions: some countries want the final deal to say 1.5C remains the goal, while observers say the Arab Group and the Like-Minded Developing Countries may try to drop it. Some developing countries worry that a stronger 1.5C line would mean more pressure to cut emissions without more finance. Bangladesh's delegation is pressing for grant-based adaptation money; its adaptation need is about $8.5 billion a year, with under $0.5 billion coming from abroad.",
+      "date": "16 Nov",
+      "text": "Ministers arrive in Antalya as COP31 enters its second week, focusing on whether adaptation finance will be formally recognized with a dedicated quantitative goal. Bangladesh's delegation is pressing for adaptation funds to be delivered strictly as grants rather than loans, warning that climate debt is consuming fiscal resources that should protect vulnerable coastal and riverine communities. Developing countries continue to seek a 50% allocation baseline for adaptation, while donors resist mandatory sub-targets.",
       "sources": [
         {
           "name": "The Daily Star (AFP)",
