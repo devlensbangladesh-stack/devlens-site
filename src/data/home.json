@@ -56,7 +56,7 @@
     "published": "2026-11-13"
   },
   "pills": {
-    "fundingOpen": 1,
+    "fundingOpen": 3,
     "newReports": 14,
     "keyNumbers": 30
   },
@@ -78,6 +78,12 @@
     }
   ],
   "funding": [
+    {
+      "title": "WHO mental health evaluation tender",
+      "funder": "WHO Bangladesh",
+      "deadline": "2026-11-25",
+      "url": "https://www.ungm.org/Public/Notice/322127"
+    },
     {
       "title": "Terre de Femmes Award, €10k",
       "funder": "Yves Rocher Foundation",
