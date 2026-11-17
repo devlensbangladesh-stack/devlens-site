@@ -39,3 +39,8 @@ Still waiting:
 - dengue-64-deaths-23880-admissions-first-13-days-november (15 Nov; idea: larvicide spraying or stagnant water at a construction site, no faces)
 - press-council-act-amendment-journalist-registration-education-criteria (15 Nov; idea: newspaper stacks at a stall or the National Press Club building exterior; avoid readable mastheads)
 - usda-cuts-bangladesh-rice-import-forecast-1-1-million-tonnes (15 Nov; idea: aman paddy harvest in a field, or rice sacks at a government warehouse; search "aman harvest Bangladesh", "paddy field Bangladesh")
+- adp-implementation-record-low-6-53-percent-july-october-health-disaster (17 Nov evening; idea: Planning Commission buildings in Sher-e-Bangla Nagar, or a stalled construction site)
+- cyclone-akvan-bay-of-bengal-signal-2-seaports (17 Nov evening; idea: fishing trawlers moored at Cox's Bazar or Mongla, or a cyclone shelter exterior)
+- upazila-health-complexes-48-percent-doctor-posts-vacant-parliament (17 Nov evening; idea: an upazila health complex building exterior, no patients' faces)
+- bangladesh-health-watch-report-corruption-health-sector-governance (17 Nov evening; idea: medical supply boxes in a storeroom, or an empty hospital corridor)
+- bangladeshi-workers-stranded-sri-lanka-false-job-promises-survivor-group (17 Nov evening; idea: Bandaranaike airport exterior in Katunayake, or luggage seen from behind)
