@@ -1,16 +1,22 @@
 {
   "lead": {
+    "slug": "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
+    "label": "Civic space · Microfinance",
+    "headline": "Arson hits 22 Grameen Bank branches; UN calls for investigation",
+    "summary": "Grameen Bank says 22 branches in 16 districts were set on fire or targeted between 10 and 17 November, putting members' savings and services at risk."
+  },
+  "alsoToday": {
     "slug": "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
     "label": "Humanitarian · Child protection",
     "headline": "Aid cuts drive 28% surge in Rohingya trafficking in Cox's Bazar, UNHCR study finds",
-    "summary": "Sharp reductions in humanitarian funding and essential protection services have weakened camp safeguards, driving a 28% surge in human trafficking cases with children increasingly targeted."
-  },
-  "alsoToday": {
-    "slug": "us-dfc-declares-bangladesh-eligible-private-capital-infrastructure-energy",
-    "label": "Finance · Development cooperation",
-    "headline": "US DFC opens financing and risk insurance for Bangladesh private projects",
-    "summary": "The US International Development Finance Corporation has declared Bangladesh eligible for direct debt, equity and political risk insurance to mobilize private capital for infrastructure, clean energy and tech.",
+    "summary": "Sharp reductions in humanitarian funding and essential protection services have weakened camp safeguards, driving a 28% surge in human trafficking cases with children increasingly targeted.",
     "plus": [
+      "hrw-rohingya-education-crisis-donors-fund-312000-of-500000-children",
+      "measles-deaths-1323-dengue-deaths-pass-500-november-17",
+      "prothom-alo-narrow-bridges-culverts-killing-80-rivers-lged",
+      "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
+      "world-bank-additional-95-million-resilient-urban-territorial-development-project",
+      "us-dfc-declares-bangladesh-eligible-private-capital-infrastructure-energy",
       "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
       "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
       "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
@@ -45,7 +51,7 @@
     "published": "2026-11-13"
   },
   "pills": {
-    "fundingOpen": 2,
+    "fundingOpen": 1,
     "newReports": 14,
     "keyNumbers": 30
   },
@@ -68,12 +74,6 @@
   ],
   "funding": [
     {
-      "title": "EbA grants up to $500k",
-      "funder": "Global EbA Fund",
-      "deadline": "2026-11-16",
-      "url": "/2026/10/29/open-call-global-eba-fund-medium-size-grants-of-up-to-500000-for-ecosystem-based-adaptation/"
-    },
-    {
       "title": "Terre de Femmes Award, €10k",
       "funder": "Yves Rocher Foundation",
       "deadline": "2026-11-30",
@@ -91,20 +91,12 @@
     "dates": "9 to 20 November 2026 · Antalya, Türkiye",
     "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
     "today": {
-      "date": "16 Nov",
-      "text": "Ministers arrive in Antalya as COP31 enters its second week, focusing on whether adaptation finance will be formally recognized with a dedicated quantitative goal. Bangladesh's delegation is pressing for adaptation funds to be delivered strictly as grants rather than loans, warning that climate debt is consuming fiscal resources that should protect vulnerable coastal and riverine communities. Developing countries continue to seek a 50% allocation baseline for adaptation, while donors resist mandatory sub-targets.",
+      "date": "17 Nov",
+      "text": "At a D-8 ministerial session on the sidelines of COP31, Bangladesh called for greater access to grant-based and highly concessional climate finance, technology sharing and closer cooperation. Special Assistant Dr Saimum Parvez proposed amendments to the Antalya Ministerial Action Plan, and members were asked to name technical team representatives by 31 January 2027.",
       "sources": [
         {
-          "name": "The Daily Star (AFP)",
-          "url": "https://www.thedailystar.net/news/world/news/nations-grapple-loss-15c-target-un-climate-summit-4324171"
-        },
-        {
-          "name": "UNDP Bangladesh",
-          "url": "https://www.undp.org/bangladesh/press-releases/grant-based-adaptation-finance-essential-scale-bangladeshs-adaptation-success-globally-state-minister-environment"
-        },
-        {
-          "name": "UN Climate Change live updates",
-          "url": "https://unfccc.int/cop-31-live-updates-archive"
+          "name": "Bangladesh Post",
+          "url": "https://bangladeshpost.net/posts/bangladesh-urges-d-8-nations-to-expand-climate-financing-175673"
         }
       ]
     },
@@ -115,6 +107,7 @@
       "Gender: UN Women found 73% of countries recognise gender-specific climate risks, but just over one in three address them fully."
     ],
     "stories": [
+      "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
       "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
       "cop31-bangladesh-adaptation-need-8-5-billion-under-half-billion-international",
       "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
