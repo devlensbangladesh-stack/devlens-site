@@ -1,16 +1,27 @@
 {
   "lead": {
+    "slug": "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
+    "label": "Humanitarian · Rohingya",
+    "headline": "Rohingya still await accountability, Guterres says before ICJ ruling",
+    "summary": "The UN Secretary-General told the ASEAN Summit that states must protect people fleeing persecution, as the world court prepares to rule in The Gambia's genocide case against Myanmar on 19 November."
+  },
+  "alsoToday": {
     "slug": "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
     "label": "Civic space · Microfinance",
     "headline": "Arson hits 22 Grameen Bank branches; UN calls for investigation",
-    "summary": "Grameen Bank says 22 branches in 16 districts were set on fire or targeted between 10 and 17 November, putting members' savings and services at risk."
-  },
-  "alsoToday": {
-    "slug": "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
-    "label": "Humanitarian · Child protection",
-    "headline": "Aid cuts drive 28% surge in Rohingya trafficking in Cox's Bazar, UNHCR study finds",
-    "summary": "Sharp reductions in humanitarian funding and essential protection services have weakened camp safeguards, driving a 28% surge in human trafficking cases with children increasingly targeted.",
+    "summary": "Grameen Bank says 22 branches in 16 districts were set on fire or targeted between 10 and 17 November, putting members' savings and services at risk.",
     "plus": [
+      "grameen-bank-natore-office-firebomb-attack-baghatipara",
+      "national-health-hotline-16263-shut-funding-gap-to-return",
+      "measles-november-cases-above-october-catch-up-campaign-sylhet-infants",
+      "procurement-law-amended-deprived-bidders-tib-warns-partisan-abuse",
+      "devlens-analysis-government-borrowing-crowds-out-private-credit-wages-lag-prices",
+      "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
+      "malaysia-bound-workers-medical-tests-begin-approved-centres",
+      "ldc-graduation-2029-roadmap-sovereign-bond-imf-deal-february",
+      "public-toilet-policy-2026-safe-water-2030-target-rangpur",
+      "parliament-undp-mps-orientation-sdg-oversight-public-procurement",
+      "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
       "adp-implementation-record-low-6-53-percent-july-october-health-disaster",
       "upazila-health-complexes-48-percent-doctor-posts-vacant-parliament",
       "cyclone-akvan-bay-of-bengal-signal-2-seaports",
@@ -35,17 +46,7 @@
       "press-council-act-amendment-journalist-registration-education-criteria",
       "usda-cuts-bangladesh-rice-import-forecast-1-1-million-tonnes",
       "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
-      "information-commission-resumes-rti-hearings-november-16-after-two-years",
-      "class-one-admission-age-raised-to-six-government-schools-2027",
-      "government-plans-tk-300-crore-animal-vaccine-plant-cut-imports",
-      "malaysia-migration-cost-capped-tk-1-54-lakh-boesl-zero-cost",
-      "diabetes-seven-in-10-unaware-bdhs-world-diabetes-day",
-      "garment-workers-oms-rice-tk-30-kg-66-trucks",
-      "afd-100-million-euro-climate-policy-loan-40-million-water-sanitation",
-      "pedp5-to-be-split-into-six-projects-adb-non-formal-education",
-      "measles-deaths-1304-245562-suspected-cases-november-13",
-      "dengue-1255-admissions-483-deaths-november-13",
-      "plan-international-ceo-reena-ghelani-visits-bangladesh-girls-education"
+      "information-commission-resumes-rti-hearings-november-16-after-two-years"
     ]
   },
   "special": {
@@ -58,9 +59,14 @@
   "pills": {
     "fundingOpen": 3,
     "newReports": 14,
-    "keyNumbers": 30
+    "keyNumbers": 33
   },
   "numbers": [
+    {
+      "value": "4.09%",
+      "label": "Growth in bank credit to the private sector in the year to September 2026, against 36.34% for the government",
+      "source": "Bangladesh Bank, Nov 2026"
+    },
     {
       "value": "28%",
       "label": "Increase in detected human trafficking cases in Rohingya camps after aid cuts",
@@ -70,11 +76,6 @@
       "value": "14.6%",
       "label": "Rohingya children aged 6 to 59 months with acute malnutrition, up from 8.6% in 2024",
       "source": "Nutrition SMART Survey 2026"
-    },
-    {
-      "value": "1 in 2",
-      "label": "Poorest households outside every safety net programme",
-      "source": "World Bank, Oct 2026"
     }
   ],
   "funding": [
