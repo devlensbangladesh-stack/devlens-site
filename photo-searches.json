@@ -1,14 +1,7 @@
 {
- "guterres": "Kutupalong refugee camp",
- "peacepalace": "Peace Palace The Hague",
- "grameen": "Grameen Bank branch",
- "hotline": "upazila health complex Bangladesh",
- "measles": "vaccine cold box vaccination Bangladesh",
- "procurement": "Jatiya Sangsad Bhaban",
- "mongla": "Pashur River Mongla",
- "malaysia": "Hazrat Shahjalal International Airport",
- "ldc": "Motijheel Dhaka",
- "toilet": "tube well Bangladesh",
- "sdg": "National Parliament House Dhaka Louis Kahn",
- "credit": "Karwan Bazar market"
+ "grameen": "Grameen Bank building",
+ "grameen2": "Grameen Bank office Bangladesh",
+ "measles": "vaccination Bangladesh children EPI",
+ "measles2": "MAG Osmani Medical College Hospital",
+ "vials": "measles rubella vaccine vials"
 }
