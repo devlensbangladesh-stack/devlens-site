@@ -24,3 +24,15 @@ Still waiting:
 - Note (18 Nov night): all 11 stories from the 18 Nov morning update now have free-licence photos, found with the photos.yml workflow (push photo-searches.json to main, read the photo-candidates branch) and queued in photo-queue.json. Good new search terms: "Kutupalong refugee camp", "Pashur River Mongla", "Grameen Bank building", "MAG Osmani Medical College Hospital", "upazila health complex Bangladesh".
 - fertiliser-dealerships-party-ties-bribery-allegations-boro-season (15 Nov; no usable free photo found on 18 Nov: Commons results were PID ceremonies with politicians or composting demos. Idea: a fertiliser dealer's shop or sacks of urea at a rural market, or a boro seedbed; try "boro seedbed", "fertiliser shop Bangladesh")
 - Note (18 Nov night, second pass): every other story on the site now has an image. The 13-17 Nov entries above had already been given photos in earlier runs and were stale on this list; 8 more stories (ADP, cyclone Akvan, upazila doctor posts, Health Watch, Sri Lanka workers, Cox's Bazar debt conference, HRW Rohingya education, narrow bridges/rivers) got photos tonight.
+- Note (18 Nov afternoon run, fired late at 23:34): GitHub push refused again (git proxy 403, repository not in this session's authorised set) and commons.wikimedia.org refused by the egress proxy, so no photos could be searched or queued. The stories below are in the patch with "image": null.
+- un-rapporteur-kelley-currie-dhaka-warns-violence-rohingya-icj-ruling (idea: UN House Dhaka exterior, or Kutupalong camp from a distance, no identifiable children)
+- cyclone-akvan-severe-signal-3-chattogram-coxs-bazar-mongla-payra (idea: fishing trawlers moored at Cox's Bazar or Chattogram, search "fishing boats Cox's Bazar")
+- adb-report-adaptive-social-protection-bangladesh-climate-shocks (idea: a cyclone shelter in coastal Bangladesh, search "cyclone shelter Bangladesh")
+- global-shield-climate-risk-grants-bangladesh-30-million-euros (idea: a flooded rural road or embankment, search "flood Bangladesh embankment"; or an EU audiovisual COP31 photo)
+- foreign-aid-disbursement-down-60-percent-default-loans-32-percent (idea: Sher-e-Bangla Nagar planning area or ERD building exterior, search "Sher-e-Bangla Nagar")
+- hrss-111-people-faced-action-expressing-views-january-october-2026 (idea: Jatiya Press Club building exterior, search "National Press Club Dhaka")
+- dengue-1674-admissions-508-deaths-november-18 (idea: mosquito net over an empty hospital bed, no patients)
+- wewb-tk-564-crore-deposits-stuck-sammilito-islami-bank-migrant-welfare (idea: Probashi Kallyan Bhaban, Eskaton, exterior; search "Probashi Kallyan Bhaban")
+- alrd-angoc-land-food-sovereignty-conference-farmer-input-card (idea: smallholder farmer's paddy field, no identifiable faces; a view not yet used on the site)
+- brick-kilns-phase-out-7-8-years-environment-minister-parliament (idea: brick kiln chimneys near Dhaka, search "brick kiln Bangladesh")
+- cpd-garment-minimum-wage-range-tk-18578-24204 (idea: garment factory exterior in Gazipur not yet used; no portraits)

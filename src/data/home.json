@@ -11,6 +11,17 @@
   "headline": "Arson hits 22 Grameen Bank branches; UN calls for investigation",
   "summary": "Grameen Bank says 22 branches in 16 districts were set on fire or targeted between 10 and 17 November, putting members' savings and services at risk.",
   "plus": [
+   "un-rapporteur-kelley-currie-dhaka-warns-violence-rohingya-icj-ruling",
+   "cyclone-akvan-severe-signal-3-chattogram-coxs-bazar-mongla-payra",
+   "adb-report-adaptive-social-protection-bangladesh-climate-shocks",
+   "global-shield-climate-risk-grants-bangladesh-30-million-euros",
+   "foreign-aid-disbursement-down-60-percent-default-loans-32-percent",
+   "hrss-111-people-faced-action-expressing-views-january-october-2026",
+   "dengue-1674-admissions-508-deaths-november-18",
+   "wewb-tk-564-crore-deposits-stuck-sammilito-islami-bank-migrant-welfare",
+   "alrd-angoc-land-food-sovereignty-conference-farmer-input-card",
+   "brick-kilns-phase-out-7-8-years-environment-minister-parliament",
+   "cpd-garment-minimum-wage-range-tk-18578-24204",
    "grameen-bank-natore-office-firebomb-attack-baghatipara",
    "national-health-hotline-16263-shut-funding-gap-to-return",
    "measles-november-cases-above-october-catch-up-campaign-sylhet-infants",
@@ -57,11 +68,16 @@
   "published": "2026-11-13"
  },
  "pills": {
-  "fundingOpen": 3,
-  "newReports": 14,
-  "keyNumbers": 33
+  "fundingOpen": 7,
+  "newReports": 16,
+  "keyNumbers": 36
  },
  "numbers": [
+  {
+   "value": "71.0%",
+   "label": "Eligible families left out of social protection programmes, while 46.5% of beneficiaries did not meet the poverty criteria",
+   "source": "ADB, Nov 2026"
+  },
   {
    "value": "4.09%",
    "label": "Growth in bank credit to the private sector in the year to September 2026, against 36.34% for the government",
@@ -71,11 +87,6 @@
    "value": "28%",
    "label": "Increase in detected human trafficking cases in Rohingya camps after aid cuts",
    "source": "UNHCR & Oxford University, Nov 2026"
-  },
-  {
-   "value": "14.6%",
-   "label": "Rohingya children aged 6 to 59 months with acute malnutrition, up from 8.6% in 2024",
-   "source": "Nutrition SMART Survey 2026"
   }
  ],
  "funding": [
@@ -86,10 +97,28 @@
    "url": "https://www.ungm.org/Public/Notice/322127"
   },
   {
+   "title": "ILO EPZ Model Zone national consultants",
+   "funder": "ILO Bangladesh",
+   "deadline": "2026-11-26",
+   "url": "https://www.ungm.org/Public/Notice/322642"
+  },
+  {
    "title": "Terre de Femmes Award, €10k",
    "funder": "Yves Rocher Foundation",
    "deadline": "2026-11-30",
    "url": "https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/"
+  },
+  {
+   "title": "D-Prize, up to $20k for new organisations",
+   "funder": "D-Prize",
+   "deadline": "2026-12-06",
+   "url": "https://d-prize.org/"
+  },
+  {
+   "title": "ADB community resilience call for solutions",
+   "funder": "ADB",
+   "deadline": "2026-12-15",
+   "url": "https://www.adb.org/news/events/community-resilience-partnership-program-partnership-forum-2027-call-solutions"
   }
  ],
  "pinnedSpecials": [],
@@ -140,6 +169,7 @@
   ],
   "stories": [
    "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
+   "global-shield-climate-risk-grants-bangladesh-30-million-euros",
    "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
    "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
    "cop31-bangladesh-adaptation-need-8-5-billion-under-half-billion-international",
