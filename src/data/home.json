@@ -1,191 +1,200 @@
 {
-  "lead": {
-    "slug": "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
-    "label": "Humanitarian · Rohingya",
-    "headline": "Rohingya still await accountability, Guterres says before ICJ ruling",
-    "summary": "The UN Secretary-General told the ASEAN-UN Summit that states must protect people fleeing persecution, as the world court prepares to rule in The Gambia's genocide case against Myanmar on 19 November."
+ "lead": {
+  "slug": "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
+  "label": "Humanitarian · Rohingya",
+  "headline": "Rohingya still await accountability, Guterres says before ICJ ruling",
+  "summary": "The UN Secretary-General told the ASEAN-UN Summit that states must protect people fleeing persecution, as the world court prepares to rule in The Gambia's genocide case against Myanmar on 19 November."
+ },
+ "alsoToday": {
+  "slug": "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
+  "label": "Civic space · Microfinance",
+  "headline": "Arson hits 22 Grameen Bank branches; UN calls for investigation",
+  "summary": "Grameen Bank says 22 branches in 16 districts were set on fire or targeted between 10 and 17 November, putting members' savings and services at risk.",
+  "plus": [
+   "grameen-bank-natore-office-firebomb-attack-baghatipara",
+   "national-health-hotline-16263-shut-funding-gap-to-return",
+   "measles-november-cases-above-october-catch-up-campaign-sylhet-infants",
+   "procurement-law-amended-deprived-bidders-tib-warns-partisan-abuse",
+   "devlens-analysis-government-borrowing-crowds-out-private-credit-wages-lag-prices",
+   "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
+   "malaysia-bound-workers-medical-tests-begin-approved-centres",
+   "ldc-graduation-2029-roadmap-sovereign-bond-imf-deal-february",
+   "public-toilet-policy-2026-safe-water-2030-target-rangpur",
+   "parliament-undp-mps-orientation-sdg-oversight-public-procurement",
+   "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
+   "adp-implementation-record-low-6-53-percent-july-october-health-disaster",
+   "upazila-health-complexes-48-percent-doctor-posts-vacant-parliament",
+   "cyclone-akvan-bay-of-bengal-signal-2-seaports",
+   "bangladesh-health-watch-report-corruption-health-sector-governance",
+   "bangladeshi-workers-stranded-sri-lanka-false-job-promises-survivor-group",
+   "hrw-rohingya-education-crisis-donors-fund-312000-of-500000-children",
+   "measles-deaths-1323-dengue-deaths-pass-500-november-17",
+   "prothom-alo-narrow-bridges-culverts-killing-80-rivers-lged",
+   "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
+   "world-bank-additional-95-million-resilient-urban-territorial-development-project",
+   "us-dfc-declares-bangladesh-eligible-private-capital-infrastructure-energy",
+   "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
+   "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
+   "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
+   "eu-16-million-humanitarian-aid-myanmar-rohingya-refugees-bangladesh",
+   "fertiliser-dealerships-party-ties-bribery-allegations-boro-season",
+   "debt-conference-cox-bazar-interest-costs-tk-1-27-lakh-crore-social-spending",
+   "shujan-badiul-alam-majumdar-police-political-patronage-narayanganj",
+   "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
+   "bgmea-no-work-no-pay-section-13-147-factories-wage-board-november-16",
+   "dengue-64-deaths-23880-admissions-first-13-days-november",
+   "press-council-act-amendment-journalist-registration-education-criteria",
+   "usda-cuts-bangladesh-rice-import-forecast-1-1-million-tonnes",
+   "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
+   "information-commission-resumes-rti-hearings-november-16-after-two-years"
+  ]
+ },
+ "special": {
+  "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
+  "label": "Special report · NGO financing",
+  "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
+  "summary": "A BIDS study finds 2,170 NGOs have no lending income, and many are cutting services first and turning into lenders.",
+  "published": "2026-11-13"
+ },
+ "pills": {
+  "fundingOpen": 3,
+  "newReports": 14,
+  "keyNumbers": 33
+ },
+ "numbers": [
+  {
+   "value": "4.09%",
+   "label": "Growth in bank credit to the private sector in the year to September 2026, against 36.34% for the government",
+   "source": "Bangladesh Bank, Nov 2026"
   },
-  "alsoToday": {
-    "slug": "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
-    "label": "Civic space · Microfinance",
-    "headline": "Arson hits 22 Grameen Bank branches; UN calls for investigation",
-    "summary": "Grameen Bank says 22 branches in 16 districts were set on fire or targeted between 10 and 17 November, putting members' savings and services at risk.",
-    "plus": [
-      "grameen-bank-natore-office-firebomb-attack-baghatipara",
-      "national-health-hotline-16263-shut-funding-gap-to-return",
-      "measles-november-cases-above-october-catch-up-campaign-sylhet-infants",
-      "procurement-law-amended-deprived-bidders-tib-warns-partisan-abuse",
-      "devlens-analysis-government-borrowing-crowds-out-private-credit-wages-lag-prices",
-      "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
-      "malaysia-bound-workers-medical-tests-begin-approved-centres",
-      "ldc-graduation-2029-roadmap-sovereign-bond-imf-deal-february",
-      "public-toilet-policy-2026-safe-water-2030-target-rangpur",
-      "parliament-undp-mps-orientation-sdg-oversight-public-procurement",
-      "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
-      "adp-implementation-record-low-6-53-percent-july-october-health-disaster",
-      "upazila-health-complexes-48-percent-doctor-posts-vacant-parliament",
-      "cyclone-akvan-bay-of-bengal-signal-2-seaports",
-      "bangladesh-health-watch-report-corruption-health-sector-governance",
-      "bangladeshi-workers-stranded-sri-lanka-false-job-promises-survivor-group",
-      "hrw-rohingya-education-crisis-donors-fund-312000-of-500000-children",
-      "measles-deaths-1323-dengue-deaths-pass-500-november-17",
-      "prothom-alo-narrow-bridges-culverts-killing-80-rivers-lged",
-      "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
-      "world-bank-additional-95-million-resilient-urban-territorial-development-project",
-      "us-dfc-declares-bangladesh-eligible-private-capital-infrastructure-energy",
-      "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
-      "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
-      "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
-      "eu-16-million-humanitarian-aid-myanmar-rohingya-refugees-bangladesh",
-      "fertiliser-dealerships-party-ties-bribery-allegations-boro-season",
-      "debt-conference-cox-bazar-interest-costs-tk-1-27-lakh-crore-social-spending",
-      "shujan-badiul-alam-majumdar-police-political-patronage-narayanganj",
-      "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
-      "bgmea-no-work-no-pay-section-13-147-factories-wage-board-november-16",
-      "dengue-64-deaths-23880-admissions-first-13-days-november",
-      "press-council-act-amendment-journalist-registration-education-criteria",
-      "usda-cuts-bangladesh-rice-import-forecast-1-1-million-tonnes",
-      "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
-      "information-commission-resumes-rti-hearings-november-16-after-two-years"
-    ]
+  {
+   "value": "28%",
+   "label": "Increase in detected human trafficking cases in Rohingya camps after aid cuts",
+   "source": "UNHCR & Oxford University, Nov 2026"
   },
-  "special": {
-    "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
-    "label": "Special report · NGO financing",
-    "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
-    "summary": "A BIDS study finds 2,170 NGOs have no lending income, and many are cutting services first and turning into lenders.",
-    "published": "2026-11-13"
-  },
-  "pills": {
-    "fundingOpen": 3,
-    "newReports": 14,
-    "keyNumbers": 33
-  },
-  "numbers": [
-    {
-      "value": "4.09%",
-      "label": "Growth in bank credit to the private sector in the year to September 2026, against 36.34% for the government",
-      "source": "Bangladesh Bank, Nov 2026"
-    },
-    {
-      "value": "28%",
-      "label": "Increase in detected human trafficking cases in Rohingya camps after aid cuts",
-      "source": "UNHCR & Oxford University, Nov 2026"
-    },
-    {
-      "value": "14.6%",
-      "label": "Rohingya children aged 6 to 59 months with acute malnutrition, up from 8.6% in 2024",
-      "source": "Nutrition SMART Survey 2026"
-    }
-  ],
-  "funding": [
-    {
-      "title": "WHO mental health evaluation tender",
-      "funder": "WHO Bangladesh",
-      "deadline": "2026-11-25",
-      "url": "https://www.ungm.org/Public/Notice/322127"
-    },
-    {
-      "title": "Terre de Femmes Award, €10k",
-      "funder": "Yves Rocher Foundation",
-      "deadline": "2026-11-30",
-      "url": "https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/"
-    }
-  ],
-  "pinnedSpecials": [],
-  "spotlight": {
-    "id": "cop31",
-    "start": "2026-11-09",
-    "until": "2026-11-20",
-    "days": 12,
-    "label": "Spotlight",
-    "title": "COP31 in Antalya",
-    "dates": "9 to 20 November 2026 · Antalya, Türkiye",
-    "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
-    "today": {
-      "date": "17 Nov",
-      "text": "The COP31 Presidency has published the first draft of the summit's main political decision. The 18-page text calls for tripling adaptation finance for developing countries to at least $120 billion a year by 2035, and asks developed countries to set out a roadmap to get there. It also proposes an Antalya-to-Addis Ababa Roadmap to find new and predictable money for adaptation and loss and damage, with a report due at COP32. Chris Bowen, who chairs the talks, said not all parties will agree with every element and the text will be cut down before Friday. Separately, at a D-8 ministerial session, Bangladesh called for grant-based and highly concessional climate finance, technology sharing and closer cooperation.",
-      "sources": [
-        {
-          "name": "UN Climate Change",
-          "url": "https://unfccc.int/cop-31-live-updates-archive"
-        },
-        {
-          "name": "Yeni Şafak",
-          "url": "https://en.yenisafak.com/world/cop31-draft-urges-tripling-adaptation-finance-to-120b-by-2035-3725650"
-        },
-        {
-          "name": "AP",
-          "url": "https://www.yahoo.com/news/science/articles/cop31-draft-deal-calls-accelerated-130134626.html"
-        },
-        {
-          "name": "Bangladesh Post",
-          "url": "https://bangladeshpost.net/posts/bangladesh-urges-d-8-nations-to-expand-climate-financing-175673"
-        }
-      ]
-    },
-    "watch": [
-      "Adaptation finance: the first draft names a figure, at least $120 billion a year by 2035. Watch whether it survives into the final text, which nearly 200 countries must approve by Friday.",
-      "Just transition: the draft calls for a \"just, orderly and equitable\" move away from fossil fuels. Whether the Belém-Antalya Action Mechanism is adopted is still to be decided.",
-      "Finance on the agenda: tripling is now in the draft text, but it is not agreed. African countries have warned that the draft risks distracting from accountability on climate finance.",
-      "Gender: UN Women found 73% of countries recognise gender-specific climate risks, but just over one in three address them fully."
-    ],
-    "stories": [
-      "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
-      "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
-      "cop31-bangladesh-adaptation-need-8-5-billion-under-half-billion-international",
-      "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
-      "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
-      "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
-      "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
-      "rmmru-study-climate-risks-push-rural-people-to-cities",
-      "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
-      "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
-      "energy-climate-finance-92-percent-loans-change-initiative-study",
-      "special-solar-power-installation-bill-2026-parliament",
-      "climate-adaptation-needs-longer-loans-and-guarantees-to-draw-private-money-bankers-say"
-    ],
-    "links": [
-      {
-        "label": "UN Climate Change: COP31 live updates",
-        "url": "https://unfccc.int/cop-31-live-updates-archive"
-      },
-      {
-        "label": "Official COP31 host portal (Zero Waste Foundation, Türkiye)",
-        "url": "https://cop.sifiratikvakfi.org/en/"
-      },
-      {
-        "label": "UNFCCC COP31 schedule",
-        "url": "https://unfccc.int/sites/default/files/resource/COP_31_Overview_Schedule.pdf"
-      },
-      {
-        "label": "Carbon Brief: tracking COP31 negotiating texts",
-        "url": "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop31-climate-summit"
-      }
-    ],
-    "watchSources": [
-      {
-        "name": "UN Climate Change",
-        "url": "https://unfccc.int/cop-31-live-updates-archive"
-      },
-      {
-        "name": "Climate Home News",
-        "url": "https://www.climatechangenews.com/2026/11/05/cop31-briefing-what-to-expect-from-the-antalya-climate-summit/"
-      },
-      {
-        "name": "AP",
-        "url": "https://www.yahoo.com/news/science/articles/cop31-draft-deal-calls-accelerated-130134626.html"
-      },
-      {
-        "name": "Anadolu",
-        "url": "https://aa.com.tr/en/turkiye/african-countries-say-1st-draft-from-cop31-conference-risks-distraction-from-climate-finance-accountability/4126797"
-      }
-    ],
-    "image": {
-      "src": "/media/2026/11/photo-cop31-plenary-hall-antalya.jpg",
-      "alt": "The COP31 plenary hall in Antalya, with UN Climate Change and COP31 Türkiye branding on the stage",
-      "credit": "Xuthoria / Wikimedia Commons, CC BY-SA 4.0",
-      "creditUrl": "https://commons.wikimedia.org/wiki/File:COP31_-_Mohammad_Mustafa_09.jpg"
-    }
+  {
+   "value": "14.6%",
+   "label": "Rohingya children aged 6 to 59 months with acute malnutrition, up from 8.6% in 2024",
+   "source": "Nutrition SMART Survey 2026"
   }
+ ],
+ "funding": [
+  {
+   "title": "WHO mental health evaluation tender",
+   "funder": "WHO Bangladesh",
+   "deadline": "2026-11-25",
+   "url": "https://www.ungm.org/Public/Notice/322127"
+  },
+  {
+   "title": "Terre de Femmes Award, €10k",
+   "funder": "Yves Rocher Foundation",
+   "deadline": "2026-11-30",
+   "url": "https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/"
+  }
+ ],
+ "pinnedSpecials": [],
+ "spotlight": {
+  "id": "cop31",
+  "start": "2026-11-09",
+  "until": "2026-11-20",
+  "days": 12,
+  "label": "Spotlight",
+  "title": "COP31 in Antalya",
+  "dates": "9 to 20 November 2026 · Antalya, Türkiye",
+  "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
+  "today": {
+   "date": "18 Nov",
+   "text": "Ministers are now haggling over the first draft of the summit's main decision, and the pushback is sharp. EU climate commissioner Wopke Hoekstra said the text reads like a shopping list that reopens old fights and needs significant change. Chris Bowen, who chairs the talks, expects at least one more draft before the close on Friday, 20 November. The draft's adaptation figure, at least $120 billion a year by 2035, is still far below the UNEP estimate that developing countries could need $305 billion a year by then. The second Global Stocktake was also launched in Antalya and will run until COP33. For Bangladesh, a foreign ministry side event at the Bangladesh Jute Pavilion called for predictable, grant-based finance, noting that public money for adaptation covers only about a tenth of the need, and the D-8 group, Bangladesh included, adopted an Antalya framework on climate cooperation.",
+   "sources": [
+    {
+     "name": "Arab News (AFP)",
+     "url": "https://www.arabnews.com/middle-east/tensions-rise-over-cop31-draft-deal-3012534"
+    },
+    {
+     "name": "Technology.org",
+     "url": "https://technology.org/2026/11/18/cop31-draft-fossil-fuel-phase-out-antalya-bowen"
+    },
+    {
+     "name": "Dhaka Tribune",
+     "url": "https://www.dhakatribune.com/amp/world/europe/424860/cop31-draft-proposes-120bn-adaptation-finance"
+    },
+    {
+     "name": "UN Climate Change",
+     "url": "https://unfccc.int/cop-31-live-updates-archive"
+    },
+    {
+     "name": "UNB",
+     "url": "https://unb.com.bd/category/Bangladesh/cop31-bangladesh-organises-sideline-event-calling-for-equitable-climate-finance/200020"
+    },
+    {
+     "name": "Islamabad Post",
+     "url": "https://islamabadpost.com.pk/d-8-ministers-adopt-antalya-climate-action-framework-at-cop31/"
+    }
+   ]
+  },
+  "watch": [
+   "Adaptation finance: the draft names at least $120 billion a year by 2035. Watch whether that figure survives the next draft, expected before Friday, and whether it is counted as grants or loans.",
+   "Pushback on the draft: the EU says the text needs significant change, and Arab, Saudi and Indian objections are still open. A slimmer text could drop items developing countries want.",
+   "Just transition: the draft calls for a \"just, orderly and equitable\" move away from fossil fuels. Whether the Belém-Antalya Action Mechanism is adopted is still to be decided.",
+   "Electricity target: Türkiye wants electricity to cover 35% of final energy demand by 2035. Several governments have objected to putting it in the final deal."
+  ],
+  "stories": [
+   "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
+   "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
+   "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
+   "cop31-bangladesh-adaptation-need-8-5-billion-under-half-billion-international",
+   "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
+   "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
+   "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
+   "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
+   "rmmru-study-climate-risks-push-rural-people-to-cities",
+   "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
+   "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
+   "energy-climate-finance-92-percent-loans-change-initiative-study",
+   "special-solar-power-installation-bill-2026-parliament",
+   "climate-adaptation-needs-longer-loans-and-guarantees-to-draw-private-money-bankers-say"
+  ],
+  "links": [
+   {
+    "label": "UN Climate Change: COP31 live updates",
+    "url": "https://unfccc.int/cop-31-live-updates-archive"
+   },
+   {
+    "label": "Official COP31 host portal (Zero Waste Foundation, Türkiye)",
+    "url": "https://cop.sifiratikvakfi.org/en/"
+   },
+   {
+    "label": "UNFCCC COP31 schedule",
+    "url": "https://unfccc.int/sites/default/files/resource/COP_31_Overview_Schedule.pdf"
+   },
+   {
+    "label": "Carbon Brief: tracking COP31 negotiating texts",
+    "url": "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop31-climate-summit"
+   }
+  ],
+  "watchSources": [
+   {
+    "name": "Arab News (AFP)",
+    "url": "https://www.arabnews.com/middle-east/tensions-rise-over-cop31-draft-deal-3012534"
+   },
+   {
+    "name": "Rio Times",
+    "url": "https://www.riotimesonline.com/cop31-ministers-take-up-divided-draft-cover-decision/"
+   },
+   {
+    "name": "AOL",
+    "url": "https://www.aol.co.uk/articles/africas-struggle-electricity-puts-cop31-164030000.html"
+   },
+   {
+    "name": "UN Climate Change",
+    "url": "https://unfccc.int/cop-31-live-updates-archive"
+   }
+  ],
+  "image": {
+   "src": "/media/2026/11/photo-cop31-plenary-hall-antalya.jpg",
+   "alt": "The COP31 plenary hall in Antalya, with UN Climate Change and COP31 Türkiye branding on the stage",
+   "credit": "Xuthoria / Wikimedia Commons, CC BY-SA 4.0",
+   "creditUrl": "https://commons.wikimedia.org/wiki/File:COP31_-_Mohammad_Mustafa_09.jpg"
+  }
+ }
 }
