@@ -44,15 +44,4 @@ Still waiting:
 - upazila-health-complexes-48-percent-doctor-posts-vacant-parliament (17 Nov evening; idea: an upazila health complex building exterior, no patients' faces)
 - bangladesh-health-watch-report-corruption-health-sector-governance (17 Nov evening; idea: medical supply boxes in a storeroom, or an empty hospital corridor)
 - bangladeshi-workers-stranded-sri-lanka-false-job-promises-survivor-group (17 Nov evening; idea: Bandaranaike airport exterior in Katunayake, or luggage seen from behind)
-- Note (18 Nov morning run): the session again had no GitHub push access (git proxy 403, add_repo tool not offered) and no Projects tool, so no photos were queued. The stories below were saved in the patch with "image": null.
-- guterres-rohingya-still-await-accountability-icj-ruling-november-19 (18 Nov morning, lead; idea: a wide view of Kutupalong camp shelters not yet used on the site, no identifiable children; or the Peace Palace in The Hague, search "Peace Palace")
-- grameen-bank-natore-office-firebomb-attack-baghatipara (18 Nov morning; idea: a Grameen Bank branch building exterior not yet used, no people)
-- national-health-hotline-16263-shut-funding-gap-to-return (18 Nov morning; idea: an upazila health complex or ambulance exterior, no patients)
-- measles-november-cases-above-october-catch-up-campaign-sylhet-infants (18 Nov morning; idea: vaccine cold box or vials at a health centre; Sylhet MAG Osmani Medical College Hospital exterior)
-- procurement-law-amended-deprived-bidders-tib-warns-partisan-abuse (18 Nov morning; idea: Jatiya Sangsad Bhaban exterior, search "Jatiya Sangsad Bhaban")
-- mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31 (18 Nov morning; idea: Pashur river at Mongla, search "Pashur River" or "Mongla")
-- malaysia-bound-workers-medical-tests-begin-approved-centres (18 Nov morning; idea: Hazrat Shahjalal International Airport departures exterior, no identifiable faces)
-- ldc-graduation-2029-roadmap-sovereign-bond-imf-deal-february (18 Nov morning; idea: Motijheel commercial area or Bangladesh Bank building, search "Motijheel")
-- public-toilet-policy-2026-safe-water-2030-target-rangpur (18 Nov morning; idea: a public tube well or water point in rural Bangladesh, search "tube well Bangladesh")
-- parliament-undp-mps-orientation-sdg-oversight-public-procurement (18 Nov morning; idea: Jatiya Sangsad Bhaban, a different view from the procurement story)
-- devlens-analysis-government-borrowing-crowds-out-private-credit-wages-lag-prices (18 Nov morning, analysis; idea: a chart made from the Bangladesh Bank and BBS figures in the piece, or Karwan Bazar market scene)
+- Note (18 Nov night): all 11 stories from the 18 Nov morning update now have free-licence photos, found with the photos.yml workflow (push photo-searches.json to main, read the photo-candidates branch) and queued in photo-queue.json. Good new search terms: "Kutupalong refugee camp", "Pashur River Mongla", "Grameen Bank building", "MAG Osmani Medical College Hospital", "upazila health complex Bangladesh".
