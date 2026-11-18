@@ -1,16 +1,27 @@
 {
  "lead": {
+  "slug": "icj-rohingya-genocide-verdict-today-dhaka-seeks-accountability-repatriation",
+  "label": "Humanitarian · Rohingya",
+  "headline": "ICJ rules on Rohingya genocide today as Dhaka seeks accountability",
+  "summary": "The world court gives its verdict in The Gambia v Myanmar this afternoon. Bangladesh calls repatriation the only lasting solution, and refugees in Cox's Bazar say they want justice and a safe way home."
+ },
+ "alsoToday": {
   "slug": "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
   "label": "Humanitarian · Rohingya",
   "headline": "Rohingya still await accountability, Guterres says before ICJ ruling",
-  "summary": "The UN Secretary-General told the ASEAN-UN Summit that states must protect people fleeing persecution, as the world court prepares to rule in The Gambia's genocide case against Myanmar on 19 November."
- },
- "alsoToday": {
-  "slug": "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
-  "label": "Civic space · Microfinance",
-  "headline": "Arson hits 22 Grameen Bank branches; UN calls for investigation",
-  "summary": "Grameen Bank says 22 branches in 16 districts were set on fire or targeted between 10 and 17 November, putting members' savings and services at risk.",
+  "summary": "The UN Secretary-General told the ASEAN-UN Summit that states must protect people fleeing persecution, as the world court prepares to rule in The Gambia's genocide case against Myanmar on 19 November.",
   "plus": [
+   "devlens-analysis-icj-rohingya-ruling-what-it-can-and-cannot-change",
+   "garment-unrest-640-factories-shut-union-leaders-arrested-wage-board-23-november",
+   "ecnec-approves-16-projects-tk-33298-crore-canal-excavation-64-districts",
+   "adb-1000-mw-solar-battery-storage-ppp-monitor-country-strategy-2028-2032",
+   "mohakhali-sattola-slum-fire-100-families-homeless",
+   "coxs-bazar-jhau-trees-felled-tourism-carnival-forest-department-no-permission",
+   "tobacco-control-law-amendment-awareness-ngo-affairs-bureau-csr-curbs",
+   "secondary-education-project-revision-laptops-e-buses-library-grants-cut",
+   "special-solar-power-installation-bill-2026-passed-farmland-tender-concerns",
+   "high-court-halts-public-university-admission-tests-december-31-hsc",
+   "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
    "un-rapporteur-kelley-currie-dhaka-warns-violence-rohingya-icj-ruling",
    "cyclone-akvan-severe-signal-3-chattogram-coxs-bazar-mongla-payra",
    "adb-report-adaptive-social-protection-bangladesh-climate-shocks",
@@ -49,15 +60,7 @@
    "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
    "eu-16-million-humanitarian-aid-myanmar-rohingya-refugees-bangladesh",
    "fertiliser-dealerships-party-ties-bribery-allegations-boro-season",
-   "debt-conference-cox-bazar-interest-costs-tk-1-27-lakh-crore-social-spending",
-   "shujan-badiul-alam-majumdar-police-political-patronage-narayanganj",
-   "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
-   "bgmea-no-work-no-pay-section-13-147-factories-wage-board-november-16",
-   "dengue-64-deaths-23880-admissions-first-13-days-november",
-   "press-council-act-amendment-journalist-registration-education-criteria",
-   "usda-cuts-bangladesh-rice-import-forecast-1-1-million-tonnes",
-   "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
-   "information-commission-resumes-rti-hearings-november-16-after-two-years"
+   "debt-conference-cox-bazar-interest-costs-tk-1-27-lakh-crore-social-spending"
   ]
  },
  "special": {
@@ -68,7 +71,7 @@
   "published": "2026-11-13"
  },
  "pills": {
-  "fundingOpen": 7,
+  "fundingOpen": 8,
   "newReports": 16,
   "keyNumbers": 36
  },
@@ -90,6 +93,12 @@
   }
  ],
  "funding": [
+  {
+   "title": "UNICEF VaxEPI immunisation platform RFP",
+   "funder": "UNICEF Bangladesh",
+   "deadline": "2026-11-23",
+   "url": "https://www.ungm.org/Public/Notice/320781"
+  },
   {
    "title": "WHO mental health evaluation tender",
    "funder": "WHO Bangladesh",
