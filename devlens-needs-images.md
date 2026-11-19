@@ -37,7 +37,6 @@ Still waiting:
 - brick-kilns-phase-out-7-8-years-environment-minister-parliament (idea: brick kiln chimneys near Dhaka, search "brick kiln Bangladesh")
 - cpd-garment-minimum-wage-range-tk-18578-24204 (idea: garment factory exterior in Gazipur not yet used; no portraits)
 - Note (19 Nov morning run): GitHub push refused again (git proxy 403) and commons.wikimedia.org refused by the egress proxy, so no photos could be searched or queued. Search terms for all 11 stories below are in photo-searches.json, so the photos workflow runs as soon as this patch reaches main. The stories below have "image": null.
-- icj-rohingya-genocide-verdict-today-dhaka-seeks-accountability-repatriation (19 Nov, HOMEPAGE LEAD, highest priority; idea: Peace Palace in The Hague exterior, search "Peace Palace The Hague"; or Kutupalong camp from a distance, no identifiable children)
 - devlens-analysis-icj-rohingya-ruling-what-it-can-and-cannot-change (idea: International Court of Justice courtroom or Peace Palace, a different view from the lead; search "International Court of Justice Great Hall of Justice")
 - garment-unrest-640-factories-shut-union-leaders-arrested-wage-board-23-november (idea: closed factory gate or highway in Ashulia/Gazipur, no identifiable workers)
 - ecnec-approves-16-projects-tk-33298-crore-canal-excavation-64-districts (idea: a canal or khal in rural Bangladesh, search "canal Bangladesh village")
