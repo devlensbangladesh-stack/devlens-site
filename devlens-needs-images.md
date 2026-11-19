@@ -22,3 +22,16 @@ Gemini in Chrome: images can be generated, but Chrome blocks reading the image d
 
 Still waiting:
 - Note (19 Nov 2026, 08:30 Dhaka): all 22 stories that had "image": null (the fertiliser story, 11 from 18 Nov and 10 from 19 Nov) got free-licence photos via the photos.yml workflow (dispatched through the REST API, gh api .../actions/workflows/photos.yml/dispatches) and were queued in photo-queue.json. Every story on the site now has an image. Good new search terms: "Dhaka Shanty Slum", "Mugda hospital", "tobacco Kushtia", "rice seedlings Bangladesh", "solar panels Bangladesh", "Savar garment", "Grand Hall de Justice".
+- Note (19 Nov 2026, afternoon run): no GitHub push access and commons.wikimedia.org refused by the egress proxy, so these 12 stories went out in the patch with "image": null. Suggested searches in brackets:
+  - titumir-brac-dialogue-multi-year-funding-rohingya-youth-income-return-study ("Kutupalong camp youth")
+  - un-third-committee-rohingya-resolution-128-votes-jrp-funding-access ("UN General Assembly Hall")
+  - ipc-18-1-million-acute-food-insecurity-prices-squeeze-families ("Bangladesh market rice stall")
+  - measles-deaths-1336-health-scorecard-leaves-out-measles ("measles vaccine vial")
+  - sylhet-measles-223-deaths-three-infants-die-osmani-hospital ("Osmani Medical College Hospital")
+  - cyclone-akvan-heavy-rain-five-divisions-saint-martins-tourists-stranded ("Saint Martin's Island jetty")
+  - grameen-bank-office-muksudpur-gopalganj-set-on-fire ("Grameen Bank branch")
+  - garment-workers-council-demands-tk-32000-wage-buyers-hold-orders-factories-shut ("Gazipur garment factory")
+  - pm-10000-workers-malaysia-cost-cap-recruitment-syndicates-parliament ("Hazrat Shahjalal Airport migrant workers")
+  - pm-3500-hospital-beds-added-40-lakh-patients-on-floors-rangabali ("Rangabali" or "Patuakhali hospital")
+  - financial-inclusion-survey-35-percent-excluded-women-agent-banking-half ("mobile banking agent Bangladesh")
+  - haor-farmers-brri-dhan-118-early-rice-beat-flash-floods ("Tanguar haor paddy")
