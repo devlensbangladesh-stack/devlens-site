@@ -127,13 +127,13 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
             <div class="spot-card">
               <h3>Devlens coverage <span class="count">{spotStories.length} stories</span></h3>
               <ul class="spot-stories">
-                {spotTop.map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}
+                {spotTop.map((p) => <li class={p.image ? 'has-thumb' : ''}>{p.image && <a class="thumb" href={postUrl(p)} tabindex="-1" aria-hidden="true"><img src={p.image.src} alt="" width="112" height="63" loading="lazy" /></a>}<div><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></div></li>)}
               </ul>
               {spotMore.length > 0 && (
                 <details class="spot-more">
                   <summary>Show {spotMore.length} earlier {spotMore.length === 1 ? 'story' : 'stories'}</summary>
                   <ul class="spot-stories">
-                    {spotMore.map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}
+                    {spotMore.map((p) => <li class={p.image ? 'has-thumb' : ''}>{p.image && <a class="thumb" href={postUrl(p)} tabindex="-1" aria-hidden="true"><img src={p.image.src} alt="" width="112" height="63" loading="lazy" /></a>}<div><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></div></li>)}
                   </ul>
                 </details>
               )}
