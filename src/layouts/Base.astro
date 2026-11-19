@@ -18,7 +18,17 @@ const nav = [
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <script is:inline>
+    // Domain lock: if this page is served from a copied or mirrored site, send the reader to the real Devlens page.
+    (function () {
+      var h = location.hostname;
+      var ok = h === 'devlensbd.pages.dev' || /\.devlensbd\.pages\.dev$/.test(h) || h === 'localhost' || h === '127.0.0.1';
+      if (!ok) { try { top.location.replace('https://devlensbd.pages.dev' + location.pathname + location.search + location.hash); } catch (e) { location.replace('https://devlensbd.pages.dev/'); } }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Devlens Bangladesh" />
+  <meta name="copyright" content="Devlens Bangladesh. All rights reserved." />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
@@ -79,7 +89,7 @@ const nav = [
       <div><p class="eyebrow">Devlens</p>
         <a href="/about/">About</a><a href="/editorial-standards/">Editorial standards</a><a href="/submit/">Share your work</a><a href="/for-ngos/">For NGOs</a><a href="/advertise/">Advertise and partner</a><a href="/subscribe/">Subscribe</a></div>
     </div>
-    <div class="wrap"><p class="copyright">© {today.slice(0, 4)} Devlens Bangladesh · Dhaka</p></div>
+    <div class="wrap"><p class="copyright">© {today.slice(0, 4)} Devlens Bangladesh · Dhaka · All rights reserved. Stories, images and data on this site may not be copied or republished without written permission. Short quotes with a link back to Devlens are welcome.</p></div>
   </footer>
   <script src="/devlens.js" defer></script>
 </body>

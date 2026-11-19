@@ -1,3 +1,46 @@
+# Devlens Bangladesh. All rights reserved.
+# Search engines are welcome. Whole-site copiers and AI training crawlers are not.
+
+# Website copiers and mirroring tools
+User-agent: HTTrack
+User-agent: WebCopier
+User-agent: WebReaper
+User-agent: WebStripper
+User-agent: Offline Explorer
+User-agent: SiteSnagger
+User-agent: Teleport
+User-agent: TeleportPro
+User-agent: WebZIP
+User-agent: Wget
+User-agent: grab
+User-agent: larbin
+User-agent: Zeus
+Disallow: /
+
+# SEO scrapers that copy content
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+Disallow: /
+
+# AI training crawlers (AI search assistants that link back are still allowed)
+User-agent: GPTBot
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Bytespider
+User-agent: Meta-ExternalAgent
+User-agent: Applebot-Extended
+User-agent: Diffbot
+User-agent: omgili
+User-agent: ImagesiftBot
+Disallow: /
+
 User-agent: *
 Allow: /
+
 Sitemap: https://devlensbd.pages.dev/sitemap.xml
