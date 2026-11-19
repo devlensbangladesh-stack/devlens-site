@@ -1,4 +1,3 @@
-# Devlens Bangladesh. All rights reserved.
 # Search engines are welcome. Whole-site copiers and AI training crawlers are not.
 
 # Website copiers and mirroring tools
