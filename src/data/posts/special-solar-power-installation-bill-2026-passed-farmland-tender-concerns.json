@@ -14,6 +14,13 @@
   "governance",
   "agriculture"
  ],
- "image": null,
+ "image": {
+  "src": "/media/2026/11/photo-solar-panels-paddy-field.jpg",
+  "alt": "Solar panels for an irrigation pump standing in a green paddy field",
+  "width": 1280,
+  "height": 720,
+  "credit": "Power Division, Government of Bangladesh / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Solar_power_irrigation_pump_Bangladesh.png"
+ },
  "content": "<p class=\"wp-block-paragraph\">Parliament passed the Special Solar Power Installation Bill, 2026 by voice vote on Wednesday (18 November), the last day of the fourth session of the 13th Jatiya Sangsad, bdnews24.com's Bangla edition reported. An ordinance on the same subject was issued on 19 October.</p>\n\n<p class=\"wp-block-paragraph\">State Minister for Power, Energy and Mineral Resources Anindya Islam Amit moved the bill on behalf of the minister, Iqbal Hasan Mahmud. About 8,300 applicants have been found eligible after screening, the paper reported.</p>\n\n<h3 class=\"wp-block-heading\">The objections</h3>\n\n<p class=\"wp-block-paragraph\">Jamaat-e-Islami MPs objected to clause 19, which protects officials for work done in good faith. They warned the law could be used to skip open tenders, and asked for safeguards for farmland and for the Bangladesh Energy Regulatory Commission (BERC) to oversee electricity prices. Abdul Gafur, MP for Kushtia-2, raised the tender and farmland concerns. Their amendments were rejected. The government said small projects will use rooftops and courtyards, and large projects will look at fallow land.</p>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">More solar power helps Bangladesh cut fuel imports and emissions, but how land is chosen and how contracts are awarded will decide who gains. Farmers' groups, land rights NGOs and anti-corruption groups will want to see the rules that follow the law, especially on farmland and open bidding.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">The rules issued under the new law, the selection of approved applicants, and whether BERC is given a role in setting prices.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://bangla.bdnews24.com/bangladesh/3w083nm1f8\" target=\"_blank\" rel=\"noopener\">bdnews24.com (Bangla): Special solar power installation bill passed, 18 November 2026</a></li>\n</ul>"
 }

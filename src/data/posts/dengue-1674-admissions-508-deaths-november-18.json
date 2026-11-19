@@ -13,6 +13,13 @@
   "health-nutrition",
   "health-support"
  ],
- "image": null,
+ "image": {
+  "src": "/media/2026/11/photo-mugda-medical-college-hospital.jpg",
+  "alt": "Mugda Medical College Hospital building in Dhaka",
+  "width": 1280,
+  "height": 720,
+  "credit": "MdAbeerHussain / Wikimedia Commons, CC0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Mugda_Medical_College_Hospital_Building.jpg"
+ },
  "content": "<p class=\"wp-block-paragraph\">Hospitals admitted 1,674 dengue patients in the 24 hours to 8am on Wednesday (18 November), according to Directorate General of Health Services (DGHS) figures reported by bdnews24.com's Bangla edition. A day earlier the figure was 1,537, The Financial Express reported. One more death, in Dhaka division, took this year's toll to 508.</p>\n\n<p class=\"wp-block-paragraph\">Dhaka division had the most new admissions (714), followed by Chattogram (311), Barishal (213), Khulna (190), Rajshahi (115), Rangpur (60), Mymensingh (50) and Sylhet (21).</p>\n\n<p class=\"wp-block-paragraph\">So far this year, 167,318 people have been admitted with dengue and 161,193 have been discharged. 5,617 patients were still in hospital.</p>\n\n<p class=\"wp-block-paragraph\">State Minister for Health and Family Welfare Dr M A Muhit told parliament on 17 November that all dengue tests are now free at government hospitals and 2,000 doctors have been trained, The Financial Express reported.</p>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">Admissions are rising again in mid-November, well past the usual peak, and cases are spread across every division. Health NGOs and community clinics are seeing the load outside Dhaka too.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">Daily admissions over the next two weeks, as experts have warned of a hard December, and whether free testing reaches upazila level.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://bangla.bdnews24.com/bangladesh/55x4s6kje5\" target=\"_blank\" rel=\"noopener\">bdnews24.com (Bangla): Dengue: one death, 1,674 in hospital, 18 November 2026</a></li>\n<li><a href=\"https://today.thefinancialexpress.com.bd/metro-news/govt-hospitals-offering-all-dengue-tests-for-free-1794934610\" target=\"_blank\" rel=\"noopener\">The Financial Express: Govt hospitals offering all dengue tests for free, 18 November 2026</a></li>\n</ul>"
 }

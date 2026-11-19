@@ -13,6 +13,13 @@
   "governance",
   "poverty"
  ],
- "image": null,
+ "image": {
+  "src": "/media/2026/11/photo-sher-e-bangla-nagar-trees.jpg",
+  "alt": "Morning sun through trees in Sher-e-Bangla Nagar, Dhaka's government district",
+  "width": 1280,
+  "height": 720,
+  "credit": "Remonfarazi / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Sher-e-Bangla_Nagar,_Dhaka,_Bangladesh.jpg"
+ },
  "content": "<p class=\"wp-block-paragraph\">Foreign aid disbursement in the current fiscal year has fallen 60% compared with the same period last year, Finance Minister Amir Khosru Mahmud Chowdhury told parliament on Monday (16 November), UNB reported. He put the fall down mainly to domestic instability and global crises.</p>\n\n<p class=\"wp-block-paragraph\">Defaulted bank loans reached Tk 5,97,154.93 crore at the end of September, or 32.17% of all loans, he said. The ratio was 7.24% in 2021, 17.83% in 2024 and 29.92% in 2025.</p>\n\n<p class=\"wp-block-paragraph\">The National Board of Revenue provisionally collected Tk 92,525 crore in July to September, 68.68% of its Tk 1,34,396 crore target. Total public debt was estimated at Tk 23,37,575 crore on 30 June, and Tk 8,08,778 crore is set aside for debt repayment this fiscal year, the minister said.</p>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">Much of the money that pays for development projects, and for programmes NGOs deliver with government and donor partners, comes through foreign aid. A sharp fall in disbursement, with weak revenue and high debt repayment, leaves less room for social spending.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">Which projects and sectors are hit by the slower aid flow, and whether the revised budget cuts development spending further.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://unb.com.bd/category/Bangladesh/npls-hit-tk-597-lakh-crore-3217pc-of-total-loans-khosru/200488\" target=\"_blank\" rel=\"noopener\">UNB: NPLs hit Tk 5.97 lakh crore, 32.17pc of total loans: Khosru, 16 November 2026</a></li>\n</ul>"
 }
