@@ -21,29 +21,4 @@ How to get free-licence photos onto the site:
 Gemini in Chrome: images can be generated, but Chrome blocks reading the image data out of the page, and saving needs the owner's Downloads folder. The owner declined Downloads access on 12 Nov 2026, so do not ask again unless the owner raises it.
 
 Still waiting:
-- Note (18 Nov night): all 11 stories from the 18 Nov morning update now have free-licence photos, found with the photos.yml workflow (push photo-searches.json to main, read the photo-candidates branch) and queued in photo-queue.json. Good new search terms: "Kutupalong refugee camp", "Pashur River Mongla", "Grameen Bank building", "MAG Osmani Medical College Hospital", "upazila health complex Bangladesh".
-- fertiliser-dealerships-party-ties-bribery-allegations-boro-season (15 Nov; no usable free photo found on 18 Nov: Commons results were PID ceremonies with politicians or composting demos. Idea: a fertiliser dealer's shop or sacks of urea at a rural market, or a boro seedbed; try "boro seedbed", "fertiliser shop Bangladesh")
-- Note (18 Nov night, second pass): every other story on the site now has an image. The 13-17 Nov entries above had already been given photos in earlier runs and were stale on this list; 8 more stories (ADP, cyclone Akvan, upazila doctor posts, Health Watch, Sri Lanka workers, Cox's Bazar debt conference, HRW Rohingya education, narrow bridges/rivers) got photos tonight.
-- Note (18 Nov afternoon run, fired late at 23:34): GitHub push refused again (git proxy 403, repository not in this session's authorised set) and commons.wikimedia.org refused by the egress proxy, so no photos could be searched or queued. The stories below are in the patch with "image": null.
-- un-rapporteur-kelley-currie-dhaka-warns-violence-rohingya-icj-ruling (idea: UN House Dhaka exterior, or Kutupalong camp from a distance, no identifiable children)
-- cyclone-akvan-severe-signal-3-chattogram-coxs-bazar-mongla-payra (idea: fishing trawlers moored at Cox's Bazar or Chattogram, search "fishing boats Cox's Bazar")
-- adb-report-adaptive-social-protection-bangladesh-climate-shocks (idea: a cyclone shelter in coastal Bangladesh, search "cyclone shelter Bangladesh")
-- global-shield-climate-risk-grants-bangladesh-30-million-euros (idea: a flooded rural road or embankment, search "flood Bangladesh embankment"; or an EU audiovisual COP31 photo)
-- foreign-aid-disbursement-down-60-percent-default-loans-32-percent (idea: Sher-e-Bangla Nagar planning area or ERD building exterior, search "Sher-e-Bangla Nagar")
-- hrss-111-people-faced-action-expressing-views-january-october-2026 (idea: Jatiya Press Club building exterior, search "National Press Club Dhaka")
-- dengue-1674-admissions-508-deaths-november-18 (idea: mosquito net over an empty hospital bed, no patients)
-- wewb-tk-564-crore-deposits-stuck-sammilito-islami-bank-migrant-welfare (idea: Probashi Kallyan Bhaban, Eskaton, exterior; search "Probashi Kallyan Bhaban")
-- alrd-angoc-land-food-sovereignty-conference-farmer-input-card (idea: smallholder farmer's paddy field, no identifiable faces; a view not yet used on the site)
-- brick-kilns-phase-out-7-8-years-environment-minister-parliament (idea: brick kiln chimneys near Dhaka, search "brick kiln Bangladesh")
-- cpd-garment-minimum-wage-range-tk-18578-24204 (idea: garment factory exterior in Gazipur not yet used; no portraits)
-- Note (19 Nov morning run): GitHub push refused again (git proxy 403) and commons.wikimedia.org refused by the egress proxy, so no photos could be searched or queued. Search terms for all 11 stories below are in photo-searches.json, so the photos workflow runs as soon as this patch reaches main. The stories below have "image": null.
-- devlens-analysis-icj-rohingya-ruling-what-it-can-and-cannot-change (idea: International Court of Justice courtroom or Peace Palace, a different view from the lead; search "International Court of Justice Great Hall of Justice")
-- garment-unrest-640-factories-shut-union-leaders-arrested-wage-board-23-november (idea: closed factory gate or highway in Ashulia/Gazipur, no identifiable workers)
-- ecnec-approves-16-projects-tk-33298-crore-canal-excavation-64-districts (idea: a canal or khal in rural Bangladesh, search "canal Bangladesh village")
-- adb-1000-mw-solar-battery-storage-ppp-monitor-country-strategy-2028-2032 (idea: a solar farm in Bangladesh, search "solar park Bangladesh")
-- mohakhali-sattola-slum-fire-100-families-homeless (idea: a Dhaka slum skyline or Korail from a distance, no faces; search "Korail slum")
-- coxs-bazar-jhau-trees-felled-tourism-carnival-forest-department-no-permission (idea: casuarina trees on Cox's Bazar beach, search "Casuarina Cox's Bazar")
-- tobacco-control-law-amendment-awareness-ngo-affairs-bureau-csr-curbs (idea: a no-smoking sign, or cigarette packs at a tea stall without readable brands)
-- secondary-education-project-revision-laptops-e-buses-library-grants-cut (idea: a school library or secondary school building exterior, no identifiable children)
-- special-solar-power-installation-bill-2026-passed-farmland-tender-concerns (idea: rooftop solar panels or solar home system in rural Bangladesh, search "solar home system Bangladesh")
-- high-court-halts-public-university-admission-tests-december-31-hsc (idea: Supreme Court of Bangladesh building, search "Supreme Court of Bangladesh")
+- Note (19 Nov 2026, 08:30 Dhaka): all 22 stories that had "image": null (the fertiliser story, 11 from 18 Nov and 10 from 19 Nov) got free-licence photos via the photos.yml workflow (dispatched through the REST API, gh api .../actions/workflows/photos.yml/dispatches) and were queued in photo-queue.json. Every story on the site now has an image. Good new search terms: "Dhaka Shanty Slum", "Mugda hospital", "tobacco Kushtia", "rice seedlings Bangladesh", "solar panels Bangladesh", "Savar garment", "Grand Hall de Justice".
