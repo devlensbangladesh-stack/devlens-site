@@ -1,6 +1,6 @@
 # Devlens stories waiting for a better image
 
-**Lead story rule (owner, 24 Nov 2026): the lead must always have a photo.** Do the lead's photo first, before other stories, using the steps in `homepage-rules.md` (Lead photo). Other new stories may go out with `"image": null` and be listed below.
+**Lead story rule (owner, 24 Nov 2026): the lead must always have a photo.** Do the lead's photo first, before other stories, using the steps in `homepage-rules.md` (Lead photo). If no photo of the event is available, use any public domain or openly licensed photo of the subject (Wikimedia Commons, Openverse, Flickr Commons, PID), with credit. Other new stories may go out with `"image": null` and be listed below.
 
 Images: Gemini in Chrome first, to the Devlens standard (realistic editorial illustration, Bangladesh setting, no real faces, no text or logos, alt text starting "AI-generated illustration:"). When Chrome is not available, use a free-licence real photo (public domain, CC0, CC BY or CC BY-SA) from Wikimedia Commons or Openverse, with credit. A clearly labelled file photo (credit starting "File photo") is fine for running stories, as the owner asked for the COP31 lead. Never use Canva or free online AI image generators. Never reuse an image already on the site. Do not use photos of identifiable politicians or public figures, except official government photos of an official event the story reports (see below). Check every photo before publishing: reject any with political posters, party banners or portraits of politicians in the background.
 

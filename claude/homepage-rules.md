@@ -13,9 +13,11 @@ Every lead story must have a photo. Never publish or keep a lead with `"image": 
 3. Add the pick to `photo-queue.json` with the lead's `slug`, the candidate `url`, a NEW unique `path` under `/media/YYYY/MM/`, `alt`, `credit`, `creditUrl` and `focusY`, then push. The fetch job downloads and crops the photo and sets `image` on the post.
 4. Open the saved file and the live lead to check it before finishing.
 
-If no new photo fits:
-- For a running story (one Devlens has covered before), use a new free-licence photo of the general subject, credit starting "File photo", e.g. a factory floor for a wage story. Never reuse an image already on the site.
-- If there is still nothing usable, make the most important story that does have a photo the lead, put the photo-less story first in Also today, and say so in the run log and final report.
+If no photo of the event itself is available, use any other publicly available photo that is public domain or under an open licence (CC0, CC BY, CC BY-SA), for example from Wikimedia Commons, Openverse, Flickr Commons or government sources such as PID. A general photo of the subject is fine (e.g. a factory floor for a wage story, a clinic for a health story); for a running story, start the credit with "File photo". Rules that still apply:
+- Credit the author and licence and link to the source page.
+- Never reuse an image already on the site; use a new file path.
+- Do not use photos marked NC (non-commercial) or ND (no derivatives), and do not use newspaper or agency photos (see `devlens-needs-images.md`).
+- The lead never goes out without a photo.
 
 ## Also today (`alsoToday`)
 - The main item (`slug`, `label`, `headline`, `summary`) is the second most important story of the day.
