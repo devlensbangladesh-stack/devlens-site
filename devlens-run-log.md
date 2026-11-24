@@ -1,7 +1,6 @@
 # Devlens run log
 
 Kept in the repo because the scheduled run has no access to the DEVLENS project docs. Latest 60 lines.
-
 - 18 Nov 2026, 23:34 Dhaka, afternoon (fired late), started
 - 18 Nov 2026, 23:52 Dhaka, afternoon (fired late), NOT published: 11 new stories, 10 jobs added, 3 expired removed, 4 funding calls, data and sectors updated, saved as devlens-2026-11-18-afternoon.patch (rebased on main e1eb80b; the morning patch was already applied by another session). Push failed: "remote: access denied by the git proxy: devlensbangladesh-stack/devlens-site is not in this session's authorized repository set" (HTTP 403). add_repo and Projects tools not available. commons.wikimedia.org refused by egress proxy, so no images.
 - 19 Nov 2026, 05:41 Dhaka, morning, started
@@ -14,3 +13,5 @@ Kept in the repo because the scheduled run has no access to the DEVLENS project 
 - 24 Nov 2026, 11:20 Dhaka, manual run continued: photos added for 3 new stories (63a150b); 6 still need one, listed in devlens-needs-images.md.
 - 24 Nov 2026, 19:50 Dhaka, afternoon (fired late), started
 - 24 Nov 2026, 19:58 Dhaka, afternoon (fired late), NOT published: no new stories, jobs or funding. This session's network blocks every news, UN and image site again: curl returned no connection (code 000) for thedailystar.net, tbsnews.net, prothomalo.com, en.prothomalo.com, dhakatribune.com, newagebd.net, bdnews24.com, bangla.bdnews24.com, bssnews.net, thefinancialexpress.com.bd, samakal.com, kalerkantho.com, jugantor.com, ittefaq.com.bd, bonikbarta.com, dhakapost.com, unb.com.bd, reliefweb.int, commons.wikimedia.org and devlensbd.pages.dev; WebFetch "getaddrinfo ENOTFOUND" for thedailystar.net and en.prothomalo.com. Web search returned nothing dated 23-24 Nov. Nothing could be checked against sources, so nothing was written. Checked: 0 expired jobs (87 listed), funding already checked 24 Nov. The claude/ project docs and claude/pending/ do not exist in the repo; no patches pending.
+- 24 Nov 2026, 19:52 Dhaka, morning (fired about 14 hours late), started
+- 24 Nov 2026, 19:58 Dhaka, morning (fired late), NOT published: no new stories, analysis, jobs or funding. Network still blocks every source: curl code 000 for thedailystar.net, tbsnews.net, prothomalo.com, newagebd.net, bdnews24.com, reliefweb.int, undp.org, worldbank.org, adb.org, bangladesh.un.org, bb.org.bd, bbs.gov.bd, ngoab.gov.bd, commons.wikimedia.org, news.google.com and devlensbd.pages.dev; WebFetch "getaddrinfo ENOTFOUND www.thedailystar.net". Web search returned nothing dated 23-24 Nov. Only GitHub is reachable. Checked: 0 expired jobs (87 listed). No claude/pending patches.
