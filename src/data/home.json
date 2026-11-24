@@ -1,16 +1,25 @@
 {
  "lead": {
-  "slug": "icj-rohingya-genocide-verdict-today-dhaka-seeks-accountability-repatriation",
-  "label": "Humanitarian · Rohingya",
-  "headline": "ICJ rules on Rohingya genocide today as Dhaka seeks accountability",
-  "summary": "The world court gives its verdict in The Gambia v Myanmar today. Bangladesh calls repatriation the only lasting solution, and refugees in Cox's Bazar say they want justice and a safe way home."
+  "slug": "wage-board-owners-tk-15800-workers-tk-22000-talks-resume-november-24",
+  "label": "Labour · Garments",
+  "headline": "Wage board: owners offer Tk 15,800, workers cut demand to Tk 22,000",
+  "summary": "A near nine-hour meeting ended without a deal on Monday, and talks resume this afternoon. Protests kept about 55 Gazipur factories idle."
  },
  "alsoToday": {
-  "slug": "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
+  "slug": "icj-finds-myanmar-committed-genocide-rohingya-orders-return-compensation",
   "label": "Humanitarian · Rohingya",
-  "headline": "Rohingya still await accountability, Guterres says before ICJ ruling",
-  "summary": "The UN Secretary-General told the ASEAN-UN Summit that states must protect people fleeing persecution, as the world court prepares to rule in The Gambia's genocide case against Myanmar on 19 November.",
+  "headline": "World court finds Myanmar committed genocide against the Rohingya",
+  "summary": "The ICJ ruled 9 to 6 and ordered Myanmar to allow safe, voluntary return, pay compensation and prosecute those responsible.",
   "plus": [
+   "devlens-research-summary-maternal-newborn-deaths-bleeding-asphyxia-home-births",
+   "uk-400-million-climate-investment-funds-bangladesh-rohingya-icj-pressure",
+   "teknaf-trafficking-92-rescued-17-days-rohingya-locals-sea-route-malaysia",
+   "faridpur-medical-college-hospital-1425-patients-500-beds-staff-shortage",
+   "high-court-orders-policy-social-media-children-16-icddrb-screen-time",
+   "draft-national-sme-policy-2026-25-lakh-jobs-2031-women-entrepreneurs",
+   "walk-for-humanity-teknaf-dhaka-hill-children-education-bandarban",
+   "icj-rohingya-genocide-verdict-today-dhaka-seeks-accountability-repatriation",
+   "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
    "titumir-brac-dialogue-multi-year-funding-rohingya-youth-income-return-study",
    "un-third-committee-rohingya-resolution-128-votes-jrp-funding-access",
    "ipc-18-1-million-acute-food-insecurity-prices-squeeze-families",
@@ -89,6 +98,11 @@
  },
  "numbers": [
   {
+   "value": "44%",
+   "label": "Share of analysed maternal deaths in 2025 caused by bleeding after birth, up from 34% in 2020",
+   "source": "DGHS MPDSR review, 2025"
+  },
+  {
    "value": "18.1m",
    "label": "People projected to face acute food insecurity from September to December 2026, about 787,000 of them at emergency level",
    "source": "IPC, Nov 2026"
@@ -97,11 +111,6 @@
    "value": "55.7%",
    "label": "Women who do not own a personal mobile phone, a barrier to digital finance and cash transfers",
    "source": "National Financial Inclusion Survey 2025"
-  },
-  {
-   "value": "71.0%",
-   "label": "Eligible families left out of social protection programmes, while 46.5% of beneficiaries did not meet the poverty criteria",
-   "source": "ADB, Nov 2026"
   }
  ],
  "funding": [
