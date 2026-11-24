@@ -38,3 +38,10 @@ Still waiting:
 - Note (24 Nov 2026, morning run): photos queued in photo-queue.json for 10 of the 12 stories above, picked from the photo-candidates contact sheets. Still waiting:
   - measles-deaths-1336-health-scorecard-leaves-out-measles (no suitable photo: the PID vaccination photos show ministers; try "measles rubella vaccine Bangladesh" or "child vaccination Bangladesh clinic")
   - financial-inclusion-survey-35-percent-excluded-women-agent-banking-half (the "bKash agent" search found nothing usable; try "mobile banking Bangladesh" or "bKash")
+- Note (24 Nov 2026, 11:20 Dhaka): photos queued and checked for 3 of the 9 new stories (ICJ verdict, Teknaf trafficking, maternal deaths research summary). Still "image": null, with better search ideas:
+  - wage-board-owners-tk-15800-workers-tk-22000-talks-resume-november-24 ("Savar garment factory", "sewing machine Bangladesh"; the Gazipur search returned only PID ceremonies and a protest photo)
+  - uk-400-million-climate-investment-funds-bangladesh-rohingya-icj-pressure ("solar panels Bangladesh rooftop"; PID results showed politicians)
+  - faridpur-medical-college-hospital-1425-patients-500-beds-staff-shortage ("Faridpur Medical College Hospital building"; only hostels and a mosque came back)
+  - high-court-orders-policy-social-media-children-16-icddrb-screen-time ("smartphone child", "Supreme Court of Bangladesh building")
+  - draft-national-sme-policy-2026-25-lakh-jobs-2031-women-entrepreneurs ("Bangladesh handicrafts", "nakshi kantha")
+  - walk-for-humanity-teknaf-dhaka-hill-children-education-bandarban ("Bandarban village", "Lama Bandarban")
