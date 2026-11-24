@@ -92,7 +92,7 @@
   "published": "2026-11-13"
  },
  "pills": {
-  "fundingOpen": 12,
+  "fundingOpen": 9,
   "newReports": 18,
   "keyNumbers": 41
  },
@@ -114,24 +114,6 @@
   }
  ],
  "funding": [
-  {
-   "title": "UNICEF measles-rubella coverage survey",
-   "funder": "UNICEF Bangladesh",
-   "deadline": "2026-11-22",
-   "url": "https://www.ungm.org/Public/Notice/320757"
-  },
-  {
-   "title": "UNICEF child journalist training",
-   "funder": "UNICEF Bangladesh",
-   "deadline": "2026-11-22",
-   "url": "https://www.ungm.org/Public/Notice/320726"
-  },
-  {
-   "title": "UNICEF VaxEPI immunisation platform RFP",
-   "funder": "UNICEF Bangladesh",
-   "deadline": "2026-11-23",
-   "url": "https://www.ungm.org/Public/Notice/320781"
-  },
   {
    "title": "WHO mental health evaluation tender",
    "funder": "WHO Bangladesh",
