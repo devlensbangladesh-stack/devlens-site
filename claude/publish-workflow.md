@@ -9,25 +9,28 @@ Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to 
 - Read `git log --oneline -15` to avoid repeating recent work.
 - Test that sources are reachable (curl a few news sites). If none are, log the exact errors and stop; do not write from search snippets.
 
-## 2. Build
+## 2. Lead photo
+- The lead must have a photo before the run finishes. Follow "Lead photo" in `homepage-rules.md`. Check `image` on the lead post is not null before the final build.
+
+## 3. Build
 - Validate every JSON file in `src/data`.
 - `npm install` if `node_modules` is missing, then `npm run build`. Fix every error before going on.
 - Check `dist/index.html` shows the new lead.
 
-## 3. Push, in this order
+## 4. Push, in this order
 1. `git push origin HEAD:main`
 2. If rejected: push to `auto/YYYY-MM-DD-morning` (or `-afternoon`). The `auto-merge.yml` workflow checks the JSON, builds and merges it into `main`.
 3. If both fail: `git format-patch origin/main --stdout > claude/pending/devlens-YYYY-MM-DD-morning.patch` (or `-afternoon`) and commit it to whatever branch can be pushed.
 - Record the exact error text of every failed push.
 - Commit messages: short summary of what changed. No model names.
 
-## 4. Check
+## 5. Check
 - Wait until https://devlensbd.pages.dev shows the new lead, and open at least one new story URL (`/YYYY/MM/DD/slug/`).
 
-## 5. Finish
+## 6. Finish
 - Append the result to the run log: commit hash and story count, or the exact failure reason. Keep only the latest 60 entries.
 - Commit and push the run log.
-- Final report: lead, number of stories and headlines, analysis title, jobs added and removed, funding changes, publish route, live check, outstanding issues.
+- Final report: lead (and its photo credit), number of stories and headlines, analysis title, jobs added and removed, funding changes, publish route, live check, outstanding issues.
 - Do not post to social media. Do not send emails. Send one push notification with the summary when something was published or failed.
 
 ## Funding page (src/data/pages/funding.json)
