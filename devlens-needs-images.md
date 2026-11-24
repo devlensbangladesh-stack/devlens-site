@@ -35,3 +35,6 @@ Still waiting:
   - pm-3500-hospital-beds-added-40-lakh-patients-on-floors-rangabali ("Rangabali" or "Patuakhali hospital")
   - financial-inclusion-survey-35-percent-excluded-women-agent-banking-half ("mobile banking agent Bangladesh")
   - haor-farmers-brri-dhan-118-early-rice-beat-flash-floods ("Tanguar haor paddy")
+- Note (24 Nov 2026, morning run): photos queued in photo-queue.json for 10 of the 12 stories above, picked from the photo-candidates contact sheets. Still waiting:
+  - measles-deaths-1336-health-scorecard-leaves-out-measles (no suitable photo: the PID vaccination photos show ministers; try "measles rubella vaccine Bangladesh" or "child vaccination Bangladesh clinic")
+  - financial-inclusion-survey-35-percent-excluded-women-agent-banking-half (the "bKash agent" search found nothing usable; try "mobile banking Bangladesh" or "bKash")
