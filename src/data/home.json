@@ -1,16 +1,25 @@
 {
  "lead": {
-  "slug": "wage-board-owners-tk-15800-workers-tk-22000-talks-resume-november-24",
+  "slug": "wage-board-owners-tk-15700-workers-tk-22000-481-factories-halted",
   "label": "Labour · Garments",
-  "headline": "Wage board: owners offer Tk 15,800, workers cut demand to Tk 22,000",
-  "summary": "A near nine-hour meeting ended without a deal on Monday, and talks resume this afternoon. Protests kept about 55 Gazipur factories idle."
+  "headline": "Wage board: owners raise offer to Tk 15,700, workers ask Tk 22,000 as 481 factories halt",
+  "summary": "The gap at the lowest grade is now Tk 6,300. BGMEA says production stopped at about 481 factories on Tuesday as protests spread in Gazipur, Savar and Ashulia."
  },
  "alsoToday": {
-  "slug": "icj-finds-myanmar-committed-genocide-rohingya-orders-return-compensation",
-  "label": "Humanitarian · Rohingya",
-  "headline": "World court finds Myanmar committed genocide against the Rohingya",
-  "summary": "The ICJ ruled 9 to 6 and ordered Myanmar to allow safe, voluntary return, pay compensation and prosecute those responsible.",
+  "slug": "grameen-bank-nearly-100-branches-attacked-november-yunus-statement",
+  "label": "NGOs · Microfinance",
+  "headline": "Nearly 100 Grameen Bank branches attacked this month, says Yunus",
+  "summary": "He said branches were petrol-bombed almost daily in November. Grameen Bank has asked the home ministry for more security for its mostly women borrowers.",
   "plus": [
+   "devlens-research-summary-bids-bci-industry-100-power-gas-cuts-stall-factory-output",
+   "measles-nine-deaths-with-symptoms-1351-new-cases-day-after-first-zero-death-day",
+   "ilo-blf-project-keraniganj-garment-hub-child-labour-4500-children",
+   "incepta-medogen-subq-first-self-injectable-contraceptive-bangladesh",
+   "bangladeshi-workers-stranded-laos-bmet-clearance-no-jobs-passports-held",
+   "rti-forum-information-commission-independence-commissioners-parity-judges",
+   "canada-preferential-market-access-until-2032-ldc-graduation-bilateral-consultations",
+   "wage-board-owners-tk-15800-workers-tk-22000-talks-resume-november-24",
+   "icj-finds-myanmar-committed-genocide-rohingya-orders-return-compensation",
    "devlens-research-summary-maternal-newborn-deaths-bleeding-asphyxia-home-births",
    "uk-400-million-climate-investment-funds-bangladesh-rohingya-icj-pressure",
    "teknaf-trafficking-92-rescued-17-days-rohingya-locals-sea-route-malaysia",
@@ -93,10 +102,15 @@
  },
  "pills": {
   "fundingOpen": 9,
-  "newReports": 18,
-  "keyNumbers": 41
+  "newReports": 19,
+  "keyNumbers": 42
  },
  "numbers": [
+  {
+   "value": "4.1 hrs",
+   "label": "Average daily grid power outage at medium and large factories in April-June 2026, double the 2025 level",
+   "source": "BIDS-BCI Industry 100, Nov 2026"
+  },
   {
    "value": "44%",
    "label": "Share of analysed maternal deaths in 2025 caused by bleeding after birth, up from 34% in 2020",
@@ -106,11 +120,6 @@
    "value": "18.1m",
    "label": "People projected to face acute food insecurity from September to December 2026, about 787,000 of them at emergency level",
    "source": "IPC, Nov 2026"
-  },
-  {
-   "value": "55.7%",
-   "label": "Women who do not own a personal mobile phone, a barrier to digital finance and cash transfers",
-   "source": "National Financial Inclusion Survey 2025"
   }
  ],
  "funding": [
