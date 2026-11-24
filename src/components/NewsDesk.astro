@@ -1,0 +1,132 @@
+---
+import { postUrl, fmtDate, postSectors, sectorInfo, sectorList, whyItMatters, dhakaToday, daysBetween } from '../lib/data.js';
+const { list } = Astro.props;
+const rename = { 'public-order-and-safety': 'Rights, justice & safety' };
+const sec = (slug) => { const s = sectorInfo(slug); return s ? { ...s, name: rename[slug] || s.name } : s; };
+
+const typeLabel = { policy: 'Policy', research: 'Research', funding: 'Funding', data: 'Data', organisations: 'Organisations', 'events-learning': 'Events' };
+const items = list.map((p) => {
+  const sectors = postSectors(p);
+  const type = p.categories.map((c) => typeLabel[c]).find(Boolean) || 'News';
+  return { p, sectors, type, why: whyItMatters(p) };
+});
+
+// Sector counts: all stories, and the last 7 days for the "this week" strip.
+const today = dhakaToday();
+const count = {}, week = {};
+for (const it of items) {
+  const recent = daysBetween(it.p.date.slice(0, 10), today) <= 7;
+  for (const s of it.sectors) { count[s] = (count[s] || 0) + 1; if (recent) week[s] = (week[s] || 0) + 1; }
+}
+const chips = sectorList.filter((s) => count[s.slug]).map((s) => sec(s.slug)).sort((a, b) => count[b.slug] - count[a.slug]);
+const busiest = Object.entries(week).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([slug, n]) => ({ ...sec(slug), n }));
+const weekTotal = items.filter((it) => daysBetween(it.p.date.slice(0, 10), today) <= 7).length;
+---
+<header class="page-head news-desk-head">
+  <div class="wrap">
+    <p class="eyebrow">Development news desk</p>
+    <h1>News for Bangladesh's development sector</h1>
+    <p class="nd-intro">What changed for NGOs, donors, UN agencies and the communities they serve. Every story is tagged by sector and says why it matters for the people doing the work.</p>
+  </div>
+</header>
+
+<div class="wrap page-body">
+  {busiest.length > 0 && (
+    <section class="nd-pulse" aria-label="Sector pulse this week">
+      <div class="nd-pulse-head"><strong>This week</strong><span>{weekTotal} stories in the last 7 days. Busiest sectors:</span></div>
+      <div class="nd-pulse-row">
+        {busiest.map((s) => (
+          <button type="button" class="nd-pulse-item" data-filter={s.slug}><span class="nd-ic">{s.icon}</span><span class="nd-pn">{s.n}</span><span class="nd-pl">{s.name}</span></button>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <div class="nd-filters" role="toolbar" aria-label="Filter by sector">
+    <button type="button" class="nd-chip is-on" data-filter="all">All sectors <span>{items.length}</span></button>
+    {chips.map((s) => (
+      <button type="button" class="nd-chip" data-filter={s.slug}>{s.icon} {s.name} <span>{count[s.slug]}</span></button>
+    ))}
+  </div>
+  <p class="nd-status" aria-live="polite"></p>
+
+  <div class="nd-list">
+    {items.map(({ p, sectors, type, why }) => (
+      <article class="nd-item" data-sectors={sectors.join(' ')}>
+        {p.image ? <a href={postUrl(p)} class="nd-img"><img src={p.image.src} alt={p.image.alt} loading="lazy" /></a> : <a href={postUrl(p)} class="nd-img nd-noimg" aria-hidden="true" tabindex="-1">{sectors[0] ? sectorInfo(sectors[0])?.icon : '📰'}</a>}
+        <div class="nd-body">
+          <div class="nd-tags">
+            {sectors.slice(0, 3).map((s) => <a class="nd-sector" href={`/tag/${s}/`}>{sec(s)?.icon} {sec(s)?.name}</a>)}
+            <span class="nd-type">{type}</span>
+          </div>
+          <h3><a href={postUrl(p)}>{p.title}</a></h3>
+          <p class="nd-excerpt">{p.excerpt}</p>
+          {why && <p class="nd-why"><strong>Why it matters for the sector:</strong> {why}</p>}
+          <span class="nd-date">{fmtDate(p.date)}</span>
+        </div>
+      </article>
+    ))}
+  </div>
+</div>
+
+<style>
+  .news-desk-head h1 { max-width: 860px; }
+  .nd-intro { font-size: 19px; color: var(--ink-2); max-width: 780px; margin: 0; }
+  .nd-pulse { background: var(--sand); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+  .nd-pulse-head { display: flex; gap: 10px; flex-wrap: wrap; align-items: baseline; font-size: 15px; color: var(--ink-2); margin-bottom: 12px; }
+  .nd-pulse-head strong { color: var(--ink); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  .nd-pulse-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .nd-pulse-item { font: inherit; text-align: left; cursor: pointer; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px; display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: center; }
+  .nd-pulse-item:hover { border-color: var(--green-dark); }
+  .nd-ic { font-size: 20px; grid-row: span 2; }
+  .nd-pn { font-size: 22px; font-weight: 800; line-height: 1; }
+  .nd-pl { font-size: 12.5px; font-weight: 700; color: var(--ink-2); line-height: 1.25; }
+  @media (max-width: 900px) { .nd-pulse-row { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 520px) { .nd-pulse-row { grid-template-columns: repeat(2, 1fr); } }
+  .nd-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .nd-chip { font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; border: 1.5px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 7px 14px; }
+  .nd-chip span { color: var(--faint); font-weight: 600; margin-left: 4px; }
+  .nd-chip.is-on { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .nd-chip.is-on span { color: #c9ced4; }
+  .nd-status { font-size: 14px; color: var(--muted); min-height: 1.4em; margin: 0 0 18px; }
+  .nd-list { display: grid; gap: 26px; }
+  .nd-item { display: grid; grid-template-columns: 260px 1fr; gap: 24px; align-items: start; border-bottom: 1px solid var(--line); padding-bottom: 26px; }
+  .nd-item[hidden] { display: none; }
+  .nd-img img { border-radius: 14px; aspect-ratio: 16/9; object-fit: cover; width: 100%; background: var(--sand); display: block; }
+  .nd-noimg { display: grid; place-items: center; aspect-ratio: 16/9; border-radius: 14px; background: var(--sand); font-size: 42px; text-decoration: none; }
+  .nd-tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
+  .nd-sector { font-size: 12px; font-weight: 800; text-decoration: none; color: var(--green-dark); background: #e8f7f1; border-radius: 999px; padding: 4px 10px; }
+  .nd-type { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-left: 2px; }
+  .nd-body h3 { font-size: 23px; margin-bottom: 8px; }
+  .nd-body h3 a { text-decoration: none; }
+  .nd-body h3 a:hover { text-decoration: underline; }
+  .nd-excerpt { margin: 0 0 10px; color: var(--ink-2); }
+  .nd-why { margin: 0 0 10px; font-size: 15.5px; background: #fbfaf5; border-left: 3px solid var(--green); padding: 8px 12px; border-radius: 0 10px 10px 0; }
+  .nd-why strong { color: var(--green-dark); }
+  .nd-date { font-size: 13px; color: var(--faint); }
+  @media (max-width: 700px) { .nd-item { grid-template-columns: 1fr; } }
+</style>
+
+<script is:inline>
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll('.nd-item'));
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.nd-chip'));
+    var status = document.querySelector('.nd-status');
+    function apply(f, push) {
+      var n = 0;
+      items.forEach(function (el) {
+        var show = f === 'all' || (' ' + el.dataset.sectors + ' ').indexOf(' ' + f + ' ') > -1;
+        el.hidden = !show; if (show) n++;
+      });
+      var label = 'All sectors';
+      chips.forEach(function (c) { var on = c.dataset.filter === f; c.classList.toggle('is-on', on); c.setAttribute('aria-pressed', on); if (on) label = c.childNodes[0].textContent.trim(); });
+      status.textContent = f === 'all' ? '' : n + ' stories in ' + label + '.';
+      if (push) { try { history.replaceState(null, '', f === 'all' ? location.pathname : '#' + f); } catch (e) {} }
+    }
+    document.querySelectorAll('[data-filter]').forEach(function (b) {
+      b.addEventListener('click', function () { apply(b.dataset.filter, true); if (b.classList.contains('nd-pulse-item')) document.querySelector('.nd-filters').scrollIntoView({ behavior: 'smooth' }); });
+    });
+    var h = location.hash.slice(1);
+    if (h && document.querySelector('.nd-chip[data-filter="' + h + '"]')) apply(h, false);
+  })();
+</script>
