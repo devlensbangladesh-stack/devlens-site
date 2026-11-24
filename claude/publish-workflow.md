@@ -38,3 +38,11 @@ Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to 
 ## Sectors and data
 - Recount sector numbers in `src/data/pages/sectors.json` from the tags of all posts, and update "N stories published · Counts updated D Month YYYY".
 - Data pages and key numbers use official figures only.
+
+## Source access from cloud runs (checked 24 Nov 2026)
+The egress proxy lets every source through. Some sites themselves block automated requests with a Cloudflare bot challenge (HTTP 403, header `cf-mitigated: challenge`). Do not try to get around these blocks (no headless browsers or other tricks). Use the sources that work, and cover blocked outlets' stories through other outlets that can be checked.
+- Works with plain requests: The Daily Star, The Business Standard, Prothom Alo (Bangla and English), bdnews24 (English and Bangla), Bonik Barta, UNB (homepage `https://unb.com.bd/`), Financial Express (homepage `https://thefinancialexpress.com.bd/`), ReliefWeb (pages and RSS; its API returns 403 without an approved appname).
+- Dhaka Post: RSS works at `https://www.dhakapost.com/rss/rss.xml`; the site itself is challenged.
+- Blocked by Cloudflare challenge: Dhaka Tribune, New Age, Samakal, Kaler Kantho, BSS, Jugantor, Ittefaq, Desh Rupantor.
+- Bangla requirement: Prothom Alo and bdnews24 Bangla are reliable; Bonik Barta and the Dhaka Post RSS are backups.
+- To open the blocked sites, the owner would need to arrange access with the publishers (an allowlisted feed or API) or check those sites by hand in a manual browser session.
