@@ -22,8 +22,8 @@ const nav = [
     // Domain lock: if this page is served from a copied or mirrored site, send the reader to the real Devlens page.
     (function () {
       var h = location.hostname;
-      var ok = h === 'devlensbd.pages.dev' || /\.devlensbd\.pages\.dev$/.test(h) || h === 'localhost' || h === '127.0.0.1';
-      if (!ok) { try { top.location.replace('https://devlensbd.pages.dev' + location.pathname + location.search + location.hash); } catch (e) { location.replace('https://devlensbd.pages.dev/'); } }
+      var ok = h === 'devlensbd.org' || h === 'www.devlensbd.org' || h === 'devlensbd.pages.dev' || /\.devlensbd\.pages\.dev$/.test(h) || h === 'localhost' || h === '127.0.0.1';
+      if (!ok) { try { top.location.replace('https://devlensbd.org' + location.pathname + location.search + location.hash); } catch (e) { location.replace('https://devlensbd.org/'); } }
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />

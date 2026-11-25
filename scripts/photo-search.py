@@ -7,7 +7,7 @@ Only public domain, CC0, CC BY and CC BY-SA files are kept.
 import io, json, os, pathlib, re, urllib.parse, urllib.request
 from PIL import Image, ImageDraw
 
-UA = {"User-Agent": "DevlensBangladeshBot/1.0 (https://devlensbd.pages.dev; photo search)"}
+UA = {"User-Agent": "DevlensBangladeshBot/1.0 (https://devlensbd.org; photo search)"}
 OK = re.compile(r"^(public domain|pd|cc0|cc[ -]by( |-)?(sa)?( |-)?[0-9.]*)", re.I)
 out = pathlib.Path("candidates"); out.mkdir(exist_ok=True)
 
