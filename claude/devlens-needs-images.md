@@ -57,3 +57,8 @@ Still waiting:
   - bangladeshi-workers-stranded-laos-bmet-clearance-no-jobs-passports-held ("Vientiane", "Bangladeshi passport")
   - rti-forum-information-commission-independence-commissioners-parity-judges ("Information Commission Bangladesh", "Agargaon Dhaka")
   - devlens-research-summary-bids-bci-industry-100-power-gas-cuts-stall-factory-output ("textile mill Bangladesh", "spinning mill", "electricity pylons Bangladesh")
+- Note (25 Nov 2026, morning run): photos queued in photo-queue.json for 5 of 9 new pieces (wage board Tk 17,000 lead, battery-rickshaw study, antivenom project, HEU hospital-benefits study, MICS district atlas research summary). Still "image": null, with search ideas:
+  - measles-vaccine-questions-iedcr-antibody-study-24-percent-unprotected ("measles rubella vaccine vial", "vaccine cold box"; no identifiable children)
+  - mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days ("Orange the World", "16 Days of Activism")
+  - ukraine-trafficking-probe-bangladeshis-russian-military-fortify-rights-104-recruited ("Hazrat Shahjalal International Airport", "Bangladeshi passport")
+  - amnesty-cyber-security-amendment-draft-content-blocking-powers-free-expression ("smartphone social media", "internet cafe Dhaka")

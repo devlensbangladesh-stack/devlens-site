@@ -1,16 +1,25 @@
 {
  "lead": {
-  "slug": "wage-board-owners-tk-15700-workers-tk-22000-481-factories-halted",
-  "label": "Labour · Garments",
-  "headline": "Wage board: owners raise offer to Tk 15,700, workers ask Tk 22,000 as 481 factories halt",
-  "summary": "The gap at the lowest grade is now Tk 6,300. BGMEA says production stopped at about 481 factories on Tuesday as protests spread in Gazipur, Savar and Ashulia."
+  "slug": "garment-minimum-wage-set-tk-17000-wage-board",
+  "label": "Labour · Garment wages",
+  "headline": "Wage board sets garment minimum wage at Tk 17,000 after 4-2 vote",
+  "summary": "The entry-level wage rises 36% from Tk 12,500. Workers' representatives voted against, and the labour ministry still has to approve the rate."
  },
  "alsoToday": {
-  "slug": "grameen-bank-nearly-100-branches-attacked-november-yunus-statement",
-  "label": "NGOs · Microfinance",
-  "headline": "Nearly 100 Grameen Bank branches attacked this month, says Yunus",
-  "summary": "He said branches were petrol-bombed almost daily in November. Grameen Bank has asked the home ministry for more security for its mostly women borrowers.",
+  "slug": "measles-vaccine-questions-iedcr-antibody-study-24-percent-unprotected",
+  "label": "Health · Measles",
+  "headline": "Measles: study finds 24% of sampled children lack protective antibodies",
+  "summary": "An IEDCR-led study of more than 300 children raises questions about vaccine coverage. Experts want checks on reporting, the cold chain and EPI's field staff shortage.",
   "plus": [
+   "devlens-research-summary-mics-2025-district-atlas-child-marriage-47-percent-fertility-gaps",
+   "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
+   "heu-study-public-hospital-benefits-shift-to-richer-out-of-pocket-hardship-41-percent",
+   "brac-bigd-battery-rickshaw-drivers-78-percent-migrants-96-percent-unlicensed",
+   "antivenom-project-tk-44-crore-venom-research-centre-snakebite-7500-deaths",
+   "ukraine-trafficking-probe-bangladeshis-russian-military-fortify-rights-104-recruited",
+   "amnesty-cyber-security-amendment-draft-content-blocking-powers-free-expression",
+   "wage-board-owners-tk-15700-workers-tk-22000-481-factories-halted",
+   "grameen-bank-nearly-100-branches-attacked-november-yunus-statement",
    "devlens-research-summary-bids-bci-industry-100-power-gas-cuts-stall-factory-output",
    "measles-nine-deaths-with-symptoms-1351-new-cases-day-after-first-zero-death-day",
    "ilo-blf-project-keraniganj-garment-hub-child-labour-4500-children",
@@ -101,25 +110,25 @@
   "published": "2026-11-13"
  },
  "pills": {
-  "fundingOpen": 9,
-  "newReports": 19,
-  "keyNumbers": 42
+  "fundingOpen": 10,
+  "newReports": 22,
+  "keyNumbers": 44
  },
  "numbers": [
+  {
+   "value": "Tk 17,000",
+   "label": "New minimum monthly wage for entry-level garment workers set by the wage board, up 36% from Tk 12,500 (pending ministry approval)",
+   "source": "Minimum Wage Board, Nov 2026"
+  },
+  {
+   "value": "47.2%",
+   "label": "Share of women aged 20-24 who were married before age 18, down from 51.4% in 2019",
+   "source": "BBS/UNICEF MICS 2025, Nov 2025"
+  },
   {
    "value": "4.1 hrs",
    "label": "Average daily grid power outage at medium and large factories in April-June 2026, double the 2025 level",
    "source": "BIDS-BCI Industry 100, Nov 2026"
-  },
-  {
-   "value": "44%",
-   "label": "Share of analysed maternal deaths in 2025 caused by bleeding after birth, up from 34% in 2020",
-   "source": "DGHS MPDSR review, 2025"
-  },
-  {
-   "value": "18.1m",
-   "label": "People projected to face acute food insecurity from September to December 2026, about 787,000 of them at emergency level",
-   "source": "IPC, Nov 2026"
   }
  ],
  "funding": [
@@ -158,6 +167,12 @@
    "funder": "D-Prize",
    "deadline": "2026-12-06",
    "url": "https://d-prize.org/"
+  },
+  {
+   "title": "UNDP solar systems for Cox's Bazar plastic recovery",
+   "funder": "UNDP Bangladesh",
+   "deadline": "2026-12-06",
+   "url": "https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=52001"
   },
   {
    "title": "ADB community resilience call for solutions",
