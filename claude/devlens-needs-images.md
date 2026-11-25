@@ -48,7 +48,7 @@ Still waiting:
   - draft-national-sme-policy-2026-25-lakh-jobs-2031-women-entrepreneurs ("Bangladesh handicrafts", "nakshi kantha")
   - walk-for-humanity-teknaf-dhaka-hill-children-education-bandarban ("Bandarban village", "Lama Bandarban")
 - Note (24 Nov 2026, 20:07 Dhaka morning run, fired late): 9 new pieces published with "image": null. No photo search was run this session. Suggested searches in brackets:
-  - wage-board-owners-tk-15700-workers-tk-22000-481-factories-halted ("Gazipur highway", "sewing machine Bangladesh"; avoid protest photos with identifiable faces)
+  - wage-board-owners-tk-15700-workers-tk-22000-481-factories-halted: DONE 25 Nov, file photo "RMG Bangladesh" (Fahad Faisal, CC BY-SA 4.0)
   - grameen-bank-nearly-100-branches-attacked-november-yunus-statement ("Grameen Bank branch", "Grameen Bank building Mirpur")
   - measles-nine-deaths-with-symptoms-1351-new-cases-day-after-first-zero-death-day ("measles rubella vaccine", "child vaccination Bangladesh clinic")
   - ilo-blf-project-keraniganj-garment-hub-child-labour-4500-children ("Keraniganj", "Buriganga Keraniganj"; no identifiable children)
