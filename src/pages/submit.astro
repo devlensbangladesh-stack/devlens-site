@@ -296,7 +296,7 @@ const places = ['Nationwide', 'Dhaka', 'Chattogram', "Cox's Bazar", 'Khulna', 'R
       'From: ' + f('f-name') + (f('f-role') ? ', ' + f('f-role') : ''),
       'Email: ' + f('f-email'));
     if (f('f-phone')) lines.push('Phone: ' + f('f-phone'));
-    lines.push('Public or authorised to share: yes', 'Name me as the source: ' + ($('f-anon').checked ? 'no' : 'yes'), '', 'Sent from devlensbd.pages.dev/submit/');
+    lines.push('Public or authorised to share: yes', 'Name me as the source: ' + ($('f-anon').checked ? 'no' : 'yes'), '', 'Sent from devlensbd.org/submit/');
     return lines.join('\n');
   }
 

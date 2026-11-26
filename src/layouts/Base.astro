@@ -24,9 +24,11 @@ const nav = [
   <script is:inline>
     // Domain lock: if this page is served from a copied or mirrored site, send the reader to the real Devlens page.
     (function () {
-      var h = location.hostname;
-      var ok = h === 'devlensbd.pages.dev' || /\.devlensbd\.pages\.dev$/.test(h) || h === 'localhost' || h === '127.0.0.1';
-      if (!ok) { try { top.location.replace('https://devlensbd.pages.dev' + location.pathname + location.search + location.hash); } catch (e) { location.replace('https://devlensbd.pages.dev/'); } }
+      var h = location.hostname, home = 'https://devlensbd.org';
+      var dest = home + location.pathname + location.search + location.hash;
+      // The main Pages address and www move to devlensbd.org; preview builds and local testing stay put.
+      if (h === 'devlensbd.org' || /\.devlensbd\.pages\.dev$/.test(h) || h === 'localhost' || h === '127.0.0.1') return;
+      try { top.location.replace(dest); } catch (e) { location.replace(home + '/'); }
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />

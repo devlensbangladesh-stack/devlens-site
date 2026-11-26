@@ -1,6 +1,6 @@
 # Publish workflow
 
-Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to `main` makes Cloudflare Pages rebuild https://devlensbd.pages.dev.
+Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to `main` makes Cloudflare Pages rebuild https://devlensbd.org.
 
 ## 1. Start
 - Append to `claude/devlens-run-log.md`: `- D Mon YYYY, HH:MM Dhaka, morning|afternoon, started` (note "fired late" if more than an hour off schedule).
@@ -25,7 +25,7 @@ Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to 
 - Commit messages: short summary of what changed. No model names.
 
 ## 5. Check
-- Wait until https://devlensbd.pages.dev shows the new lead, and open at least one new story URL (`/YYYY/MM/DD/slug/`).
+- Wait until https://devlensbd.org shows the new lead, and open at least one new story URL (`/YYYY/MM/DD/slug/`).
 
 ## 6. Finish
 - Append the result to the run log: commit hash and story count, or the exact failure reason. Keep only the latest 60 entries.
