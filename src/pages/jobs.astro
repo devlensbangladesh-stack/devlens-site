@@ -31,7 +31,7 @@ const divisionList = [...DIVISIONS.map(([id, name]) => ({ id, name })), { id: 'n
   .map((d) => ({ ...d, n: jobs.filter((j) => divisionsOf(j.location).includes(d.id)).length }));
 const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
 ---
-<Base title="Jobs and careers" description="NGO, INGO, UN and research jobs in Bangladesh, checked every night against the employer's own advert.">
+<Base title="NGO jobs in Bangladesh: UN, INGO and NGO vacancies" description={`${jobs.length} open NGO, INGO, UN and research jobs in Bangladesh, checked every day against the employer's own advert. Browse by division and sector. No fees.`}>
   <div class="wrap">
     <section class="jobs-hero">
       <h1>Find your next role in Bangladesh's development sector</h1>

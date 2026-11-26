@@ -19,7 +19,7 @@ const sectors = [...html.matchAll(/background-color:(#[0-9a-fA-F]{3,8})[^>]*>\s*
 });
 if (sectors.length < 10) throw new Error(`sectors page: only ${sectors.length} sector cards found in sectors.json`);
 ---
-<Base title={p.title} description={p.excerpt?.slice(0, 160)}>
+<Base title="NGO sectors in Bangladesh: news by sector" description={p.excerpt || 'The 18 NGO Affairs Bureau sectors and their sub-sectors, with Devlens news, research, funding and jobs for each.'}>
   <header class="page-head"><div class="wrap"><h1>{p.title}</h1></div></header>
   <div class="wrap page-body sectors-page">
     <div class="prose wp-content sec-intro" set:html={intro} />

@@ -5,8 +5,16 @@ export function getStaticPaths() {
   return pages.filter((p) => p.slug !== 'subscribe' && p.slug !== 'submit' && p.slug !== 'events' && p.slug !== 'sectors').map((p) => ({ params: { page: p.slug }, props: { p } }));
 }
 const { p } = Astro.props;
+// Search-friendly titles for the main section pages (the on-page heading stays the same).
+const seoTitles = {
+  funding: 'NGO funding opportunities and grants for Bangladesh',
+  'research-evidence': 'Bangladesh development research and reports',
+  data: 'Bangladesh development data and key figures',
+  resources: 'Resources for NGOs in Bangladesh',
+  'for-ngos': 'Get your NGO covered on Devlens Bangladesh',
+};
 ---
-<Base title={p.title} description={p.excerpt?.slice(0, 160)} wpBlocks>
+<Base title={seoTitles[p.slug] || p.title} description={p.excerpt} wpBlocks>
   <header class="page-head"><div class="wrap"><h1>{p.title}</h1></div></header>
   {p.hero && <div class="wrap"><figure class="page-hero"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.width} height={p.hero.height} fetchpriority="high" /><figcaption>AI-generated illustration</figcaption></figure></div>}
   <div class="wrap page-body"><div class="prose wp-content" set:html={p.content} /></div>

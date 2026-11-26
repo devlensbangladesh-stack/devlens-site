@@ -41,7 +41,7 @@ const splitWatch = (w) => { const i = w.indexOf(':'); const cap = (t) => t.charA
 const srcList = (arr) => (arr || []).filter((s) => s && s.url);
 const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
 ---
-<Base image={leadImg}>
+<Base description="Daily news, jobs, funding calls, research and data for Bangladesh's NGO, humanitarian and development sector. Updated every morning and afternoon.">
   {lead && (
     <section class="lead">
       {leadImg && <img class="bg" src={leadImg} alt={lead.image.alt} width={lead.image.width} height={lead.image.height} fetchpriority="high" />}

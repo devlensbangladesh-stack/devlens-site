@@ -12,4 +12,4 @@ const cat = categories.find((c) => c.slug === slug);
 const name = cat?.name || slug.replace(/-/g, ' ');
 const list = posts.filter((p) => p.categories.includes(slug));
 ---
-<Base title={name}>{slug === 'news' ? <NewsDesk list={list} /> : <Archive title={name} intro={cat?.description} list={list} />}</Base>
+<Base title={slug === 'news' ? 'Bangladesh development news today' : `${name}: Bangladesh development sector`} description={cat?.description || (slug === 'news' ? 'Today\'s news on NGOs, aid, humanitarian work, health, climate, jobs and policy in Bangladesh, updated every morning and afternoon.' : `${name} from Devlens Bangladesh: the latest on Bangladesh's NGO, humanitarian and development sector.`)}>{slug === 'news' ? <NewsDesk list={list} /> : <Archive title={name} intro={cat?.description} list={list} />}</Base>

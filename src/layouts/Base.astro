@@ -2,8 +2,15 @@
 import '../styles/site.css';
 import { dhakaToday } from '../lib/data.js';
 import homeData from '../data/home.json';
-const { title, description = 'News, funding, jobs, research and data for Bangladesh\'s development and humanitarian sector.', image, wpBlocks = false } = Astro.props;
-const fullTitle = title ? `${title} | Devlens Bangladesh` : 'Devlens Bangladesh | Development intelligence for Bangladesh';
+const { title, description: rawDesc = 'News, funding, jobs, research and data for Bangladesh\'s development and humanitarian sector, updated every day.', image, imageAlt, wpBlocks = false, type = 'website', published, modified, noindex = false, section, tags = [] } = Astro.props;
+// Keep titles short enough for search results: add the brand only when it fits in about 65 characters.
+const fullTitle = !title ? 'Devlens Bangladesh: NGO news, jobs and funding in Bangladesh'
+  : title.length <= 44 ? `${title} | Devlens Bangladesh`
+  : title.length <= 55 ? `${title} | Devlens`
+  : title;
+// Meta descriptions: plain text, cut at a word boundary under 160 characters.
+const plain = (rawDesc || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+const description = plain.length <= 158 ? plain : plain.slice(0, 155).replace(/\s+\S*$/, '').replace(/[,;:.\s]+$/, '') + '…';
 const today = dhakaToday();
 const d = new Date(today + 'T12:00:00Z');
 const weekday = d.toLocaleDateString('en-GB', { weekday: 'long', timeZone: 'UTC' });
@@ -11,7 +18,24 @@ const longDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const strip = homeData.spotlight && homeData.spotlight.strip && today >= homeData.spotlight.start && today <= homeData.spotlight.until ? homeData.spotlight : null;
 const stripDay = strip ? Math.round((Date.parse(today) - Date.parse(strip.start)) / 86400000) + 1 : 0;
-const ogImage = image ? new URL(image, Astro.site) : null;
+const ogImage = new URL(image || '/media/2026/11/devlens-share-card.jpg', Astro.site);
+const siteUrl = Astro.site.href.replace(/\/$/, '');
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'NewsMediaOrganization', '@id': siteUrl + '/#organization', name: 'Devlens Bangladesh', alternateName: 'Devlens',
+      url: siteUrl + '/', logo: { '@type': 'ImageObject', url: siteUrl + '/media/2026/10/devlens-logo.png', width: 148, height: 40 },
+      description: 'Development intelligence for Bangladesh: news, jobs, funding, research and data for the NGO, humanitarian and development sector.',
+      email: 'devlensbangladesh@gmail.com', foundingLocation: 'Dhaka, Bangladesh', areaServed: 'Bangladesh',
+      address: { '@type': 'PostalAddress', streetAddress: 'House 60, Road 3, Block B, Niketon, Gulshan', addressLocality: 'Dhaka', postalCode: '1212', addressCountry: 'BD' },
+      sameAs: ['https://www.facebook.com/profile.php?id=61596271460489', 'https://www.linkedin.com/company/144052802/', 'https://www.youtube.com/@DevLensBangladesh'],
+      publishingPrinciples: siteUrl + '/editorial-standards/', correctionsPolicy: siteUrl + '/editorial-standards/',
+    },
+    { '@type': 'WebSite', '@id': siteUrl + '/#website', url: siteUrl + '/', name: 'Devlens Bangladesh', inLanguage: 'en', publisher: { '@id': siteUrl + '/#organization' } },
+  ],
+};
+const iso = (d) => (d && d.length <= 19 ? d + '+06:00' : d);
 const nav = [
   ['News', '/category/news/'], ['Sectors', '/sectors/'], ['Research', '/research-evidence/'], ['Funding', '/funding/'],
   ['Jobs', '/jobs/'], ['Data', '/data/'], ['Events', '/events/'], ['Resources', '/resources/'],
@@ -35,19 +59,32 @@ const nav = [
   <meta name="author" content="Devlens Bangladesh" />
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
+  <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
   <link rel="canonical" href={canonical} />
   <meta property="og:site_name" content="Devlens Bangladesh" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content={type} />
   <meta property="og:title" content={title || 'Devlens Bangladesh'} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
-  {ogImage && <meta property="og:image" content={ogImage} />}
-  <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+  <meta property="og:image" content={ogImage} />
+  {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+  {type === 'article' && published && <meta property="article:published_time" content={iso(published)} />}
+  {type === 'article' && modified && <meta property="article:modified_time" content={iso(modified)} />}
+  {type === 'article' && section && <meta property="article:section" content={section} />}
+  {type === 'article' && tags.map((t) => <meta property="article:tag" content={t} />)}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title || 'Devlens Bangladesh'} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="alternate" type="application/rss+xml" title="Devlens Bangladesh" href="/feed.xml" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   {wpBlocks && <link rel="stylesheet" href="/wp-blocks.css" />}
+  <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
   <slot name="head" />
 </head>
 <body>

@@ -13,17 +13,35 @@ const i = posts.findIndex((p) => p.slug === post.slug);
 const score = (p) => (p.tags || []).filter((t) => (post.tags || []).includes(t) && t !== 'national').length * 2 + p.categories.filter((c) => post.categories.includes(c) && c !== 'news').length;
 const related = posts.filter((p) => p.slug !== post.slug).map((p) => [score(p), p]).filter(([n]) => n > 0)
   .sort((a, b) => b[0] - a[0] || b[1].date.localeCompare(a[1].date)).slice(0, 3).map(([, p]) => p);
+// Lazy-load every image in the story except the first one.
+let imgN = 0;
+const bodyHtml = post.content.replace(/<img(?![^>]*\bloading=)/g, (m) => (imgN++ === 0 ? '<img fetchpriority="high"' : '<img loading="lazy" decoding="async"'));
 const words = post.content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
 const minutes = Math.max(1, Math.round(words / 220));
 const url = new URL(postUrl(post), Astro.site).href;
 const enc = encodeURIComponent;
 const updated = post.modified && post.modified.slice(0, 10) !== post.date.slice(0, 10) ? post.modified : null;
+const site = Astro.site.href.replace(/\/$/, '');
+const kind = post.categories.includes('analysis') || /^Devlens (Analysis|Explainer)/.test(post.title) ? 'AnalysisNewsArticle'
+  : /^Devlens Research Summary/.test(post.title) ? 'ReportageNewsArticle' : 'NewsArticle';
+const sectionName = catName(post.categories.find((c) => c !== 'news') || post.categories[0] || 'news');
 const ld = {
-  '@context': 'https://schema.org', '@type': 'NewsArticle', headline: post.title, description: post.excerpt,
+  '@context': 'https://schema.org', '@type': kind, headline: post.title.length > 110 ? post.title.slice(0, 107).replace(/\s+\S*$/, '') + '…' : post.title, description: post.excerpt,
+  inLanguage: 'en', isAccessibleForFree: true, articleSection: sectionName, wordCount: words,
+  keywords: (post.tags || []).map((t) => t.replace(/-/g, ' ')).join(', ') || undefined,
+  about: { '@type': 'Place', name: 'Bangladesh' },
   datePublished: post.date + '+06:00', dateModified: (post.modified || post.date) + '+06:00', mainEntityOfPage: url,
   image: post.image ? [new URL(post.image.src, Astro.site).href] : undefined,
-  author: { '@type': 'Organization', name: 'Devlens Bangladesh', url: Astro.site.href },
-  publisher: { '@type': 'Organization', name: 'Devlens Bangladesh', logo: { '@type': 'ImageObject', url: new URL('/media/2026/10/devlens-logo.png', Astro.site).href } },
+  author: { '@type': 'Organization', name: 'Devlens Bangladesh editorial team', url: site + '/about/' },
+  publisher: { '@id': site + '/#organization' },
+};
+const crumbs = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: site + '/' },
+    { '@type': 'ListItem', position: 2, name: sectionName, item: `${site}/category/${post.categories.find((c) => c !== 'news') || post.categories[0] || 'news'}/` },
+    { '@type': 'ListItem', position: 3, name: post.title, item: url },
+  ],
 };
 const share = [
   ['LinkedIn', `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`],
@@ -33,8 +51,9 @@ const share = [
   ['Email', `mailto:?subject=${enc(post.title)}&body=${enc(url)}`],
 ];
 ---
-<Base title={post.title} description={post.excerpt} image={post.image?.src} wpBlocks>
+<Base title={post.title} description={post.excerpt} image={post.image?.src} imageAlt={post.image?.alt} type="article" published={post.date} modified={post.modified || post.date} section={sectionName} tags={(post.tags || []).map((t) => t.replace(/-/g, ' '))} wpBlocks>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(crumbs)} />
   <article>
     <header class="article-head">
       <div class="wrap">
@@ -50,9 +69,9 @@ const share = [
     <div class="article-body">
       <div class="wrap">
         {post.image && !firstImage(post.content) && (
-          <figure style="margin:0 0 1.5em"><img src={post.image.src} alt={post.image.alt} width={post.image.width} height={post.image.height} style="border-radius:16px" />{post.image.credit ? <figcaption class="img-credit">Photo: {post.image.creditUrl ? <a href={post.image.creditUrl} rel="noopener">{post.image.credit}</a> : post.image.credit}</figcaption> : /AI-generated/i.test(post.image.alt || '') && <figcaption class="img-credit">AI-generated illustration</figcaption>}</figure>
+          <figure style="margin:0 0 1.5em"><img src={post.image.src} alt={post.image.alt} width={post.image.width} height={post.image.height} fetchpriority="high" style="border-radius:16px" />{post.image.credit ? <figcaption class="img-credit">Photo: {post.image.creditUrl ? <a href={post.image.creditUrl} rel="noopener">{post.image.credit}</a> : post.image.credit}</figcaption> : /AI-generated/i.test(post.image.alt || '') && <figcaption class="img-credit">AI-generated illustration</figcaption>}</figure>
         )}
-        <div class="prose wp-content" set:html={post.content} />
+        <div class="prose wp-content" set:html={bodyHtml} />
         <div class="share" aria-label="Share this story"><span>Share</span>{share.map(([n, h]) => <a href={h} target="_blank" rel="noopener">{n}</a>)}</div>
         <div class="article-foot">
           {post.tags?.length > 0 && <p>Topics: {post.tags.map((t, k) => <>{k > 0 && ' · '}<a href={`/tag/${t}/`}>{t.replace(/-/g, ' ')}</a></>)}</p>}

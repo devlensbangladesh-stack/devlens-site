@@ -1,0 +1,44 @@
+name: Tell search engines about new pages (IndexNow)
+on:
+  push:
+    branches: [main]
+    paths: ['src/data/**']
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Wait for Cloudflare Pages to publish
+        run: sleep 150
+      - name: Send changed URLs to IndexNow (Bing, Yandex, Seznam, Naver)
+        env:
+          KEY: 25f6665201185c34bfac91b78bc465e9
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, urllib.request
+          host = 'devlensbd.org'
+          base = 'https://' + host
+          try:
+              changed = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD~1', 'HEAD']).decode().split()
+          except Exception:
+              changed = []
+          urls = {base + '/', base + '/jobs/', base + '/events/', base + '/category/news/'}
+          for f in changed:
+              if f.startswith('src/data/posts/') and f.endswith('.json') and os.path.exists(f):
+                  p = json.load(open(f))
+                  y, m, d = p['date'][:10].split('-')
+                  urls.add(f"{base}/{y}/{m}/{d}/{p['slug']}/")
+              elif f.startswith('src/data/pages/') and f.endswith('.json'):
+                  urls.add(f"{base}/{os.path.basename(f)[:-5]}/")
+          body = json.dumps({'host': host, 'key': os.environ['KEY'], 'keyLocation': f"{base}/{os.environ['KEY']}.txt", 'urlList': sorted(urls)[:10000]}).encode()
+          req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
+          try:
+              r = urllib.request.urlopen(req, timeout=30)
+              print('IndexNow', r.status, len(urls), 'URLs')
+          except urllib.error.HTTPError as e:
+              print('IndexNow HTTP', e.code, e.read()[:300])
+          for u in sorted(urls): print(u)
+          PY
