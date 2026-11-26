@@ -440,3 +440,29 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .ev-links .src { color: var(--ink); }
 .ev-empty { color: var(--faint); }
 @media (max-width: 600px) { .ev { grid-template-columns: 1fr; gap: 10px; padding: 16px; } .ev-date { display: inline-flex; gap: 6px; align-items: baseline; padding: 6px 10px; justify-self: start; } .ev-date .d { font-size: 18px; } .ev-date .m { margin: 0; } .ev h3 { font-size: 18px; } }
+
+/* Sectors page: collapsible sectors */
+.sectors-page .sec-tools { margin: 18px 0 10px; }
+.sec-all { font: inherit; font-size: 14px; font-weight: 700; color: #0b8f68; background: none; border: 1.5px solid #cfe9df; border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.sec-all:hover { border-color: #12b886; }
+.sec-list { display: grid; gap: 10px; margin-bottom: 64px; }
+.sec { border: 1px solid var(--line); border-left: 6px solid color-mix(in srgb, var(--bg, #e8f3fb) 55%, #0e1116 22%); border-radius: 10px; background: #fff; }
+.sec > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 18px; }
+.sec > summary::-webkit-details-marker { display: none; }
+.sec > summary:hover, .sec[open] > summary { background: var(--bg, #f7f7f4); border-radius: 8px; }
+.sec > summary:focus-visible { outline: 3px solid #12b886; outline-offset: 2px; }
+.sec-name { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.sec-name .n { color: var(--faint); font-weight: 600; font-size: 16px; }
+.sec .toggle { flex: none; font-size: 14px; font-weight: 700; color: #0b8f68; white-space: nowrap; }
+.sec .toggle::after { content: " ▾"; }
+.sec[open] .toggle::after { content: " ▴"; }
+.sec .toggle .hide, .sec[open] .toggle .show { display: none; }
+.sec[open] .toggle .hide { display: inline; }
+.sec-body { padding: 12px 18px 16px; }
+.sec-main { margin: 0 0 10px; font-weight: 700; }
+.sec-main a { color: #0b8f68; }
+.sec-subs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px 24px; }
+.sec-subs li { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px dashed var(--line); padding: 6px 0; font-size: 15px; }
+.sec-subs li a { color: var(--ink); }
+.sec-subs .n { color: var(--faint); font-weight: 700; }
+@media (max-width: 600px) { .sec-name { font-size: 16px; } .sec > summary { padding: 12px 14px; } .sec-body { padding: 10px 14px 14px; } }

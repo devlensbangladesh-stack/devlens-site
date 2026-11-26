@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import { pages } from '../lib/data.js';
+
+// The daily update keeps src/data/pages/sectors.json current (cards with an h3 and a list of sub-sectors).
+// This page turns each card into a collapsible bar, like the jobs page.
+const p = pages.find((x) => x.slug === 'sectors');
+const html = p.content;
+const firstCard = html.indexOf('<div class="wp-block-group alignwide');
+const intro = (firstCard > -1 ? html.slice(0, firstCard) : '').replace(/(\d{4})\s*<strong>Reference/, '$1<br /><strong>Reference');
+const strip = (s) => s.replace(/<[^>]+>/g, '').trim();
+const sectors = [...html.matchAll(/background-color:(#[0-9a-fA-F]{3,8})[^>]*>\s*<h3[^>]*>([\s\S]*?)<\/h3>\s*(<ul[\s\S]*?<\/ul>)?/g)].map((m) => {
+  const [, bg, h, ul = ''] = m;
+  const link = h.match(/<a href="([^"]+)">([\s\S]*?)<\/a>/);
+  const icon = h.split('<a')[0].trim();
+  const count = (h.match(/\((\d+)\)\s*$/) || [])[1] || '0';
+  const subs = [...ul.matchAll(/<li>\s*<a href="([^"]+)">([\s\S]*?)<\/a>\s*\((\d+)\)\s*<\/li>/g)].map((s) => ({ href: s[1], name: s[2], n: +s[3] }));
+  return { bg, icon, href: link?.[1], name: link?.[2] || strip(h), count: +count, subs };
+});
+if (sectors.length < 10) throw new Error(`sectors page: only ${sectors.length} sector cards found in sectors.json`);
+---
+<Base title={p.title} description={p.excerpt?.slice(0, 160)}>
+  <header class="page-head"><div class="wrap"><h1>{p.title}</h1></div></header>
+  <div class="wrap page-body sectors-page">
+    <div class="prose wp-content sec-intro" set:html={intro} />
+    <p class="sec-tools"><button type="button" class="sec-all" data-sec-all>Open all sectors</button></p>
+    <div class="sec-list">
+      {sectors.map((s) => (
+        <details class="sec" style={`--bg:${s.bg}`}>
+          <summary>
+            <span class="sec-name"><span class="ico" aria-hidden="true" set:html={s.icon} /> <span set:html={s.name} /> <span class="n">({s.count} {s.count === 1 ? 'story' : 'stories'})</span></span>
+            <span class="toggle" aria-hidden="true"><span class="show">{s.subs.length} {s.subs.length === 1 ? 'sub-sector' : 'sub-sectors'}</span><span class="hide">Hide</span></span>
+          </summary>
+          <div class="sec-body">
+            {s.href && <p class="sec-main"><a href={s.href}>See all {s.count} {s.count === 1 ? 'story' : 'stories'} on <span set:html={s.name} /> →</a></p>}
+            {s.subs.length > 0 && <ul class="sec-subs">
+              {s.subs.map((x) => <li><a href={x.href} set:html={x.name} /> <span class="n">{x.n}</span></li>)}
+            </ul>}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+  <script is:inline>
+    (function () {
+      var b = document.querySelector('[data-sec-all]'); if (!b) return;
+      var all = Array.prototype.slice.call(document.querySelectorAll('details.sec'));
+      function sync() { var open = all.every(function (d) { return d.open; }); b.textContent = open ? 'Close all sectors' : 'Open all sectors'; }
+      b.addEventListener('click', function () { var open = !all.every(function (d) { return d.open; }); all.forEach(function (d) { d.open = open; }); sync(); });
+      all.forEach(function (d) { d.addEventListener('toggle', sync); });
+    })();
+  </script>
+</Base>
