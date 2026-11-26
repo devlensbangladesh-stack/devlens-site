@@ -1,12 +1,13 @@
 {
- "wage1": "garment industry Bangladesh",
- "wage2": "textile factory Dhaka workers",
- "wage3": "Narayanganj garment factory",
- "rick1": "battery rickshaw Dhaka",
- "rick2": "easy bike Bangladesh",
- "snake1": "Russell's viper",
- "snake2": "Chittagong Medical College",
- "hosp1": "Dhaka Medical College Hospital",
- "mics1": "Bangladesh rural women village",
- "mics2": "Bhola Bangladesh"
+ "amr1": "antibiotic capsules",
+ "amr2": "Petri dish bacteria culture",
+ "amr3": "IEDCR Dhaka",
+ "kids1": "Rangpur Medical College Hospital",
+ "kids2": "Khulna Medical College",
+ "gbv1": "16 Days of Activism",
+ "mig1": "Bangladeshi migrant workers airport",
+ "bike1": "schoolgirls bicycle Bangladesh",
+ "tax1": "National Board of Revenue Bangladesh",
+ "ngo1": "Khulna city",
+ "camp1": "Kutupalong refugee camp"
 }
