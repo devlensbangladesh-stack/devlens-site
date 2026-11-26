@@ -1,289 +1,288 @@
 {
- "lead": {
-  "slug": "iedcr-amr-surveillance-55-percent-samples-multidrug-resistant-93-percent-icu",
-  "label": "Health · Antibiotic resistance",
-  "headline": "Antibiotic resistance rises: 55% of samples resist several drugs, 93% in ICUs",
-  "summary": "IEDCR's national surveillance of 99,867 samples found multidrug resistance up nine points in a year. Three-quarters of antibiotics used are 'Watch' drugs meant for limited use."
- },
- "alsoToday": {
-  "slug": "garment-minimum-wage-set-tk-17000-wage-board",
-  "label": "Labour · Garment wages",
-  "headline": "Wage board sets garment minimum wage at Tk 17,000 after 4-2 vote",
-  "summary": "The entry-level wage rises 36% from Tk 12,500. Workers' representatives voted against, and the labour ministry still has to approve the rate.",
-  "plus": [
-   "garment-workers-protest-tk-17000-wage-gazipur-300-factories-suspend-production",
-   "devlens-research-summary-unhcr-q3-2026-rohingya-protection-security-incidents-up-39-percent-registration-suspended",
-   "khulna-ngo-official-home-shot-at-after-tk-6-5-lakh-extortion-demand-cas-ava-centre",
-   "police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls",
-   "okup-study-91-percent-migrant-workers-no-written-contract-bmet-arbitration-recruitment-fees",
-   "five-specialised-childrens-hospitals-open-december-1440-posts-created-rajshahi-khulna-rangpur-barishal-cumilla",
-   "tax-justice-network-bangladesh-lost-2-26-billion-tax-abuse-2023-161-percent-health-spending",
-   "government-bicycles-300000-schoolgirls-classes-six-to-ten-dropout-20000-schools",
-   "measles-vaccine-questions-iedcr-antibody-study-24-percent-unprotected",
-   "devlens-research-summary-mics-2025-district-atlas-child-marriage-47-percent-fertility-gaps",
-   "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
-   "heu-study-public-hospital-benefits-shift-to-richer-out-of-pocket-hardship-41-percent",
-   "brac-bigd-battery-rickshaw-drivers-78-percent-migrants-96-percent-unlicensed",
-   "antivenom-project-tk-44-crore-venom-research-centre-snakebite-7500-deaths",
-   "ukraine-trafficking-probe-bangladeshis-russian-military-fortify-rights-104-recruited",
-   "amnesty-cyber-security-amendment-draft-content-blocking-powers-free-expression",
-   "wage-board-owners-tk-15700-workers-tk-22000-481-factories-halted",
-   "grameen-bank-nearly-100-branches-attacked-november-yunus-statement",
-   "devlens-research-summary-bids-bci-industry-100-power-gas-cuts-stall-factory-output",
-   "measles-nine-deaths-with-symptoms-1351-new-cases-day-after-first-zero-death-day",
-   "ilo-blf-project-keraniganj-garment-hub-child-labour-4500-children",
-   "incepta-medogen-subq-first-self-injectable-contraceptive-bangladesh",
-   "bangladeshi-workers-stranded-laos-bmet-clearance-no-jobs-passports-held",
-   "rti-forum-information-commission-independence-commissioners-parity-judges",
-   "canada-preferential-market-access-until-2032-ldc-graduation-bilateral-consultations",
-   "wage-board-owners-tk-15800-workers-tk-22000-talks-resume-november-24",
-   "icj-finds-myanmar-committed-genocide-rohingya-orders-return-compensation",
-   "devlens-research-summary-maternal-newborn-deaths-bleeding-asphyxia-home-births",
-   "uk-400-million-climate-investment-funds-bangladesh-rohingya-icj-pressure",
-   "teknaf-trafficking-92-rescued-17-days-rohingya-locals-sea-route-malaysia",
-   "faridpur-medical-college-hospital-1425-patients-500-beds-staff-shortage",
-   "high-court-orders-policy-social-media-children-16-icddrb-screen-time",
-   "draft-national-sme-policy-2026-25-lakh-jobs-2031-women-entrepreneurs",
-   "walk-for-humanity-teknaf-dhaka-hill-children-education-bandarban",
-   "icj-rohingya-genocide-verdict-today-dhaka-seeks-accountability-repatriation",
-   "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
-   "titumir-brac-dialogue-multi-year-funding-rohingya-youth-income-return-study",
-   "un-third-committee-rohingya-resolution-128-votes-jrp-funding-access",
-   "ipc-18-1-million-acute-food-insecurity-prices-squeeze-families",
-   "measles-deaths-1336-health-scorecard-leaves-out-measles",
-   "sylhet-measles-223-deaths-three-infants-die-osmani-hospital",
-   "cyclone-akvan-heavy-rain-five-divisions-saint-martins-tourists-stranded",
-   "grameen-bank-office-muksudpur-gopalganj-set-on-fire",
-   "garment-workers-council-demands-tk-32000-wage-buyers-hold-orders-factories-shut",
-   "pm-10000-workers-malaysia-cost-cap-recruitment-syndicates-parliament",
-   "pm-3500-hospital-beds-added-40-lakh-patients-on-floors-rangabali",
-   "financial-inclusion-survey-35-percent-excluded-women-agent-banking-half",
-   "haor-farmers-brri-dhan-118-early-rice-beat-flash-floods",
-   "devlens-analysis-icj-rohingya-ruling-what-it-can-and-cannot-change",
-   "garment-unrest-640-factories-shut-union-leaders-arrested-wage-board-23-november",
-   "ecnec-approves-16-projects-tk-33298-crore-canal-excavation-64-districts",
-   "adb-1000-mw-solar-battery-storage-ppp-monitor-country-strategy-2028-2032",
-   "mohakhali-sattola-slum-fire-100-families-homeless",
-   "coxs-bazar-jhau-trees-felled-tourism-carnival-forest-department-no-permission",
-   "tobacco-control-law-amendment-awareness-ngo-affairs-bureau-csr-curbs",
-   "secondary-education-project-revision-laptops-e-buses-library-grants-cut",
-   "special-solar-power-installation-bill-2026-passed-farmland-tender-concerns",
-   "high-court-halts-public-university-admission-tests-december-31-hsc",
-   "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
-   "un-rapporteur-kelley-currie-dhaka-warns-violence-rohingya-icj-ruling",
-   "cyclone-akvan-severe-signal-3-chattogram-coxs-bazar-mongla-payra",
-   "adb-report-adaptive-social-protection-bangladesh-climate-shocks",
-   "global-shield-climate-risk-grants-bangladesh-30-million-euros",
-   "foreign-aid-disbursement-down-60-percent-default-loans-32-percent",
-   "hrss-111-people-faced-action-expressing-views-january-october-2026",
-   "dengue-1674-admissions-508-deaths-november-18",
-   "wewb-tk-564-crore-deposits-stuck-sammilito-islami-bank-migrant-welfare",
-   "alrd-angoc-land-food-sovereignty-conference-farmer-input-card",
-   "brick-kilns-phase-out-7-8-years-environment-minister-parliament",
-   "cpd-garment-minimum-wage-range-tk-18578-24204",
-   "grameen-bank-natore-office-firebomb-attack-baghatipara",
-   "national-health-hotline-16263-shut-funding-gap-to-return",
-   "measles-november-cases-above-october-catch-up-campaign-sylhet-infants",
-   "procurement-law-amended-deprived-bidders-tib-warns-partisan-abuse",
-   "devlens-analysis-government-borrowing-crowds-out-private-credit-wages-lag-prices",
-   "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
-   "malaysia-bound-workers-medical-tests-begin-approved-centres",
-   "ldc-graduation-2029-roadmap-sovereign-bond-imf-deal-february",
-   "public-toilet-policy-2026-safe-water-2030-target-rangpur",
-   "parliament-undp-mps-orientation-sdg-oversight-public-procurement",
-   "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
-   "adp-implementation-record-low-6-53-percent-july-october-health-disaster",
-   "upazila-health-complexes-48-percent-doctor-posts-vacant-parliament",
-   "cyclone-akvan-bay-of-bengal-signal-2-seaports",
-   "bangladesh-health-watch-report-corruption-health-sector-governance",
-   "bangladeshi-workers-stranded-sri-lanka-false-job-promises-survivor-group",
-   "hrw-rohingya-education-crisis-donors-fund-312000-of-500000-children",
-   "measles-deaths-1323-dengue-deaths-pass-500-november-17",
-   "prothom-alo-narrow-bridges-culverts-killing-80-rivers-lged",
-   "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
-   "world-bank-additional-95-million-resilient-urban-territorial-development-project",
-   "us-dfc-declares-bangladesh-eligible-private-capital-infrastructure-energy",
-   "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
-   "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
-   "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
-   "eu-16-million-humanitarian-aid-myanmar-rohingya-refugees-bangladesh",
-   "fertiliser-dealerships-party-ties-bribery-allegations-boro-season",
-   "debt-conference-cox-bazar-interest-costs-tk-1-27-lakh-crore-social-spending"
-  ]
- },
- "special": {
-  "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
-  "label": "Special report · NGO financing",
-  "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
-  "summary": "A BIDS study finds 2,170 NGOs have no lending income, and many are cutting services first and turning into lenders.",
-  "published": "2026-11-13"
- },
- "pills": {
-  "fundingOpen": 12,
-  "newReports": 26,
-  "keyNumbers": 45
- },
- "numbers": [
-  {
-   "value": "55%",
-   "label": "Share of bacterial samples in national surveillance resistant to several antibiotics, up from 46% a year earlier (93% in ICUs)",
-   "source": "IEDCR, Nov 2026"
+  "lead": {
+    "slug": "iedcr-amr-surveillance-55-percent-samples-multidrug-resistant-93-percent-icu",
+    "label": "Health · Antibiotic resistance",
+    "headline": "Antibiotic resistance rises: 55% of samples resist several drugs, 93% in ICUs",
+    "summary": "IEDCR's national surveillance of 99,867 samples found multidrug resistance up nine points in a year. Three-quarters of antibiotics used are 'Watch' drugs meant for limited use."
   },
-  {
-   "value": "Tk 17,000",
-   "label": "New minimum monthly wage for entry-level garment workers set by the wage board, up 36% from Tk 12,500 (pending ministry approval)",
-   "source": "Minimum Wage Board, Nov 2026"
+  "alsoToday": {
+    "slug": "garment-minimum-wage-set-tk-17000-wage-board",
+    "label": "Labour · Garment wages",
+    "headline": "Wage board sets garment minimum wage at Tk 17,000 after 4-2 vote",
+    "summary": "The entry-level wage rises 36% from Tk 12,500. Workers' representatives voted against, and the labour ministry still has to approve the rate.",
+    "plus": [
+      "garment-workers-protest-tk-17000-wage-gazipur-300-factories-suspend-production",
+      "devlens-research-summary-unhcr-q3-2026-rohingya-protection-security-incidents-up-39-percent-registration-suspended",
+      "khulna-ngo-official-home-shot-at-after-tk-6-5-lakh-extortion-demand-cas-ava-centre",
+      "police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls",
+      "okup-study-91-percent-migrant-workers-no-written-contract-bmet-arbitration-recruitment-fees",
+      "five-specialised-childrens-hospitals-open-december-1440-posts-created-rajshahi-khulna-rangpur-barishal-cumilla",
+      "tax-justice-network-bangladesh-lost-2-26-billion-tax-abuse-2023-161-percent-health-spending",
+      "government-bicycles-300000-schoolgirls-classes-six-to-ten-dropout-20000-schools",
+      "measles-vaccine-questions-iedcr-antibody-study-24-percent-unprotected",
+      "devlens-research-summary-mics-2025-district-atlas-child-marriage-47-percent-fertility-gaps",
+      "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
+      "heu-study-public-hospital-benefits-shift-to-richer-out-of-pocket-hardship-41-percent",
+      "brac-bigd-battery-rickshaw-drivers-78-percent-migrants-96-percent-unlicensed",
+      "antivenom-project-tk-44-crore-venom-research-centre-snakebite-7500-deaths",
+      "ukraine-trafficking-probe-bangladeshis-russian-military-fortify-rights-104-recruited",
+      "amnesty-cyber-security-amendment-draft-content-blocking-powers-free-expression",
+      "wage-board-owners-tk-15700-workers-tk-22000-481-factories-halted",
+      "grameen-bank-nearly-100-branches-attacked-november-yunus-statement",
+      "devlens-research-summary-bids-bci-industry-100-power-gas-cuts-stall-factory-output",
+      "measles-nine-deaths-with-symptoms-1351-new-cases-day-after-first-zero-death-day",
+      "ilo-blf-project-keraniganj-garment-hub-child-labour-4500-children",
+      "incepta-medogen-subq-first-self-injectable-contraceptive-bangladesh",
+      "bangladeshi-workers-stranded-laos-bmet-clearance-no-jobs-passports-held",
+      "rti-forum-information-commission-independence-commissioners-parity-judges",
+      "canada-preferential-market-access-until-2032-ldc-graduation-bilateral-consultations",
+      "wage-board-owners-tk-15800-workers-tk-22000-talks-resume-november-24",
+      "icj-finds-myanmar-committed-genocide-rohingya-orders-return-compensation",
+      "devlens-research-summary-maternal-newborn-deaths-bleeding-asphyxia-home-births",
+      "uk-400-million-climate-investment-funds-bangladesh-rohingya-icj-pressure",
+      "teknaf-trafficking-92-rescued-17-days-rohingya-locals-sea-route-malaysia",
+      "faridpur-medical-college-hospital-1425-patients-500-beds-staff-shortage",
+      "high-court-orders-policy-social-media-children-16-icddrb-screen-time",
+      "draft-national-sme-policy-2026-25-lakh-jobs-2031-women-entrepreneurs",
+      "walk-for-humanity-teknaf-dhaka-hill-children-education-bandarban",
+      "icj-rohingya-genocide-verdict-today-dhaka-seeks-accountability-repatriation",
+      "guterres-rohingya-still-await-accountability-icj-ruling-november-19",
+      "titumir-brac-dialogue-multi-year-funding-rohingya-youth-income-return-study",
+      "un-third-committee-rohingya-resolution-128-votes-jrp-funding-access",
+      "ipc-18-1-million-acute-food-insecurity-prices-squeeze-families",
+      "measles-deaths-1336-health-scorecard-leaves-out-measles",
+      "sylhet-measles-223-deaths-three-infants-die-osmani-hospital",
+      "cyclone-akvan-heavy-rain-five-divisions-saint-martins-tourists-stranded",
+      "grameen-bank-office-muksudpur-gopalganj-set-on-fire",
+      "garment-workers-council-demands-tk-32000-wage-buyers-hold-orders-factories-shut",
+      "pm-10000-workers-malaysia-cost-cap-recruitment-syndicates-parliament",
+      "pm-3500-hospital-beds-added-40-lakh-patients-on-floors-rangabali",
+      "financial-inclusion-survey-35-percent-excluded-women-agent-banking-half",
+      "haor-farmers-brri-dhan-118-early-rice-beat-flash-floods",
+      "devlens-analysis-icj-rohingya-ruling-what-it-can-and-cannot-change",
+      "garment-unrest-640-factories-shut-union-leaders-arrested-wage-board-23-november",
+      "ecnec-approves-16-projects-tk-33298-crore-canal-excavation-64-districts",
+      "adb-1000-mw-solar-battery-storage-ppp-monitor-country-strategy-2028-2032",
+      "mohakhali-sattola-slum-fire-100-families-homeless",
+      "coxs-bazar-jhau-trees-felled-tourism-carnival-forest-department-no-permission",
+      "tobacco-control-law-amendment-awareness-ngo-affairs-bureau-csr-curbs",
+      "secondary-education-project-revision-laptops-e-buses-library-grants-cut",
+      "special-solar-power-installation-bill-2026-passed-farmland-tender-concerns",
+      "high-court-halts-public-university-admission-tests-december-31-hsc",
+      "grameen-bank-22-branches-arson-attacks-un-calls-for-investigation",
+      "un-rapporteur-kelley-currie-dhaka-warns-violence-rohingya-icj-ruling",
+      "cyclone-akvan-severe-signal-3-chattogram-coxs-bazar-mongla-payra",
+      "adb-report-adaptive-social-protection-bangladesh-climate-shocks",
+      "global-shield-climate-risk-grants-bangladesh-30-million-euros",
+      "foreign-aid-disbursement-down-60-percent-default-loans-32-percent",
+      "hrss-111-people-faced-action-expressing-views-january-october-2026",
+      "dengue-1674-admissions-508-deaths-november-18",
+      "wewb-tk-564-crore-deposits-stuck-sammilito-islami-bank-migrant-welfare",
+      "alrd-angoc-land-food-sovereignty-conference-farmer-input-card",
+      "brick-kilns-phase-out-7-8-years-environment-minister-parliament",
+      "cpd-garment-minimum-wage-range-tk-18578-24204",
+      "grameen-bank-natore-office-firebomb-attack-baghatipara",
+      "national-health-hotline-16263-shut-funding-gap-to-return",
+      "measles-november-cases-above-october-catch-up-campaign-sylhet-infants",
+      "procurement-law-amended-deprived-bidders-tib-warns-partisan-abuse",
+      "devlens-analysis-government-borrowing-crowds-out-private-credit-wages-lag-prices",
+      "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
+      "malaysia-bound-workers-medical-tests-begin-approved-centres",
+      "ldc-graduation-2029-roadmap-sovereign-bond-imf-deal-february",
+      "public-toilet-policy-2026-safe-water-2030-target-rangpur",
+      "parliament-undp-mps-orientation-sdg-oversight-public-procurement",
+      "unhcr-oxford-study-aid-cuts-drive-28-percent-surge-rohingya-trafficking-coxs-bazar",
+      "adp-implementation-record-low-6-53-percent-july-october-health-disaster",
+      "upazila-health-complexes-48-percent-doctor-posts-vacant-parliament",
+      "cyclone-akvan-bay-of-bengal-signal-2-seaports",
+      "bangladesh-health-watch-report-corruption-health-sector-governance",
+      "bangladeshi-workers-stranded-sri-lanka-false-job-promises-survivor-group",
+      "hrw-rohingya-education-crisis-donors-fund-312000-of-500000-children",
+      "measles-deaths-1323-dengue-deaths-pass-500-november-17",
+      "prothom-alo-narrow-bridges-culverts-killing-80-rivers-lged",
+      "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
+      "world-bank-additional-95-million-resilient-urban-territorial-development-project",
+      "us-dfc-declares-bangladesh-eligible-private-capital-infrastructure-energy",
+      "cyber-law-revised-draft-rumour-penalty-cut-five-years-comments-november-25",
+      "rohingya-food-aid-funded-until-april-2027-rations-malnutrition",
+      "icj-rohingya-genocide-judgment-november-19-gambia-myanmar",
+      "eu-16-million-humanitarian-aid-myanmar-rohingya-refugees-bangladesh",
+      "fertiliser-dealerships-party-ties-bribery-allegations-boro-season",
+      "debt-conference-cox-bazar-interest-costs-tk-1-27-lakh-crore-social-spending"
+    ]
   },
-  {
-   "value": "47.2%",
-   "label": "Share of women aged 20-24 who were married before age 18, down from 51.4% in 2019",
-   "source": "BBS/UNICEF MICS 2025, Nov 2025"
-  }
- ],
- "funding": [
-  {
-   "title": "ILO EPZ Model Zone national consultants",
-   "funder": "ILO Bangladesh",
-   "deadline": "2026-11-26",
-   "url": "https://www.ungm.org/Public/Notice/322642"
+  "special": {
+    "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
+    "label": "Special report · NGO financing",
+    "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
+    "summary": "A BIDS study finds 2,170 NGOs have no lending income, and many are cutting services first and turning into lenders.",
+    "published": "2026-11-13"
   },
-  {
-   "title": "APN regional research and capacity grants",
-   "funder": "Asia-Pacific Network for Global Change Research",
-   "deadline": "2026-11-30",
-   "url": "https://www.apn-gcr.org/news/2026-call-for-proposals-under-the-crrp-and-capable-programmes/"
+  "pills": {
+    "fundingOpen": 12,
+    "newReports": 26,
+    "keyNumbers": 45
   },
-  {
-   "title": "Terre de Femmes Award, €10k",
-   "funder": "Yves Rocher Foundation",
-   "deadline": "2026-11-30",
-   "url": "https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/"
-  },
-  {
-   "title": "UNICEF school WASH and energy works",
-   "funder": "UNICEF Bangladesh",
-   "deadline": "2026-11-30",
-   "url": "https://www.ungm.org/Public/Notice/320246"
-  },
-  {
-   "title": "Asia Foundation Development Fellows 2027",
-   "funder": "The Asia Foundation",
-   "deadline": "2026-12-01",
-   "url": "https://asiafoundation.org/the-asia-foundation-opens-applications-for-2027-development-fellows/"
-  },
-  {
-   "title": "UNDP solar for Cox's Bazar plastic recovery sites",
-   "funder": "UNDP Bangladesh",
-   "deadline": "2026-12-06",
-   "url": "https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=52001"
-  },
-  {
-   "title": "D-Prize poverty solutions funding",
-   "funder": "D-Prize",
-   "deadline": "2026-12-06",
-   "url": "https://d-prize.org/"
-  },
-  {
-   "title": "UNDP national consultant, steel decarbonisation",
-   "funder": "UNDP Bangladesh",
-   "deadline": "2026-12-08",
-   "url": "https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=52073"
-  },
-  {
-   "title": "ADB Community Resilience Partnership call for solutions",
-   "funder": "Asian Development Bank",
-   "deadline": "2026-12-15",
-   "url": "https://www.adb.org/news/events/community-resilience-partnership-program-partnership-forum-2027-call-solutions"
-  }
- ],
- "pinnedSpecials": [],
- "spotlight": {
-  "id": "cop31",
-  "start": "2026-11-09",
-  "until": "2026-11-20",
-  "days": 12,
-  "label": "Spotlight",
-  "title": "COP31 in Antalya",
-  "dates": "9 to 20 November 2026 · Antalya, Türkiye",
-  "intro": "Bangladesh wants adaptation finance tripled and paid as grants, not loans, plus real money for loss and damage. Devlens follows what the summit means for the sector until the talks close.",
-  "today": {
-   "date": "19 Nov",
-   "text": "Negotiators in Antalya are waiting for a new draft of the main decision, with the talks due to close on Friday, 20 November. Monday's 18-page draft proposed a collective adaptation goal of at least $120 billion and asked developed countries to explain how they would reach it, but the figure is still under negotiation and the EU is resisting any new financial commitment, saying it will honour existing pledges and wants the poorest countries and small island states to reach funds faster. The draft also holds two competing paragraphs on fossil fuels: one urges faster action on the COP28 pledge to transition away from them, the next calls for an accelerated phase-out, and either could be cut. For Bangladesh the gap is stark: UNEP puts developing countries' adaptation needs at about $305 billion a year by 2035, while public adaptation funding from wealthy countries was $28 billion to $32 billion in 2024.",
-   "sources": [
+  "numbers": [
     {
-     "name": "RTÉ News",
-     "url": "https://www.rte.ie/news/world/2026/1119/1599773-cop31-thursday/"
+      "value": "55%",
+      "label": "Share of bacterial samples in national surveillance resistant to several antibiotics, up from 46% a year earlier (93% in ICUs)",
+      "source": "IEDCR, Nov 2026"
     },
     {
-     "name": "Daily Sabah (AFP)",
-     "url": "https://www.dailysabah.com/business/energy/cop31-draft-calls-for-accelerated-action-to-phase-out-fossil-fuels"
+      "value": "Tk 17,000",
+      "label": "New minimum monthly wage for entry-level garment workers set by the wage board, up 36% from Tk 12,500 (pending ministry approval)",
+      "source": "Minimum Wage Board, Nov 2026"
+    },
+    {
+      "value": "47.2%",
+      "label": "Share of women aged 20-24 who were married before age 18, down from 51.4% in 2019",
+      "source": "BBS/UNICEF MICS 2025, Nov 2025"
     }
-   ]
-  },
-  "watch": [
-   "Adaptation finance: the draft names at least $120 billion, but the EU resists new money. Watch whether the figure survives the new draft and whether it is counted as grants or loans.",
-   "Pushback on the draft: the EU says the text needs significant change, and Arab, Saudi and Indian objections are still open. A slimmer text could drop items developing countries want.",
-   "Just transition: the draft calls for a \"just, orderly and equitable\" move away from fossil fuels. Whether the Belém-Antalya Action Mechanism is adopted is still to be decided.",
-   "Electricity target: Türkiye wants electricity to cover 35% of final energy demand by 2035. Several governments have objected to putting it in the final deal."
   ],
-  "stories": [
-   "mongla-coastal-women-fishers-demand-climate-grants-not-loans-cop31",
-   "global-shield-climate-risk-grants-bangladesh-30-million-euros",
-   "cop31-d8-bangladesh-urges-grant-concessional-climate-finance",
-   "cop31-bangladesh-briefing-climate-needs-11-billion-cif-30-million",
-   "cop31-bangladesh-adaptation-need-8-5-billion-under-half-billion-international",
-   "cop31-tripling-adaptation-finance-left-off-agenda-african-group",
-   "cop31-pm-tarique-rahman-national-statement-five-proposals-adaptation-50-percent",
-   "cop31-leaders-summit-guterres-warning-pm-tarique-meets-mirziyoyev",
-   "cop31-bangladesh-triple-adaptation-finance-pm-erdogan-meeting",
-   "rmmru-study-climate-risks-push-rural-people-to-cities",
-   "cop31-opens-antalya-bangladesh-grants-not-loans-adaptation",
-   "pm-tarique-rahman-cop31-antalya-meetings-climate-finance",
-   "energy-climate-finance-92-percent-loans-change-initiative-study",
-   "special-solar-power-installation-bill-2026-parliament",
-   "climate-adaptation-needs-longer-loans-and-guarantees-to-draw-private-money-bankers-say"
+  "funding": [
+    {
+      "title": "ILO EPZ Model Zone national consultants",
+      "funder": "ILO Bangladesh",
+      "deadline": "2026-11-26",
+      "url": "https://www.ungm.org/Public/Notice/322642"
+    },
+    {
+      "title": "APN regional research and capacity grants",
+      "funder": "Asia-Pacific Network for Global Change Research",
+      "deadline": "2026-11-30",
+      "url": "https://www.apn-gcr.org/news/2026-call-for-proposals-under-the-crrp-and-capable-programmes/"
+    },
+    {
+      "title": "Terre de Femmes Award, €10k",
+      "funder": "Yves Rocher Foundation",
+      "deadline": "2026-11-30",
+      "url": "https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/"
+    },
+    {
+      "title": "UNICEF school WASH and energy works",
+      "funder": "UNICEF Bangladesh",
+      "deadline": "2026-11-30",
+      "url": "https://www.ungm.org/Public/Notice/320246"
+    },
+    {
+      "title": "Asia Foundation Development Fellows 2027",
+      "funder": "The Asia Foundation",
+      "deadline": "2026-12-01",
+      "url": "https://asiafoundation.org/the-asia-foundation-opens-applications-for-2027-development-fellows/"
+    },
+    {
+      "title": "UNDP solar for Cox's Bazar plastic recovery sites",
+      "funder": "UNDP Bangladesh",
+      "deadline": "2026-12-06",
+      "url": "https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=52001"
+    },
+    {
+      "title": "D-Prize poverty solutions funding",
+      "funder": "D-Prize",
+      "deadline": "2026-12-06",
+      "url": "https://d-prize.org/"
+    },
+    {
+      "title": "UNDP national consultant, steel decarbonisation",
+      "funder": "UNDP Bangladesh",
+      "deadline": "2026-12-08",
+      "url": "https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=52073"
+    },
+    {
+      "title": "ADB Community Resilience Partnership call for solutions",
+      "funder": "Asian Development Bank",
+      "deadline": "2026-12-15",
+      "url": "https://www.adb.org/news/events/community-resilience-partnership-program-partnership-forum-2027-call-solutions"
+    }
   ],
-  "links": [
-   {
-    "label": "UN Climate Change: COP31 live updates",
-    "url": "https://unfccc.int/cop-31-live-updates-archive"
-   },
-   {
-    "label": "Official COP31 host portal (Zero Waste Foundation, Türkiye)",
-    "url": "https://cop.sifiratikvakfi.org/en/"
-   },
-   {
-    "label": "UNFCCC COP31 schedule",
-    "url": "https://unfccc.int/sites/default/files/resource/COP_31_Overview_Schedule.pdf"
-   },
-   {
-    "label": "Carbon Brief: tracking COP31 negotiating texts",
-    "url": "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop31-climate-summit"
-   }
-  ],
-  "watchSources": [
-   {
-    "name": "Arab News (AFP)",
-    "url": "https://www.arabnews.com/middle-east/tensions-rise-over-cop31-draft-deal-3012534"
-   },
-   {
-    "name": "Rio Times",
-    "url": "https://www.riotimesonline.com/cop31-ministers-take-up-divided-draft-cover-decision/"
-   },
-   {
-    "name": "AOL",
-    "url": "https://www.aol.co.uk/articles/africas-struggle-electricity-puts-cop31-164030000.html"
-   },
-   {
-    "name": "UN Climate Change",
-    "url": "https://unfccc.int/cop-31-live-updates-archive"
-   }
-  ],
-  "image": {
-   "src": "/media/2026/11/photo-cop31-plenary-hall-antalya.jpg",
-   "alt": "The COP31 plenary hall in Antalya, with UN Climate Change and COP31 Türkiye branding on the stage",
-   "credit": "Xuthoria / Wikimedia Commons, CC BY-SA 4.0",
-   "creditUrl": "https://commons.wikimedia.org/wiki/File:COP31_-_Mohammad_Mustafa_09.jpg"
+  "pinnedSpecials": [],
+  "spotlight": {
+    "id": "16days-2026",
+    "start": "2026-11-25",
+    "until": "2026-12-10",
+    "days": 16,
+    "theme": "orange",
+    "label": "Spotlight",
+    "title": "16 Days of Activism",
+    "dates": "25 November to 10 December 2026 · Ensure justice, protect survivors, end impunity",
+    "intro": "Three in four women in Bangladesh have faced violence from a partner, yet few cases reach a court and fewer end in a conviction. Devlens follows the campaign against gender-based violence every day until Human Rights Day.",
+    "image": {
+      "src": "/media/2026/11/photo-16-days-activism-2026-national-dialogue-dhaka.jpg",
+      "alt": "Women and Children Affairs Minister A Z M Zahid Hossain speaks at the 16 Days of Activism national dialogue in Dhaka on 25 November 2026, in front of an orange campaign backdrop",
+      "credit": "Photo: Press Information Department, via Wikimedia Commons (public domain)",
+      "creditUrl": "https://commons.wikimedia.org/wiki/File:Abu_Zafar_Md._Zahid_Hussain_at_16_Days_of_Activism_Against_Gender-Based_Violence_program_in_Tejgaon_Dhaka_2026-11-25.jpg"
+    },
+    "todayLabel": "Today in the campaign",
+    "today": {
+      "date": "26 Nov",
+      "text": "The campaign opened in Dhaka on Wednesday with a national dialogue organised by the UN, the Ministry of Women and Children Affairs and development partners, under the theme \"Ensure justice, protect survivors, end impunity\". Acting UN Resident Coordinator Carol Flore-Smereczniak said \"laws alone will not be enough\" and called for accountability, reliable data and money for survivor-centred justice. New figures released as the campaign began show the scale of the gap: police recorded 887 dowry murder cases in five years, Odhikar has counted 21,627 rape victims since 2001, more than half of them girls, and research cited at a Manusher Jonno Foundation dialogue found tribunals convicted in only 3% of 4,040 cases studied.",
+      "sources": [
+        {
+          "name": "The Daily Star",
+          "url": "https://www.thedailystar.net/news/bangladesh/rights/news/stronger-legal-frameworks-effective-enforcement-laws-needed-end-gender-violence-speakers-4333086"
+        },
+        {
+          "name": "Devlens",
+          "url": "/2026/11/26/police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls/"
+        },
+        {
+          "name": "Devlens",
+          "url": "/2026/11/25/mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days/"
+        }
+      ]
+    },
+    "watchLabel": "What to watch in Bangladesh",
+    "watch": [
+      "Justice: Tribunals convicted in 3% of cases in one study, after an average of 1,370 days. Watch for moves to speed up trials and protect witnesses.",
+      "Survivor services: Staff of the 109 helpline and One-Stop Crisis Centres report irregular pay. Watch for funding and expansion to districts.",
+      "The law: An amendment to cover former husbands under the Domestic Violence Act 2010 is still only a proposal.",
+      "Closing days: Begum Rokeya Day on 9 December and Human Rights Day on 10 December, when the campaign ends."
+    ],
+    "watchSources": [
+      {
+        "name": "BBS and UNFPA VAW Survey 2024",
+        "url": "https://bangladesh.un.org/en/303253-three-out-four-women-bangladesh-experience-violence-bangladesh-bureau-statistics-survey"
+      },
+      {
+        "name": "The Daily Star",
+        "url": "https://www.thedailystar.net/news/16-days-activism-against-gender-based-violence/news/when-leaving-abusive-marriage-doesnt-end-abuse-4332756"
+      }
+    ],
+    "stories": [
+      "16-days-activism-2026-why-few-women-in-bangladesh-see-justice",
+      "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
+      "police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls",
+      "unfpa-rohingya-monsoon-gender-violence-july-september-2026"
+    ],
+    "linksLabel": "Get help and follow the campaign",
+    "links": [
+      {
+        "label": "Helpline 109 (free, 24 hours)",
+        "url": "tel:109"
+      },
+      {
+        "label": "Emergency 999",
+        "url": "tel:999"
+      },
+      {
+        "label": "UN Women: 16 Days of Activism 2026",
+        "url": "https://asiapacific.unwomen.org/en/stories/announcement/2026/08/16-days-of-activism-2026"
+      },
+      {
+        "label": "UNFPA: 16 Days",
+        "url": "https://www.unfpa.org/16days"
+      },
+      {
+        "label": "ASK: violence against women data",
+        "url": "https://www.askbd.org/ask/statistics-on-human-rights-violations/"
+      }
+    ],
+    "strip": {
+      "text": "Why so few women in Bangladesh ever see justice",
+      "url": "/#spotlight",
+      "help": "Helpline 109",
+      "helpUrl": "tel:109"
+    }
   }
- }
 }

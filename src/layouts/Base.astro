@@ -1,6 +1,7 @@
 ---
 import '../styles/site.css';
 import { dhakaToday } from '../lib/data.js';
+import homeData from '../data/home.json';
 const { title, description = 'News, funding, jobs, research and data for Bangladesh\'s development and humanitarian sector.', image, wpBlocks = false } = Astro.props;
 const fullTitle = title ? `${title} | Devlens Bangladesh` : 'Devlens Bangladesh | Development intelligence for Bangladesh';
 const today = dhakaToday();
@@ -8,6 +9,8 @@ const d = new Date(today + 'T12:00:00Z');
 const weekday = d.toLocaleDateString('en-GB', { weekday: 'long', timeZone: 'UTC' });
 const longDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const strip = homeData.spotlight && homeData.spotlight.strip && today >= homeData.spotlight.start && today <= homeData.spotlight.until ? homeData.spotlight : null;
+const stripDay = strip ? Math.round((Date.parse(today) - Date.parse(strip.start)) / 86400000) + 1 : 0;
 const ogImage = image ? new URL(image, Astro.site) : null;
 const nav = [
   ['News', '/category/news/'], ['Sectors', '/sectors/'], ['Research', '/research-evidence/'], ['Funding', '/funding/'],
@@ -63,6 +66,23 @@ const nav = [
       </div>
     </div>
   </header>
+  {strip && (
+    <div class={`spot-strip theme-${strip.theme || 'green'}`} data-strip-start={strip.start} data-strip-until={strip.until} data-strip-days={strip.days}>
+      <div class="wrap">
+        <span class="tag">{strip.title}</span>
+        <span class="day" data-strip-day>Day {stripDay} of {strip.days}</span>
+        <a class="msg" href={strip.strip.url}>{strip.strip.text} →</a>
+        {strip.strip.help && <a class="help" href={strip.strip.helpUrl}>{strip.strip.help}</a>}
+      </div>
+    </div>
+  )}
+  <script is:inline>
+    (function () { var s = document.querySelector('[data-strip-until]'); if (!s) return;
+      var t = new Date(Date.now() + 6 * 3600000).toISOString().slice(0, 10);
+      if (t > s.dataset.stripUntil || t < s.dataset.stripStart) { s.remove(); return; }
+      var n = Math.round((Date.parse(t) - Date.parse(s.dataset.stripStart)) / 86400000) + 1;
+      var d = s.querySelector('[data-strip-day]'); if (d) d.textContent = 'Day ' + n + ' of ' + s.dataset.stripDays; })();
+  </script>
 
   <main id="main"><slot /></main>
 

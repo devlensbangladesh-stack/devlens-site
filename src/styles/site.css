@@ -131,6 +131,17 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .spot-stories li:first-child { border-top: 0; padding-top: 2px; }
 .spot-stories a { color: var(--ink); font-weight: 700; text-decoration: none; display: block; line-height: 1.35; }
 .spot-stories a:hover { color: var(--green-dark); }
+/* Orange spotlight theme (16 Days of Activism) */
+.spotlight.theme-orange { background: #fff3ea; border-top-color: #ffd5b8; border-bottom-color: #ffd5b8; }
+.theme-orange .label { color: #c2410c; }
+.theme-orange .spot-progress { background: #ffd5b8; }
+.theme-orange .spot-progress span { background: #f97316; }
+.theme-orange .spot-card { border-color: #fbdcc6; }
+.theme-orange .spot-watch .spot-card { border-left-color: #f97316; }
+.theme-orange a { color: #c2410c; }
+.theme-orange .spot-stories li { border-top-color: #fde7d8; }
+.theme-orange .spot-stories a { color: var(--ink); }
+.theme-orange .spot-stories a:hover { color: #c2410c; }
 .spot-stories span { color: var(--muted); font-size: 13px; }
 .spot-stories li.has-thumb { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; align-items: start; }
 .spot-stories .thumb { display: block; border-radius: 8px; overflow: hidden; background: #e3f1eb; aspect-ratio: 16 / 9; }
@@ -341,3 +352,17 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .wp-content .wp-block-table tbody tr:hover td{background:#fbfaf7}
 
 .footer-address { font-style: normal; font-size: 14px; line-height: 1.5; opacity: .85; margin-top: 6px; }
+.theme-orange .spot-links a { border-color: #fbcfae; }
+.theme-orange .spot-links a:hover { border-color: #c2410c; }
+.theme-orange .spot-more { border-top-color: #fde7d8; }
+.theme-orange .spot-more summary { color: #c2410c; }
+
+/* Campaign strip under the header */
+.spot-strip { background: #c2410c; color: #fff; font-size: 14px; }
+.spot-strip .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-top: 9px; padding-bottom: 9px; }
+.spot-strip .tag { font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px; }
+.spot-strip .day { background: rgba(255,255,255,0.2); border-radius: 999px; padding: 2px 10px; font-weight: 700; font-size: 12px; }
+.spot-strip .msg { color: #fff; font-weight: 600; text-decoration: none; flex: 1 1 280px; }
+.spot-strip .msg:hover { text-decoration: underline; }
+.spot-strip .help { color: #fff; font-weight: 800; text-decoration: none; background: #7c2d12; border-radius: 6px; padding: 3px 10px; font-size: 13px; }
+@media (max-width: 640px) { .spot-strip .wrap { gap: 8px; } .spot-strip .msg { flex-basis: 100%; order: 3; } }

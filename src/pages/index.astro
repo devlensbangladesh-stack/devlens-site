@@ -89,7 +89,7 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
   )}
 
   {spotOn && (
-    <section class="spotlight" data-spot-start={spot.start} data-spot-until={spot.until} data-spot-days={spot.days}>
+    <section id="spotlight" class={`spotlight${spot.theme ? ` theme-${spot.theme}` : ""}`} data-spot-start={spot.start} data-spot-until={spot.until} data-spot-days={spot.days}>
       <div class="wrap">
         <div class={`spot-head${spot.image ? ' has-img' : ''}`}>
           <div>
@@ -109,13 +109,13 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
         <div class="spot-grid">
           <div>
             <div class="spot-card spot-today">
-              <h3>Today in Antalya · {spot.today.date}</h3>
+              <h3>{spot.todayLabel || "Today in Antalya"} · {spot.today.date}</h3>
               <p>{spot.today.text}</p>
               {srcList(spot.today.sources || [{ name: spot.today.source, url: spot.today.url }]).length > 0 && (
                 <p class="src">Sources: {srcList(spot.today.sources || [{ name: spot.today.source, url: spot.today.url }]).map((s, i) => <>{i > 0 && ' · '}<a href={s.url} rel="noopener">{s.name}</a></>)}</p>
               )}
             </div>
-            <h3 class="spot-sub">What to watch for Bangladesh</h3>
+            <h3 class="spot-sub">{spot.watchLabel || "What to watch for Bangladesh"}</h3>
             <div class="spot-watch">
               {spot.watch.map((w) => { const [t, d] = splitWatch(w); return <div class="spot-card">{t && <strong>{t}</strong>}<p>{d}</p></div>; })}
             </div>
@@ -138,7 +138,7 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
                 </details>
               )}
             </div>
-            <h3 class="spot-sub">Follow the summit</h3>
+            <h3 class="spot-sub">{spot.linksLabel || "Follow the summit"}</h3>
             <ul class="spot-links">{spot.links.map((l) => <li><a href={l.url} rel="noopener">{l.label} ↗</a></li>)}</ul>
           </div>
         </div>
