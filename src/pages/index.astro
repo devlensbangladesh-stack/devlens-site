@@ -117,12 +117,12 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
                 <span>{fmtDate(spotStories[0].date)}</span>
               </a>
               <ul class="spot-stories">
-                {spotStories.slice(1, 4).map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}
+                {spotStories.slice(1, 3).map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}
               </ul>
-              {spotStories.length > 4 && (
+              {spotStories.length > 3 && (
                 <details class="spot-more">
-                  <summary>Show {spotStories.length - 4} earlier {spotStories.length - 4 === 1 ? 'story' : 'stories'}</summary>
-                  <ul class="spot-stories">{spotStories.slice(4).map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}</ul>
+                  <summary>Show {spotStories.length - 3} earlier {spotStories.length - 3 === 1 ? 'story' : 'stories'}</summary>
+                  <ul class="spot-stories">{spotStories.slice(3).map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}</ul>
                 </details>
               )}
             </div>

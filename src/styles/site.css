@@ -580,3 +580,21 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 @media (max-width: 900px) { .special-wrap, .special-latest { grid-template-columns: minmax(0, 1fr); } .special-latest .text { padding: 0 18px 20px; } }
 .spot-cols { align-items: start; }
 .special-wrap .special-prev { margin-top: 0; }
+/* Spotlight: balanced two-column grid, no empty space (27 Nov 2026) */
+.spot-cols { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); grid-template-areas: "today cover" "stats cover"; align-items: stretch; }
+.spot-today { grid-area: today; }
+.spot-stats { grid-area: stats; }
+.spot-cover { grid-area: cover; display: flex; flex-direction: column; }
+.spot-stats .spot-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.spot-feature img { aspect-ratio: 2 / 1; }
+@media (max-width: 1000px) { .spot-cols { grid-template-columns: minmax(0, 1fr); grid-template-areas: "today" "stats" "cover"; } .spot-cover { grid-column: auto; } }
+@media (max-width: 640px) { .spot-stats .spot-tiles { grid-template-columns: 1fr 1fr; } }
+.spot-feature img { aspect-ratio: 21 / 9; }
+.spot-v2 .spot-stories li span { display: block; }
+@media (min-width: 1001px) {
+  /* Left cards set the height; the coverage card fits it, its photo growing or shrinking to fill. */
+  .spot-cover { contain: size; overflow: hidden; }
+  .spot-feature { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+  .spot-feature img { flex: 1 1 0; min-height: 120px; aspect-ratio: auto; height: 0; }
+}
+@media (min-width: 1001px) { .spot-cover:has(details[open]) { contain: none; overflow: visible; } }
