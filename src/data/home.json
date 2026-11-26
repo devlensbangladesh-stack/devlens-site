@@ -1,16 +1,25 @@
 {
  "lead": {
+  "slug": "iedcr-amr-surveillance-55-percent-samples-multidrug-resistant-93-percent-icu",
+  "label": "Health · Antibiotic resistance",
+  "headline": "Antibiotic resistance rises: 55% of samples resist several drugs, 93% in ICUs",
+  "summary": "IEDCR's national surveillance of 99,867 samples found multidrug resistance up nine points in a year. Three-quarters of antibiotics used are 'Watch' drugs meant for limited use."
+ },
+ "alsoToday": {
   "slug": "garment-minimum-wage-set-tk-17000-wage-board",
   "label": "Labour · Garment wages",
   "headline": "Wage board sets garment minimum wage at Tk 17,000 after 4-2 vote",
-  "summary": "The entry-level wage rises 36% from Tk 12,500. Workers' representatives voted against, and the labour ministry still has to approve the rate."
- },
- "alsoToday": {
-  "slug": "measles-vaccine-questions-iedcr-antibody-study-24-percent-unprotected",
-  "label": "Health · Measles",
-  "headline": "Measles: study finds 24% of sampled children lack protective antibodies",
-  "summary": "An IEDCR-led study of more than 300 children raises questions about vaccine coverage. Experts want checks on reporting, the cold chain and EPI's field staff shortage.",
+  "summary": "The entry-level wage rises 36% from Tk 12,500. Workers' representatives voted against, and the labour ministry still has to approve the rate.",
   "plus": [
+   "garment-workers-protest-tk-17000-wage-gazipur-300-factories-suspend-production",
+   "devlens-research-summary-unhcr-q3-2026-rohingya-protection-security-incidents-up-39-percent-registration-suspended",
+   "khulna-ngo-official-home-shot-at-after-tk-6-5-lakh-extortion-demand-cas-ava-centre",
+   "police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls",
+   "okup-study-91-percent-migrant-workers-no-written-contract-bmet-arbitration-recruitment-fees",
+   "five-specialised-childrens-hospitals-open-december-1440-posts-created-rajshahi-khulna-rangpur-barishal-cumilla",
+   "tax-justice-network-bangladesh-lost-2-26-billion-tax-abuse-2023-161-percent-health-spending",
+   "government-bicycles-300000-schoolgirls-classes-six-to-ten-dropout-20000-schools",
+   "measles-vaccine-questions-iedcr-antibody-study-24-percent-unprotected",
    "devlens-research-summary-mics-2025-district-atlas-child-marriage-47-percent-fertility-gaps",
    "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
    "heu-study-public-hospital-benefits-shift-to-richer-out-of-pocket-hardship-41-percent",
@@ -110,11 +119,16 @@
   "published": "2026-11-13"
  },
  "pills": {
-  "fundingOpen": 10,
-  "newReports": 22,
-  "keyNumbers": 44
+  "fundingOpen": 12,
+  "newReports": 26,
+  "keyNumbers": 45
  },
  "numbers": [
+  {
+   "value": "55%",
+   "label": "Share of bacterial samples in national surveillance resistant to several antibiotics, up from 46% a year earlier (93% in ICUs)",
+   "source": "IEDCR, Nov 2026"
+  },
   {
    "value": "Tk 17,000",
    "label": "New minimum monthly wage for entry-level garment workers set by the wage board, up 36% from Tk 12,500 (pending ministry approval)",
@@ -124,25 +138,20 @@
    "value": "47.2%",
    "label": "Share of women aged 20-24 who were married before age 18, down from 51.4% in 2019",
    "source": "BBS/UNICEF MICS 2025, Nov 2025"
-  },
-  {
-   "value": "4.1 hrs",
-   "label": "Average daily grid power outage at medium and large factories in April-June 2026, double the 2025 level",
-   "source": "BIDS-BCI Industry 100, Nov 2026"
   }
  ],
  "funding": [
-  {
-   "title": "WHO mental health evaluation tender",
-   "funder": "WHO Bangladesh",
-   "deadline": "2026-11-25",
-   "url": "https://www.ungm.org/Public/Notice/322127"
-  },
   {
    "title": "ILO EPZ Model Zone national consultants",
    "funder": "ILO Bangladesh",
    "deadline": "2026-11-26",
    "url": "https://www.ungm.org/Public/Notice/322642"
+  },
+  {
+   "title": "APN regional research and capacity grants",
+   "funder": "Asia-Pacific Network for Global Change Research",
+   "deadline": "2026-11-30",
+   "url": "https://www.apn-gcr.org/news/2026-call-for-proposals-under-the-crrp-and-capable-programmes/"
   },
   {
    "title": "Terre de Femmes Award, €10k",
@@ -163,20 +172,26 @@
    "url": "https://asiafoundation.org/the-asia-foundation-opens-applications-for-2027-development-fellows/"
   },
   {
-   "title": "D-Prize, up to $20k for new organisations",
-   "funder": "D-Prize",
-   "deadline": "2026-12-06",
-   "url": "https://d-prize.org/"
-  },
-  {
-   "title": "UNDP solar systems for Cox's Bazar plastic recovery",
+   "title": "UNDP solar for Cox's Bazar plastic recovery sites",
    "funder": "UNDP Bangladesh",
    "deadline": "2026-12-06",
    "url": "https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=52001"
   },
   {
-   "title": "ADB community resilience call for solutions",
-   "funder": "ADB",
+   "title": "D-Prize poverty solutions funding",
+   "funder": "D-Prize",
+   "deadline": "2026-12-06",
+   "url": "https://d-prize.org/"
+  },
+  {
+   "title": "UNDP national consultant, steel decarbonisation",
+   "funder": "UNDP Bangladesh",
+   "deadline": "2026-12-08",
+   "url": "https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=52073"
+  },
+  {
+   "title": "ADB Community Resilience Partnership call for solutions",
+   "funder": "Asian Development Bank",
    "deadline": "2026-12-15",
    "url": "https://www.adb.org/news/events/community-resilience-partnership-program-partnership-forum-2027-call-solutions"
   }
