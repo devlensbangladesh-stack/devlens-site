@@ -37,6 +37,17 @@ If no photo of the event itself is available, use any other publicly available p
 
 ## Spotlight (`spotlight`)
 - For time-limited events (e.g. COP31). It shows between `start` and `until`. Update `today` during the event.
+- Optional fields: `theme` ("orange" gives the orange campaign colours), `todayLabel`, `watchLabel`, `linksLabel` (section headings), and `strip` ({`text`, `url`, `help`, `helpUrl`}), which shows a slim coloured bar under the header on every page while the spotlight runs.
+
+### 16 Days of Activism (owner request, 26 Nov 2026): update EVERY run until 10 December 2026
+The orange spotlight `16days-2026` runs from 25 November to 10 December 2026 (theme "Ensure justice, protect survivors, end impunity"). It hides itself after 10 December; do not delete it before then. Every run, morning and afternoon:
+1. Research fresh 16 Days content from the last 24 to 36 hours: campaign events and statements (Ministry of Women and Children Affairs, UN Women, UNFPA, UN in Bangladesh, embassies), NGO and rights-group activity (MJF, BLAST, ASK, Odhikar, Naripokkho, Bangladesh Mahila Parishad, BRAC, ActionAid, Plan, Care and others), new data on violence against women and girls (police, ASK, Odhikar, BBS, One-Stop Crisis Centres, 109 helpline), court cases, law and policy changes, Rohingya camp GBV, and Bangla press coverage.
+2. Publish at least one new story on it each morning (more when there is news), tagged `gender-based-violence-gbv-prevention-and-response` plus other fitting tags, with a NEW photo (free-licence route; PID photos of official 16 Days events are fine). Add each new slug to the FRONT of `spotlight.stories`.
+3. Rewrite `spotlight.today`: set `date` to today ("27 Nov"), write 3 to 5 sentences on what happened since the last update, with `sources` (name and URL; Devlens stories may be linked as "/YYYY/MM/DD/slug/"). Never repeat yesterday's text.
+4. Refresh `spotlight.watch` (4 items, "Topic: sentence") when something changes, and update `strip.text` and `strip.url` to point to the newest 16 Days story.
+5. Key dates to cover: 29 November (International Women Human Rights Defenders Day), 3 December (International Day of Persons with Disabilities, link to violence against women with disabilities), 9 December (Begum Rokeya Day, Rokeya Padak), 10 December (Human Rights Day, campaign close). On 10 December publish a wrap-up of the 16 days.
+6. Keep the help links (109, 999) in `spotlight.links`. Facts only from sources; follow devlens-writing-standard.md.
+7. After 10 December, leave the data in place (the site hides it) and stop these updates.
 
 ## Always
 - Keep the Beta label (in `src/layouts/Base.astro`). Do not remove it.
