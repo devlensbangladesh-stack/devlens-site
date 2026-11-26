@@ -86,6 +86,7 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
                 <p class="src">Sources: {srcList(spot.today.sources || [{ name: spot.today.source, url: spot.today.url }]).map((s, i) => <>{i > 0 && ' · '}<a href={s.url} rel="noopener">{s.name}</a></>)}</p>
               )}
             </div>
+            {spot.watch && spot.watch.length > 0 && (<>
             <h3 class="spot-sub">{spot.watchLabel || "What to watch for Bangladesh"}</h3>
             <div class="spot-watch">
               {spot.watch.map((w) => { const [t, d] = splitWatch(w); return <div class="spot-card">{t && <strong>{t}</strong>}<p>{d}</p></div>; })}
@@ -93,6 +94,7 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
             {srcList(spot.watchSources || [spot.watchSource]).length > 0 && (
               <p class="src">Sources: {srcList(spot.watchSources || [spot.watchSource]).map((s, i) => <>{i > 0 && ' · '}<a href={s.url} rel="noopener">{s.name}</a></>)}</p>
             )}
+            </>)}
           </div>
           <div>
             <div class="spot-card">

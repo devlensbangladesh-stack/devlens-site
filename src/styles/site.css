@@ -134,6 +134,7 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 /* Orange spotlight theme (16 Days of Activism) */
 .spotlight.theme-orange { background: #fff3ea; border-top-color: #ffd5b8; border-bottom-color: #ffd5b8; }
 .theme-orange .label { color: #c2410c; }
+.theme-orange h2 { color: #c2410c; }
 .theme-orange .spot-progress { background: #ffd5b8; }
 .theme-orange .spot-progress span { background: #f97316; }
 .theme-orange .spot-card { border-color: #fbdcc6; }

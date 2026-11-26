@@ -232,23 +232,7 @@
         }
       ]
     },
-    "watchLabel": "What to watch in Bangladesh",
-    "watch": [
-      "Justice: Tribunals convicted in 3% of cases in one study, after an average of 1,370 days. Watch for moves to speed up trials and protect witnesses.",
-      "Survivor services: Staff of the 109 helpline and One-Stop Crisis Centres report irregular pay. Watch for funding and expansion to districts.",
-      "The law: An amendment to cover former husbands under the Domestic Violence Act 2010 is still only a proposal.",
-      "Closing days: Begum Rokeya Day on 9 December and Human Rights Day on 10 December, when the campaign ends."
-    ],
-    "watchSources": [
-      {
-        "name": "BBS and UNFPA VAW Survey 2024",
-        "url": "https://bangladesh.un.org/en/303253-three-out-four-women-bangladesh-experience-violence-bangladesh-bureau-statistics-survey"
-      },
-      {
-        "name": "The Daily Star",
-        "url": "https://www.thedailystar.net/news/16-days-activism-against-gender-based-violence/news/when-leaving-abusive-marriage-doesnt-end-abuse-4332756"
-      }
-    ],
+    "watch": [],
     "stories": [
       "16-days-activism-2026-why-few-women-in-bangladesh-see-justice",
       "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
