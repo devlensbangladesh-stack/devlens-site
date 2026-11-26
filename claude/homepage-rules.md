@@ -59,6 +59,16 @@ The Events page (`/events/`) is built from `src/data/events.json` by `src/pages/
 6. Remove events that ended more than 60 days ago. Set `updated` to today's date.
 7. Keep at least 8 upcoming events listed. If there are fewer, search wider (regional events with Bangladesh participation, webinars, international days).
 
+## Search (SEO) rules for every story (owner request, 26 Nov 2026)
+The site already outputs titles, descriptions, social cards, structured data (NewsArticle, BreadcrumbList, organisation), the sitemap, the Google News sitemap (`/news-sitemap.xml`, last two days) and IndexNow pings to Bing after each push. Writers only need to get the content fields right:
+- Headline: 65 characters or fewer, with the main search words early (the place, organisation, number or topic people will search for), e.g. "Measles deaths pass 1,300 in Bangladesh". No clickbait.
+- Excerpt: 120 to 155 characters. It is the snippet Google shows, so say the key fact plainly and include the main topic words.
+- Slug: short, lowercase, hyphenated, keywords only (5 to 9 words). Never change a slug after publishing.
+- Image `alt`: describe what the photo shows and where (e.g. "Health workers vaccinate children at a clinic in Sylhet"). Never leave it empty.
+- Tags: 3 to 6 fitting sector and sub-sector tags from the NGOAB list.
+- Internal links: link 2 or 3 earlier Devlens stories on the same topic inside the story text, and link the matching Jobs, Funding or Events page where it fits.
+- Use the full names people search for at first mention (e.g. "Rohingya refugees in Cox's Bazar", "NGO Affairs Bureau (NGOAB)").
+
 ## Photos (owner rule, 26 Nov 2026)
 - Every story published on the site must have a photo. Never leave `"image": null`. If the first search fails, search again with broader terms (the place, the institution's building, the sector) and use a free-licence file photo with a "File photo" credit.
 
