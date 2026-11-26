@@ -93,7 +93,7 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
                 <ul>
                   {spot.data.items.map((d) => (
                     <li>
-                      <div class="row"><span class="val">{d.display || `${d.value}%`}</span><span class="lab">{d.label}</span></div>
+                      <div class="row"><span class="val">{d.display || `${d.value}%`}</span><span class="lab">{d.url ? <a href={d.url} rel="noopener">{d.label}</a> : d.label}{d.source && <span class="srcname"> · {d.source}</span>}</span></div>
                       <div class="bar" aria-hidden="true"><span style={`width:${Math.max(1.5, Math.min(100, d.value))}%`}></span></div>
                     </li>
                   ))}

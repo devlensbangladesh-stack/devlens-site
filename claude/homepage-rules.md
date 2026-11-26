@@ -46,8 +46,11 @@ The orange spotlight `16days-2026` runs from 25 November to 10 December 2026 (th
 3. Rewrite `spotlight.today`: set `date` to today ("27 Nov"), write 3 to 5 sentences on what happened since the last update, with `sources` (name and URL; Devlens stories may be linked as "/YYYY/MM/DD/slug/"). Never repeat yesterday's text.
 4. Do not add a "What to watch" block to this spotlight (owner decision, 26 Nov): keep `spotlight.watch` as an empty list. Update `strip.text` and `strip.url` to point to the newest 16 Days story.
 5. Key dates to cover: 29 November (International Women Human Rights Defenders Day), 3 December (International Day of Persons with Disabilities, link to violence against women with disabilities), 9 December (Begum Rokeya Day, Rokeya Padak), 10 December (Human Rights Day, campaign close). On 10 December publish a wrap-up of the 16 days.
-6. Keep the help links (109, 999) in `spotlight.links`. Facts only from sources; follow devlens-writing-standard.md.
+6. Keep the help links (109, 999) in `spotlight.links`. The data panel (`spotlight.data`) replaces "What to watch": every item needs `value`, `label`, `url` (the ORIGINAL source: report PDF, official release or the news report that first published it) and `source` (short name). Update or add items when new official figures appear. Facts only from sources; follow devlens-writing-standard.md.
 7. After 10 December, leave the data in place (the site hides it) and stop these updates.
+
+## Photos (owner rule, 26 Nov 2026)
+- Every story published on the site must have a photo. Never leave `"image": null`. If the first search fails, search again with broader terms (the place, the institution's building, the sector) and use a free-licence file photo with a "File photo" credit.
 
 ## Always
 - Keep the Beta label (in `src/layouts/Base.astro`). Do not remove it.

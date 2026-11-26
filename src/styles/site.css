@@ -384,3 +384,7 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .theme-orange .spot-head { padding-bottom: 28px; border-bottom: 1px solid #fbdcc6; }
 .theme-orange .intro { font-size: 17px; }
 @media (max-width: 640px) { .spot-data .val { font-size: 20px; min-width: 60px; } }
+
+.spot-data .lab a { color: var(--ink-2); text-decoration: underline; text-decoration-color: #f4b48a; text-underline-offset: 3px; }
+.spot-data .lab a:hover { color: #c2410c; text-decoration-color: #c2410c; }
+.spot-data .srcname { color: var(--muted); font-size: 13px; white-space: nowrap; }
