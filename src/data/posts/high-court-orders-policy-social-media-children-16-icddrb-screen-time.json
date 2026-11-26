@@ -14,6 +14,13 @@
   "health",
   "governance"
  ],
- "image": null,
+ "image": {
+  "src": "/media/2026/11/photo-supreme-court-main-building.jpg",
+  "alt": "The main building of the Supreme Court of Bangladesh",
+  "width": 1280,
+  "height": 720,
+  "credit": "File photo: Basir Shikder / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Bangladesh_Supreme_Court_Main_Building.jpg"
+ },
  "content": "<p class=\"wp-block-paragraph\">The High Court on Sunday (22 November) directed the government to form an independent expert committee to draw up a policy on social media use by children aged 16 or below, The Daily Star reported. The committee must include experts in cyber security, child psychology, paediatrics and law.</p>\n\n<p class=\"wp-block-paragraph\">The bench of Justice Sikder Mahmudur Razi and Justice Fatema Anwar told the secretaries of the telecommunications, women and children affairs, health and law ministries, and the chairman of the Bangladesh Telecommunication Regulatory Commission, to take immediate steps to form it. The court also asked the authorities to explain within four weeks why their failure to make such a policy should not be declared illegal.</p>\n\n<h3 class=\"wp-block-heading\">What the petition said</h3>\n\n<p class=\"wp-block-paragraph\">Supreme Court lawyer Mohammed Faisal Dastagir filed the public interest petition. He cited an icddr,b study that found 83% of children in Dhaka spend more than two hours a day in front of screens, with an average of 4.6 hours. More than a third had eye problems and about 80% often had headaches. Children with more than two hours of screen time slept 7.3 hours a night on average, against a recommended 8 to 10 hours.</p>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">Bangladesh has no rules on children's social media use. A policy could affect how child rights groups, schools and online safety programmes work, and what platforms must do on age checks. The order sets no content for the policy, so child rights and digital rights organisations have room to shape it, including how to protect children without cutting off their access to information.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">The government's reply to the rule within four weeks, and who is named to the committee.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.thedailystar.net/news/bangladesh/news/draft-social-media-policy-children-under-16-4330801\" target=\"_blank\" rel=\"noopener\">The Daily Star: Draft social media policy for children under 16, 23 November 2026</a></li>\n</ul>"
 }

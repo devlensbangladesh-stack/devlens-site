@@ -14,6 +14,13 @@
   "nutrition",
   "health-support"
  ],
- "image": null,
+ "image": {
+  "src": "/media/2026/11/photo-shishu-hospital-entrance.jpg",
+  "alt": "The entrance to Bangladesh Shishu Hospital and Institute in Dhaka",
+  "width": 1280,
+  "height": 720,
+  "credit": "File photo: Wasiul Bahar / Wikimedia Commons, CC BY-SA 4.0",
+  "creditUrl": "https://commons.wikimedia.org/wiki/File:Dhaka_Shishu_(Children)_Hospital_Bangladesh.jpg"
+ },
  "content": "<p class=\"wp-block-paragraph\">Seven more children died of measles or measles-like symptoms in the 24 hours to Thursday morning (19 November), taking the death toll to 1,336, The Business Standard reported, citing the Directorate General of Health Services (DGHS). Of the deaths, 1,231 were suspected and 105 confirmed.</p>\n\n<p class=\"wp-block-paragraph\">Suspected cases have reached 253,408, with 1,235 new in a day, and confirmed cases 25,881. Since 15 March, 226,469 people have been admitted to hospital and 217,540 have recovered.</p>\n\n<h3 class=\"wp-block-heading\">Missing from the scorecard</h3>\n\n<p class=\"wp-block-paragraph\">A Daily Star investigation published on 18 November found that the government's 180-day scorecard of 12 health commitments ends with the entry \"Measles: not mentioned.\" Deaths rose from 27 on 2 April to 1,318 by 16 November, the paper said. The catch-up vaccination campaign began on 26 September, 41 days after the 180-day mark, and 179 children died in that gap.</p>\n\n<p class=\"wp-block-paragraph\">The paper cited a Red Crescent and IFRC survey of 2,746 households that found 88.9% had borrowed money for treatment, and a Shishu Hospital and icddr,b study that found 65% of hospitalised children under five were malnourished. In a written reply to parliament on 10 September, Health Minister Sardar Md Sakhawat Husain called such criticism \"criticism for the sake of criticism\".</p>\n\n<h3 class=\"wp-block-heading\">Why it matters</h3>\n\n<p class=\"wp-block-paragraph\">With 1,336 deaths since March, borrowing for treatment and high malnutrition among sick children point to where health, nutrition and cash support NGOs can help most.</p>\n\n<h3 class=\"wp-block-heading\">What to watch</h3>\n\n<p class=\"wp-block-paragraph\">Daily DGHS figures, the reach of the catch-up campaign in Sylhet and other high-death areas, and whether the ministry publishes a measles plan.</p>\n\n<h3 class=\"wp-block-heading\">Sources</h3>\n\n<ul class=\"wp-block-list\">\n<li><a href=\"https://www.tbsnews.net/bangladesh/health/measles-death-toll-reaches-1336-7-more-children-die-1607756\" target=\"_blank\" rel=\"noopener\">The Business Standard: Measles death toll reaches 1,336 as 7 more children die, 19 November 2026</a></li>\n<li><a href=\"https://campaign.thedailystar.net/health-promises-and-measles/\" target=\"_blank\" rel=\"noopener\">The Daily Star: Health promises and measles, 18 November 2026</a></li>\n</ul>"
 }
