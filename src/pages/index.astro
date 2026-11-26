@@ -8,7 +8,6 @@ const lead = bySlug(home.lead.slug);
 const also = bySlug(home.alsoToday.slug);
 const plusAll = (home.alsoToday.plus || []).map(bySlug).filter(Boolean);
 const plus = plusAll.slice(0, 6);
-const special = bySlug(home.special.slug);
 const jobs = openJobs(today);
 const sectorCounts = jobsData.sectors
   .map((s) => ({ ...s, n: jobs.filter((j) => j.sector === s.id).length }))
@@ -26,17 +25,19 @@ const soonJobs = jobs.filter((j) => j.deadline).map((j) => ({ kind: 'Job', title
 const soonFunding = (home.funding || []).filter((f) => f.deadline >= today).map((f) => ({ kind: 'Funding', title: f.title, org: f.funder, url: f.url, deadline: f.deadline }));
 const soon = [...soonJobs, ...soonFunding].sort((a, b) => a.deadline.localeCompare(b.deadline)).slice(0, 4);
 const dayMonth = (iso) => { const d = new Date(iso + 'T12:00:00Z'); return [d.getUTCDate(), d.toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })]; };
-const specialActive = special && daysBetween(home.special.published, today) <= 7;
-const specialItems = [
-  ...(specialActive ? [{ meta: home.special, post: special }] : []),
-  ...(home.pinnedSpecials || []).map((m) => ({ meta: m, post: bySlug(m.slug) })),
-].filter((x, i, arr) => x.post && x.meta.slug !== home.lead.slug && arr.findIndex((y) => y.meta.slug === x.meta.slug) === i);
+// Devlens Special section: the newest special as a news card, older ones as links (owner request, 27 Nov 2026).
+const specialPosts = posts.filter((p) => p.categories.includes('devlens-special'));
+const specialLatest = specialPosts[0];
+const specialOlder = specialPosts.slice(1, 6);
 const leadImg = lead?.image?.src;
 const spot = home.spotlight;
 const spotOn = spot && today >= spot.start && today <= spot.until;
 const spotStories = spotOn ? (spot.stories || []).map(bySlug).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date)) : [];
-const spotTop = spotStories.slice(0, 5);
-const spotMore = spotStories.slice(5);
+const spotHelp = spotOn ? (spot.links || []).filter((l) => /^tel:/.test(l.url)) : [];
+const spotFollow = spotOn ? (spot.links || []).filter((l) => !/^tel:/.test(l.url)) : [];
+const spotStatsAll = spotOn && spot.data ? spot.data.items : [];
+const spotStatsTop = spotStatsAll.filter((d) => d.highlight).length ? spotStatsAll.filter((d) => d.highlight).slice(0, 4) : spotStatsAll.slice(0, 4);
+const spotStatsMore = spotStatsAll.filter((d) => !spotStatsTop.includes(d));
 const splitWatch = (w) => { const i = w.indexOf(':'); const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1); return i > 0 && i < 40 ? [w.slice(0, i), cap(w.slice(i + 1).trim())] : ['', w]; };
 const srcList = (arr) => (arr || []).filter((s) => s && s.url);
 const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
@@ -60,79 +61,76 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
   )}
 
   {spotOn && (
-    <section id="spotlight" class={`spotlight${spot.theme ? ` theme-${spot.theme}` : ""}`} data-spot-start={spot.start} data-spot-until={spot.until} data-spot-days={spot.days}>
+    <section id="spotlight" class={`spotlight spot-v2${spot.theme ? ` theme-${spot.theme}` : ""}`} data-spot-start={spot.start} data-spot-until={spot.until} data-spot-days={spot.days}>
       <div class="wrap">
-        <div class={`spot-head${spot.image ? ' has-img' : ''}`}>
-          <div>
+        <div class="spot-top">
+          <div class="spot-title">
             <p class="label">{spot.label} · <span data-spot-day>Day {spotDay} of {spot.days}</span></p>
             <h2>{spot.title}</h2>
-            <p class="dates">{spot.dates}</p>
-            <p class="intro">{spot.intro}</p>
+            <p class="dates">{spot.tagline || spot.dates}</p>
             <div class="spot-progress" aria-hidden="true"><span style={`width:${Math.min(100, Math.round((spotDay / spot.days) * 100))}%`}></span></div>
           </div>
-          {spot.image && (
-            <figure>
-              <img src={spot.image.src} alt={spot.image.alt} width="1280" height="720" loading="lazy" />
-              <figcaption>{spot.image.creditUrl ? <a href={spot.image.creditUrl} rel="noopener">{spot.image.credit}</a> : spot.image.credit}</figcaption>
-            </figure>
+          {spotHelp.length > 0 && (
+            <div class="spot-help">
+              <p>{spot.helpLabel || 'Need help now?'}</p>
+              <div>{spotHelp.map((l) => <a href={l.url}>{l.label}</a>)}</div>
+            </div>
           )}
         </div>
-        <div class="spot-grid">
-          <div>
+        <div class="spot-cols">
+          {spot.today && (
             <div class="spot-card spot-today">
-              <h3>{spot.todayLabel || "Today in Antalya"} · {spot.today.date}</h3>
+              <p class="kicker">{spot.todayLabel || 'Today'} · {spot.today.date}</p>
+              {spot.today.headline && <h3 class="spot-today-h">{spot.today.headline}</h3>}
               <p>{spot.today.text}</p>
               {srcList(spot.today.sources || [{ name: spot.today.source, url: spot.today.url }]).length > 0 && (
                 <p class="src">Sources: {srcList(spot.today.sources || [{ name: spot.today.source, url: spot.today.url }]).map((s, i) => <>{i > 0 && ' · '}<a href={s.url} rel="noopener">{s.name}</a></>)}</p>
               )}
             </div>
-            {spot.data && (
-              <div class="spot-card spot-data">
-                <h3>{spot.data.title}</h3>
-                {spot.data.intro && <p class="spot-data-intro">{spot.data.intro}</p>}
-                <ul>
-                  {spot.data.items.map((d) => (
-                    <li>
-                      <div class="row"><span class="val">{d.display || `${d.value}%`}</span><span class="lab">{d.url ? <a href={d.url} rel="noopener">{d.label}</a> : d.label}{d.source && <span class="srcname"> · {d.source}</span>}</span></div>
-                      <div class="bar" aria-hidden="true"><span style={`width:${Math.max(1.5, Math.min(100, d.value))}%`}></span></div>
-                    </li>
-                  ))}
-                </ul>
-                {spot.data.note && <p class="src">{spot.data.note}</p>}
-                {srcList(spot.data.sources || []).length > 0 && (
-                  <p class="src">Sources: {srcList(spot.data.sources).map((x, i) => <>{i > 0 && ' · '}<a href={x.url} rel="noopener">{x.name}</a></>)}</p>
-                )}
+          )}
+          {spot.data && (
+            <div class="spot-card spot-stats">
+              <p class="kicker">{spot.data.title}</p>
+              <div class="spot-tiles">
+                {spotStatsTop.map((d) => (
+                  <a class="spot-tile" href={d.url} rel="noopener" title={`Source: ${d.source}`}>
+                    <b>{d.display || `${d.value}%`}</b>
+                    <span>{d.short || d.label}</span>
+                  </a>
+                ))}
               </div>
-            )}
-            {spot.watch && spot.watch.length > 0 && (<>
-            <h3 class="spot-sub">{spot.watchLabel || "What to watch for Bangladesh"}</h3>
-            <div class="spot-watch">
-              {spot.watch.map((w) => { const [t, d] = splitWatch(w); return <div class="spot-card">{t && <strong>{t}</strong>}<p>{d}</p></div>; })}
-            </div>
-            {srcList(spot.watchSources || [spot.watchSource]).length > 0 && (
-              <p class="src">Sources: {srcList(spot.watchSources || [spot.watchSource]).map((s, i) => <>{i > 0 && ' · '}<a href={s.url} rel="noopener">{s.name}</a></>)}</p>
-            )}
-            </>)}
-          </div>
-          <div>
-            <div class="spot-card">
-              <h3>Devlens coverage <span class="count">{spotStories.length} stories</span></h3>
-              <ul class="spot-stories">
-                {spotTop.map((p) => <li class={p.image ? 'has-thumb' : ''}>{p.image && <a class="thumb" href={postUrl(p)} tabindex="-1" aria-hidden="true"><img src={p.image.src} alt="" width="112" height="63" loading="lazy" /></a>}<div><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></div></li>)}
-              </ul>
-              {spotMore.length > 0 && (
+              {spotStatsMore.length > 0 && (
                 <details class="spot-more">
-                  <summary>Show {spotMore.length} earlier {spotMore.length === 1 ? 'story' : 'stories'}</summary>
-                  <ul class="spot-stories">
-                    {spotMore.map((p) => <li class={p.image ? 'has-thumb' : ''}>{p.image && <a class="thumb" href={postUrl(p)} tabindex="-1" aria-hidden="true"><img src={p.image.src} alt="" width="112" height="63" loading="lazy" /></a>}<div><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></div></li>)}
-                  </ul>
+                  <summary>{spotStatsMore.length} more {spotStatsMore.length === 1 ? 'figure' : 'figures'}</summary>
+                  <ul class="spot-figs">{spotStatsMore.map((d) => <li><b>{d.display || `${d.value}%`}</b> <a href={d.url} rel="noopener">{d.label}</a></li>)}</ul>
+                </details>
+              )}
+              <p class="src">Tap a figure for its source. {spot.data.note || ''}</p>
+            </div>
+          )}
+          {spotStories.length > 0 && (
+            <div class="spot-card spot-cover">
+              <p class="kicker">Devlens coverage · {spotStories.length} {spotStories.length === 1 ? 'story' : 'stories'}</p>
+              <a class="spot-feature" href={postUrl(spotStories[0])}>
+                {spotStories[0].image && <img src={spotStories[0].image.src} alt={spotStories[0].image.alt || ''} width="640" height="360" loading="lazy" />}
+                <strong>{spotStories[0].title}</strong>
+                <span>{fmtDate(spotStories[0].date)}</span>
+              </a>
+              <ul class="spot-stories">
+                {spotStories.slice(1, 4).map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}
+              </ul>
+              {spotStories.length > 4 && (
+                <details class="spot-more">
+                  <summary>Show {spotStories.length - 4} earlier {spotStories.length - 4 === 1 ? 'story' : 'stories'}</summary>
+                  <ul class="spot-stories">{spotStories.slice(4).map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}</ul>
                 </details>
               )}
             </div>
-            <h3 class="spot-sub">{spot.linksLabel || "Follow the summit"}</h3>
-            <ul class="spot-links">{spot.links.map((l) => <li><a href={l.url} rel="noopener">{l.label} ↗</a></li>)}</ul>
-          </div>
+          )}
         </div>
+        {spotFollow.length > 0 && (
+          <div class="spot-follow"><span>{spot.followLabel || 'Follow the campaign'}</span><ul class="spot-links">{spotFollow.map((l) => <li><a href={l.url} rel="noopener">{l.label} ↗</a></li>)}</ul></div>
+        )}
       </div>
     </section>
   )}
@@ -214,31 +212,27 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
     </div>
   </section>
 
-  {specialItems.length > 0 && (
+  {specialLatest && (
     <section class="section special">
       <div class="wrap">
         <div class="section-head"><h2><span style="color:#12b886">■</span> Devlens Special</h2><a href="/category/devlens-special/">All special reports ↗</a></div>
-        {specialItems.slice(0, 1).map(({ meta, post }) => (
-          <div class="box">
-            {post.image && <a href={postUrl(post)}><img src={post.image.src} alt={post.image.alt} loading="lazy" /></a>}
+        <div class="special-wrap">
+          <article class="special-latest">
+            {specialLatest.image && <a class="img" href={postUrl(specialLatest)}><img src={specialLatest.image.src} alt={specialLatest.image.alt} width="1280" height="720" loading="lazy" /></a>}
             <div class="text">
-              <p class="eyebrow" style="color:#0b8f68">{meta.label}</p>
-              <h3><a href={postUrl(post)}>{meta.headline || post.title}</a></h3>
-              <p>{meta.summary || post.excerpt}</p>
-              <a class="btn btn-dark" style="padding:13px 24px;font-size:15px" href={postUrl(post)}>Read the special report</a>
+              <p class="eyebrow" style="color:#0b8f68">Latest special · {fmtDate(specialLatest.date)}</p>
+              <h3><a href={postUrl(specialLatest)}>{specialLatest.title}</a></h3>
+              <p>{specialLatest.excerpt}</p>
+              <a class="more" href={postUrl(specialLatest)}>Read the special report →</a>
             </div>
-          </div>
-        ))}
-        {specialItems.length > 1 && (
-          <div class="special-prev">
-            <p class="eyebrow">Previous special reports</p>
-            <ul>
-              {specialItems.slice(1).map(({ meta, post }) => (
-                <li><a href={postUrl(post)}>{meta.headline || post.title}</a></li>
-              ))}
-            </ul>
-          </div>
-        )}
+          </article>
+          {specialOlder.length > 0 && (
+            <aside class="special-prev">
+              <p class="eyebrow">Earlier specials</p>
+              <ul>{specialOlder.map((p) => <li><a href={postUrl(p)}>{p.title}</a><span>{fmtDate(p.date)}</span></li>)}</ul>
+            </aside>
+          )}
+        </div>
       </div>
     </section>
   )}

@@ -216,7 +216,7 @@
     "todayLabel": "Today in the campaign",
     "today": {
       "date": "26 Nov",
-      "text": "The campaign opened in Dhaka on Wednesday with a national dialogue organised by the UN, the Ministry of Women and Children Affairs and development partners, under the theme \"Ensure justice, protect survivors, end impunity\". Acting UN Resident Coordinator Carol Flore-Smereczniak said \"laws alone will not be enough\" and called for accountability, reliable data and money for survivor-centred justice. New figures released as the campaign began show the scale of the gap: police recorded 887 dowry murder cases in five years, Odhikar has counted 21,627 rape victims since 2001, more than half of them girls, and research cited at a Manusher Jonno Foundation dialogue found tribunals convicted in only 3% of 4,040 cases studied.",
+      "text": "At the opening dialogue in Dhaka, the UN's acting Resident Coordinator said \"laws alone will not be enough\". New figures show why: tribunals convicted in only 3% of 4,040 cases studied.",
       "sources": [
         {
           "name": "The Daily Star",
@@ -224,13 +224,10 @@
         },
         {
           "name": "Devlens",
-          "url": "/2026/11/26/police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls/"
-        },
-        {
-          "name": "Devlens",
           "url": "/2026/11/25/mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days/"
         }
-      ]
+      ],
+      "headline": "Campaign opens with a call for justice, not just laws"
     },
     "watch": [],
     "stories": [
@@ -275,7 +272,9 @@
           "value": 76,
           "label": "of women have faced violence from a husband or partner in their lifetime",
           "url": "https://asro.unfpa.org/sites/default/files/pub-pdf/2025-10/Bangladesh%20Violence%20against%20Women%20Survey%202024%20Report.pdf",
-          "source": "BBS and UNFPA, VAW Survey 2024"
+          "source": "BBS and UNFPA, VAW Survey 2024",
+          "highlight": true,
+          "short": "faced partner violence in their lifetime"
         },
         {
           "value": 49,
@@ -287,7 +286,9 @@
           "value": 62,
           "label": "of survivors never told anyone",
           "url": "https://asro.unfpa.org/sites/default/files/pub-pdf/2025-10/Bangladesh%20Violence%20against%20Women%20Survey%202024%20Report.pdf",
-          "source": "BBS and UNFPA, VAW Survey 2024"
+          "source": "BBS and UNFPA, VAW Survey 2024",
+          "highlight": true,
+          "short": "of survivors never told anyone"
         },
         {
           "value": 48.5,
@@ -308,13 +309,17 @@
           "display": "7.4%",
           "label": "of partner-violence survivors took legal action",
           "url": "https://asro.unfpa.org/sites/default/files/pub-pdf/2025-10/Bangladesh%20Violence%20against%20Women%20Survey%202024%20Report.pdf",
-          "source": "BBS and UNFPA, VAW Survey 2024"
+          "source": "BBS and UNFPA, VAW Survey 2024",
+          "highlight": true,
+          "short": "of survivors took legal action"
         },
         {
           "value": 3,
           "label": "conviction rate in 4,040 tribunal cases settled from January to June 2025",
           "url": "https://www.prothomalo.com/bangladesh/a0tpxyy26q",
-          "source": "Supreme Court and BRAC research, via Prothom Alo"
+          "source": "Supreme Court and BRAC research, via Prothom Alo",
+          "highlight": true,
+          "short": "conviction rate in tribunal cases"
         }
       ],
       "sources": [
@@ -328,7 +333,10 @@
         }
       ],
       "intro": "Each figure has its own base, shown in the label. Each label links to its source."
-    }
+    },
+    "tagline": "25 Nov to 10 Dec · Ensure justice, protect survivors, end impunity",
+    "helpLabel": "Need help now?",
+    "followLabel": "Follow the campaign"
   },
   "scheduledLead": {
     "from": "2026-11-27T07:55:00+06:00",

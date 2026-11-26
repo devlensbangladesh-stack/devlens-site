@@ -83,3 +83,15 @@ The site already outputs titles, descriptions, social cards, structured data (Ne
 - Keep the Beta label (in `src/layouts/Base.astro`). Do not remove it.
 - The site date comes from the build. Push at least once a day so it stays current.
 - After editing, check the built `dist/index.html` shows the new lead.
+
+## Spotlight format (concise, from 27 Nov 2026)
+- `today.headline`: one line, at most 80 characters, says what happened today.
+- `today.text`: at most two sentences (about 300 characters). One fact or quote, one figure. No background paragraph.
+- `today.sources`: two at most, external source first.
+- Stats: mark the four strongest with `"highlight": true` and give each a `short` label (under 45 characters). Everything else sits under "more figures".
+- New Devlens stories go at the front of `stories`. The first one is shown with its photo.
+- Help numbers go in `links` with `tel:` URLs and appear in the orange help box. Other links appear as "Follow the campaign" pills.
+
+## Devlens Special section (automatic)
+- The newest live post in the `devlens-special` category is shown as a news card with photo. The next five appear as links under "Earlier specials".
+- No home.json edit is needed. A special with a future `publishAt` stays hidden until it goes live.
