@@ -49,6 +49,16 @@ The orange spotlight `16days-2026` runs from 25 November to 10 December 2026 (th
 6. Keep the help links (109, 999) in `spotlight.links`. The data panel (`spotlight.data`) replaces "What to watch": every item needs `value`, `label`, `url` (the ORIGINAL source: report PDF, official release or the news report that first published it) and `source` (short name). Update or add items when new official figures appear. Facts only from sources; follow devlens-writing-standard.md.
 7. After 10 December, leave the data in place (the site hides it) and stop these updates.
 
+## Events page (owner request, 26 Nov 2026): update EVERY run
+The Events page (`/events/`) is built from `src/data/events.json` by `src/pages/events.astro`. The page sorts each event into "Happening now", "Coming up" or "Recent events" by today's Dhaka date, so do not move items by hand. Every run:
+1. Research events for the next 60 days that matter to Bangladesh's development sector: conferences, dialogues, report launches, consultations and comment deadlines, trainings and webinars, donor and UN meetings, campaigns, and international or national days (for example World AIDS Day, Human Rights Day, International Migrants Day, Begum Rokeya Day, International Mother Language Day, International Women's Day, World Health Day, World Environment Day, World Refugee Day). Sources: UN agencies in Bangladesh, ministries and PID, NGO and think-tank sites (CPD, BIDS, SANEM, BIGD, ICCCAD, icddr,b, MJF, TIB, BLAST, ASK and others), university and conference sites, and newspaper reports ("will be held", "to be held", "set to host").
+2. Add each new event to `events.json` with `id` (unique, kebab-case), `start` and `end` (YYYY-MM-DD; the same date for a one-day event), `kind` (Conference, Dialogue, Workshop, Launch, Consultation, Campaign, Observance, National day, Deadline, Summit, Court ruling, Meeting), `place`, `title`, `organiser`, `summary` (one or two plain sentences: what it is and why it matters to NGOs), `url` (the organiser's own page or the news report that announced it) and `source` (short name). Only list events confirmed by a named source; never guess dates.
+3. When Devlens publishes a story about an event (before or after it), add the story's slug as `coverage` (and optionally `coverageLabel`). The build fails if the slug does not exist, so check it.
+4. When an event has happened, rewrite its `title` or `summary` to say what came out of it (decisions, figures, quotes from the source) and add the Devlens story as `coverage`.
+5. Add notable events that Devlens covered in the last day (dialogues, launches, conferences) to `events.json` so "Recent events" stays current. The page shows the 12 most recent.
+6. Remove events that ended more than 60 days ago. Set `updated` to today's date.
+7. Keep at least 8 upcoming events listed. If there are fewer, search wider (regional events with Bangladesh participation, webinars, international days).
+
 ## Photos (owner rule, 26 Nov 2026)
 - Every story published on the site must have a photo. Never leave `"image": null`. If the first search fails, search again with broader terms (the place, the institution's building, the sector) and use a free-licence file photo with a "File photo" credit.
 

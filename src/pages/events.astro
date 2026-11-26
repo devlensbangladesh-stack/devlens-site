@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import EventItem from '../components/EventItem.astro';
+import eventsData from '../data/events.json';
+import { dhakaToday, bySlug, postUrl } from '../lib/data.js';
+
+const today = dhakaToday();
+const fmt = (iso, opts) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { timeZone: 'UTC', ...opts });
+const when = (e) => {
+  if (e.start === e.end) return fmt(e.start, { day: 'numeric', month: 'short', year: 'numeric' });
+  const sameMonth = e.start.slice(0, 7) === e.end.slice(0, 7);
+  return sameMonth
+    ? `${fmt(e.start, { day: 'numeric' })} to ${fmt(e.end, { day: 'numeric', month: 'short', year: 'numeric' })}`
+    : `${fmt(e.start, { day: 'numeric', month: 'short' })} to ${fmt(e.end, { day: 'numeric', month: 'short', year: 'numeric' })}`;
+};
+const events = eventsData.events.map((e) => {
+  const post = e.coverage ? bySlug(e.coverage) : null;
+  if (e.coverage && !post) throw new Error(`events.json: no story with slug ${e.coverage}`);
+  return { ...e, when: when(e), day: fmt(e.start, { day: 'numeric' }), mon: fmt(e.start, { month: 'short' }), post: post ? postUrl(post) : null };
+});
+const now = events.filter((e) => e.start <= today && e.end >= today).sort((a, b) => a.end.localeCompare(b.end));
+const next = events.filter((e) => e.start > today).sort((a, b) => a.start.localeCompare(b.start));
+const past = events.filter((e) => e.end < today).sort((a, b) => b.end.localeCompare(a.end) || b.start.localeCompare(a.start));
+const updated = fmt(eventsData.updated, { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title="Events" description="Conferences, dialogues, campaigns and key dates for Bangladesh's development sector, with Devlens coverage of each.">
+  <div class="wrap events-page">
+    <header class="ev-head">
+      <p class="eyebrow">Events</p>
+      <h1>What's on in Bangladesh's development sector</h1>
+      <p class="lede">Conferences, dialogues, campaigns and key dates that matter to NGOs, donors and researchers, with links to the organisers and to Devlens coverage. Updated every day.</p>
+      <p class="ev-updated">Last updated: {updated}</p>
+    </header>
+
+    <section class="ev-section ev-now-sec" data-ev-section="now" hidden={!now.length}>
+      <h2><span class="dot" aria-hidden="true"></span> Happening now</h2>
+      <div class="ev-list" data-ev-list="now">{now.map((e) => <EventItem e={e} />)}</div>
+    </section>
+
+    <section class="ev-section">
+      <h2>Coming up</h2>
+      <div class="ev-list" data-ev-list="next">{next.map((e) => <EventItem e={e} />)}</div>
+      <p class="ev-empty" data-ev-empty="next" hidden={next.length > 0}>No upcoming events listed yet. Know of one? <a href="/submit/">Tell us</a>.</p>
+    </section>
+
+    <section class="ev-section">
+      <h2>Recent events</h2>
+      <div class="ev-list" data-ev-list="past">{past.slice(0, 12).map((e) => <EventItem e={e} />)}</div>
+    </section>
+
+    <section class="cta-box" style="margin:48px 0 72px">
+      <div>
+        <h2>Running an event?</h2>
+        <p>List your conference, training, webinar, launch or consultation on Devlens for free. Send the date, venue, organiser and a link to the official page.</p>
+      </div>
+      <div><a class="btn btn-green" href="/submit/">Share your event ↗</a></div>
+    </section>
+  </div>
+
+  <script is:inline>
+    // Sort events into Happening now / Coming up / Recent by today's Dhaka date, so the page stays right between updates.
+    (function () {
+      var today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Dhaka' }).format(new Date());
+      var items = Array.prototype.slice.call(document.querySelectorAll('.events-page article.ev'));
+      if (!items.length) return;
+      var lists = { now: [], next: [], past: [] };
+      items.forEach(function (a) {
+        var s = a.dataset.start, e = a.dataset.end;
+        lists[e < today ? 'past' : s > today ? 'next' : 'now'].push(a);
+      });
+      lists.now.sort(function (a, b) { return a.dataset.end.localeCompare(b.dataset.end); });
+      lists.next.sort(function (a, b) { return a.dataset.start.localeCompare(b.dataset.start); });
+      lists.past.sort(function (a, b) { return b.dataset.end.localeCompare(a.dataset.end) || b.dataset.start.localeCompare(a.dataset.start); });
+      lists.past.slice(12).forEach(function (a) { a.remove(); });
+      lists.past = lists.past.slice(0, 12);
+      ['now', 'next', 'past'].forEach(function (k) {
+        var box = document.querySelector('[data-ev-list="' + k + '"]'); if (!box) return;
+        lists[k].forEach(function (a) { box.appendChild(a); });
+      });
+      var sec = document.querySelector('[data-ev-section="now"]'); if (sec) sec.hidden = !lists.now.length;
+      var em = document.querySelector('[data-ev-empty="next"]'); if (em) em.hidden = lists.next.length > 0;
+    })();
+  </script>
+</Base>
