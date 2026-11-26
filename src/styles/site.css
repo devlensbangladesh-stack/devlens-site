@@ -367,3 +367,20 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .spot-strip .msg:hover { text-decoration: underline; }
 .spot-strip .help { color: #fff; font-weight: 800; text-decoration: none; background: #7c2d12; border-radius: 6px; padding: 3px 10px; font-size: 13px; }
 @media (max-width: 640px) { .spot-strip .wrap { gap: 8px; } .spot-strip .msg { flex-basis: 100%; order: 3; } }
+
+/* Spotlight data panel */
+.spot-data { margin-top: 20px; }
+.spot-data-intro { color: var(--ink-2); font-size: 15px; margin: 0 0 14px; }
+.spot-data ul { list-style: none; padding: 0; margin: 0; }
+.spot-data li { margin: 0 0 14px; }
+.spot-data .row { display: flex; align-items: baseline; gap: 12px; }
+.spot-data .val { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; min-width: 92px; flex: none; color: var(--ink); }
+.spot-data .lab { font-size: 15px; color: var(--ink-2); line-height: 1.4; }
+.spot-data .bar { height: 8px; background: #eef1f4; border-radius: 999px; overflow: hidden; margin-top: 6px; }
+.spot-data .bar span { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+.theme-orange .spot-data .val { color: #c2410c; }
+.theme-orange .spot-data .bar { background: #fde7d8; }
+.theme-orange .spot-data .bar span { background: #f97316; }
+.theme-orange .spot-head { padding-bottom: 28px; border-bottom: 1px solid #fbdcc6; }
+.theme-orange .intro { font-size: 17px; }
+@media (max-width: 640px) { .spot-data .val { font-size: 20px; min-width: 60px; } }

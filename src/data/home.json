@@ -267,6 +267,53 @@
       "url": "/#spotlight",
       "help": "Helpline 109",
       "helpUrl": "tel:109"
+    },
+    "data": {
+      "title": "The justice gap in numbers",
+      "intro": "Each figure has its own base, shown in the label.",
+      "items": [
+        {
+          "value": 76,
+          "label": "of women have faced violence from a husband or partner in their lifetime"
+        },
+        {
+          "value": 49,
+          "label": "faced it in the past 12 months, down from 66% in 2015"
+        },
+        {
+          "value": 62,
+          "label": "of survivors never told anyone"
+        },
+        {
+          "value": 48.5,
+          "display": "48.5%",
+          "label": "of women know where to report violence"
+        },
+        {
+          "value": 12.3,
+          "display": "12.3%",
+          "label": "of women know the 109 helpline"
+        },
+        {
+          "value": 7.4,
+          "display": "7.4%",
+          "label": "of partner-violence survivors took legal action"
+        },
+        {
+          "value": 3,
+          "label": "conviction rate in 4,040 tribunal cases settled from January to June 2025"
+        }
+      ],
+      "sources": [
+        {
+          "name": "BBS and UNFPA, VAW Survey 2024",
+          "url": "https://bangladesh.un.org/en/303253-three-out-four-women-bangladesh-experience-violence-bangladesh-bureau-statistics-survey"
+        },
+        {
+          "name": "Supreme Court and BRAC research, cited at MJF dialogue",
+          "url": "/2026/11/25/mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days/"
+        }
+      ]
     }
   }
 }
