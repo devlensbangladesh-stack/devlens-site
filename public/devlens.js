@@ -37,9 +37,10 @@
     var live = Array.prototype.slice.call(document.querySelectorAll('article.job'));
     var bySector = {};
     live.forEach(function (c) { bySector[c.dataset.sector] = (bySector[c.dataset.sector] || 0) + 1; });
-    document.querySelectorAll('section.sector[data-sector]').forEach(function (s) { if (!bySector[s.dataset.sector]) s.remove(); });
+    document.querySelectorAll('.sector[data-sector]').forEach(function (s) { if (!bySector[s.dataset.sector]) s.remove(); });
     document.querySelectorAll('[data-chip]').forEach(function (a) { if (!bySector[a.dataset.chip]) a.remove(); });
     Object.keys(bySector).forEach(function (k) { setAll('[data-sector-count="' + k + '"]', bySector[k]); });
+    Object.keys(bySector).forEach(function (k) { setAll('[data-sector-word="' + k + '"]', bySector[k] === 1 ? 'job' : 'jobs'); });
     var soon = live.filter(function (c) { return c.dataset.deadline && days(today, c.dataset.deadline) <= 7; })
       .sort(function (a, b) { return a.dataset.deadline.localeCompare(b.dataset.deadline); });
     var orgs = {}; live.forEach(function (c) { orgs[c.dataset.badge] = 1; });

@@ -49,8 +49,9 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
     </section>
 
     {sectors.map((s) => (
-      <section class="sector" data-sector={s.id}>
-        <h2 id={s.id}><span style={`color:${s.color}`}>■</span> {s.name} <span class="n">(<span data-sector-count={s.id}>{s.jobs.length}</span>)</span></h2>
+      <details class="sector" id={s.id} data-sector={s.id} style={`--sc:${s.color}`}>
+        <summary><h2><span style={`color:${s.color}`}>■</span> {s.name} <span class="n">(<span data-sector-count={s.id}>{s.jobs.length}</span> <span data-sector-word={s.id}>{s.jobs.length === 1 ? 'job' : 'jobs'}</span>)</span></h2><span class="toggle" aria-hidden="true"><span class="show">Show jobs</span><span class="hide">Hide jobs</span></span></summary>
+        <div class="sector-jobs">
         {s.jobs.map((j) => {
           const l = jobLabel(j.deadline, today);
           return (
@@ -77,8 +78,24 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
           );
         })}
         <p class="back"><a href="#top-of-jobs">↑ Back to sectors</a></p>
-      </section>
+        </div>
+      </details>
     ))}
+    <script is:inline>
+      // Sector chips and #links open the matching sector before jumping to it.
+      (function () {
+        function openFromHash() {
+          var id = decodeURIComponent(location.hash.slice(1)); if (!id) return;
+          var d = document.getElementById(id);
+          if (d && d.tagName === 'DETAILS') { d.open = true; d.scrollIntoView({ block: 'start' }); }
+        }
+        window.addEventListener('hashchange', openFromHash);
+        document.querySelectorAll('[data-chip]').forEach(function (a) {
+          a.addEventListener('click', function () { var d = document.getElementById(a.dataset.chip); if (d) d.open = true; });
+        });
+        openFromHash();
+      })();
+    </script>
 
     <section class="alerts" id="job-alerts">
       <h2>📬 Never miss a deadline</h2>
