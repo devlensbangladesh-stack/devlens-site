@@ -69,6 +69,13 @@ The site already outputs titles, descriptions, social cards, structured data (Ne
 - Internal links: link 2 or 3 earlier Devlens stories on the same topic inside the story text, and link the matching Jobs, Funding or Events page where it fits.
 - Use the full names people search for at first mention (e.g. "Rohingya refugees in Cox's Bazar", "NGO Affairs Bureau (NGOAB)").
 
+## Scheduled stories and leads (26-27 Nov 2026)
+- A post may carry `publishAt` (ISO time, Dhaka). It stays out of the site (pages, homepage, sitemap, feeds) until the first build after that time.
+- `home.json` may carry `scheduledLead` = {`from`, `slug`, `label`, `headline`, `summary`, `special`}. From the first build after `from`, the site shows it as the lead (and as the Devlens Special when `special` is true); the previous lead becomes the main "Also today" item and the old main item moves to the front of `plus`.
+- The workflow `scheduled-publish.yml` rebuilds the site at 08:02 and 08:32 Dhaka when a scheduled time has just passed.
+- The daily run, when it finds a `scheduledLead` whose time has passed: make it the real `lead` in home.json (and `special` if `special` is true), move the previous lead to Also today as above, delete `scheduledLead`, and remove `publishAt` from the post. Do NOT replace that lead in the same run; the run's own top new story goes into Also today. If the time has not yet passed, leave both untouched.
+- 27 Nov 2026: the Devlens Explainer "Bad COP, worse COP: what COP31 left Bangladesh" is scheduled as the lead and Devlens Special from 07:55 (owner request). Keep it as the lead for the whole of 27 November.
+
 ## Photos (owner rule, 26 Nov 2026)
 - Every story published on the site must have a photo. Never leave `"image": null`. If the first search fails, search again with broader terms (the place, the institution's building, the sector) and use a free-licence file photo with a "File photo" credit.
 

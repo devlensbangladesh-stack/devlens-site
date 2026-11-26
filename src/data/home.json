@@ -329,5 +329,13 @@
       ],
       "intro": "Each figure has its own base, shown in the label. Each label links to its source."
     }
+  },
+  "scheduledLead": {
+    "from": "2026-11-27T07:55:00+06:00",
+    "slug": "bad-cop-worse-cop-what-cop31-left-bangladesh",
+    "label": "Devlens Explainer · Climate finance",
+    "headline": "Bad COP, worse COP: what COP31 left Bangladesh",
+    "summary": "The adaptation finance target Bangladesh backed was dropped. It came home with Tk 784 crore in grants, while it needs $8.5bn a year and gets under $0.5bn from abroad.",
+    "special": true
   }
 }

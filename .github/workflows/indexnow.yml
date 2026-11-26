@@ -2,7 +2,7 @@ name: Tell search engines about new pages (IndexNow)
 on:
   push:
     branches: [main]
-    paths: ['src/data/**']
+    paths: ['src/data/**', '.last-scheduled-publish']
   workflow_dispatch:
 jobs:
   ping:
@@ -29,6 +29,11 @@ jobs:
           for f in changed:
               if f.startswith('src/data/posts/') and f.endswith('.json') and os.path.exists(f):
                   p = json.load(open(f))
+                  if p.get('publishAt'):
+                      import datetime as dt
+                      pa = p['publishAt'] if len(p['publishAt']) > 19 else p['publishAt'] + '+06:00'
+                      if dt.datetime.fromisoformat(pa) > dt.datetime.now(dt.timezone.utc):
+                          continue
                   y, m, d = p['date'][:10].split('-')
                   urls.add(f"{base}/{y}/{m}/{d}/{p['slug']}/")
               elif f.startswith('src/data/pages/') and f.endswith('.json'):

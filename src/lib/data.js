@@ -12,13 +12,27 @@ const imgFromContent = (html = '') => {
   const alt = (m[0].match(/alt=\\?"([^"\\]*)/i) || [])[1] || '';
   return { src: m[1].replace(/\?.*$/, ''), alt };
 };
+// A post with a future `publishAt` (ISO time, Dhaka) stays out of the build until a build after that time.
+const builtAt = process.env.BUILD_TIME ? Date.parse(process.env.BUILD_TIME) : Date.now();
+const isLive = (p) => !p.publishAt || Date.parse(p.publishAt.length <= 19 ? p.publishAt + '+06:00' : p.publishAt) <= builtAt;
 export const posts = Object.values(postModules).map((m) => m.default)
+  .filter(isLive)
   .map((p) => (p.image ? p : { ...p, image: imgFromContent(p.content) }))
   .sort((a, b) => b.date.localeCompare(a.date));
 export const pages = Object.values(pageModules).map((m) => m.default);
 export const categories = categoriesData;
 export const tags = Object.values(tagModules)[0]?.default || [];
-export { home, jobsData };
+// `home.scheduledLead` ({from, slug, label, headline, summary, special}) takes over the lead at the first build after `from`.
+// The previous lead then becomes the main "Also today" item, and the old main item moves to the front of `plus`.
+const sl = home.scheduledLead;
+const slLive = sl && Date.parse(sl.from.length <= 19 ? sl.from + '+06:00' : sl.from) <= builtAt && posts.some((p) => p.slug === sl.slug);
+const homeLive = slLive ? {
+  ...home,
+  lead: { slug: sl.slug, label: sl.label, headline: sl.headline, summary: sl.summary },
+  alsoToday: { ...home.lead, plus: [home.alsoToday.slug, ...(home.alsoToday.plus || [])].filter((x, i, a) => x && x !== sl.slug && x !== home.lead.slug && a.indexOf(x) === i) },
+  special: sl.special ? { slug: sl.slug, label: sl.label, headline: sl.headline, summary: sl.summary, published: sl.from.slice(0, 10) } : home.special,
+} : home;
+export { homeLive as home, jobsData };
 
 export const postUrl = (p) => {
   const [y, m, d] = p.date.slice(0, 10).split('-');

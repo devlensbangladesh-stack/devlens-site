@@ -1,0 +1,42 @@
+name: Publish scheduled stories
+# Stories can carry "publishAt" and home.json can carry "scheduledLead". The site only shows them at the first
+# build after that time, so this job triggers a rebuild a few minutes after any such time has passed.
+on:
+  schedule:
+    - cron: '2 2 * * *'    # 08:02 Dhaka
+    - cron: '32 2 * * *'   # 08:32 Dhaka (second chance)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild if a scheduled time passed in the last 90 minutes
+        run: |
+          due=$(python3 - <<'PY'
+          import json, glob, datetime as dt
+          now = dt.datetime.now(dt.timezone.utc)
+          def t(s):
+              s = s if len(s) > 19 else s + '+06:00'
+              return dt.datetime.fromisoformat(s)
+          times = []
+          for f in glob.glob('src/data/posts/*.json'):
+              p = json.load(open(f))
+              if p.get('publishAt'): times.append(t(p['publishAt']))
+          h = json.load(open('src/data/home.json'))
+          if h.get('scheduledLead'): times.append(t(h['scheduledLead']['from']))
+          print('yes' if any(dt.timedelta(0) <= now - x <= dt.timedelta(minutes=90) for x in times) else 'no')
+          PY
+          )
+          echo "due=$due"
+          if [ "$due" = "yes" ]; then
+            git config user.name "devlens-bot"
+            git config user.email "devlens-bot@users.noreply.github.com"
+            date -u +%FT%TZ > .last-scheduled-publish
+            git add .last-scheduled-publish
+            git commit -m "Scheduled publish: rebuild site"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
