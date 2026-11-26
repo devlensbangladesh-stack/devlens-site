@@ -3,7 +3,7 @@
 Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to `main` makes Cloudflare Pages rebuild https://devlensbd.org.
 
 ## 1. Start
-- Append to `claude/devlens-run-log.md`: `- D Mon YYYY, HH:MM Dhaka, morning|afternoon, started` (note "fired late" if more than an hour off schedule).
+- Append to `claude/devlens-run-log.md`: `- D Mon YYYY, HH:MM Dhaka, daily run, started` (note "fired late" if more than an hour off schedule).
 - Attach the repo with push access (add_repo) if the session offers it; clone; `git fetch origin main` and work on top of `origin/main`.
 - Apply any patches in `claude/pending/` with `git am` (oldest first). Delete them only after the site is live.
 - Read `git log --oneline -15` to avoid repeating recent work.
@@ -19,8 +19,8 @@ Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to 
 
 ## 4. Push, in this order
 1. `git push origin HEAD:main`
-2. If rejected: push to `auto/YYYY-MM-DD-morning` (or `-afternoon`). The `auto-merge.yml` workflow checks the JSON, builds and merges it into `main`.
-3. If both fail: `git format-patch origin/main --stdout > claude/pending/devlens-YYYY-MM-DD-morning.patch` (or `-afternoon`) and commit it to whatever branch can be pushed.
+2. If rejected: push to `auto/YYYY-MM-DD-daily`. The `auto-merge.yml` workflow checks the JSON, builds and merges it into `main`.
+3. If both fail: `git format-patch origin/main --stdout > claude/pending/devlens-YYYY-MM-DD-daily.patch` and commit it to whatever branch can be pushed.
 - Record the exact error text of every failed push.
 - Commit messages: short summary of what changed. No model names.
 
