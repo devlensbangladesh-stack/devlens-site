@@ -16,8 +16,6 @@ const sectorCounts = jobsData.sectors
 const shortName = { 'Food security and agriculture': 'Food security', 'Governance and digital': 'Governance', 'Climate and environment': 'Climate', 'Livelihoods and microfinance': 'Livelihoods' };
 const featured = jobs.filter((j) => j.featured).slice(0, 3);
 
-const skip = new Set([home.lead.slug, home.alsoToday.slug, ...plus.map((p) => p.slug)]);
-const latest = posts.filter((p) => !skip.has(p.slug) && !p.categories.includes('devlens-special')).slice(0, 6);
 
 const soonJobs = jobs.filter((j) => j.deadline).map((j) => ({ kind: 'Job', title: j.title, org: `${j.org} · ${j.location}`, url: j.url, deadline: j.deadline }));
 const soonFunding = (home.funding || []).filter((f) => f.deadline >= today).map((f) => ({ kind: 'Funding', title: f.title, org: f.funder, url: f.url, deadline: f.deadline }));
@@ -245,23 +243,6 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
       </div>
     </section>
   )}
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head"><h2>Latest stories</h2><a href="/category/news/">All stories ↗</a></div>
-      <div class="grid-3">
-        {latest.map((p) => (
-          <article class="story">
-            {p.image && <a href={postUrl(p)}><img src={p.image.src} alt={p.image.alt} loading="lazy" width="640" height="360" /></a>}
-            <span class="meta">{catName(p.categories[0] || 'news')}</span>
-            <h3><a href={postUrl(p)}>{p.title}</a></h3>
-            <p>{p.excerpt}</p>
-            <span class="date">{fmtDate(p.date)}</span>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <section class="section sand">
     <div class="wrap">
