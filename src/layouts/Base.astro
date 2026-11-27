@@ -94,7 +94,7 @@ const nav = [
   <header class="site-header">
     <div class="wrap header-row">
       <div class="brand">
-        <a href="/" class="logo"><img src="/media/2026/10/devlens-logo.png" alt="Devlens Bangladesh" width="148" height="40" /></a>
+        <a href="/" class="logo"><img src="/media/2026/10/devlens-logo.png" alt="Devlens Bangladesh" width="148" height="40" /><span class="beta" title="Devlens is in beta">Beta</span></a>
         <p class="today" id="today-date">{weekday}<br />{longDate}</p>
       </div>
       <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -142,26 +142,32 @@ const nav = [
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div class="footer-about">
-        <a href="/"><img src="/media/2026/10/devlens-logo-white.png" alt="Devlens Bangladesh" width="180" height="48" /></a>
+        <a href="/" class="footer-logo"><img src="/media/2026/10/devlens-logo-white.png" alt="Devlens Bangladesh" width="180" height="48" /><span class="beta">Beta</span></a>
         <p class="tagline">Development intelligence for Bangladesh</p>
-        <p>A clearer view of Bangladesh's development sector. News, funding, jobs, research and data, independently curated. Coverage cannot be bought; sponsored content is always labelled.</p>
-        <p class="eyebrow">Follow Devlens</p>
-        <p class="social">
-          <a href="https://www.facebook.com/profile.php?id=61596271460489" rel="noopener" target="_blank">Facebook</a>
-          <a href="https://www.linkedin.com/company/144052802/" rel="noopener" target="_blank">LinkedIn</a>
-          <a href="https://www.youtube.com/@DevLensBangladesh" rel="noopener" target="_blank">YouTube</a>
-        </p>
-        <p><a href="mailto:devlensbangladesh@gmail.com">devlensbangladesh@gmail.com</a></p>
-        <address class="footer-address">House 60, Road 3, Block B, Niketon, Gulshan, Dhaka 1212, Bangladesh · <a href="https://www.google.com/maps?q=23.774074,90.412588" rel="noopener" target="_blank">Map</a></address>
+        <p>News, jobs, funding, research and data for the NGO, humanitarian and development sector, checked against the original sources. Coverage cannot be bought; sponsored content is always labelled.</p>
+        <div class="footer-brief">
+          <p><strong>The Devlens Brief</strong> Top stories, open funding and new jobs in your inbox. Free.</p>
+          <a class="btn btn-green" href="/subscribe/">Subscribe</a>
+        </div>
       </div>
-      <div><p class="eyebrow">Explore</p>
-        <a href="/category/news/">News</a><a href="/sectors/">Sectors</a><a href="/research-evidence/">Research</a><a href="/funding/">Funding</a><a href="/jobs/">Jobs</a><a href="/data/">Data</a></div>
-      <div><p class="eyebrow">More</p>
-        <a href="/events/">Events</a><a href="/resources/">Resources</a><a href="/category/analysis/">Analysis</a><a href="/category/devlens-special/">Devlens Special</a></div>
-      <div><p class="eyebrow">Devlens</p>
-        <a href="/about/">About</a><a href="/editorial-standards/">Editorial standards</a><a href="/submit/">Share your work</a><a href="/for-ngos/">For NGOs</a><a href="/advertise/">Advertise and partner</a><a href="/subscribe/">Subscribe</a></div>
+      <nav aria-label="Read"><p class="eyebrow">Read</p>
+        <a href="/category/news/">News</a><a href="/category/analysis/">Analysis</a><a href="/category/devlens-special/">Devlens Special</a><a href="/research-evidence/">Research</a><a href="/data/">Data</a><a href="/sectors/">Sectors</a></nav>
+      <nav aria-label="Opportunities"><p class="eyebrow">Opportunities</p>
+        <a href="/jobs/">Jobs</a><a href="/funding/">Funding</a><a href="/events/">Events</a><a href="/resources/">Resources</a></nav>
+      <nav aria-label="Use Devlens"><p class="eyebrow">Use Devlens</p>
+        <a href="/how-to-use/">How to use Devlens</a><a href="/search/">Search</a><a href="/submit/">Share your work</a><a href="/for-ngos/">For NGOs</a><a href="/subscribe/">Newsletter</a></nav>
+      <nav aria-label="About Devlens"><p class="eyebrow">Devlens</p>
+        <a href="/about/">About</a><a href="/editorial-standards/">Editorial standards</a><a href="/advertise/">Advertise and partner</a><a href="mailto:devlensbangladesh@gmail.com">Contact us</a></nav>
     </div>
-    <div class="wrap"><p class="copyright">© {today.slice(0, 4)} Devlens Bangladesh · Dhaka</p></div>
+    <div class="wrap footer-bottom">
+      <p class="copyright">© {today.slice(0, 4)} Devlens Bangladesh</p>
+      <address class="footer-address">House 60, Road 3, Block B, Niketon, Gulshan, Dhaka 1212 · <a href="https://www.google.com/maps?q=23.774074,90.412588" rel="noopener" target="_blank">Map</a> · <a href="mailto:devlensbangladesh@gmail.com">devlensbangladesh@gmail.com</a></address>
+      <p class="social">
+        <a href="https://www.facebook.com/profile.php?id=61596271460489" rel="noopener" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/company/144052802/" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="https://www.youtube.com/@DevLensBangladesh" rel="noopener" target="_blank">YouTube</a>
+      </p>
+    </div>
   </footer>
   <script src="/devlens.js" defer></script>
 </body>

@@ -164,12 +164,21 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
     </section>
   )}
 
-  <section class="pills">
+  <section class="uses" aria-labelledby="uses-h">
     <div class="wrap">
-      <a href="/funding/"><strong>{home.pills.fundingOpen}</strong>{home.pills.fundingOpen === 1 ? 'funding call open' : 'funding calls open'} ↗</a>
-      <a href="/jobs/"><strong data-open-jobs>{jobs.length}</strong>open jobs ↗</a>
-      <a href="/research-evidence/"><strong>{home.pills.newReports}</strong>new reports ↗</a>
-      <a href="/data/"><strong>{home.pills.keyNumbers}</strong>key numbers ↗</a>
+      <div class="uses-head">
+        <div>
+          <p class="eyebrow">One place for the sector</p>
+          <h2 id="uses-h">What you can do on Devlens</h2>
+        </div>
+        <a class="uses-guide" href="/how-to-use/">New here? How to use Devlens →</a>
+      </div>
+      <div class="uses-grid">
+        <a href="/jobs/"><strong data-open-jobs>{jobs.length}</strong><b>Find a job</b><span>NGO, INGO and UN roles, checked against the employer's own advert</span></a>
+        <a href="/funding/"><strong>{home.pills.fundingOpen}</strong><b>Find funding</b><span>Open grants, tenders and EOIs with deadlines and links to the call</span></a>
+        <a href="/research-evidence/"><strong>{home.pills.newReports}</strong><b>Read the evidence</b><span>New research and reports explained in plain words</span></a>
+        <a href="/data/"><strong>{home.pills.keyNumbers}</strong><b>Check the numbers</b><span>Key figures on Bangladesh, each with its source and date</span></a>
+      </div>
     </div>
   </section>
 

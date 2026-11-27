@@ -1,0 +1,108 @@
+---
+// How to use Devlens: a plain guide for new readers (added 28 Nov 2026 after reader feedback).
+import Base from '../layouts/Base.astro';
+import { home, openJobs, dhakaToday } from '../lib/data.js';
+
+const today = dhakaToday();
+const jobs = openJobs(today).length;
+const funding = home.pills.fundingOpen;
+
+const who = [
+  ['NGO and INGO staff', 'Stay on top of what donors, the government and other agencies are doing, without reading ten newspapers.'],
+  ['Job seekers', `Find NGO, INGO and UN vacancies in one place. ${jobs} roles are open right now.`],
+  ['Fundraisers and partnership teams', `Track open grants, tenders and expressions of interest. ${funding} calls are open now.`],
+  ['Researchers, students and journalists', 'Get plain-language summaries of new studies and the key figures behind them, always with the source.'],
+];
+
+const steps = [
+  {
+    n: '01', title: 'Start with today\'s briefing', href: '/', link: 'Go to the homepage',
+    text: 'The homepage is updated every morning by 8:00 am Dhaka time. The lead story is the most important development news of the day; "Also today" and "More from today" cover the rest. Spotlights such as 16 Days of Activism appear at the top while a campaign or summit is running.',
+  },
+  {
+    n: '02', title: 'Find a job', href: '/jobs/', link: 'Browse jobs',
+    text: 'Every vacancy is checked against the employer\'s own advert and links straight to it. Browse by sector or division, and use "Closing soon" to see deadlines this week. Expired jobs disappear on their own, so everything you see is still open. Devlens never charges applicants.',
+  },
+  {
+    n: '03', title: 'Find funding', href: '/funding/', link: 'See funding calls',
+    text: 'Open grants, tenders and EOIs relevant to Bangladesh, each marked OPEN, CLOSING SOON, UPCOMING or CLOSED with its deadline and a link to the funder\'s own call.',
+  },
+  {
+    n: '04', title: 'Read the evidence', href: '/research-evidence/', link: 'Research and evidence',
+    text: 'Devlens Research Summaries explain new reports and studies in plain words: what was found, how it was measured and what it means for programmes. Devlens Specials go deeper on one issue that matters to the sector.',
+  },
+  {
+    n: '05', title: 'Check the numbers', href: '/data/', link: 'Development data',
+    text: 'Key figures on poverty, health, climate, migration, the Rohingya response and more, each with its source and date, so you can quote them with confidence in a proposal or report.',
+  },
+  {
+    n: '06', title: 'Plan around events', href: '/events/', link: 'Events calendar',
+    text: 'Conferences, dialogues, report launches, consultations and international days for the next two months, with what came out of recent ones.',
+  },
+  {
+    n: '07', title: 'Search anything', href: '/search/', link: 'Search Devlens',
+    text: 'Use the magnifier at the top of every page to search all Devlens stories, jobs and pages, for example "WASH jobs Cox\'s Bazar" or "climate finance".',
+  },
+  {
+    n: '08', title: 'Get it in your inbox', href: '/subscribe/', link: 'Subscribe free',
+    text: 'The Devlens Brief brings the week\'s top stories, open funding and new jobs to your email. Free, and you can unsubscribe with one click.',
+  },
+];
+
+const faqs = [
+  ['Is Devlens free?', 'Yes. Reading, job listings, funding listings and the newsletter are free for everyone. Organisations can also list vacancies and share news for free.'],
+  ['Where does the information come from?', 'From official sources: employer career pages, donor and UN websites, government releases, published research and named news reports. Every figure is attributed and linked to where it came from.'],
+  ['How do I get my organisation\'s news, report, job or event on Devlens?', 'Send it through "Share your work". Editors review every submission. Coverage cannot be bought, and sponsored content is always labelled.'],
+  ['I spotted a mistake. What should I do?', 'Tell us through the Share your work page or by email. We correct errors and note the correction on the story.'],
+  ['Why does it say Beta?', 'Devlens is open and publishing every day, but we are still adding features and improving the site before the official launch. Your feedback shapes what we build next.'],
+];
+---
+<Base title="How to use Devlens" description="A quick guide to Devlens Bangladesh: daily development news, NGO jobs, funding calls, research summaries, data and events, and how to get the most from them.">
+  <header class="page-head guide-head"><div class="wrap">
+    <p class="eyebrow" style="color:#0b8f68">New to Devlens?</p>
+    <h1>How to use Devlens</h1>
+    <p class="guide-lede">Devlens Bangladesh brings the development sector's news, jobs, funding, research and data together in one place, checked against the original sources. Here is how to get the most from it in a few minutes a day.</p>
+  </div></header>
+
+  <div class="wrap page-body">
+    <section class="guide-who" aria-labelledby="who-h">
+      <h2 id="who-h">Who it's for</h2>
+      <div class="guide-who-grid">
+        {who.map(([t, d]) => <div><h3>{t}</h3><p>{d}</p></div>)}
+      </div>
+    </section>
+
+    <section aria-labelledby="steps-h">
+      <h2 id="steps-h">Eight ways to use it</h2>
+      <ol class="guide-steps">
+        {steps.map((s) => (
+          <li>
+            <span class="n">{s.n}</span>
+            <div>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+              <a href={s.href}>{s.link} →</a>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="guide-tip">
+      <h2>A five-minute routine</h2>
+      <p>Open the homepage with your morning tea, scan the lead and "More from today", check "Closing soon" for deadlines, and bookmark anything to share with your team. Once a week, read the Devlens Brief in your inbox.</p>
+    </section>
+
+    <section aria-labelledby="faq-h">
+      <h2 id="faq-h">Common questions</h2>
+      <div class="guide-faq">
+        {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
+    </section>
+
+    <div class="guide-cta">
+      <a class="btn btn-dark" href="/subscribe/">Get the Devlens Brief</a>
+      <a class="btn btn-outline" href="/submit/">Share your work</a>
+    </div>
+  </div>
+</Base>

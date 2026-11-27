@@ -13,6 +13,7 @@ export function GET({ site }) {
   add('/', newest);
   add('/jobs/', newest);
   add('/events/', day(eventsData.updated));
+  add('/how-to-use/', '2026-11-28');
   add('/category/news/', newest);
   for (const p of pages) add(`/${p.slug}/`, day(p.modified));
   const today = dhakaToday();
