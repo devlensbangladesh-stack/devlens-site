@@ -42,5 +42,13 @@ Up to 10 new jobs per run. Check a rotating subset of the sources below (not all
 }
 ```
 - `sector`: one of the ids in `jobs.json` `sectors`.
+
+## Job pages and Google for Jobs (do this for every new job)
+A job with a `description` gets its own page at `/jobs/<slug>/` with schema.org JobPosting data, so it can show in Google's job search. Jobs without one stay on the list only and get no search traffic. So for every new job, while the advert is open:
+- `description` (required for a page): the advert's own job description as simple HTML (`<p>`, `<ul>`, `<li>`, `<strong>`, `<h3>`): purpose, responsibilities, qualifications, how to apply. Copy it from the advert; do not write or pad it. Leave out the employer's boilerplate about benefits only if it is very long. Needs at least 60 words or no page is built. If the advert is a PDF or image only, skip the field.
+- `posted`: the date the advert was published, `YYYY-MM-DD`, when the advert shows it. Otherwise leave it out and `added` is used.
+- Optional, only when the advert states it: `employmentType` (`FULL_TIME`, `PART_TIME`, `CONTRACTOR`, `TEMPORARY`, `INTERN`, `VOLUNTEER`; consultancies default to `CONTRACTOR`), `city` (the duty-station town, if `location` is vague), `remote: true` (fully home-based in Bangladesh), `salary` (`{"min": 80000, "max": 120000, "currency": "BDT", "unit": "MONTH"}`), `orgUrl` (employer's homepage), `summary` (one or two plain sentences for the top of the page).
+- Never invent a description, salary or date. Google penalises job data that does not match the advert.
+- Do not change a job's `title`, `badge` or `url` after it is added: the page address is built from them. If one must change, set `"id"` to the old slug (shown in the page URL) to keep the address.
 - `featured`: optional, `"UN AGENCY"` or `"NATIONAL NGO"`.
 - Copy the field set of an existing job of the same kind; omit optional fields rather than inventing values.

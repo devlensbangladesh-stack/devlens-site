@@ -1,0 +1,87 @@
+---
+// One page per open job, built only when we hold the advert's full description.
+// Carries schema.org JobPosting so the role can appear in Google's job search.
+import Base from '../../layouts/Base.astro';
+import { jobsData, dhakaToday, jobLabel, fmtDate, fmtShort, jobPath, jobSlug, hasJobPage, cleanJobHtml, jobPostingLd } from '../../lib/data.js';
+
+export function getStaticPaths() {
+  const today = dhakaToday();
+  return jobsData.jobs
+    .filter((j) => (!j.deadline || j.deadline >= today) && hasJobPage(j))
+    .map((j) => ({ params: { slug: jobSlug(j) }, props: { job: j } }));
+}
+const { job: j } = Astro.props;
+const today = dhakaToday();
+const l = jobLabel(j.deadline, today);
+const sector = jobsData.sectors.find((s) => s.id === j.sector);
+const ld = jobPostingLd(j, Astro.site);
+const crumbs = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Jobs', item: new URL('/jobs/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: j.title, item: new URL(jobPath(j), Astro.site).href },
+  ],
+};
+const deadline = j.deadlineText || (j.deadline ? fmtDate(j.deadline) : 'See the advert');
+const intro = j.summary || `${j.org} is hiring a ${j.title} in ${j.location}. ${j.deadline ? `Apply by ${fmtDate(j.deadline)}.` : 'Check the advert for the closing date.'}`;
+const similar = jobsData.jobs
+  .filter((x) => x !== j && x.sector === j.sector && (!x.deadline || x.deadline >= today))
+  .sort((a, b) => (a.deadline || '9999').localeCompare(b.deadline || '9999'))
+  .slice(0, 4);
+const sourceHost = (() => { try { return new URL(j.url).hostname.replace(/^www\./, ''); } catch { return 'the original advert'; } })();
+---
+<Base title={`${j.title}, ${j.badge || j.org}`} description={`${j.title} at ${j.org}, ${j.location}. ${j.contract ? j.contract + '. ' : ''}Deadline ${deadline}. Full job description and how to apply.`}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(ld)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(crumbs)} />
+  <div class="wrap job-page">
+    <p class="crumbs"><a href="/">Home</a> › <a href="/jobs/">Jobs</a>{sector && <> › <a href={`/jobs/#${sector.id}`}>{sector.name}</a></>}</p>
+    <header class="job-head" style={sector ? `border-top-color:${sector.color}` : ''}>
+      <p class="org">{j.org}</p>
+      <h1>{j.title}</h1>
+      <p class="pills-row">
+        <span>📍 {j.location}</span>
+        {j.nationals && <span class="nat">Bangladeshi nationals</span>}
+        {j.consultancy && <span class="cons">Consultancy</span>}
+      </p>
+      {j.contract && <p class="contract">{j.contract}</p>}
+      <div class="job-key">
+        <div><span>Deadline</span><strong data-job-deadline={j.deadline || ''} style={`color:${l.color}`}>{deadline}</strong></div>
+        <div><span>Listed on Devlens</span><strong>{fmtShort(j.added)}</strong></div>
+        {j.ref && <div><span>Reference</span><strong>{j.ref.replace(/^Ref:\s*/i, '')}</strong></div>}
+      </div>
+      <p class="job-closed" data-job-closed hidden>This role has passed its deadline. See <a href="/jobs/">open jobs</a>.</p>
+      <p class="job-cta"><a class="btn btn-green" href={j.url} rel="noopener" target="_blank">{j.button || 'View advert'} on {sourceHost} ↗</a></p>
+    </header>
+
+    <section class="job-desc">
+      <p class="lede">{intro}</p>
+      <h2>Job description</h2>
+      <div class="prose" set:html={cleanJobHtml(j.description)} />
+      <p class="source">Description from the employer's advert on <a href={j.url} rel="noopener" target="_blank">{sourceHost}</a>. Always check eligibility, the deadline and how to apply on the original advert. Devlens does not take applications.</p>
+      <p class="job-cta"><a class="btn btn-green" href={j.url} rel="noopener" target="_blank">Apply on {sourceHost} ↗</a></p>
+    </section>
+
+    <aside class="job-safety">
+      <strong>🚫 Never pay to apply.</strong> Real NGOs, INGOs and UN agencies never ask for a fee or deposit. If anyone does, walk away and <a href="/submit/">tell us</a>.
+    </aside>
+
+    {similar.length > 0 && (
+      <section class="job-similar">
+        <h2>More {sector ? sector.name.toLowerCase() : ''} jobs</h2>
+        {similar.map((x) => (
+          <a class="mini" href={hasJobPage(x) ? jobPath(x) : x.url} rel={hasJobPage(x) ? undefined : 'noopener'}>
+            <span class="t">{x.title}</span><span class="o">{x.org} · {x.location}{x.deadline && <> · closes {fmtShort(x.deadline)}</>}</span>
+          </a>
+        ))}
+        <p><a href="/jobs/">See all open jobs →</a></p>
+      </section>
+    )}
+  </div>
+  <script is:inline>
+    (function () { var el = document.querySelector('[data-job-deadline]'); if (!el || !el.dataset.jobDeadline) return;
+      var t = new Date(Date.now() + 6 * 3600000).toISOString().slice(0, 10);
+      if (el.dataset.jobDeadline < t) { document.querySelector('[data-job-closed]').hidden = false; document.querySelectorAll('.job-cta').forEach(function (c) { c.hidden = true; }); }
+    })();
+  </script>
+</Base>

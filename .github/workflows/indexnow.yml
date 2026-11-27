@@ -38,6 +38,14 @@ jobs:
                   urls.add(f"{base}/{y}/{m}/{d}/{p['slug']}/")
               elif f.startswith('src/data/pages/') and f.endswith('.json'):
                   urls.add(f"{base}/{os.path.basename(f)[:-5]}/")
+          if 'src/data/jobs.json' in changed:
+              # Job pages: read their addresses from the live sitemap rather than rebuilding the slug rules here.
+              import re
+              try:
+                  sm = urllib.request.urlopen(base + '/sitemap.xml', timeout=30).read().decode()
+                  urls.update(u for u in re.findall(r'<loc>([^<]+)</loc>', sm) if re.match(re.escape(base) + r'/jobs/[^/]+/$', u))
+              except Exception as e:
+                  print('Could not read sitemap for job pages:', e)
           body = json.dumps({'host': host, 'key': os.environ['KEY'], 'keyLocation': f"{base}/{os.environ['KEY']}.txt", 'urlList': sorted(urls)[:10000]}).encode()
           req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body, headers={'Content-Type': 'application/json; charset=utf-8'})
           try:
