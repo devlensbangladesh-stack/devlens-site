@@ -13,6 +13,7 @@ A Devlens Special is a longer original report on one issue that matters to the N
 - 1,200 to 2,000 words. Follow `devlens-writing-standard.md`.
 - Sections: intro (the finding in two or three sentences), the evidence, what it means for NGOs and donors, what could change, limits of the evidence, sources.
 - Every figure attributed and linked.
+- Don't open the body with an italic summary paragraph. The story page already shows the `excerpt` as the standfirst under the headline, so a second summary in the body reads as a repeat.
 
 ## Publishing
 - Post JSON with categories `["devlens-special"]` (Specials are kept out of the homepage "latest" list).
