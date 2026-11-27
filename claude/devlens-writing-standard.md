@@ -46,3 +46,6 @@ Fields, in this order: `slug`, `date`, `modified`, `title`, `excerpt`, `categori
 - `tags`: NGOAB sectors and sub-sectors from `src/data/tags.json`, plus `national` or a place tag. Never invent a tag.
 - `content`: HTML using `<p class="wp-block-paragraph">`, `<h3 class="wp-block-heading">`, `<ul class="wp-block-list">`. Links to outside sources use `target="_blank" rel="noopener"`. Internal links use `/YYYY/MM/DD/slug/`.
 - `image`: see `devlens-needs-images.md`; `null` if no image yet.
+
+## Story openings
+- Start the body with the dateline paragraph (e.g. "DHAKA, 27 November 2026: ..."). Do not add a "DEVLENS ANALYSIS/EXPLAINER/SPECIAL · topic · date · byline" line or an italic summary at the top: the page already shows the categories, date, byline and excerpt above the story.
