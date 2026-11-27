@@ -62,3 +62,11 @@ Still waiting:
   - mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days ("Orange the World", "16 Days of Activism")
   - ukraine-trafficking-probe-bangladeshis-russian-military-fortify-rights-104-recruited ("Hazrat Shahjalal International Airport", "Bangladeshi passport")
   - amnesty-cyber-security-amendment-draft-content-blocking-powers-free-expression ("smartphone social media", "internet cafe Dhaka")
+- Note (26 Nov 2026, morning run): photos queued for the AMR lead (antibiotic blister packs, Thilini ukwaththage, CC BY-SA 4.0) and the children's hospitals story (Rangpur Medical College file photo). Still "image": null, with search ideas (both Kutupalong VOA photos are already used):
+  - devlens-research-summary-unhcr-q3-2026-rohingya-protection-security-incidents-up-39-percent-registration-suspended ("Balukhali camp", "Rohingya camp shelters Ukhia", "Bhasan Char")
+  - garment-workers-protest-tk-17000-wage-gazipur-300-factories-suspend-production ("Gazipur highway", "Dhaka-Mymensingh highway"; no protest photos with identifiable workers)
+  - tax-justice-network-bangladesh-lost-2-26-billion-tax-abuse-2023-161-percent-health-spending ("NBR building Agargaon", "Bangladeshi taka notes")
+  - police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls ("Orange the World Dhaka", "16 Days of Activism Bangladesh")
+  - khulna-ngo-official-home-shot-at-after-tk-6-5-lakh-extortion-demand-cas-ava-centre ("Khulna city street", "Khulna Rupsha")
+  - okup-study-91-percent-migrant-workers-no-written-contract-bmet-arbitration-recruitment-fees ("BMET Dhaka", "Bangladeshi passport"; PID airport photos show politicians)
+  - government-bicycles-300000-schoolgirls-classes-six-to-ten-dropout-20000-schools ("bicycle rural road Bangladesh", "secondary school Bangladesh building"; no identifiable children)

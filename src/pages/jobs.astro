@@ -11,9 +11,27 @@ const soon = jobs.filter((j) => j.deadline && daysBetween(today, j.deadline) <= 
 const nationals = jobs.filter((j) => j.nationals).length;
 const orgs = new Set(jobs.map((j) => j.badge)).size;
 const weekOut = new Date(Date.parse(today) + 7 * 86400000).toISOString().slice(0, 10);
+// Division for each job, from the place names in its location (a job can sit in more than one).
+const DIVISIONS = [
+  ['dhaka', 'Dhaka', ['dhaka','gazipur','narayanganj','narsingdi','manikganj','munshiganj','tangail','kishoreganj','faridpur','gopalganj','madaripur','rajbari','shariatpur']],
+  ['chattogram', 'Chattogram', ['chattogram','chittagong',"cox's bazar",'coxs bazar','ukhiya','ukhia','teknaf','kutupalong','bhasan char','camp ','cumilla','comilla','feni','chandpur','lakshmipur','noakhali','brahmanbaria','rangamati','khagrachhari','khagrachari','bandarban']],
+  ['khulna', 'Khulna', ['khulna','paikgachha','satkhira','bagerhat','jashore','jessore','jhenaidah','magura','narail','kushtia','chuadanga','meherpur']],
+  ['rajshahi', 'Rajshahi', ['rajshahi','bogura','bogra','pabna','sirajganj','natore','naogaon','chapainawabganj','joypurhat']],
+  ['rangpur', 'Rangpur', ['rangpur','gaibandha','saghata','kurigram','lalmonirhat','nilphamari','dinajpur','thakurgaon','panchagarh']],
+  ['barishal', 'Barishal', ['barishal','barisal','laharhat','bhola','patuakhali','pirojpur','barguna','jhalokathi']],
+  ['sylhet', 'Sylhet', ['sylhet','sunamganj','habiganj','moulvibazar']],
+  ['mymensingh', 'Mymensingh', ['mymensingh','jamalpur','netrokona','sherpur']],
+];
+const divisionsOf = (loc) => {
+  const l = ` ${(loc || '').toLowerCase()} `;
+  const found = DIVISIONS.filter(([, , words]) => words.some((w) => l.includes(w))).map(([id]) => id);
+  return found.length ? found : ['nationwide'];
+};
+const divisionList = [...DIVISIONS.map(([id, name]) => ({ id, name })), { id: 'nationwide', name: 'Anywhere in Bangladesh' }]
+  .map((d) => ({ ...d, n: jobs.filter((j) => divisionsOf(j.location).includes(d.id)).length }));
 const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
 ---
-<Base title="Jobs and careers" description="NGO, INGO, UN and research jobs in Bangladesh, checked every night against the employer's own advert.">
+<Base title="NGO jobs in Bangladesh: UN, INGO and NGO vacancies" description={`${jobs.length} open NGO, INGO, UN and research jobs in Bangladesh, checked every day against the employer's own advert. Browse by division and sector. No fees.`}>
   <div class="wrap">
     <section class="jobs-hero">
       <h1>Find your next role in Bangladesh's development sector</h1>
@@ -32,10 +50,13 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
     </section>
 
     <section id="top-of-jobs" style="margin-bottom:36px">
-      <h2 style="font-size:22px;font-weight:800">Browse by sector</h2>
-      <p class="chips">
-        {sectors.map((s) => <a href={`#${s.id}`} style={`border-color:${s.color}`} data-chip={s.id}><span style={`color:${s.color}`}>●</span> {s.name} <span class="n" data-sector-count={s.id}>{s.jobs.length}</span></a>)}
+      <h2 style="font-size:22px;font-weight:800">Browse by location</h2>
+      <p style="color:#6b6f76;margin:0 0 12px">Pick a division to see only the jobs there. Jobs that cover several divisions show under each of them.</p>
+      <p class="chips loc-chips" role="group" aria-label="Filter jobs by division">
+        <button type="button" class="loc on" data-loc="all" aria-pressed="true">All divisions <span class="n" data-loc-count="all">{jobs.length}</span></button>
+        {divisionList.map((d) => <button type="button" class="loc" data-loc={d.id} aria-pressed="false" hidden={!d.n}>{d.name} <span class="n" data-loc-count={d.id}>{d.n}</span></button>)}
       </p>
+      <p class="loc-note" data-loc-note hidden></p>
     </section>
 
     <section class="closing">
@@ -49,12 +70,13 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
     </section>
 
     {sectors.map((s) => (
-      <section class="sector" data-sector={s.id}>
-        <h2 id={s.id}><span style={`color:${s.color}`}>■</span> {s.name} <span class="n">(<span data-sector-count={s.id}>{s.jobs.length}</span>)</span></h2>
+      <details class="sector" id={s.id} data-sector={s.id} style={`--sc:${s.color}`}>
+        <summary><h2><span style={`color:${s.color}`}>■</span> {s.name} <span class="n">(<span data-sector-count={s.id}>{s.jobs.length}</span> <span data-sector-word={s.id}>{s.jobs.length === 1 ? 'job' : 'jobs'}</span>)</span></h2><span class="toggle" aria-hidden="true"><span class="show">Show jobs</span><span class="hide">Hide jobs</span></span></summary>
+        <div class="sector-jobs">
         {s.jobs.map((j) => {
           const l = jobLabel(j.deadline, today);
           return (
-            <article class="job" style={`border-left-color:${sectorColor[j.sector]}`} data-deadline={j.deadline || ''} data-added={j.added} data-sector={j.sector} data-nationals={j.nationals ? '1' : ''} data-badge={j.badge} data-title={j.title} data-org={j.org} data-location={j.location} data-url={j.url}>
+            <article class="job" style={`border-left-color:${sectorColor[j.sector]}`} data-deadline={j.deadline || ''} data-added={j.added} data-sector={j.sector} data-div={divisionsOf(j.location).join(' ')} data-nationals={j.nationals ? '1' : ''} data-badge={j.badge} data-title={j.title} data-org={j.org} data-location={j.location} data-url={j.url}>
               <div class="badge" style={`background:${sectorColor[j.sector]}`}>{j.badge}</div>
               <div class="body">
                 <h3><a href={j.url} rel="noopener">{j.title}</a></h3>
@@ -77,8 +99,42 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
           );
         })}
         <p class="back"><a href="#top-of-jobs">↑ Back to sectors</a></p>
-      </section>
+        </div>
+      </details>
     ))}
+    <script is:inline>
+      // Browse by location: filter the sector lists to one division.
+      document.addEventListener('DOMContentLoaded', function () {
+        var jobs = Array.prototype.slice.call(document.querySelectorAll('article.job'));
+        var btns = Array.prototype.slice.call(document.querySelectorAll('[data-loc]'));
+        var note = document.querySelector('[data-loc-note]');
+        function inDiv(j, id) { return id === 'all' || (' ' + j.dataset.div + ' ').indexOf(' ' + id + ' ') > -1; }
+        btns.forEach(function (b) {
+          var n = jobs.filter(function (j) { return inDiv(j, b.dataset.loc); }).length;
+          b.querySelector('.n').textContent = n; b.hidden = !n;
+        });
+        function apply(id) {
+          btns.forEach(function (b) { var on = b.dataset.loc === id; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+          var shown = 0;
+          document.querySelectorAll('details.sector').forEach(function (d) {
+            var n = 0;
+            d.querySelectorAll('article.job').forEach(function (j) { var ok = inDiv(j, id); j.hidden = !ok; if (ok) n++; });
+            shown += n; d.hidden = !n; d.open = id !== 'all' && n > 0;
+            var c = d.querySelector('[data-sector-count]'), w = d.querySelector('[data-sector-word]');
+            if (c) c.textContent = n; if (w) w.textContent = n === 1 ? 'job' : 'jobs';
+          });
+          if (note) {
+            var b = btns.filter(function (x) { return x.dataset.loc === id; })[0];
+            note.hidden = id === 'all';
+            note.textContent = id === 'all' ? '' : shown + (shown === 1 ? ' job' : ' jobs') + ' in ' + b.firstChild.textContent.trim() + ', grouped by sector below.';
+          }
+        }
+        btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.loc); if (b.dataset.loc !== 'all') { var f = document.querySelector('details.sector:not([hidden])'); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+        // Old sector links (#health-nutrition) still open that sector.
+        function openFromHash() { var d = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (d && d.tagName === 'DETAILS') { d.open = true; d.scrollIntoView({ block: 'start' }); } }
+        window.addEventListener('hashchange', openFromHash); if (location.hash) openFromHash();
+      });
+    </script>
 
     <section class="alerts" id="job-alerts">
       <h2>📬 Never miss a deadline</h2>

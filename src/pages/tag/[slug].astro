@@ -9,4 +9,4 @@ const { slug } = Astro.params;
 const name = tagName(slug);
 const list = posts.filter((p) => (p.tags || []).includes(slug));
 ---
-<Base title={name}><Archive title={name} list={list} /></Base>
+<Base title={name.length <= 26 ? `${name} in Bangladesh: news and research` : name.length <= 50 ? `${name} in Bangladesh` : name} description={`Latest news, research and analysis on ${name.toLowerCase()} in Bangladesh's development sector, from Devlens Bangladesh. ${list.length} ${list.length === 1 ? 'story' : 'stories'}.`} noindex={list.length < 2}><Archive title={name} list={list} /></Base>

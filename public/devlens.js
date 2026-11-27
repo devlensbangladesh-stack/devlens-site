@@ -37,9 +37,10 @@
     var live = Array.prototype.slice.call(document.querySelectorAll('article.job'));
     var bySector = {};
     live.forEach(function (c) { bySector[c.dataset.sector] = (bySector[c.dataset.sector] || 0) + 1; });
-    document.querySelectorAll('section.sector[data-sector]').forEach(function (s) { if (!bySector[s.dataset.sector]) s.remove(); });
+    document.querySelectorAll('.sector[data-sector]').forEach(function (s) { if (!bySector[s.dataset.sector]) s.remove(); });
     document.querySelectorAll('[data-chip]').forEach(function (a) { if (!bySector[a.dataset.chip]) a.remove(); });
     Object.keys(bySector).forEach(function (k) { setAll('[data-sector-count="' + k + '"]', bySector[k]); });
+    Object.keys(bySector).forEach(function (k) { setAll('[data-sector-word="' + k + '"]', bySector[k] === 1 ? 'job' : 'jobs'); });
     var soon = live.filter(function (c) { return c.dataset.deadline && days(today, c.dataset.deadline) <= 7; })
       .sort(function (a, b) { return a.dataset.deadline.localeCompare(b.dataset.deadline); });
     var orgs = {}; live.forEach(function (c) { orgs[c.dataset.badge] = 1; });
@@ -104,3 +105,23 @@ document.querySelectorAll('form[data-ml-signup]').forEach(function (f) {
       .finally(function () { btn.disabled = false; });
   });
 });
+
+// Chart tooltips: hover, focus or tap any element with data-tip inside a .dv-chart.
+(function () {
+  var tip = null;
+  function show(el, x, y) {
+    if (!tip) { tip = document.createElement('div'); tip.className = 'dv-tip'; tip.setAttribute('role', 'status'); document.body.appendChild(tip); }
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var w = tip.offsetWidth, h = tip.offsetHeight;
+    var left = Math.min(Math.max(8, x - w / 2), window.innerWidth - w - 8);
+    var top = y - h - 14; if (top < 8) top = y + 18;
+    tip.style.left = left + 'px'; tip.style.top = top + 'px';
+  }
+  function hide() { if (tip) tip.hidden = true; }
+  function target(e) { var t = e.target.closest && e.target.closest('.dv-chart [data-tip]'); return t; }
+  document.addEventListener('mousemove', function (e) { var t = target(e); if (t) show(t, e.clientX, e.clientY); else hide(); });
+  document.addEventListener('focusin', function (e) { var t = target(e); if (t) { var r = t.getBoundingClientRect(); show(t, r.left + r.width / 2, r.top); } });
+  document.addEventListener('focusout', hide);
+  document.addEventListener('click', function (e) { var t = target(e); if (t) { show(t, e.clientX, e.clientY); } else hide(); });
+  window.addEventListener('scroll', hide, { passive: true });
+})();

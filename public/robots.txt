@@ -43,3 +43,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://devlensbd.org/sitemap.xml
+Sitemap: https://devlensbd.org/news-sitemap.xml

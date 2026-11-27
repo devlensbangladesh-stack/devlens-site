@@ -1,6 +1,6 @@
 # Devlens Bangladesh website
 
-Live site: https://devlensbd.pages.dev (Cloudflare Pages, built with Astro).
+Live site: https://devlensbd.org (Cloudflare Pages; also devlensbd.pages.dev, which redirects, built with Astro).
 Every push to the `main` branch rebuilds and publishes the site.
 
 ## Where content lives

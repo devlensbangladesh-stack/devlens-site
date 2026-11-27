@@ -1,0 +1,16 @@
+---
+const { e } = Astro.props;
+---
+<article class="ev" data-start={e.start} data-end={e.end}>
+  <div class="ev-date" aria-hidden="true"><span class="d">{e.day}</span><span class="m">{e.mon}</span></div>
+  <div class="ev-body">
+    <p class="ev-meta"><span class="kind">{e.kind}</span> · {e.place} · <span class="when">{e.when}</span></p>
+    <h3>{e.url ? <a href={e.url} rel="noopener" target="_blank">{e.title}</a> : e.post ? <a href={e.post}>{e.title}</a> : e.title}</h3>
+    {e.organiser && <p class="ev-org">{e.organiser}</p>}
+    <p class="ev-sum">{e.summary}</p>
+    {(e.post || e.url) && <p class="ev-links">
+      {e.post && <a class="cov" href={e.post}>{e.coverageLabel || 'Devlens coverage'} →</a>}
+      {e.url && <a class="src" href={e.url} rel="noopener" target="_blank">{e.source || 'Organiser'} ↗</a>}
+    </p>}
+  </div>
+</article>
