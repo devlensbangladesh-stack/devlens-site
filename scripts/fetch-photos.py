@@ -7,7 +7,7 @@ import io, json, pathlib, urllib.request
 from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-UA = {"User-Agent": "DevlensBangladeshBot/1.0 (https://devlensbd.pages.dev; photo fetch)"}
+UA = {"User-Agent": "DevlensBangladeshBot/1.0 (https://devlensbd.org; photo fetch)"}
 W, H = 1280, 720
 items = json.loads((ROOT / "photo-queue.json").read_text())
 for it in items:

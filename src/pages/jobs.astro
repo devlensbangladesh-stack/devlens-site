@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SignupForm from '../components/SignupForm.astro';
-import { jobsData, dhakaToday, jobLabel, fmtShort, fmtDate, daysBetween } from '../lib/data.js';
+import { jobsData, dhakaToday, jobLabel, fmtShort, fmtDate, daysBetween, DIVISIONS, divisionsOf, jobPath, hasJobPage } from '../lib/data.js';
 
 const today = dhakaToday();
 const jobs = jobsData.jobs.filter((j) => !j.deadline || j.deadline >= today);
@@ -11,22 +11,6 @@ const soon = jobs.filter((j) => j.deadline && daysBetween(today, j.deadline) <= 
 const nationals = jobs.filter((j) => j.nationals).length;
 const orgs = new Set(jobs.map((j) => j.badge)).size;
 const weekOut = new Date(Date.parse(today) + 7 * 86400000).toISOString().slice(0, 10);
-// Division for each job, from the place names in its location (a job can sit in more than one).
-const DIVISIONS = [
-  ['dhaka', 'Dhaka', ['dhaka','gazipur','narayanganj','narsingdi','manikganj','munshiganj','tangail','kishoreganj','faridpur','gopalganj','madaripur','rajbari','shariatpur']],
-  ['chattogram', 'Chattogram', ['chattogram','chittagong',"cox's bazar",'coxs bazar','ukhiya','ukhia','teknaf','kutupalong','bhasan char','camp ','cumilla','comilla','feni','chandpur','lakshmipur','noakhali','brahmanbaria','rangamati','khagrachhari','khagrachari','bandarban']],
-  ['khulna', 'Khulna', ['khulna','paikgachha','satkhira','bagerhat','jashore','jessore','jhenaidah','magura','narail','kushtia','chuadanga','meherpur']],
-  ['rajshahi', 'Rajshahi', ['rajshahi','bogura','bogra','pabna','sirajganj','natore','naogaon','chapainawabganj','joypurhat']],
-  ['rangpur', 'Rangpur', ['rangpur','gaibandha','saghata','kurigram','lalmonirhat','nilphamari','dinajpur','thakurgaon','panchagarh']],
-  ['barishal', 'Barishal', ['barishal','barisal','laharhat','bhola','patuakhali','pirojpur','barguna','jhalokathi']],
-  ['sylhet', 'Sylhet', ['sylhet','sunamganj','habiganj','moulvibazar']],
-  ['mymensingh', 'Mymensingh', ['mymensingh','jamalpur','netrokona','sherpur']],
-];
-const divisionsOf = (loc) => {
-  const l = ` ${(loc || '').toLowerCase()} `;
-  const found = DIVISIONS.filter(([, , words]) => words.some((w) => l.includes(w))).map(([id]) => id);
-  return found.length ? found : ['nationwide'];
-};
 const divisionList = [...DIVISIONS.map(([id, name]) => ({ id, name })), { id: 'nationwide', name: 'Anywhere in Bangladesh' }]
   .map((d) => ({ ...d, n: jobs.filter((j) => divisionsOf(j.location).includes(d.id)).length }));
 const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', timeZone: 'UTC' });
@@ -79,7 +63,7 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
             <article class="job" style={`border-left-color:${sectorColor[j.sector]}`} data-deadline={j.deadline || ''} data-added={j.added} data-sector={j.sector} data-div={divisionsOf(j.location).join(' ')} data-nationals={j.nationals ? '1' : ''} data-badge={j.badge} data-title={j.title} data-org={j.org} data-location={j.location} data-url={j.url}>
               <div class="badge" style={`background:${sectorColor[j.sector]}`}>{j.badge}</div>
               <div class="body">
-                <h3><a href={j.url} rel="noopener">{j.title}</a></h3>
+                <h3>{hasJobPage(j) ? <a href={jobPath(j)}>{j.title}</a> : <a href={j.url} rel="noopener">{j.title}</a>}</h3>
                 <p class="org">{j.org}</p>
                 <p class="pills-row">
                   <span>📍 {j.location}</span>
@@ -94,6 +78,7 @@ const dayMonth = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB
                 <p class="lab" data-label style={`color:${l.color}`}>{l.text}</p>
                 <p class="dl">{j.deadlineText || (j.deadline ? fmtShort(j.deadline) : 'See advert')}</p>
                 <a class="apply" href={j.url} rel="noopener">{j.button} ↗</a>
+                {hasJobPage(j) && <a class="details" href={jobPath(j)}>Full details</a>}
               </div>
             </article>
           );

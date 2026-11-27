@@ -1,4 +1,4 @@
-import { posts, pages, postUrl, categories } from '../lib/data.js';
+import { posts, pages, postUrl, categories, jobsData, dhakaToday, hasJobPage, jobPath } from '../lib/data.js';
 import eventsData from '../data/events.json';
 
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -15,6 +15,8 @@ export function GET({ site }) {
   add('/events/', day(eventsData.updated));
   add('/category/news/', newest);
   for (const p of pages) add(`/${p.slug}/`, day(p.modified));
+  const today = dhakaToday();
+  for (const j of jobsData.jobs) if ((!j.deadline || j.deadline >= today) && hasJobPage(j)) add(jobPath(j), day(j.updated || j.added));
   const cats = new Set([...categories.map((c) => c.slug), ...posts.flatMap((p) => p.categories)]);
   for (const c of cats) {
     if (c === 'news') continue;

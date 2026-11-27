@@ -116,3 +116,88 @@ export const whyItMatters = (p) => {
   for (let i = 1; i < sents.length && (s + ' ' + sents[i].trim()).length <= 300; i++) s += ' ' + sents[i].trim();
   return s.length > 320 ? s.slice(0, 317).replace(/\s+\S*$/, '') + '…' : s;
 };
+
+// ---- Jobs: divisions, own pages and Google for Jobs ----
+// Division for each job, from the place names in its location (a job can sit in more than one).
+export const DIVISIONS = [
+  ['dhaka', 'Dhaka', ['dhaka','gazipur','narayanganj','narsingdi','manikganj','munshiganj','tangail','kishoreganj','faridpur','gopalganj','madaripur','rajbari','shariatpur']],
+  ['chattogram', 'Chattogram', ['chattogram','chittagong',"cox's bazar",'coxs bazar','ukhiya','ukhia','teknaf','kutupalong','bhasan char','camp ','cumilla','comilla','feni','chandpur','lakshmipur','noakhali','brahmanbaria','rangamati','khagrachhari','khagrachari','bandarban']],
+  ['khulna', 'Khulna', ['khulna','paikgachha','satkhira','bagerhat','jashore','jessore','jhenaidah','magura','narail','kushtia','chuadanga','meherpur']],
+  ['rajshahi', 'Rajshahi', ['rajshahi','bogura','bogra','pabna','sirajganj','natore','naogaon','chapainawabganj','joypurhat']],
+  ['rangpur', 'Rangpur', ['rangpur','gaibandha','saghata','kurigram','lalmonirhat','nilphamari','dinajpur','thakurgaon','panchagarh']],
+  ['barishal', 'Barishal', ['barishal','barisal','laharhat','bhola','patuakhali','pirojpur','barguna','jhalokathi']],
+  ['sylhet', 'Sylhet', ['sylhet','sunamganj','habiganj','moulvibazar']],
+  ['mymensingh', 'Mymensingh', ['mymensingh','jamalpur','netrokona','sherpur']],
+];
+export const divisionsOf = (loc) => {
+  const l = ` ${(loc || '').toLowerCase()} `;
+  const found = DIVISIONS.filter(([, , words]) => words.some((w) => l.includes(w))).map(([id]) => id);
+  return found.length ? found : ['nationwide'];
+};
+
+const slugify = (s) => s.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+// Short, stable fingerprint of the advert link, so two jobs with the same title never share a page.
+const fingerprint = (s) => { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36).slice(0, 5); };
+export const jobSlug = (j) => j.id || `${slugify(`${j.title} ${j.badge || j.org}`).slice(0, 70).replace(/-+$/, '')}-${fingerprint(j.url)}`;
+export const jobPath = (j) => `/jobs/${jobSlug(j)}/`;
+// A job gets its own page only when we hold the advert's full description (Google for Jobs needs it).
+export const hasJobPage = (j) => typeof j.description === 'string' && j.description.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length >= 60;
+
+// Keep advert HTML to plain structure: no scripts, styles, images, forms or inline handlers.
+const ALLOWED = new Set(['p', 'br', 'ul', 'ol', 'li', 'strong', 'b', 'em', 'i', 'h2', 'h3', 'h4', 'a', 'table', 'thead', 'tbody', 'tr', 'th', 'td']);
+export const cleanJobHtml = (html = '') => html
+  .replace(/<(script|style|iframe|object|form|svg|noscript)[\s\S]*?<\/\1>/gi, '')
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/<\/?([a-z0-9]+)\b([^>]*)>/gi, (m, tag, attrs) => {
+    const t = tag.toLowerCase();
+    if (!ALLOWED.has(t)) return t === 'div' || t === 'section' ? (m[1] === '/' ? '</p>' : '<p>') : ' ';
+    if (m[1] === '/') return `</${t}>`;
+    if (t === 'a') {
+      const href = (attrs.match(/href\s*=\s*"([^"]*)"/i) || attrs.match(/href\s*=\s*'([^']*)'/i) || [])[1] || '';
+      return /^(https?:|mailto:)/i.test(href) ? `<a href="${href.replace(/"/g, '&quot;')}" rel="noopener nofollow" target="_blank">` : '<a>';
+    }
+    return `<${t}>`;
+  })
+  .replace(/<p>\s*(?:&nbsp;|\s)*<\/p>/gi, '')
+  .trim();
+
+const EMPLOYMENT = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY', 'INTERN', 'VOLUNTEER', 'PER_DIEM', 'OTHER'];
+const DIVISION_NAMES = Object.fromEntries(DIVISIONS.map(([id, name]) => [id, name + ' Division']));
+// schema.org JobPosting for one job, following Google's job posting guidelines. Only facts we hold go in.
+export function jobPostingLd(j, site) {
+  const types = [].concat(j.employmentType || (j.consultancy ? 'CONTRACTOR' : [])).filter((t) => EMPLOYMENT.includes(t));
+  const divs = divisionsOf(j.location).filter((d) => d !== 'nationwide');
+  // Town: an explicit `city`, else the first known place name in the location text, in its original spelling.
+  const town = (() => {
+    if (j.city) return j.city;
+    if (divs.length !== 1) return null;
+    const loc = j.location || '', low = loc.toLowerCase();
+    const hits = DIVISIONS.flatMap(([, , words]) => words).map((w) => [low.indexOf(w.trim()), w.trim()]).filter(([i]) => i > -1).sort((a, b) => a[0] - b[0]);
+    return hits.length ? loc.substr(hits[0][0], hits[0][1].length).replace(/^\w/, (c) => c.toUpperCase()) : null;
+  })();
+  const place = (region) => ({ '@type': 'Place', address: { '@type': 'PostalAddress', ...(town ? { addressLocality: town } : {}), ...(region ? { addressRegion: region } : {}), addressCountry: 'BD' } });
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'JobPosting',
+    title: j.title,
+    description: cleanJobHtml(j.description),
+    datePosted: j.posted || j.added,
+    hiringOrganization: { '@type': 'Organization', name: j.org, ...(j.orgUrl ? { sameAs: j.orgUrl } : {}) },
+    url: new URL(jobPath(j), site).href,
+    directApply: false,
+  };
+  if (j.deadline) ld.validThrough = `${j.deadline}T23:59:00+06:00`;
+  if (types.length) ld.employmentType = types.length === 1 ? types[0] : types;
+  if (j.remote) {
+    ld.jobLocationType = 'TELECOMMUTE';
+    ld.applicantLocationRequirements = { '@type': 'Country', name: 'Bangladesh' };
+  } else {
+    ld.jobLocation = divs.length ? divs.map((d) => place(DIVISION_NAMES[d])) : [place()];
+    if (ld.jobLocation.length === 1) ld.jobLocation = ld.jobLocation[0];
+  }
+  const refNo = (j.ref || '').replace(/^Ref:\s*/i, '').split('·')[0].trim();
+  if (refNo) ld.identifier = { '@type': 'PropertyValue', name: j.org, value: refNo };
+  if (j.salary && j.salary.currency && (j.salary.min || j.salary.max)) {
+    ld.baseSalary = { '@type': 'MonetaryAmount', currency: j.salary.currency, value: { '@type': 'QuantitativeValue', ...(j.salary.min ? { minValue: j.salary.min } : {}), ...(j.salary.max ? { maxValue: j.salary.max } : {}), unitText: j.salary.unit || 'MONTH' } };
+  }
+  return ld;
+}
