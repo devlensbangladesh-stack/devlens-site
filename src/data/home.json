@@ -137,7 +137,8 @@
     {
       "value": "74,259",
       "label": "Families receiving Tk 2,500 a month under the Family Card pilot by September; about 4.1 crore households are being surveyed for the full rollout",
-      "source": "Ministry of Social Welfare, Nov 2026"
+      "source": "Ministry of Social Welfare, Nov 2026",
+      "topic": "Social protection"
     },
     {
       "value": "55%",
@@ -150,7 +151,8 @@
         "nowLabel": "Now",
         "now": 55,
         "nowText": "55%"
-      }
+      },
+      "topic": "Health"
     },
     {
       "value": "Tk 17,000",
@@ -163,7 +165,8 @@
         "nowLabel": "New minimum",
         "now": 17000,
         "nowText": "Tk 17,000"
-      }
+      },
+      "topic": "Labour · Garments"
     }
   ],
   "funding": [

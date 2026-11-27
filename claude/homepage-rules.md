@@ -25,7 +25,8 @@ If no photo of the event itself is available, use any other publicly available p
 - `plus` is a list of slugs. New stories go to the front, newest and most important first; the homepage shows the first 6. Keep older slugs after them and do not duplicate any.
 
 ## Key numbers (`numbers`) and pills
-- Three items, newest first: `value`, `label` (one sentence), `source` ("Organisation, Mon YYYY").
+- These no longer show on the homepage (owner request, 28 Nov 2026). They appear as "Latest figures" at the top of the Data page (/data/), above the indicator table.
+- Three items, newest first: `topic` (short sector label, e.g. "Health" or "Labour · Garments"), `value`, `label` (one sentence), `source` ("Organisation, Mon YYYY").
 - Only official figures or figures from named research institutes, never from opinion pieces.
 - Optional `compare` draws two bars under the figure when the source gives an earlier value: {`beforeLabel`, `before` (number), `beforeText`, `nowLabel`, `now` (number), `nowText`}, e.g. "A year earlier" 46 / "46%" against "Now" 55 / "55%". Use it only when both values come from the same source.
 - When a number is added, `pills.keyNumbers` goes up by one. When a research summary or report story is added, `pills.newReports` goes up by one. `pills.fundingOpen` = open items on the funding page.

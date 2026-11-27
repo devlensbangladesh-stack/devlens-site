@@ -259,31 +259,6 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
     </section>
   )}
 
-  <section class="section sand">
-    <div class="wrap">
-      <div class="section-head"><h2>By the numbers</h2><a href="/data/">Explore the data ↗</a></div>
-      <div class="grid-3">
-        {home.numbers.map((n) => {
-          const c = n.compare;
-          const max = c ? Math.max(c.before, c.now) : 0;
-          return (
-            <div class="number">
-              <strong>{n.value}</strong>
-              <span>{n.label}</span>
-              {c && (
-                <div class="num-chart" role="img" aria-label={`${c.beforeLabel}: ${c.beforeText || c.before}; ${c.nowLabel}: ${c.nowText || c.now}`}>
-                  <div class="num-row"><em>{c.beforeLabel}</em><i style={`width:${Math.round((c.before / max) * 100)}%`}></i><b>{c.beforeText || c.before}</b></div>
-                  <div class="num-row now"><em>{c.nowLabel}</em><i style={`width:${Math.round((c.now / max) * 100)}%`}></i><b>{c.nowText || c.now}</b></div>
-                </div>
-              )}
-              <small>{n.source}</small>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
   <section class="section" style="padding-top:0">
     <div class="wrap">
       <div class="newsletter">

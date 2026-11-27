@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { pages } from '../lib/data.js';
+import home from '../data/home.json';
 export function getStaticPaths() {
   return pages.filter((p) => p.slug !== 'subscribe' && p.slug !== 'submit' && p.slug !== 'events' && p.slug !== 'sectors').map((p) => ({ params: { page: p.slug }, props: { p } }));
 }
@@ -17,5 +18,30 @@ const seoTitles = {
 <Base title={seoTitles[p.slug] || p.title} description={p.excerpt} wpBlocks>
   <header class="page-head"><div class="wrap"><h1>{p.title}</h1></div></header>
   {p.hero && <div class="wrap"><figure class="page-hero"><img src={p.hero.src} alt={p.hero.alt} width={p.hero.width} height={p.hero.height} fetchpriority="high" /><figcaption>AI-generated illustration</figcaption></figure></div>}
+  {p.slug === 'data' && home.numbers?.length > 0 && (
+    <section class="wrap latest-figures" aria-labelledby="latest-figures-h">
+      <div class="lf-head"><h2 id="latest-figures-h">Latest figures</h2><p>The newest official numbers we have reported. The full indicator table follows below.</p></div>
+      <div class="grid-3">
+        {home.numbers.map((n) => {
+          const c = n.compare;
+          const max = c ? Math.max(c.before, c.now) : 0;
+          return (
+            <div class="number">
+              {n.topic && <p class="num-topic">{n.topic}</p>}
+              <strong>{n.value}</strong>
+              <span>{n.label}</span>
+              {c && (
+                <div class="num-chart" role="img" aria-label={`${c.beforeLabel}: ${c.beforeText || c.before}; ${c.nowLabel}: ${c.nowText || c.now}`}>
+                  <div class="num-row"><em>{c.beforeLabel}</em><i style={`width:${Math.round((c.before / max) * 100)}%`}></i><b>{c.beforeText || c.before}</b></div>
+                  <div class="num-row now"><em>{c.nowLabel}</em><i style={`width:${Math.round((c.now / max) * 100)}%`}></i><b>{c.nowText || c.now}</b></div>
+                </div>
+              )}
+              <small>{n.source}</small>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  )}
   <div class="wrap page-body"><div class="prose wp-content" set:html={p.content} /></div>
 </Base>
