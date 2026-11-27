@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "events": [
     {
       "id": "16-days-2026",
@@ -236,6 +236,32 @@
       "title": "5th Bangladesh Economic Summit 2026",
       "organiser": "Bonik Barta",
       "summary": "Discussed macroeconomic stability, energy and LDC graduation strategy."
+    },
+    {
+      "id": "impact-investment-day-2026",
+      "start": "2026-12-02",
+      "end": "2026-12-03",
+      "kind": "Conference",
+      "place": "Invest Bangladesh, Agargaon, Dhaka",
+      "title": "Impact Investment Day 2026",
+      "organiser": "National Advisory Board for Impact Investment (NAB) Bangladesh",
+      "summary": "A two-day conference on putting bank deposits, pension and insurance funds and remittances to work for social and environmental goals. Relevant to NGOs and social enterprises looking for blended finance.",
+      "url": "https://bangla.bdnews24.com/economy/nev1qr69m7",
+      "source": "bdnews24.com (Bangla)"
+    },
+    {
+      "id": "child-marriage-day-2026",
+      "start": "2026-11-27",
+      "end": "2026-11-27",
+      "kind": "Observance",
+      "place": "Global and nationwide",
+      "title": "First International Day for the Elimination of Child, Early and Forced Marriage",
+      "organiser": "United Nations",
+      "summary": "The UN General Assembly named 27 November as the day in September 2026. UNFPA said Bangladesh must act twentyfold faster to end child marriage by 2030.",
+      "url": "https://www.thedailystar.net/news/bangladesh/news/ending-child-marriage-2030-needs-20-fold-push-4334231",
+      "source": "The Daily Star",
+      "coverage": "unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92",
+      "coverageLabel": "Devlens report"
     }
   ]
 }

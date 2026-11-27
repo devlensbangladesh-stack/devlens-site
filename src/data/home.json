@@ -1,16 +1,26 @@
 {
   "lead": {
-    "slug": "iedcr-amr-surveillance-55-percent-samples-multidrug-resistant-93-percent-icu",
-    "label": "Health · Antibiotic resistance",
-    "headline": "Antibiotic resistance rises: 55% of samples resist several drugs, 93% in ICUs",
-    "summary": "IEDCR's national surveillance of 99,867 samples found multidrug resistance up nine points in a year. Three-quarters of antibiotics used are 'Watch' drugs meant for limited use."
+    "slug": "bad-cop-worse-cop-what-cop31-left-bangladesh",
+    "label": "Devlens Explainer · Climate finance",
+    "headline": "Bad COP, worse COP: what COP31 left Bangladesh",
+    "summary": "The adaptation finance target Bangladesh backed was dropped. It came home with Tk 784 crore in grants, while it needs $8.5bn a year and gets under $0.5bn from abroad."
   },
   "alsoToday": {
-    "slug": "garment-minimum-wage-set-tk-17000-wage-board",
-    "label": "Labour · Garment wages",
-    "headline": "Wage board sets garment minimum wage at Tk 17,000 after 4-2 vote",
-    "summary": "The entry-level wage rises 36% from Tk 12,500. Workers' representatives voted against, and the labour ministry still has to approve the rate.",
+    "slug": "family-card-74259-families-allowance-4-crore-households-survey",
+    "label": "Social protection · Family Card",
+    "headline": "Family Card pilot reaches 74,259 families; national survey under way",
+    "summary": "Women in pilot families get Tk 2,500 a month. Data on 59 lakh of an estimated 4.1 crore households has been collected for the full rollout.",
     "plus": [
+      "unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92",
+      "who-coxs-bazar-october-measles-3034-cases-dengue-14-deaths-health-appeal-56-million",
+      "devlens-research-summary-wfp-country-brief-november-2026-210-million-gap-rohingya-pipeline",
+      "malaysia-zero-cost-migration-first-112-workers-boesl-labour-market-reopens",
+      "kurigram-16-rivers-navigability-crisis-550000-char-people-cut-off",
+      "hrcbm-report-1445-incidents-against-minorities-january-october-2026",
+      "cab-dialogue-energy-transition-import-dependence-corporate-interests-anu-muhammad",
+      "remittance-2-5-billion-first-24-days-november-up-6-percent-bangladesh-bank",
+      "iedcr-amr-surveillance-55-percent-samples-multidrug-resistant-93-percent-icu",
+      "garment-minimum-wage-set-tk-17000-wage-board",
       "garment-workers-protest-tk-17000-wage-gazipur-300-factories-suspend-production",
       "devlens-research-summary-unhcr-q3-2026-rohingya-protection-security-incidents-up-39-percent-registration-suspended",
       "khulna-ngo-official-home-shot-at-after-tk-6-5-lakh-extortion-demand-cas-ava-centre",
@@ -112,18 +122,23 @@
     ]
   },
   "special": {
-    "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
-    "label": "Special report · NGO financing",
-    "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
-    "summary": "A BIDS study finds 2,170 NGOs have no lending income, and many are cutting services first and turning into lenders.",
-    "published": "2026-11-13"
+    "slug": "bad-cop-worse-cop-what-cop31-left-bangladesh",
+    "label": "Devlens Explainer · Climate finance",
+    "headline": "Bad COP, worse COP: what COP31 left Bangladesh",
+    "summary": "The adaptation finance target Bangladesh backed was dropped. It came home with Tk 784 crore in grants, while it needs $8.5bn a year and gets under $0.5bn from abroad.",
+    "published": "2026-11-27"
   },
   "pills": {
-    "fundingOpen": 12,
-    "newReports": 26,
-    "keyNumbers": 45
+    "fundingOpen": 11,
+    "newReports": 29,
+    "keyNumbers": 46
   },
   "numbers": [
+    {
+      "value": "74,259",
+      "label": "Families receiving Tk 2,500 a month under the Family Card pilot by September; about 4.1 crore households are being surveyed for the full rollout",
+      "source": "Ministry of Social Welfare, Nov 2026"
+    },
     {
       "value": "55%",
       "label": "Share of bacterial samples in national surveillance resistant to several antibiotics, up from 46% a year earlier (93% in ICUs)",
@@ -133,20 +148,9 @@
       "value": "Tk 17,000",
       "label": "New minimum monthly wage for entry-level garment workers set by the wage board, up 36% from Tk 12,500 (pending ministry approval)",
       "source": "Minimum Wage Board, Nov 2026"
-    },
-    {
-      "value": "47.2%",
-      "label": "Share of women aged 20-24 who were married before age 18, down from 51.4% in 2019",
-      "source": "BBS/UNICEF MICS 2025, Nov 2025"
     }
   ],
   "funding": [
-    {
-      "title": "ILO EPZ Model Zone national consultants",
-      "funder": "ILO Bangladesh",
-      "deadline": "2026-11-26",
-      "url": "https://www.ungm.org/Public/Notice/322642"
-    },
     {
       "title": "APN regional research and capacity grants",
       "funder": "Asia-Pacific Network for Global Change Research",
@@ -196,7 +200,15 @@
       "url": "https://www.adb.org/news/events/community-resilience-partnership-program-partnership-forum-2027-call-solutions"
     }
   ],
-  "pinnedSpecials": [],
+  "pinnedSpecials": [
+    {
+      "slug": "aid-cuts-push-bangladesh-ngos-from-services-to-lending",
+      "label": "Special report · NGO financing",
+      "headline": "Aid cuts are pushing Bangladesh's NGOs from services to lending",
+      "summary": "A BIDS study finds 2,170 NGOs have no lending income, and many are cutting services first and turning into lenders.",
+      "published": "2026-11-13"
+    }
+  ],
   "spotlight": {
     "id": "16days-2026",
     "start": "2026-11-25",
@@ -215,22 +227,23 @@
     },
     "todayLabel": "Today in the campaign",
     "today": {
-      "date": "26 Nov",
-      "text": "At the opening dialogue in Dhaka, the UN's acting Resident Coordinator said \"laws alone will not be enough\". New figures show why: tribunals convicted in only 3% of 4,040 cases studied.",
+      "date": "27 Nov",
+      "headline": "First UN day against child marriage: progress must be 20 times faster",
+      "text": "UNFPA said marriage among girls aged 15-19 has risen to 39% and adolescent births to 92 per 1,000, so Bangladesh must act twentyfold faster to end child marriage by 2030. Save the Children called child marriage \"a form of gender-based violence\".",
       "sources": [
         {
           "name": "The Daily Star",
-          "url": "https://www.thedailystar.net/news/bangladesh/rights/news/stronger-legal-frameworks-effective-enforcement-laws-needed-end-gender-violence-speakers-4333086"
+          "url": "https://www.thedailystar.net/news/bangladesh/news/ending-child-marriage-2030-needs-20-fold-push-4334231"
         },
         {
           "name": "Devlens",
-          "url": "/2026/11/25/mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days/"
+          "url": "/2026/11/27/unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92/"
         }
-      ],
-      "headline": "Campaign opens with a call for justice, not just laws"
+      ]
     },
     "watch": [],
     "stories": [
+      "unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92",
       "16-days-activism-2026-why-few-women-in-bangladesh-see-justice",
       "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
       "police-887-dowry-murder-cases-five-years-odhikar-21627-rape-victims-since-2001-half-girls",
@@ -260,8 +273,8 @@
       }
     ],
     "strip": {
-      "text": "Why so few women in Bangladesh ever see justice",
-      "url": "/#spotlight",
+      "text": "Child marriage must fall 20 times faster, UNFPA says",
+      "url": "/2026/11/27/unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92/",
       "help": "Helpline 109",
       "helpUrl": "tel:109"
     },
@@ -337,13 +350,5 @@
     "tagline": "25 Nov to 10 Dec · Ensure justice, protect survivors, end impunity",
     "helpLabel": "Need help now?",
     "followLabel": "Follow the campaign"
-  },
-  "scheduledLead": {
-    "from": "2026-11-27T07:55:00+06:00",
-    "slug": "bad-cop-worse-cop-what-cop31-left-bangladesh",
-    "label": "Devlens Explainer · Climate finance",
-    "headline": "Bad COP, worse COP: what COP31 left Bangladesh",
-    "summary": "The adaptation finance target Bangladesh backed was dropped. It came home with Tk 784 crore in grants, while it needs $8.5bn a year and gets under $0.5bn from abroad.",
-    "special": true
   }
 }
