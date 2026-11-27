@@ -851,3 +851,16 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
   .jobs-intro .actions .btn { flex: 1; text-align: center; }
 }
 
+/* ===== Jobs section: Closing soon / Featured tabs (28 Nov 2026) ===== */
+.jobs-tabs { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.08); margin-bottom: 14px; }
+.jobs-tabs button { border: 0; background: transparent; color: #c9ced6; font: 800 13px var(--font); letter-spacing: 0.04em; padding: 8px 16px; border-radius: 999px; cursor: pointer; }
+.jobs-tabs button[aria-selected="true"] { background: #fff; color: var(--ink); }
+.jobs-tabs button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.soon-list li.extra { display: none; }
+.soon-list li a { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 16px; }
+.soon-list .date-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 12px; background: #ff6b4a; color: #fff; line-height: 1; }
+.soon-list .date-badge b { font-size: 20px; font-weight: 800; }
+.soon-list .date-badge small { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 3px; }
+.soon-list .txt { display: grid; gap: 3px; min-width: 0; }
+.soon-list strong { font-family: var(--font); font-size: 15px; font-weight: 800; line-height: 1.3; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.jobs-featured .feat-list { margin: 0; }

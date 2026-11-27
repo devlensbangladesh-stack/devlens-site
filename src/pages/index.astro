@@ -18,8 +18,7 @@ const featured = jobs.filter((j) => j.featured).slice(0, 3);
 
 
 const soonJobs = jobs.filter((j) => j.deadline).map((j) => ({ kind: 'Job', title: j.title, org: `${j.org} · ${j.location}`, url: j.url, deadline: j.deadline }));
-const soonFunding = (home.funding || []).filter((f) => f.deadline >= today).map((f) => ({ kind: 'Funding', title: f.title, org: f.funder, url: f.url, deadline: f.deadline }));
-const soon = [...soonJobs, ...soonFunding].sort((a, b) => a.deadline.localeCompare(b.deadline)).slice(0, 4);
+const soonList = soonJobs.slice().sort((x, y) => x.deadline.localeCompare(y.deadline)).slice(0, 8);
 const dayMonth = (iso) => { const d = new Date(iso + 'T12:00:00Z'); return [d.getUTCDate(), d.toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })]; };
 // Devlens Special section: the newest special as a news card, older ones as links (owner request, 27 Nov 2026).
 const specialPosts = posts.filter((p) => p.categories.includes('devlens-special'));
@@ -195,10 +194,26 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
           <a class="btn btn-ghost" href="/submit/">List a vacancy for free</a>
         </div>
       </div>
-      {featured.length > 0 && (
-        <div class="jobs-featured">
-          <p class="eyebrow">Featured roles</p>
-          <ul>
+      <div class="jobs-featured" data-tabs>
+        <div class="jobs-tabs" role="tablist" aria-label="Jobs">
+          <button type="button" role="tab" id="tab-soon" aria-controls="panel-soon" aria-selected="true">Closing soon</button>
+          {featured.length > 0 && <button type="button" role="tab" id="tab-feat" aria-controls="panel-feat" aria-selected="false">Featured</button>}
+        </div>
+        <ul id="panel-soon" role="tabpanel" aria-labelledby="tab-soon" class="soon-list">
+          {soonList.map((j, i) => {
+            const [d, m] = dayMonth(j.deadline);
+            return (
+              <li data-job-deadline={j.deadline} class={i >= 4 ? 'extra' : undefined}>
+                <a href={j.url}>
+                  <span class="date-badge"><b>{d}</b><small>{m}</small></span>
+                  <span class="txt"><strong>{j.title}</strong><span class="org">{j.org}</span></span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        {featured.length > 0 && (
+          <ul id="panel-feat" role="tabpanel" aria-labelledby="tab-feat" class="feat-list">
             {featured.map((j) => {
               const lab = jobLabel(j.deadline, today);
               return (
@@ -213,9 +228,9 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
               );
             })}
           </ul>
-          <a class="all" href="/jobs/">See all {jobs.length} open roles →</a>
-        </div>
-      )}
+        )}
+        <a class="all" href="/jobs/#closing-soon">See all {jobs.length} open roles →</a>
+      </div>
     </div>
   </section>
 
@@ -269,26 +284,6 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head"><h2>Closing soon</h2><a href="/jobs/#closing-soon">All opportunities ↗</a></div>
-      <div class="grid-4" id="home-soon">
-        {soon.map((s) => {
-          const [d, m] = dayMonth(s.deadline);
-          const col = s.kind === 'Funding' ? '#12b886' : '#ff6b4a';
-          return (
-            <a class="soon-card" href={s.url} data-job-deadline={s.deadline}>
-              <span class="date-badge" style={`background:${col}`}><b>{d}</b><small>{m}</small></span>
-              <span class="kind" style={`color:${col}`}>{s.kind}</span>
-              <h3>{s.title}</h3>
-              <p>{s.org}</p>
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
   <section class="section" style="padding-top:0">
     <div class="wrap">
       <div class="newsletter">
@@ -297,6 +292,17 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
       </div>
     </div>
   </section>
+  <script is:inline>
+    (function () {
+      var box = document.querySelector('[data-tabs]'); if (!box) return;
+      var tabs = box.querySelectorAll('[role=tab]');
+      function show(id) { tabs.forEach(function (t) { var on = t.getAttribute('aria-controls') === id; t.setAttribute('aria-selected', on); var p = document.getElementById(t.getAttribute('aria-controls')); if (p) p.hidden = !on; }); }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.getAttribute('aria-controls')); }); });
+      // Keep four live rows in Closing soon after expired ones are removed
+      document.addEventListener('DOMContentLoaded', function () { box.querySelectorAll('.soon-list li').forEach(function (r, i) { r.classList.toggle('extra', i >= 4); }); });
+      show('panel-soon');
+    })();
+  </script>
   <script is:inline>
     (function () {
       var s = document.querySelector('[data-spot-until]'); if (!s) return;

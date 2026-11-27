@@ -39,7 +39,7 @@ If no photo of the event itself is available, use any other publicly available p
 
 ## Design (28 Nov 2026)
 - Headlines use Source Serif 4; body and labels use Manrope. Green is the only brand colour; orange is for urgent items (deadlines, helplines, campaigns).
-- The homepage no longer has Latest stories (owner request, 28 Nov 2026), Fresh evidence, Sector toolkit or the Share-your-work box; stories beyond "More from today" are reached through News and the category pages; Research and Resources are reached from the menu and footer.
+- The homepage no longer has Latest stories or a separate Closing soon section (owner requests, 28 Nov 2026; the jobs section now has Closing soon and Featured tabs, jobs only), Fresh evidence, Sector toolkit or the Share-your-work box; stories beyond "More from today" are reached through News and the category pages; Research and Resources are reached from the menu and footer.
 
 ## Spotlight (`spotlight`)
 - For time-limited events (e.g. COP31). It shows between `start` and `until`. Update `today` during the event.
