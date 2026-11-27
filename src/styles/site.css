@@ -648,3 +648,40 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .search-results .gsc-webResult.gsc-result { padding: 14px 0; border-bottom: 1px solid var(--line); }
 .search-results .gsc-cursor-page { font-family: var(--font); font-weight: 700; color: var(--ink) !important; padding: 4px 9px; }
 .search-results .gsc-cursor-current-page { background: var(--ink); color: #fff !important; border-radius: 999px; }
+
+/* Mobile header: one row (logo, search, menu); Share and Subscribe live inside the menu */
+.nav-cta { display: none; }
+@media (max-width: 900px) {
+  .header-row { gap: 10px; padding-top: 12px; padding-bottom: 12px; }
+  .brand { flex: 1 1 auto; min-width: 0; }
+  .header-actions { order: 2; width: auto; }
+  .header-actions .btn { display: none; }
+  .menu-toggle { order: 3; }
+  .site-nav { order: 4; font-size: 17px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .site-nav.open + .header-actions { order: 2; }
+  .nav-cta { display: flex; gap: 10px; padding-top: 6px; }
+  .nav-cta .btn { flex: 1; text-align: center; padding: 12px 18px; font-size: 15px; }
+}
+@media (max-width: 600px) {
+  .today { display: none; }
+  .logo img { width: 128px; }
+}
+/* Campaign strip on phones: label, day and helpline on one line, message below */
+@media (max-width: 640px) {
+  .spot-strip .help { margin-left: auto; }
+  .spot-strip .wrap { padding-top: 8px; padding-bottom: 10px; row-gap: 6px; }
+}
+/* Lead story on phones: darker scrim so the headline and summary stay readable over busy photos */
+@media (max-width: 700px) {
+  .lead { min-height: 560px; }
+  .lead::after { background: linear-gradient(0deg, rgba(14,17,22,.94) 0%, rgba(14,17,22,.82) 50%, rgba(14,17,22,.35) 100%); }
+  .lead .wrap { padding-top: 48px; padding-bottom: 40px; }
+  .lead p { font-size: 17px; }
+}
+@media (max-width: 640px) {
+  .spot-strip .day { display: none; }
+  .lead .pill { border-radius: 10px; font-size: 11px; line-height: 1.45; padding: 5px 10px; }
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .lead::after { background: linear-gradient(0deg, rgba(14,17,22,.92) 0%, rgba(14,17,22,.7) 55%, rgba(14,17,22,.3) 100%); }
+}
