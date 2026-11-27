@@ -1,0 +1,39 @@
+---
+// Search: results come from Google Programmable Search, limited to devlensbd.org.
+// The engine ID (cx) is set in the Programmable Search control panel under "Search engine ID".
+import Base from '../layouts/Base.astro';
+
+const cx = '06a53f4c5c5054bd7';
+---
+<Base title="Search" description="Search Devlens Bangladesh: news, jobs, funding, research and data on Bangladesh's development sector." noindex>
+  <header class="page-head"><div class="wrap">
+    <p class="eyebrow" style="color:#0b8f68">Search Devlens</p>
+    <h1>Find a story, job or funding call</h1>
+  </div></header>
+
+  <div class="wrap page-body search-page">
+    <form class="search-form" action="/search/" method="get" role="search">
+      <label for="search-page-q" class="sr-only">Search Devlens</label>
+      <input id="search-page-q" type="search" name="q" placeholder="Search news, jobs, funding, research…" autocomplete="off" required />
+      <button class="btn btn-dark" type="submit">Search</button>
+    </form>
+
+    <div class="search-results">
+      <p class="search-note" id="search-empty">Type a word or phrase above, for example "Rohingya funding" or "WASH jobs".</p>
+      <div class="gcse-searchresults-only" data-queryParameterName="q" data-linkTarget="_self"></div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ cx }}>
+    (function () {
+      var q = new URLSearchParams(location.search).get('q') || '';
+      var input = document.getElementById('search-page-q');
+      if (input) { input.value = q; if (!q) input.focus(); }
+      if (q) { var e = document.getElementById('search-empty'); if (e) e.remove(); }
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://cse.google.com/cse.js?cx=' + encodeURIComponent(cx);
+      document.head.appendChild(s);
+    })();
+  </script>
+</Base>

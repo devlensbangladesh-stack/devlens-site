@@ -625,3 +625,26 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .job-similar .mini .t { display: block; font-weight: 800; }
 .job-similar .mini .o { display: block; font-size: 13px; color: var(--faint); }
 @media (max-width: 600px) { .job-head { padding: 22px 18px; } }
+
+/* Site search (Google Programmable Search) */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.header-actions { align-items: center; }
+.search-toggle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 999px; border: 1.5px solid var(--ink); color: var(--ink); text-decoration: none; flex: none; }
+.search-toggle:hover, .search-toggle[aria-expanded="true"] { background: var(--ink); color: #fff; }
+.search-bar { border-top: 1px solid var(--line); background: var(--sand); padding: 14px 0; }
+.search-form { display: flex; gap: 10px; }
+.search-form input { flex: 1; min-width: 0; font: 600 16px var(--font); color: var(--ink); padding: 11px 18px; border: 1.5px solid var(--ink); border-radius: 999px; background: #fff; }
+.search-form input:focus { outline: 3px solid var(--green); outline-offset: 1px; }
+.search-form .btn { font-size: 15px; padding: 11px 22px; cursor: pointer; font-family: var(--font); }
+.search-page .search-form { padding: 0; margin: 0 0 28px; max-width: 760px; }
+.search-results { min-height: 320px; padding-bottom: 72px; }
+.search-note { color: var(--muted); font-size: 15px; }
+/* Keep Google's results in the Devlens font and colours */
+.search-results .gsc-control-cse { padding: 0; border: 0; background: transparent; font-family: var(--font); }
+.search-results .gs-title, .search-results .gs-title b { font-family: var(--font) !important; font-weight: 700; color: var(--ink) !important; text-decoration: none; }
+.search-results .gs-title:hover { color: var(--green-dark) !important; }
+.search-results .gs-snippet { font-family: var(--font); color: var(--ink-2); font-size: 15px; line-height: 1.5; }
+.search-results .gs-visibleUrl { color: var(--green-dark) !important; }
+.search-results .gsc-webResult.gsc-result { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.search-results .gsc-cursor-page { font-family: var(--font); font-weight: 700; color: var(--ink) !important; padding: 4px 9px; }
+.search-results .gsc-cursor-current-page { background: var(--ink); color: #fff !important; border-radius: 999px; }

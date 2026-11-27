@@ -20,6 +20,14 @@
   var td = document.getElementById('today-date');
   if (td) td.innerHTML = fmt({ weekday: 'long' }).format(now) + '<br>' + longDate(today);
 
+  // Header search: the magnifier opens a search bar instead of going to /search/ (it still works as a plain link without JavaScript)
+  var st = document.querySelector('.search-toggle'), sb = document.getElementById('site-search');
+  if (st && sb) st.addEventListener('click', function (e) {
+    e.preventDefault();
+    sb.hidden = !sb.hidden; st.setAttribute('aria-expanded', !sb.hidden);
+    if (!sb.hidden) { var i = sb.querySelector('input'); if (i) i.focus(); }
+  });
+
   // Mobile menu
   var tg = document.querySelector('.menu-toggle'), nav = document.getElementById('site-nav');
   if (tg && nav) tg.addEventListener('click', function () { var o = nav.classList.toggle('open'); tg.setAttribute('aria-expanded', o); });
