@@ -142,12 +142,28 @@
     {
       "value": "55%",
       "label": "Share of bacterial samples in national surveillance resistant to several antibiotics, up from 46% a year earlier (93% in ICUs)",
-      "source": "IEDCR, Nov 2026"
+      "source": "IEDCR, Nov 2026",
+      "compare": {
+        "beforeLabel": "A year earlier",
+        "before": 46,
+        "beforeText": "46%",
+        "nowLabel": "Now",
+        "now": 55,
+        "nowText": "55%"
+      }
     },
     {
       "value": "Tk 17,000",
       "label": "New minimum monthly wage for entry-level garment workers set by the wage board, up 36% from Tk 12,500 (pending ministry approval)",
-      "source": "Minimum Wage Board, Nov 2026"
+      "source": "Minimum Wage Board, Nov 2026",
+      "compare": {
+        "beforeLabel": "Old minimum",
+        "before": 12500,
+        "beforeText": "Tk 12,500",
+        "nowLabel": "New minimum",
+        "now": 17000,
+        "nowText": "Tk 17,000"
+      }
     }
   ],
   "funding": [

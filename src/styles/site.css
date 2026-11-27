@@ -685,3 +685,55 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 @media (max-width: 900px) and (min-width: 701px) {
   .lead::after { background: linear-gradient(0deg, rgba(14,17,22,.92) 0%, rgba(14,17,22,.7) 55%, rgba(14,17,22,.3) 100%); }
 }
+
+/* ===== Design refresh (28 Nov 2026): editorial serif headlines, calmer palette ===== */
+:root { --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif; }
+.lead h1, .article-head h1, .page-head h1, .section-head h2, .also h2, .jobs-band h2,
+.special-latest h3, .story h3, .featured h3, .newsletter h2, .prose h2, .prose h3, .spot-title h2, .spotlight h2 {
+  font-family: var(--serif); font-weight: 700; letter-spacing: -0.012em;
+}
+.lead h1 { line-height: 1.06; }
+.story h3 { font-size: 22px; line-height: 1.25; }
+.section-head h2 { font-size: 38px; }
+
+/* Key-figure pills: one neutral style, green numbers */
+.pills a { background: #fff; color: var(--ink-2); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; transition: border-color .15s; }
+.pills a:hover { border-color: var(--ink); opacity: 1; }
+.pills strong { color: var(--green-dark); }
+
+/* Featured job tags: one neutral style */
+.featured .tag { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); background: var(--sand); border-radius: 6px; padding: 4px 8px; }
+
+/* Also today: light band so the page doesn't stack dark blocks */
+.also { background: #fff; color: var(--ink); border-top: 4px solid var(--green); border-bottom: 1px solid var(--line); padding: 48px 0 40px; }
+.also .label { color: var(--green-dark); }
+.also h2 a { color: var(--ink); }
+.also h2 a:hover { color: var(--green-dark); }
+.also-text p { color: var(--ink-2); }
+.also .btn { border-radius: 999px; }
+.also-more { border-top-color: var(--line); }
+.also-more li { border-bottom-color: var(--line); }
+.also-more .meta { color: var(--faint); }
+.also-more li a { color: var(--ink); }
+.also-more li a:hover { color: var(--green-dark); }
+.also-more-head a { color: var(--ink-2); }
+.also-more-head a:hover { color: var(--ink); }
+.also-more-head .label { color: var(--faint); }
+
+/* By the numbers: comparison bars */
+.number { display: flex; flex-direction: column; }
+.number strong { font-family: var(--serif); font-weight: 700; letter-spacing: -0.02em; }
+.number small { margin-top: auto; padding-top: 12px; }
+.num-chart { margin-top: 16px; display: grid; gap: 8px; }
+.num-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; align-items: center; gap: 10px; font-size: 13px; }
+.num-row em { font-style: normal; color: var(--muted); }
+.num-row i { display: block; height: 10px; border-radius: 999px; background: #cfd4d9; min-width: 4px; }
+.num-row.now i { background: var(--green); }
+.num-row b { font-weight: 800; color: var(--ink); white-space: nowrap; }
+
+/* Story page: about-the-newsroom box */
+.newsroom-box { margin: 28px 0 8px; padding: 20px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--sand); display: flex; gap: 16px; align-items: flex-start; }
+.newsroom-box img { width: 44px; height: 44px; border-radius: 10px; flex: none; }
+.newsroom-box p { margin: 0; font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+.newsroom-box strong { color: var(--ink); }
+.newsroom-box a { color: var(--green-dark); font-weight: 700; }

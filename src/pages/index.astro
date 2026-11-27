@@ -15,11 +15,9 @@ const sectorCounts = jobsData.sectors
   .sort((a, b) => b.n - a.n);
 const shortName = { 'Food security and agriculture': 'Food security', 'Governance and digital': 'Governance', 'Climate and environment': 'Climate', 'Livelihoods and microfinance': 'Livelihoods' };
 const featured = jobs.filter((j) => j.featured).slice(0, 3);
-const featColors = { 'UN AGENCY': ['#c2410c', '#fff0eb'], INGO: ['#0b8f68', '#e6f7f1'], 'NATIONAL NGO': ['#5b3a8c', '#efeafc'] };
 
 const skip = new Set([home.lead.slug, home.alsoToday.slug, ...plus.map((p) => p.slug)]);
 const latest = posts.filter((p) => !skip.has(p.slug) && !p.categories.includes('devlens-special')).slice(0, 6);
-const research = posts.filter((p) => p.categories.includes('research')).slice(0, 3);
 
 const soonJobs = jobs.filter((j) => j.deadline).map((j) => ({ kind: 'Job', title: j.title, org: `${j.org} · ${j.location}`, url: j.url, deadline: j.deadline }));
 const soonFunding = (home.funding || []).filter((f) => f.deadline >= today).map((f) => ({ kind: 'Funding', title: f.title, org: f.funder, url: f.url, deadline: f.deadline }));
@@ -27,8 +25,10 @@ const soon = [...soonJobs, ...soonFunding].sort((a, b) => a.deadline.localeCompa
 const dayMonth = (iso) => { const d = new Date(iso + 'T12:00:00Z'); return [d.getUTCDate(), d.toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' })]; };
 // Devlens Special section: the newest special as a news card, older ones as links (owner request, 27 Nov 2026).
 const specialPosts = posts.filter((p) => p.categories.includes('devlens-special'));
-const specialLatest = specialPosts[0];
-const specialOlder = specialPosts.slice(1, 6);
+// When today's lead is itself the newest Special, feature the previous Special so the same photo isn't shown twice.
+const specialPool = specialPosts.filter((p) => p.slug !== home.lead.slug);
+const specialLatest = specialPool[0];
+const specialOlder = specialPool.slice(1, 6);
 const leadImg = lead?.image?.src;
 const spot = home.spotlight;
 const spotOn = spot && today >= spot.start && today <= spot.until;
@@ -166,10 +166,10 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
 
   <section class="pills">
     <div class="wrap">
-      <a href="/funding/" style="background:#e6f7f1;color:#0b8f68"><strong>{home.pills.fundingOpen}</strong>{home.pills.fundingOpen === 1 ? 'funding call open' : 'funding calls open'} ↗</a>
-      <a href="/jobs/" style="background:#fff0eb;color:#c2410c"><strong data-open-jobs>{jobs.length}</strong>open jobs ↗</a>
-      <a href="/research-evidence/" style="background:#efeafc;color:#5b3a8c"><strong>{home.pills.newReports}</strong>new reports ↗</a>
-      <a href="/data/" style="background:#e8f3fb;color:#0b5e8a"><strong>{home.pills.keyNumbers}</strong>key numbers ↗</a>
+      <a href="/funding/"><strong>{home.pills.fundingOpen}</strong>{home.pills.fundingOpen === 1 ? 'funding call open' : 'funding calls open'} ↗</a>
+      <a href="/jobs/"><strong data-open-jobs>{jobs.length}</strong>open jobs ↗</a>
+      <a href="/research-evidence/"><strong>{home.pills.newReports}</strong>new reports ↗</a>
+      <a href="/data/"><strong>{home.pills.keyNumbers}</strong>key numbers ↗</a>
     </div>
   </section>
 
@@ -195,11 +195,10 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
           <p class="eyebrow" style="margin-top:48px;color:#a6abb3">Featured roles</p>
           <div class="featured">
             {featured.map((j) => {
-              const [c, bg] = featColors[j.featured] || ['#0b8f68', '#e6f7f1'];
               const lab = jobLabel(j.deadline, today);
               return (
                 <div class="card" data-job-deadline={j.deadline || ''}>
-                  <span class="tag" style={`color:${c};background:${bg}`}>{j.featured}</span>
+                  <span class="tag">{j.featured}</span>
                   <h3><a href={j.url}>{j.title}</a></h3>
                   <p><strong style="color:#0e1116">{j.org}</strong> · {j.location}</p>
                   <p class="when">{j.deadline ? `${lab.text === 'CLOSES TODAY' ? 'Closes today, ' : 'Closes '}${fmtDate(j.deadline)}` : 'Deadline: see advert'}</p>
@@ -258,7 +257,23 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
     <div class="wrap">
       <div class="section-head"><h2>By the numbers</h2><a href="/data/">Explore the data ↗</a></div>
       <div class="grid-3">
-        {home.numbers.map((n) => <div class="number"><strong>{n.value}</strong><span>{n.label}</span><small>{n.source}</small></div>)}
+        {home.numbers.map((n) => {
+          const c = n.compare;
+          const max = c ? Math.max(c.before, c.now) : 0;
+          return (
+            <div class="number">
+              <strong>{n.value}</strong>
+              <span>{n.label}</span>
+              {c && (
+                <div class="num-chart" role="img" aria-label={`${c.beforeLabel}: ${c.beforeText || c.before}; ${c.nowLabel}: ${c.nowText || c.now}`}>
+                  <div class="num-row"><em>{c.beforeLabel}</em><i style={`width:${Math.round((c.before / max) * 100)}%`}></i><b>{c.beforeText || c.before}</b></div>
+                  <div class="num-row now"><em>{c.nowLabel}</em><i style={`width:${Math.round((c.now / max) * 100)}%`}></i><b>{c.nowText || c.now}</b></div>
+                </div>
+              )}
+              <small>{n.source}</small>
+            </div>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -279,55 +294,6 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
             </a>
           );
         })}
-      </div>
-    </div>
-  </section>
-
-  {research.length > 0 && (
-    <section class="section sand">
-      <div class="wrap">
-        <div class="section-head"><h2>Fresh evidence</h2><a href="/research-evidence/">All research ↗</a></div>
-        <div class="grid-3">
-          {research.map((p) => (
-            <article class="story">
-              {p.image && <a href={postUrl(p)}><img src={p.image.src} alt={p.image.alt} loading="lazy" width="640" height="360" /></a>}
-              <span class="meta">Research</span>
-              <h3><a href={postUrl(p)}>{p.title}</a></h3>
-              <span class="date">{fmtDate(p.date)}</span>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head"><h2>Sector toolkit</h2><a href="/resources/">All resources ↗</a></div>
-      <div class="grid-4 toolkit">
-        <a href="/resources/#fdva"><b>Foreign funding rules</b><span>FD-6, FD-7, FC-1 and the 2016 Act in plain words</span></a>
-        <a href="/resources/#regulation"><b>Register your NGO</b><span>NGOAB, MRA, DSS and RJSC: which one you need</span></a>
-        <a href="/resources/#donors"><b>Who funds what</b><span>Country pages of the main donors and lenders</span></a>
-        <a href="/resources/#data"><b>Open data</b><span>BBS, HDX, UNHCR and more, in one list</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="cta-box">
-        <div>
-          <p class="eyebrow" style="color:#12b886">For NGOs, INGOs and UN agencies</p>
-          <h2>Your work, seen by the whole sector</h2>
-          <p>Send news, research, vacancies, funding calls and events. Our editors review every submission. Free, always.</p>
-          <a class="btn btn-green" href="/submit/">Share your work ↗</a>
-        </div>
-        <div class="kinds">
-          <div><b>News</b><span>Launches and results</span></div>
-          <div><b>Research</b><span>Reports and evaluations</span></div>
-          <div><b>Jobs</b><span>Free vacancy listings</span></div>
-          <div><b>Funding</b><span>Calls, tenders, EOIs</span></div>
-        </div>
       </div>
     </div>
   </section>

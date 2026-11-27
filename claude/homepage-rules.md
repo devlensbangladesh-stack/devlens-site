@@ -27,6 +27,7 @@ If no photo of the event itself is available, use any other publicly available p
 ## Key numbers (`numbers`) and pills
 - Three items, newest first: `value`, `label` (one sentence), `source` ("Organisation, Mon YYYY").
 - Only official figures or figures from named research institutes, never from opinion pieces.
+- Optional `compare` draws two bars under the figure when the source gives an earlier value: {`beforeLabel`, `before` (number), `beforeText`, `nowLabel`, `now` (number), `nowText`}, e.g. "A year earlier" 46 / "46%" against "Now" 55 / "55%". Use it only when both values come from the same source.
 - When a number is added, `pills.keyNumbers` goes up by one. When a research summary or report story is added, `pills.newReports` goes up by one. `pills.fundingOpen` = open items on the funding page.
 
 ## Funding box (`funding`)
@@ -34,6 +35,11 @@ If no photo of the event itself is available, use any other publicly available p
 
 ## Devlens Special (`special`, `pinnedSpecials`)
 - See `devlens-specials-pipeline.md`.
+- When the lead is itself the newest Special, the homepage Special box shows the previous Special so the same photo doesn't appear twice.
+
+## Design (28 Nov 2026)
+- Headlines use Source Serif 4; body and labels use Manrope. Green is the only brand colour; orange is for urgent items (deadlines, helplines, campaigns).
+- The homepage no longer has Fresh evidence, Sector toolkit or the Share-your-work box; Research and Resources are reached from the menu and footer.
 
 ## Spotlight (`spotlight`)
 - For time-limited events (e.g. COP31). It shows between `start` and `until`. Update `today` during the event.

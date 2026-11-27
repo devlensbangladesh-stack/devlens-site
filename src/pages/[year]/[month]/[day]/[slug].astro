@@ -72,6 +72,10 @@ const share = [
           <figure style="margin:0 0 1.5em"><img src={post.image.src} alt={post.image.alt} width={post.image.width} height={post.image.height} fetchpriority="high" style="border-radius:16px" />{post.image.credit ? <figcaption class="img-credit">Photo: {post.image.creditUrl ? <a href={post.image.creditUrl} rel="noopener">{post.image.credit}</a> : post.image.credit}</figcaption> : /AI-generated/i.test(post.image.alt || '') && <figcaption class="img-credit">AI-generated illustration</figcaption>}</figure>
         )}
         <div class="prose wp-content" set:html={bodyHtml} />
+        <aside class="newsroom-box" aria-label="About Devlens Bangladesh">
+          <img src="/favicon.svg" alt="" width="44" height="44" />
+          <p><strong>Devlens Bangladesh</strong> is an independent newsroom in Dhaka covering the NGO, humanitarian and development sector. Every figure in this story is attributed to its source and linked where it is online. <a href="/editorial-standards/">How we report</a> · <a href="/about/">About us</a></p>
+        </aside>
         <div class="share" aria-label="Share this story"><span>Share</span>{share.map(([n, h]) => <a href={h} target="_blank" rel="noopener">{n}</a>)}</div>
         <div class="article-foot">
           {post.tags?.length > 0 && <p>Topics: {post.tags.map((t, k) => <>{k > 0 && ' · '}<a href={`/tag/${t}/`}>{t.replace(/-/g, ' ')}</a></>)}</p>}
