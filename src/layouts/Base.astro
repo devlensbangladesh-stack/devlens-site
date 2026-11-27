@@ -2,6 +2,7 @@
 import '../styles/site.css';
 import { dhakaToday } from '../lib/data.js';
 import homeData from '../data/home.json';
+import SocialLinks from '../components/SocialLinks.astro';
 const { title, description: rawDesc = 'News, funding, jobs, research and data for Bangladesh\'s development and humanitarian sector, updated every day.', image, imageAlt, wpBlocks = false, type = 'website', published, modified, noindex = false, section, tags = [] } = Astro.props;
 // Keep titles short enough for search results: add the brand only when it fits in about 65 characters.
 const fullTitle = !title ? 'Devlens Bangladesh: NGO news, jobs and funding in Bangladesh'
@@ -145,6 +146,7 @@ const nav = [
         <a href="/" class="footer-logo"><img src="/media/2026/10/devlens-logo-white.png" alt="Devlens Bangladesh" width="180" height="48" /><span class="beta">Beta</span></a>
         <p class="tagline">Development intelligence for Bangladesh</p>
         <p>News, jobs, funding, research and data for the NGO, humanitarian and development sector, checked against the original sources. Coverage cannot be bought; sponsored content is always labelled.</p>
+        <SocialLinks />
         <div class="footer-brief">
           <p><strong>The Devlens Brief</strong> Top stories, open funding and new jobs in your inbox. Free.</p>
           <a class="btn btn-green" href="/subscribe/">Subscribe</a>
@@ -161,12 +163,7 @@ const nav = [
     </div>
     <div class="wrap footer-bottom">
       <p class="copyright">© {today.slice(0, 4)} Devlens Bangladesh</p>
-      <address class="footer-address">House 60, Road 3, Block B, Niketon, Gulshan, Dhaka 1212 · <a href="https://www.google.com/maps?q=23.774074,90.412588" rel="noopener" target="_blank">Map</a> · <a href="mailto:devlensbangladesh@gmail.com">devlensbangladesh@gmail.com</a></address>
-      <p class="social">
-        <a href="https://www.facebook.com/profile.php?id=61596271460489" rel="noopener" target="_blank">Facebook</a>
-        <a href="https://www.linkedin.com/company/144052802/" rel="noopener" target="_blank">LinkedIn</a>
-        <a href="https://www.youtube.com/@DevLensBangladesh" rel="noopener" target="_blank">YouTube</a>
-      </p>
+      <address class="footer-address">House 60, Road 3, Block B, Niketon, Gulshan, Dhaka 1212 · <a href="https://www.google.com/maps?q=23.774074,90.412588" rel="noopener" target="_blank">Map</a></address>
     </div>
   </footer>
   <script src="/devlens.js" defer></script>
