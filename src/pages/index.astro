@@ -183,39 +183,40 @@ const spotDay = spotOn ? daysBetween(spot.start, today) + 1 : 0;
   </section>
 
   <section class="jobs-band">
-    <div class="wrap">
-      <div class="grid">
-        <div>
-          <span class="pill">Jobs and careers</span>
-          <h2><span><span data-open-jobs>{jobs.length}</span> open roles</span> at NGOs, INGOs and UN agencies</h2>
-          <p class="intro">Collected every day from employer career sites, Impactpool, ReliefWeb, LinkedIn and Bangla newspaper job circulars. Every listing shows its official reference and links straight to the advert.</p>
-          <p class="chips-dark">
-            {sectorCounts.map((s) => <a href={`/jobs/#${s.id}`}>{shortName[s.name] || s.name} · <span data-sector-count={s.id}>{s.n}</span></a>)}
-          </p>
-          <div class="actions">
-            <a class="btn btn-green" href="/jobs/">Browse all jobs ↗</a>
-            <a class="btn btn-ghost" href="/submit/">List a vacancy for free</a>
-          </div>
+    <div class="wrap jobs-grid">
+      <div class="jobs-intro">
+        <span class="pill">Jobs and careers</span>
+        <h2><span><span data-open-jobs>{jobs.length}</span> open roles</span> at NGOs, INGOs and UN agencies</h2>
+        <p class="intro">Collected every day from employer career sites, Impactpool, ReliefWeb, LinkedIn and Bangla newspaper job circulars. Every listing shows its official reference and links straight to the advert.</p>
+        <p class="chips-dark">
+          {sectorCounts.slice(0, 5).map((s) => <a href={`/jobs/#${s.id}`}>{shortName[s.name] || s.name} · <span data-sector-count={s.id}>{s.n}</span></a>)}
+          {sectorCounts.length > 5 && <a class="more" href="/jobs/">+{sectorCounts.length - 5} more sectors</a>}
+        </p>
+        <div class="actions">
+          <a class="btn btn-green" href="/jobs/">Browse all jobs ↗</a>
+          <a class="btn btn-ghost" href="/submit/">List a vacancy for free</a>
         </div>
-        <div><a href="/jobs/"><img src="/media/2026/10/devlens-jobs-hero.jpg" alt="Illustration of three job listing cards labelled UN agency, INGO and national NGO, each with an Apply button, next to a briefcase icon" width="1024" height="1024" loading="lazy" /></a></div>
       </div>
       {featured.length > 0 && (
-        <>
-          <p class="eyebrow" style="margin-top:48px;color:#a6abb3">Featured roles</p>
-          <div class="featured">
+        <div class="jobs-featured">
+          <p class="eyebrow">Featured roles</p>
+          <ul>
             {featured.map((j) => {
               const lab = jobLabel(j.deadline, today);
               return (
-                <div class="card" data-job-deadline={j.deadline || ''}>
-                  <span class="tag">{j.featured}</span>
-                  <h3><a href={j.url}>{j.title}</a></h3>
-                  <p><strong style="color:#0e1116">{j.org}</strong> · {j.location}</p>
-                  <p class="when">{j.deadline ? `${lab.text === 'CLOSES TODAY' ? 'Closes today, ' : 'Closes '}${fmtDate(j.deadline)}` : 'Deadline: see advert'}</p>
-                </div>
+                <li data-job-deadline={j.deadline || ''}>
+                  <a href={j.url}>
+                    <span class="tag">{j.featured}</span>
+                    <strong>{j.title}</strong>
+                    <span class="org"><b>{j.org}</b> · {j.location}</span>
+                    <span class="when">{j.deadline ? `${lab.text === 'CLOSES TODAY' ? 'Closes today, ' : 'Closes '}${fmtDate(j.deadline)}` : 'Deadline: see advert'}</span>
+                  </a>
+                </li>
               );
             })}
-          </div>
-        </>
+          </ul>
+          <a class="all" href="/jobs/">See all {jobs.length} open roles →</a>
+        </div>
       )}
     </div>
   </section>

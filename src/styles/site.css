@@ -819,3 +819,34 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .tone-light .social-row a:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
 .about-social { margin: 8px 0 24px; }
 @media (max-width: 480px) { .tone-dark .social-mail span { font-size: 13px; } }
+
+/* ===== Homepage jobs section, compact (28 Nov 2026): real featured jobs replace the illustration ===== */
+.jobs-band { padding: 64px 0; }
+.jobs-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.jobs-intro h2 { margin: 16px 0 14px; }
+.jobs-intro .intro { margin: 0 0 20px; max-width: 560px; }
+.chips-dark { margin: 0; }
+.chips-dark a.more { border-style: dashed; color: var(--green); }
+.jobs-intro .actions { margin-top: 18px; }
+.jobs-featured .eyebrow { color: #a6abb3; margin: 0 0 12px; }
+.jobs-featured ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.jobs-featured li a { display: grid; gap: 4px; background: #fff; color: var(--ink); border-radius: 16px; padding: 16px 20px; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.jobs-featured li a:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.jobs-featured .tag { justify-self: start; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); background: var(--sand); border-radius: 6px; padding: 3px 8px; }
+.jobs-featured strong { font-family: var(--serif); font-size: 19px; font-weight: 700; line-height: 1.25; margin-top: 4px; }
+.jobs-featured .org { font-size: 14px; color: var(--muted); }
+.jobs-featured .org b { color: var(--ink); }
+.jobs-featured .when { font-size: 13px; font-weight: 700; color: var(--orange); }
+.jobs-featured .all { display: inline-block; margin-top: 14px; color: var(--green); font-weight: 800; text-decoration: none; font-size: 15px; }
+.jobs-featured .all:hover { color: #fff; }
+@media (max-width: 900px) {
+  .jobs-band { padding: 48px 0; }
+  .jobs-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+}
+@media (max-width: 640px) {
+  /* Sector chips scroll sideways on phones instead of stacking into many rows */
+  .chips-dark { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-right: -24px; padding-right: 24px; }
+  .chips-dark::-webkit-scrollbar { display: none; }
+  .chips-dark a { flex: none; margin: 0; }
+  .jobs-intro .actions .btn { flex: 1; text-align: center; }
+}
