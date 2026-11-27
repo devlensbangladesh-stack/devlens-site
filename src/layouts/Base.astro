@@ -146,11 +146,7 @@ const nav = [
         <a href="/" class="footer-logo"><img src="/media/2026/10/devlens-logo-white.png" alt="Devlens Bangladesh" width="180" height="48" /><span class="beta">Beta</span></a>
         <p class="tagline">Development intelligence for Bangladesh</p>
         <p>News, jobs, funding, research and data for the NGO, humanitarian and development sector, checked against the original sources. Coverage cannot be bought; sponsored content is always labelled.</p>
-        <SocialLinks />
-        <div class="footer-brief">
-          <p><strong>The Devlens Brief</strong> Top stories, open funding and new jobs in your inbox. Free.</p>
-          <a class="btn btn-green" href="/subscribe/">Subscribe</a>
-        </div>
+        <SocialLinks email={false} />
       </div>
       <nav aria-label="Read"><p class="eyebrow">Read</p>
         <a href="/category/news/">News</a><a href="/category/analysis/">Analysis</a><a href="/category/devlens-special/">Devlens Special</a><a href="/research-evidence/">Research</a><a href="/data/">Data</a><a href="/sectors/">Sectors</a></nav>
@@ -161,10 +157,10 @@ const nav = [
       <nav aria-label="About Devlens"><p class="eyebrow">Devlens</p>
         <a href="/about/">About</a><a href="/editorial-standards/">Editorial standards</a><a href="/advertise/">Advertise and partner</a><a href="mailto:devlensbangladesh@gmail.com">Contact us</a></nav>
     </div>
-    <div class="wrap footer-bottom">
+    <div class="wrap"><div class="footer-bottom">
       <p class="copyright">© {today.slice(0, 4)} Devlens Bangladesh</p>
       <address class="footer-address">House 60, Road 3, Block B, Niketon, Gulshan, Dhaka 1212 · <a href="https://www.google.com/maps?q=23.774074,90.412588" rel="noopener" target="_blank">Map</a></address>
-    </div>
+    </div></div>
   </footer>
   <script src="/devlens.js" defer></script>
 </body>

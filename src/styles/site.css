@@ -871,3 +871,12 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .lf-head h2 { font-family: var(--serif); font-weight: 700; font-size: 30px; letter-spacing: -0.012em; margin: 0 0 6px; }
 .lf-head p { margin: 0; color: var(--muted); font-size: 15px; }
 .num-topic { margin: 0 0 12px; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-dark); }
+
+/* Footer tidy (28 Nov 2026): no email, no subscribe box; tighter columns */
+.site-footer { padding: 56px 0 28px; }
+.footer-grid { align-items: start; }
+.footer-about p:not(.tagline):not(.social-label) { margin-bottom: 0; }
+.site-footer .social-links { margin-top: 22px; }
+.site-footer .social-row a { color: #e9eaec; border: 1px solid #2a2f37; padding: 0; width: 40px; }
+.site-footer .social-row a:hover { background: var(--green); border-color: var(--green); color: var(--ink); }
+.footer-bottom { margin-top: 40px; }
