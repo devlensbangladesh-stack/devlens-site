@@ -49,3 +49,4 @@ Fields, in this order: `slug`, `date`, `modified`, `title`, `excerpt`, `categori
 
 ## Story openings
 - Start the body with the dateline paragraph (e.g. "DHAKA, 27 November 2026: ..."). Do not add a "DEVLENS ANALYSIS/EXPLAINER/SPECIAL · topic · date · byline" line or an italic summary at the top: the page already shows the categories, date, byline and excerpt above the story.
+- Credit stories to "Devlens Bangladesh". Do not write "editorial team", "our editors" or "newsroom": Devlens does not have a team yet.

@@ -32,7 +32,7 @@ const ld = {
   about: { '@type': 'Place', name: 'Bangladesh' },
   datePublished: post.date + '+06:00', dateModified: (post.modified || post.date) + '+06:00', mainEntityOfPage: url,
   image: post.image ? [new URL(post.image.src, Astro.site).href] : undefined,
-  author: { '@type': 'Organization', name: 'Devlens Bangladesh editorial team', url: site + '/about/' },
+  author: { '@type': 'Organization', name: 'Devlens Bangladesh', url: site + '/about/' },
   publisher: { '@id': site + '/#organization' },
 };
 const crumbs = {
@@ -63,7 +63,7 @@ const share = [
         </p>
         <h1>{post.title}</h1>
         {post.excerpt && <p class="standfirst">{post.excerpt}</p>}
-        <p class="byline">By the Devlens Bangladesh editorial team · {minutes} min read{updated && <> · Updated {fmtDate(updated)}</>}</p>
+        <p class="byline">By Devlens Bangladesh · {minutes} min read{updated && <> · Updated {fmtDate(updated)}</>}</p>
       </div>
     </header>
     <div class="article-body">
@@ -74,7 +74,7 @@ const share = [
         <div class="prose wp-content" set:html={bodyHtml} />
         <aside class="newsroom-box" aria-label="About Devlens Bangladesh">
           <img src="/favicon.svg" alt="" width="44" height="44" />
-          <p><strong>Devlens Bangladesh</strong> is an independent newsroom in Dhaka covering the NGO, humanitarian and development sector. Every figure in this story is attributed to its source and linked where it is online. <a href="/editorial-standards/">How we report</a> · <a href="/about/">About us</a></p>
+          <p><strong>Devlens Bangladesh</strong> is an independent news and information platform based in Dhaka, covering the NGO, humanitarian and development sector. Every figure in this story is attributed to its source and linked where it is online. <a href="/editorial-standards/">How we report</a> · <a href="/about/">About us</a></p>
         </aside>
         <div class="share" aria-label="Share this story"><span>Share</span>{share.map(([n, h]) => <a href={h} target="_blank" rel="noopener">{n}</a>)}</div>
         <div class="article-foot">
