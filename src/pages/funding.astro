@@ -115,8 +115,6 @@ const listed = [...readTable(sectionFor('open')), ...readTable(sectionFor('upcom
 });
 const live = listed.filter((o) => o.status !== 'closed')
   .sort((a, b) => (a.deadline || '9999').localeCompare(b.deadline || '9999'));
-const closed = [...listed.filter((o) => o.status === 'closed'), ...readTable(sectionFor('recently closed')).map((o) => ({ ...o, sector: sectorOf(o) }))]
-  .sort((a, b) => (b.deadline || '').localeCompare(a.deadline || ''));
 
 const lastChecked = html.match(/Last checked:\s*([^<.]+)/i)?.[1]?.trim();
 const lastCheckedIso = toIso(lastChecked);
@@ -261,23 +259,9 @@ const urgency = (o) => (o.deadline ? Math.max(4, 100 - Math.min(100, (daysBetwee
           ))}
         </div>
       ) : (
-        <p class="fund-empty">No open calls right now. Check back tomorrow, or see the recently closed calls below.</p>
+        <p class="fund-empty">No open calls right now. Check back tomorrow.</p>
       )}
     </section>
-
-    {closed.length > 0 && (
-      <details class="fund-closed">
-        <summary><h2>Recently closed <span class="n">{closed.length}</span></h2><span class="toggle" aria-hidden="true"><span class="show">Show</span><span class="hide">Hide</span></span></summary>
-        <ul>
-          {closed.map((o) => (
-            <li>
-              <span class="fcl-date"><i style={`background:${sectorById[o.sector]?.color || '#8a8f96'}`} title={sectorById[o.sector]?.name}></i>{o.deadline ? dayMonth(o.deadline) : o.deadlineText}</span>
-              <span class="fcl-main">{o.url ? <a href={o.url} rel="noopener" set:html={o.title} /> : <span set:html={o.title} />}<small set:html={o.funder} /></span>
-            </li>
-          ))}
-        </ul>
-      </details>
-    )}
 
     <section class="fund-info">
       {rules.length > 0 && (

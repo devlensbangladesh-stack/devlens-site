@@ -964,19 +964,6 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .fc-go:hover { background: var(--ink); color: #fff; }
 .fund-empty { background: var(--sand); border-radius: 16px; padding: 24px; color: var(--ink-2); }
 
-.fund-closed { margin: 40px 0 0; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
-.fund-closed > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; }
-.fund-closed > summary::-webkit-details-marker { display: none; }
-.fund-closed > summary:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; border-radius: 18px; }
-.fund-closed h2 { font-size: 20px; }
-.fund-closed .toggle { font-size: 14px; font-weight: 700; border: 1.5px solid #d9d9d2; border-radius: 999px; padding: 6px 14px; }
-.fund-closed .hide, .fund-closed[open] .show { display: none; }
-.fund-closed[open] .hide { display: inline; }
-.fund-closed ul { list-style: none; margin: 0; padding: 0 22px 10px; }
-.fund-closed li { display: grid; grid-template-columns: 72px 1fr; gap: 14px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; }
-.fcl-date { font-size: 13px; font-weight: 800; color: var(--faint); font-variant-numeric: tabular-nums; padding-top: 2px; }
-.fcl-main a { color: var(--ink-2); font-weight: 600; }
-.fcl-main small { display: block; color: var(--faint); font-size: 13px; margin-top: 2px; }
 
 .fund-info { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 40px 0 0; }
 .fund-rules { background: var(--sand); border-radius: 20px; padding: 28px; }
@@ -1012,9 +999,6 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
   .fund-grid { grid-template-columns: 1fr; gap: 14px; }
   .fcard { padding: 20px 18px 16px; }
   .fc-note { -webkit-line-clamp: 3; }
-  .fund-closed > summary { padding: 16px 18px; }
-  .fund-closed ul { padding: 0 18px 8px; }
-  .fund-closed li { grid-template-columns: 56px 1fr; gap: 10px; }
   .fund-rules, .fund-cta { padding: 22px 20px; }
 }
 
@@ -1050,13 +1034,10 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
 .fcard { border-left: 4px solid var(--gc, var(--line)); }
 .fc-sector { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: var(--ink-2); margin: -4px 0 10px; }
 .fc-sector i { width: 9px; height: 9px; border-radius: 50%; background: var(--gc); flex: none; }
-.fcl-date i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
-.fund-closed li { grid-template-columns: 86px 1fr; }
 @media (max-width: 700px) {
   .fund-groups.view-deadline { grid-template-columns: 1fr; gap: 14px; }
   .fund-sectors { padding: 16px 14px 6px; }
   .fund-sec-head.row { align-items: flex-start; }
-  .fund-closed li { grid-template-columns: 70px 1fr; }
 }
 @media (max-width: 700px) {
   .fund-chips { gap: 6px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -14px 10px; padding: 2px 14px 4px; -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); }
