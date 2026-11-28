@@ -4,7 +4,7 @@
 // a deadline calendar and filters. Status is worked out from the deadline, so a call whose
 // deadline has passed never shows as open, even if the JSON has not been updated yet.
 import Base from '../layouts/Base.astro';
-import { pages, dhakaToday, daysBetween } from '../lib/data.js';
+import { pages, dhakaToday, daysBetween, jobsData } from '../lib/data.js';
 
 const page = pages.find((p) => p.slug === 'funding');
 const html = page?.content || '';
@@ -45,6 +45,7 @@ const readTable = (block) => {
       size: col('size') > -1 ? text(cells[col('size')]) : '',
       deadlineText, deadline: toIso(deadlineText),
       listedStatus: text(cells[col('status')] || '').toUpperCase(),
+      sectorText: col('sector') > -1 ? text(cells[col('sector')]) : '',
     });
   }
   return rows;
@@ -63,6 +64,36 @@ const typeOf = (o) => {
   return TYPES.find(([, , re]) => re.test(s));
 };
 
+// Sector: the same sectors and colours as the jobs page. An optional "Sector" column in the table
+// (sector name or id) decides; otherwise the sector is guessed from keywords, with words in the title
+// counting more than words in the note or the funder's name.
+const SECTOR_WORDS = {
+  'health-nutrition': /\b(health|nutrition|immunis\w*|vaccin\w*|measles|disease|hospital|maternal|medical|mental)\b/gi,
+  'humanitarian-rohingya-response': /\b(rohingya|humanitarian|refugees?|emergency response|displaced)\b/gi,
+  'gender-equality': /\b(women|woman|girls?|gender|gbv)\b/gi,
+  education: /\b(education|schools?|students?|youth|fellows?|fellowship|scholarships?|training|language|universit\w*|learning|journalists?)\b/gi,
+  'food-security-agriculture': /\b(food|agricultur\w*|farm\w*|fisher\w*|nutrition|crop)\b/gi,
+  'livelihoods-microfinance': /\b(poverty|livelihoods?|income|microfinance|enterprises?|entrepreneur\w*|labour|employment|workers?|migrants?|reintegration|social protection|EPZ)\b/gi,
+  'governance-human-rights': /\b(governance|rights|digital|ICT|software|platform|AI|data|justice|democracy|media)\b/gi,
+  'climate-disaster-resilience': /\b(climate|resilience|adaptation|disaster|environment\w*|energy|solar|waste|plastic|circular|decarboni\w*|trees?|forests?|ocean|marine|coastal|biodiversity|nature-based|ecosystem|EbA|loss and damage|WASH|water)\b/gi,
+  'development-cooperation': /\b(aid|localisation|evaluation|partnership)\b/gi,
+};
+const SECTORS = jobsData.sectors;
+const sectorOf = (o) => {
+  const pick = (o.sectorText || '').toLowerCase();
+  const named = pick && SECTORS.find((x) => x.id === pick || x.name.toLowerCase() === pick || x.name.toLowerCase().startsWith(pick));
+  if (named) return named.id;
+  const score = (str, re) => (str.match(re) || []).length;
+  let best = 'development-cooperation', top = 0;
+  for (const x of SECTORS) {
+    const re = SECTOR_WORDS[x.id]; if (!re) continue;
+    const n = score(text(o.title), re) * 3 + score(text(o.note), re) + score(text(o.funder), re) * 2;
+    if (n > top) { top = n; best = x.id; }
+  }
+  return best;
+};
+const sectorById = Object.fromEntries(SECTORS.map((x) => [x.id, x]));
+
 const STATUS = {
   soon: { label: 'Closing soon', cls: 'soon' },
   open: { label: 'Open', cls: 'open' },
@@ -80,11 +111,11 @@ const statusOf = (o) => {
 
 const listed = [...readTable(sectionFor('open')), ...readTable(sectionFor('upcoming'))].map((o) => {
   const [type, typeName] = typeOf(o);
-  return { ...o, type, typeName, status: statusOf(o) };
+  return { ...o, type, typeName, status: statusOf(o), sector: sectorOf(o) };
 });
 const live = listed.filter((o) => o.status !== 'closed')
   .sort((a, b) => (a.deadline || '9999').localeCompare(b.deadline || '9999'));
-const closed = [...listed.filter((o) => o.status === 'closed'), ...readTable(sectionFor('recently closed'))]
+const closed = [...listed.filter((o) => o.status === 'closed'), ...readTable(sectionFor('recently closed')).map((o) => ({ ...o, sector: sectorOf(o) }))]
   .sort((a, b) => (b.deadline || '').localeCompare(a.deadline || ''));
 
 const lastChecked = html.match(/Last checked:\s*([^<.]+)/i)?.[1]?.trim();
@@ -98,6 +129,11 @@ const closingSoon = live.filter((o) => o.status === 'soon').length;
 const funders = new Set(live.map((o) => text(o.funder).replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+Bangladesh$/i, '').trim())).size;
 const typeCounts = TYPES.map(([id, name]) => ({ id, name, n: live.filter((o) => o.type === id).length })).filter((t) => t.n);
 const nextUp = live.find((o) => o.deadline);
+// Sector groups: biggest first, then the one with the earliest deadline.
+const firstDl = (xs) => xs.find((o) => o.deadline)?.deadline || '9999';
+const sectorGroups = SECTORS.map((x) => ({ ...x, items: live.filter((o) => o.sector === x.id) })).filter((g) => g.items.length)
+  .sort((a, b) => b.items.length - a.items.length || firstDl(a.items).localeCompare(firstDl(b.items)));
+const rank = Object.fromEntries(live.map((o, i) => [o.title + o.deadlineText, i]));
 
 // Deadline calendar: one cell per day from today to the last dated deadline (at least 3 weeks, at most 6).
 const dated = live.filter((o) => o.deadline);
@@ -165,37 +201,63 @@ const urgency = (o) => (o.deadline ? Math.max(4, 100 - Math.min(100, (daysBetwee
       </section>
     )}
 
-    <section aria-labelledby="open-h">
+    <section aria-labelledby="open-h" class="fund-open">
       <div class="fund-sec-head row">
         <h2 id="open-h">Open now <span class="n" data-fstat="shown">{live.length}</span></h2>
-        <div class="fund-filters" role="group" aria-label="Filter by type">
-          <button type="button" class="ff on" data-type="all" aria-pressed="true">All <span class="n">{live.length}</span></button>
-          {typeCounts.map((t) => <button type="button" class="ff" data-type={t.id} aria-pressed="false">{t.name} <span class="n">{t.n}</span></button>)}
+        <div class="fund-view" role="group" aria-label="Arrange calls">
+          <button type="button" class="fv on" data-view="sector" aria-pressed="true">By sector</button>
+          <button type="button" class="fv" data-view="deadline" aria-pressed="false">By deadline</button>
         </div>
       </div>
+
+      {live.length > 0 && (
+        <div class="fund-sectors">
+          <div class="sec-bar" aria-hidden="true">
+            {sectorGroups.map((g) => <span style={`flex:${g.items.length};background:${g.color}`} title={`${g.name}: ${g.items.length}`}></span>)}
+          </div>
+          <div class="fund-chips" role="group" aria-label="Filter by sector">
+            <span class="fc-label">Sector</span>
+            <button type="button" class="fs on" data-sector="all" aria-pressed="true">All <span class="n">{live.length}</span></button>
+            {sectorGroups.map((g) => <button type="button" class="fs" data-sector={g.id} aria-pressed="false" style={`--sc:${g.color}`}><i></i>{g.name} <span class="n">{g.items.length}</span></button>)}
+          </div>
+          <div class="fund-chips" role="group" aria-label="Filter by type">
+            <span class="fc-label">Type</span>
+            <button type="button" class="ff on" data-type="all" aria-pressed="true">All <span class="n">{live.length}</span></button>
+            {typeCounts.map((t) => <button type="button" class="ff" data-type={t.id} aria-pressed="false">{t.name} <span class="n">{t.n}</span></button>)}
+          </div>
+        </div>
+      )}
       <p class="fund-filter-note" data-filter-note hidden><span></span> <button type="button" data-clear>Show all</button></p>
 
       {live.length ? (
-        <div class="fund-grid">
-          {live.map((o) => (
-            <article class={`fcard s-${STATUS[o.status].cls}`} data-type={o.type} data-deadline={o.deadline || ''}>
-              <div class="fc-meter" aria-hidden="true"><i style={`width:${urgency(o)}%`}></i></div>
-              <div class="fc-top">
-                <span class="fc-status" data-status>{STATUS[o.status].label}</span>
-                <span class="fc-type">{o.typeName}</span>
+        <div class="fund-groups view-sector" data-groups>
+          {sectorGroups.map((g) => (
+            <section class="fgroup" id={g.id} data-group={g.id} style={`--gc:${g.color}`}>
+              <h3 class="fgroup-h"><i></i>{g.name} <span class="n" data-group-count>{g.items.length}</span></h3>
+              <div class="fund-grid">
+                {g.items.map((o) => (
+                  <article class={`fcard s-${STATUS[o.status].cls}`} data-type={o.type} data-sector={o.sector} data-deadline={o.deadline || ''} style={`order:${rank[o.title + o.deadlineText]};--gc:${g.color}`}>
+                    <div class="fc-meter" aria-hidden="true"><i style={`width:${urgency(o)}%`}></i></div>
+                    <div class="fc-top">
+                      <span class="fc-status" data-status>{STATUS[o.status].label}</span>
+                      <span class="fc-type">{o.typeName}</span>
+                    </div>
+                    <h3>{o.url ? <a href={o.url} rel="noopener" set:html={o.title} /> : <span set:html={o.title} />}</h3>
+                    <p class="fc-funder" set:html={o.funder} />
+                    <p class="fc-sector"><i></i>{g.name}</p>
+                    {o.note && <p class="fc-note" set:html={o.note} />}
+                    <dl class="fc-facts">
+                      <div><dt>Size</dt><dd>{o.size || 'Not stated'}</dd></div>
+                      <div><dt>Deadline</dt><dd>{o.deadline ? fmt(o.deadline, { day: 'numeric', month: 'short', year: 'numeric' }) : o.deadlineText || 'Rolling'}</dd></div>
+                    </dl>
+                    <div class="fc-foot">
+                      <span class="fc-left" data-left>{leftText(o)}</span>
+                      {o.url && <a class="fc-go" href={o.url} rel="noopener">View notice <span aria-hidden="true">↗</span></a>}
+                    </div>
+                  </article>
+                ))}
               </div>
-              <h3>{o.url ? <a href={o.url} rel="noopener" set:html={o.title} /> : <span set:html={o.title} />}</h3>
-              <p class="fc-funder" set:html={o.funder} />
-              {o.note && <p class="fc-note" set:html={o.note} />}
-              <dl class="fc-facts">
-                <div><dt>Size</dt><dd>{o.size || 'Not stated'}</dd></div>
-                <div><dt>Deadline</dt><dd>{o.deadline ? fmt(o.deadline, { day: 'numeric', month: 'short', year: 'numeric' }) : o.deadlineText || 'Rolling'}</dd></div>
-              </dl>
-              <div class="fc-foot">
-                <span class="fc-left" data-left>{leftText(o)}</span>
-                {o.url && <a class="fc-go" href={o.url} rel="noopener">View notice <span aria-hidden="true">↗</span></a>}
-              </div>
-            </article>
+            </section>
           ))}
         </div>
       ) : (
@@ -209,7 +271,7 @@ const urgency = (o) => (o.deadline ? Math.max(4, 100 - Math.min(100, (daysBetwee
         <ul>
           {closed.map((o) => (
             <li>
-              <span class="fcl-date">{o.deadline ? dayMonth(o.deadline) : o.deadlineText}</span>
+              <span class="fcl-date"><i style={`background:${sectorById[o.sector]?.color || '#8a8f96'}`} title={sectorById[o.sector]?.name}></i>{o.deadline ? dayMonth(o.deadline) : o.deadlineText}</span>
               <span class="fcl-main">{o.url ? <a href={o.url} rel="noopener" set:html={o.title} /> : <span set:html={o.title} />}<small set:html={o.funder} /></span>
             </li>
           ))}
@@ -264,27 +326,44 @@ const urgency = (o) => (o.deadline ? Math.max(4, 100 - Math.min(100, (daysBetwee
         if (d === today) b.classList.add('today');
       });
 
-      // Filters: by type (chips) or by day (calendar). One of each can be active.
-      var type = 'all', day = null;
+      // Filters: sector, type and day (calendar) combine. The view switch groups cards by sector or lists them by deadline.
+      var type = 'all', sector = 'all', day = null;
       var note = document.querySelector('[data-filter-note]');
+      var groups = document.querySelector('[data-groups]');
+      var sectorName = function (id) { var b = document.querySelector('.fs[data-sector="' + id + '"]'); return b ? b.childNodes[1].textContent.trim() : ''; };
+      function press(sel, attr, val) {
+        document.querySelectorAll(sel).forEach(function (b) { var on = b.getAttribute(attr) === val; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+      }
       function apply() {
         var shown = 0;
         cards.forEach(function (c) {
           if (c.dataset.gone) return;
-          var ok = (type === 'all' || c.getAttribute('data-type') === type) && (!day || c.getAttribute('data-deadline') === day);
+          var ok = (type === 'all' || c.getAttribute('data-type') === type) && (sector === 'all' || c.getAttribute('data-sector') === sector) && (!day || c.getAttribute('data-deadline') === day);
           c.hidden = !ok; if (ok) shown++;
         });
+        document.querySelectorAll('.fgroup').forEach(function (g) {
+          var n = g.querySelectorAll('.fcard:not([hidden])').length;
+          g.hidden = !n; g.querySelector('[data-group-count]').textContent = n;
+        });
         document.querySelectorAll('[data-fstat="shown"]').forEach(function (e) { e.textContent = shown; });
-        document.querySelectorAll('.ff').forEach(function (b) { var on = b.getAttribute('data-type') === type; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
-        document.querySelectorAll('.cal-day').forEach(function (b) { var on = b.getAttribute('data-day') === day; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
-        if (day || type !== 'all') {
+        press('.ff', 'data-type', type); press('.fs', 'data-sector', sector); press('.cal-day', 'data-day', day);
+        if (day || type !== 'all' || sector !== 'all') {
           var bits = [];
+          if (sector !== 'all') bits.push('in ' + sectorName(sector));
           if (day) bits.push('closing on ' + new Date(day + 'T12:00:00Z').toLocaleDateString('en-GB', { timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long' }));
-          note.querySelector('span').textContent = 'Showing ' + shown + (shown === 1 ? ' call' : ' calls') + (bits.length ? ' ' + bits.join(' ') : '') + '.';
+          note.querySelector('span').textContent = 'Showing ' + shown + (shown === 1 ? ' call' : ' calls') + (bits.length ? ' ' + bits.join(', ') : '') + '.';
           note.hidden = false;
         } else note.hidden = true;
       }
+      function setView(v) {
+        if (!groups) return;
+        groups.className = 'fund-groups view-' + v; press('.fv', 'data-view', v);
+        try { localStorage.setItem('fundView', v); } catch (e) {}
+      }
+      try { var saved = localStorage.getItem('fundView'); if (saved === 'deadline') setView('deadline'); } catch (e) {}
+      document.querySelectorAll('.fv').forEach(function (b) { b.addEventListener('click', function () { setView(b.getAttribute('data-view')); }); });
       document.querySelectorAll('.ff').forEach(function (b) { b.addEventListener('click', function () { type = b.getAttribute('data-type'); apply(); }); });
+      document.querySelectorAll('.fs').forEach(function (b) { b.addEventListener('click', function () { sector = b.getAttribute('data-sector'); apply(); }); });
       document.querySelectorAll('.cal-day').forEach(function (b) {
         b.addEventListener('click', function () {
           day = day === b.getAttribute('data-day') ? null : b.getAttribute('data-day'); apply();
@@ -292,7 +371,12 @@ const urgency = (o) => (o.deadline ? Math.max(4, 100 - Math.min(100, (daysBetwee
         });
       });
       var clear = document.querySelector('[data-clear]');
-      if (clear) clear.addEventListener('click', function () { type = 'all'; day = null; apply(); });
+      if (clear) clear.addEventListener('click', function () { type = 'all'; sector = 'all'; day = null; apply(); });
+      // A link to a sector (/funding/#climate-disaster-resilience) filters to that sector.
+      var h = location.hash.slice(1);
+      if (h && document.querySelector('.fs[data-sector="' + h + '"]')) { sector = h; apply(); }
+      // Hide empty sector groups if a card dropped out because its deadline passed.
+      document.querySelectorAll('.fgroup').forEach(function (g) { if (!g.querySelector('.fcard:not([hidden])')) g.hidden = true; });
     })();
   </script>
 </Base>
