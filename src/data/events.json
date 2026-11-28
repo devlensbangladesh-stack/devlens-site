@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "events": [
     {
       "id": "16-days-2026",
@@ -262,6 +262,79 @@
       "source": "The Daily Star",
       "coverage": "unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92",
       "coverageLabel": "Devlens report"
+    },
+    {
+      "id": "hilsa-bay-of-bengal-workshop-2026",
+      "start": "2026-11-27",
+      "end": "2026-11-29",
+      "kind": "Workshop",
+      "place": "Dhaka",
+      "title": "Regional workshop on sustainable management of hilsa fisheries in the Bay of Bengal",
+      "organiser": "BOBP-IGO, Bangladesh Maritime University, Noakhali Science and Technology University, Bangladesh Agricultural University and WorldFish",
+      "summary": "Officials and researchers from Bangladesh, India and Myanmar met as a presentation showed hilsa output has fallen about 10% in three years. The fish supports millions of livelihoods in coastal communities.",
+      "url": "https://www.tbsnews.net/bangladesh/hilsa-production-falls-10-3-years-threatening-3b-bay-fishery-1616001",
+      "source": "The Business Standard",
+      "coverage": "hilsa-production-falls-10-percent-three-years-bay-of-bengal-workshop"
+    },
+    {
+      "id": "anti-corruption-day-2026",
+      "start": "2026-12-09",
+      "end": "2026-12-09",
+      "kind": "Observance",
+      "place": "Global and nationwide",
+      "title": "International Anti-Corruption Day",
+      "organiser": "United Nations",
+      "summary": "A UN day to raise awareness of corruption and the UN Convention against Corruption. Relevant to governance, aid transparency and public service delivery work; it falls on the same day as Begum Rokeya Day.",
+      "url": "https://www.un.org/en/observances/anti-corruption-day",
+      "source": "United Nations"
+    },
+    {
+      "id": "epidemic-preparedness-day-2026",
+      "start": "2026-12-27",
+      "end": "2026-12-27",
+      "kind": "Observance",
+      "place": "Global",
+      "title": "International Day of Epidemic Preparedness",
+      "organiser": "United Nations",
+      "summary": "A UN day on preparing for and preventing epidemics. It comes as Bangladesh deals with measles and dengue outbreaks this year.",
+      "url": "https://www.un.org/en/observances/epidemic-preparedness-day",
+      "source": "United Nations"
+    },
+    {
+      "id": "nrb-world-summit-2026",
+      "start": "2026-12-28",
+      "end": "2026-12-29",
+      "kind": "Summit",
+      "place": "Sheraton Dhaka",
+      "title": "NRB World Summit 2026: \"Think Bangladesh\"",
+      "organiser": "NRB World, with Business America magazine, Arthakantha and the Global NRB Chamber",
+      "summary": "A two-day meeting expected to bring more than 1,000 non-resident Bangladeshis to Dhaka to discuss investment, skills and links with the diaspora. Relevant to migration, remittance and diaspora-funded development work.",
+      "url": "https://business-america.org/nrb-world-summit-2026-to-be-held-in-dhaka/",
+      "source": "Business America (co-organiser)"
+    },
+    {
+      "id": "education-day-2027",
+      "start": "2027-01-24",
+      "end": "2027-01-24",
+      "kind": "Observance",
+      "place": "Global and nationwide",
+      "title": "International Day of Education",
+      "organiser": "United Nations and UNESCO",
+      "summary": "A UN day on the role of education in peace and development. A moment for NGOs working on school dropout, child marriage and Rohingya learning to press their case.",
+      "url": "https://www.un.org/en/observances/education-day",
+      "source": "United Nations"
+    },
+    {
+      "id": "bangladesh-energy-conference-2026",
+      "start": "2026-11-28",
+      "end": "2026-11-30",
+      "kind": "Conference",
+      "place": "Bangladesh Military Museum, Dhaka",
+      "title": "4th Bangladesh Energy Conference 2026: Renewables for Energy Security",
+      "organiser": "Bangladesh Working Group on Ecology and Development (BWGED) and partners",
+      "summary": "A three-day conference on renewable energy and energy security, with more than 350 participants expected. It matters to NGOs working on clean energy access, climate and energy costs for poor households.",
+      "url": "https://www.thedailystar.net/chattogram/news/energy-conference-november-28-30-4334196",
+      "source": "The Daily Star"
     }
   ]
 }

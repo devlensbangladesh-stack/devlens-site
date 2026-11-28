@@ -1,16 +1,26 @@
 {
   "lead": {
-    "slug": "bad-cop-worse-cop-what-cop31-left-bangladesh",
-    "label": "Devlens Explainer · Climate finance",
-    "headline": "Bad COP, worse COP: what COP31 left Bangladesh",
-    "summary": "The adaptation finance target Bangladesh backed was dropped. It came home with Tk 784 crore in grants, while it needs $8.5bn a year and gets under $0.5bn from abroad."
+    "slug": "mics-2025-62-percent-children-lack-basic-maths-skills",
+    "label": "Education · Learning outcomes",
+    "headline": "62% of Bangladeshi children lack basic maths skills, MICS shows",
+    "summary": "The BBS-UNICEF survey finds 61.51% of children aged 7 to 14 cannot do the four basic maths operations, with Mymensingh furthest behind. Only 14.65% of secondary maths teachers hold a maths degree."
   },
   "alsoToday": {
-    "slug": "family-card-74259-families-allowance-4-crore-households-survey",
-    "label": "Social protection · Family Card",
-    "headline": "Family Card pilot reaches 74,259 families; national survey under way",
-    "summary": "Women in pilot families get Tk 2,500 a month. Data on 59 lakh of an estimated 4.1 crore households has been collected for the full rollout.",
+    "slug": "battery-rickshaw-lead-pollution-80-percent-batteries-informal-recycling",
+    "label": "Health · Lead pollution",
+    "headline": "Battery rickshaw boom feeds lead pollution in Bangladesh",
+    "summary": "Worn-out e-rickshaw batteries are broken by hand and smelted near homes, a bdnews24 investigation found. Pure Earth estimates 80% of used lead-acid batteries are recycled at illegal, informal sites.",
     "plus": [
+      "child-marriage-complaints-999-calls-halve-since-2023-prevention-falls",
+      "devlens-research-summary-mixed-migration-review-2026-bangladesh-rohingya",
+      "ultra-poor-no-frills-accounts-savings-fall-tk-19-crore",
+      "who-measles-report-south-east-asia-47-percent-cases-bangladesh-outbreak",
+      "tea-workers-union-election-230-gardens-eight-years",
+      "bangladesh-denmark-cooperation-framework-beyond-2028-saidabad-water",
+      "biwtc-idle-vessels-floating-hospitals-haor-char-island",
+      "hilsa-production-falls-10-percent-three-years-bay-of-bengal-workshop",
+      "bad-cop-worse-cop-what-cop31-left-bangladesh",
+      "family-card-74259-families-allowance-4-crore-households-survey",
       "unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92",
       "who-coxs-bazar-october-measles-3034-cases-dengue-14-deaths-health-appeal-56-million",
       "devlens-research-summary-wfp-country-brief-november-2026-210-million-gap-rohingya-pipeline",
@@ -130,10 +140,16 @@
   },
   "pills": {
     "fundingOpen": 11,
-    "newReports": 29,
-    "keyNumbers": 46
+    "newReports": 31,
+    "keyNumbers": 47
   },
   "numbers": [
+    {
+      "value": "61.51%",
+      "label": "Share of children aged 7 to 14 who cannot do the four basic maths operations (addition, subtraction, multiplication and division)",
+      "source": "BBS and UNICEF, MICS 2025, Nov 2026",
+      "topic": "Education"
+    },
     {
       "value": "74,259",
       "label": "Families receiving Tk 2,500 a month under the Family Card pilot by September; about 4.1 crore households are being surveyed for the full rollout",
@@ -153,20 +169,6 @@
         "nowText": "55%"
       },
       "topic": "Health"
-    },
-    {
-      "value": "Tk 17,000",
-      "label": "New minimum monthly wage for entry-level garment workers set by the wage board, up 36% from Tk 12,500 (pending ministry approval)",
-      "source": "Minimum Wage Board, Nov 2026",
-      "compare": {
-        "beforeLabel": "Old minimum",
-        "before": 12500,
-        "beforeText": "Tk 12,500",
-        "nowLabel": "New minimum",
-        "now": 17000,
-        "nowText": "Tk 17,000"
-      },
-      "topic": "Labour · Garments"
     }
   ],
   "funding": [
@@ -246,22 +248,23 @@
     },
     "todayLabel": "Today in the campaign",
     "today": {
-      "date": "27 Nov",
-      "headline": "First UN day against child marriage: progress must be 20 times faster",
-      "text": "UNFPA said marriage among girls aged 15-19 has risen to 39% and adolescent births to 92 per 1,000, so Bangladesh must act twentyfold faster to end child marriage by 2030. Save the Children called child marriage \"a form of gender-based violence\".",
+      "date": "28 Nov",
+      "headline": "Child marriage reports to 999 halve since 2023, but NGOs say cases are hidden",
+      "text": "Calls to 999 about child marriage fell from 6,499 in 2023 to 3,045 in 2025, and marriages stopped by officials fell 48% in two years. MJF and UNFPA told Prothom Alo this reflects less reporting, not fewer marriages.",
       "sources": [
         {
-          "name": "The Daily Star",
-          "url": "https://www.thedailystar.net/news/bangladesh/news/ending-child-marriage-2030-needs-20-fold-push-4334231"
+          "name": "Prothom Alo (Bangla)",
+          "url": "https://www.prothomalo.com/bangladesh/cp96n5468j"
         },
         {
           "name": "Devlens",
-          "url": "/2026/11/27/unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92/"
+          "url": "/2026/11/28/child-marriage-complaints-999-calls-halve-since-2023-prevention-falls/"
         }
       ]
     },
     "watch": [],
     "stories": [
+      "child-marriage-complaints-999-calls-halve-since-2023-prevention-falls",
       "unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92",
       "16-days-activism-2026-why-few-women-in-bangladesh-see-justice",
       "mjf-dialogue-violence-against-women-only-7-percent-take-legal-action-16-days",
@@ -292,8 +295,8 @@
       }
     ],
     "strip": {
-      "text": "Child marriage must fall 20 times faster, UNFPA says",
-      "url": "/2026/11/27/unfpa-child-marriage-20-fold-faster-first-international-day-adolescent-births-92/",
+      "text": "Child marriage reports to 999 have halved since 2023",
+      "url": "/2026/11/28/child-marriage-complaints-999-calls-halve-since-2023-prevention-falls/",
       "help": "Helpline 109",
       "helpUrl": "tel:109"
     },
@@ -352,6 +355,22 @@
           "source": "Supreme Court and BRAC research, via Prothom Alo",
           "highlight": true,
           "short": "conviction rate in tribunal cases"
+        },
+        {
+          "value": 53,
+          "label": "fall in calls to 999 reporting child marriage, from 6,499 in 2023 to 3,045 in 2025",
+          "url": "https://www.prothomalo.com/bangladesh/cp96n5468j",
+          "source": "National Emergency Service 999, via Prothom Alo",
+          "short": "fall in child marriage calls to 999",
+          "display": "53%"
+        },
+        {
+          "value": 48,
+          "label": "fall in child marriages prevented by officials, from 1,846 in 2023 to 968 in 2025",
+          "url": "https://www.prothomalo.com/bangladesh/cp96n5468j",
+          "source": "Department of Women Affairs, via Prothom Alo",
+          "short": "fall in child marriages prevented",
+          "display": "48%"
         }
       ],
       "sources": [
