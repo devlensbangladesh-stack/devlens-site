@@ -1,0 +1,298 @@
+---
+// Funding & Opportunities. The listings still live as HTML tables in src/data/pages/funding.json
+// (the daily update edits that file). This page reads those tables and lays them out as cards,
+// a deadline calendar and filters. Status is worked out from the deadline, so a call whose
+// deadline has passed never shows as open, even if the JSON has not been updated yet.
+import Base from '../layouts/Base.astro';
+import { pages, dhakaToday, daysBetween } from '../lib/data.js';
+
+const page = pages.find((p) => p.slug === 'funding');
+const html = page?.content || '';
+const today = dhakaToday();
+
+const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, sept: 9, oct: 10, nov: 11, dec: 12 };
+const toIso = (s) => {
+  const m = (s || '').match(/(\d{1,2})\s+([A-Za-z]{3})[A-Za-z]*\.?\s+(\d{4})/);
+  const mo = m && MONTHS[m[2].toLowerCase()];
+  return mo ? `${m[3]}-${String(mo).padStart(2, '0')}-${m[1].padStart(2, '0')}` : null;
+};
+const text = (h = '') => h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+// Split the page into sections by its h2 headings.
+const sections = {};
+html.split(/<h2[^>]*>/i).slice(1).forEach((chunk) => {
+  const [head, ...rest] = chunk.split(/<\/h2>/i);
+  sections[text(head).toLowerCase()] = rest.join('</h2>');
+});
+const sectionFor = (...names) => Object.entries(sections).find(([k]) => names.some((n) => k.startsWith(n)))?.[1] || '';
+
+// Read one table: columns are matched by their header text, so column order can change.
+const readTable = (block) => {
+  const heads = [...(block.match(/<tr[^>]*>([\s\S]*?)<\/tr>/i)?.[1] || '').matchAll(/<th[^>]*>([\s\S]*?)<\/th>/gi)].map((m) => text(m[1]).toLowerCase());
+  const col = (name) => heads.findIndex((h) => h.startsWith(name));
+  const rows = [];
+  for (const [, row] of block.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...row.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => m[1].trim());
+    if (!cells.length) continue;
+    const opp = cells[col('opportunity')] ?? cells[0];
+    const link = opp.match(/<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    const note = opp.match(/<small>([\s\S]*?)<\/small>/i)?.[1] || '';
+    const title = link ? link[2] : opp.replace(/<small>[\s\S]*?<\/small>/i, '').replace(/<br\s*\/?>/gi, '').trim();
+    const deadlineText = text(cells[col('deadline')] || '');
+    rows.push({
+      title, url: link?.[1] || null, note,
+      funder: cells[col('funder')] || '',
+      size: col('size') > -1 ? text(cells[col('size')]) : '',
+      deadlineText, deadline: toIso(deadlineText),
+      listedStatus: text(cells[col('status')] || '').toUpperCase(),
+    });
+  }
+  return rows;
+};
+
+// Type of opportunity, from the wording of the notice.
+const TYPES = [
+  ['consultancy', 'Consultancy', /\bconsultan(t|cy)\b/i],
+  ['tender', 'Tender or RFQ', /\b(RFQ|RFP|LRPS|ITB|tender|request for (quotation|proposal)|bids?\b)/i],
+  ['fellowship', 'Fellowship', /\bfellow(s|ship)?\b/i],
+  ['prize', 'Award or prize', /\b(award|prize|challenge)\b/i],
+  ['grant', 'Grant or call', /./],
+];
+const typeOf = (o) => {
+  const s = `${text(o.title)} ${text(o.note)}`;
+  return TYPES.find(([, , re]) => re.test(s));
+};
+
+const STATUS = {
+  soon: { label: 'Closing soon', cls: 'soon' },
+  open: { label: 'Open', cls: 'open' },
+  upcoming: { label: 'Upcoming', cls: 'upcoming' },
+  rolling: { label: 'Rolling', cls: 'rolling' },
+  closed: { label: 'Closed', cls: 'closed' },
+};
+const statusOf = (o) => {
+  if (o.listedStatus === 'UPCOMING') return 'upcoming';
+  if (!o.deadline) return o.listedStatus === 'CLOSED' ? 'closed' : 'rolling';
+  const n = daysBetween(today, o.deadline);
+  if (n < 0) return 'closed';
+  return n <= 7 ? 'soon' : 'open';
+};
+
+const listed = [...readTable(sectionFor('open')), ...readTable(sectionFor('upcoming'))].map((o) => {
+  const [type, typeName] = typeOf(o);
+  return { ...o, type, typeName, status: statusOf(o) };
+});
+const live = listed.filter((o) => o.status !== 'closed')
+  .sort((a, b) => (a.deadline || '9999').localeCompare(b.deadline || '9999'));
+const closed = [...listed.filter((o) => o.status === 'closed'), ...readTable(sectionFor('recently closed'))]
+  .sort((a, b) => (b.deadline || '').localeCompare(a.deadline || ''));
+
+const lastChecked = html.match(/Last checked:\s*([^<.]+)/i)?.[1]?.trim();
+const lastCheckedIso = toIso(lastChecked);
+const rules = [...(sectionFor('how we list').match(/<li[^>]*>[\s\S]*?<\/li>/gi) || [])].map((li) => li.replace(/<\/?li[^>]*>/gi, '').trim());
+const trackerHtml = sectionFor('funding tracker').match(/<p[^>]*>([\s\S]*?)<\/p>/i)?.[1] || '';
+const creditHtml = html.match(/<p[^>]*>(Top image:[\s\S]*?)<\/p>/i)?.[1] || '';
+
+// Counts for the hero and the filters.
+const closingSoon = live.filter((o) => o.status === 'soon').length;
+const funders = new Set(live.map((o) => text(o.funder).replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+Bangladesh$/i, '').trim())).size;
+const typeCounts = TYPES.map(([id, name]) => ({ id, name, n: live.filter((o) => o.type === id).length })).filter((t) => t.n);
+const nextUp = live.find((o) => o.deadline);
+
+// Deadline calendar: one cell per day from today to the last dated deadline (at least 3 weeks, at most 6).
+const dated = live.filter((o) => o.deadline);
+const lastDl = dated.length ? dated[dated.length - 1].deadline : today;
+const spanDays = Math.min(42, Math.max(21, daysBetween(today, lastDl) + 1));
+const addDays = (iso, n) => new Date(Date.parse(iso + 'T12:00:00Z') + n * 86400000).toISOString().slice(0, 10);
+const days = Array.from({ length: spanDays }, (_, i) => {
+  const iso = addDays(today, i);
+  const items = dated.filter((o) => o.deadline === iso);
+  return { iso, d: Number(iso.slice(8)), mon: iso.slice(8) === '01' || i === 0, items, wk: new Date(iso + 'T12:00:00Z').getUTCDay() };
+});
+const later = dated.filter((o) => o.deadline > days[days.length - 1].iso).length;
+const rolling = live.filter((o) => !o.deadline).length;
+const maxPerDay = Math.max(1, ...days.map((d) => d.items.length));
+
+const fmt = (iso, opts) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { timeZone: 'UTC', ...opts });
+const dayMonth = (iso) => fmt(iso, { day: 'numeric', month: 'short' });
+const leftText = (o) => {
+  if (!o.deadline) return 'No fixed deadline';
+  const n = daysBetween(today, o.deadline);
+  return n === 0 ? 'Closes today' : n === 1 ? 'Closes tomorrow' : `${n} days left`;
+};
+const urgency = (o) => (o.deadline ? Math.max(4, 100 - Math.min(100, (daysBetween(today, o.deadline) / 30) * 100)) : 0);
+---
+<Base title="NGO funding opportunities and grants for Bangladesh" description={`${live.length} open grants, calls for proposals, tenders and awards for organisations working in Bangladesh, with funder, size and deadline. Checked against each funder's own notice.`}>
+  <div class="wrap fund">
+    <section class="fund-hero">
+      <img class="fund-hero-img" src="/media/2026/11/photo-coastal-embankment-mangroves-amdad.jpg" alt="" width="1280" height="720" fetchpriority="high" />
+      <div class="fund-hero-in">
+        <p class="eyebrow">Funding &amp; Opportunities</p>
+        <h1>Grants, calls and tenders for work in Bangladesh</h1>
+        <p class="lede">Calls for proposals, grants, tenders and awards open to organisations working in Bangladesh. Each listing links to the funder's own notice.</p>
+        <div class="stats">
+          <div><strong data-fstat="open">{live.length}</strong><span>open now</span></div>
+          <div><strong data-fstat="soon">{closingSoon}</strong><span>close within 7 days</span></div>
+          <div><strong>{funders}</strong><span>funders</span></div>
+          <div><strong>{rolling}</strong><span>rolling, no deadline</span></div>
+        </div>
+        <p class="checked">Last checked: {lastChecked || '—'}.{nextUp && <> Next deadline: <b>{dayMonth(nextUp.deadline)}</b>.</>}</p>
+      </div>
+    </section>
+
+    {dated.length > 0 && (
+      <section class="fund-cal" aria-labelledby="cal-h">
+        <div class="fund-sec-head">
+          <h2 id="cal-h">Deadlines ahead</h2>
+          <p>Each bar is a day; taller bars mean more calls close that day. Select a day to see only those calls.</p>
+        </div>
+        <div class="cal-strip" role="group" aria-label="Deadlines by day">
+          {days.map((d) => (
+            <button type="button" class={`cal-day${d.items.length ? ' has' : ''}${d.wk === 5 ? ' fri' : ''}${d.items.some((o) => o.status === 'soon') ? ' hot' : ''}`} data-day={d.iso} disabled={!d.items.length} aria-pressed="false"
+              aria-label={`${fmt(d.iso, { weekday: 'long', day: 'numeric', month: 'long' })}: ${d.items.length} ${d.items.length === 1 ? 'deadline' : 'deadlines'}`}
+              title={d.items.length ? d.items.map((o) => text(o.title)).join('\n') : undefined}>
+              <span class="bar" style={`--h:${d.items.length ? 28 + (d.items.length / maxPerDay) * 72 : 6}%`}>{d.items.length > 0 && <b>{d.items.length}</b>}</span>
+              <span class="dn">{d.d}</span>
+              <span class="mn">{d.mon ? fmt(d.iso, { month: 'short' }) : ''}</span>
+            </button>
+          ))}
+        </div>
+        <p class="cal-key">
+          <span><i class="k-today"></i>Today</span><span><i class="k-hot"></i>Within 7 days</span><span><i class="k-has"></i>Later</span>
+          {later > 0 && <span>+{later} after {dayMonth(days[days.length - 1].iso)}</span>}
+          {rolling > 0 && <span>{rolling} rolling</span>}
+        </p>
+      </section>
+    )}
+
+    <section aria-labelledby="open-h">
+      <div class="fund-sec-head row">
+        <h2 id="open-h">Open now <span class="n" data-fstat="shown">{live.length}</span></h2>
+        <div class="fund-filters" role="group" aria-label="Filter by type">
+          <button type="button" class="ff on" data-type="all" aria-pressed="true">All <span class="n">{live.length}</span></button>
+          {typeCounts.map((t) => <button type="button" class="ff" data-type={t.id} aria-pressed="false">{t.name} <span class="n">{t.n}</span></button>)}
+        </div>
+      </div>
+      <p class="fund-filter-note" data-filter-note hidden><span></span> <button type="button" data-clear>Show all</button></p>
+
+      {live.length ? (
+        <div class="fund-grid">
+          {live.map((o) => (
+            <article class={`fcard s-${STATUS[o.status].cls}`} data-type={o.type} data-deadline={o.deadline || ''}>
+              <div class="fc-meter" aria-hidden="true"><i style={`width:${urgency(o)}%`}></i></div>
+              <div class="fc-top">
+                <span class="fc-status" data-status>{STATUS[o.status].label}</span>
+                <span class="fc-type">{o.typeName}</span>
+              </div>
+              <h3>{o.url ? <a href={o.url} rel="noopener" set:html={o.title} /> : <span set:html={o.title} />}</h3>
+              <p class="fc-funder" set:html={o.funder} />
+              {o.note && <p class="fc-note" set:html={o.note} />}
+              <dl class="fc-facts">
+                <div><dt>Size</dt><dd>{o.size || 'Not stated'}</dd></div>
+                <div><dt>Deadline</dt><dd>{o.deadline ? fmt(o.deadline, { day: 'numeric', month: 'short', year: 'numeric' }) : o.deadlineText || 'Rolling'}</dd></div>
+              </dl>
+              <div class="fc-foot">
+                <span class="fc-left" data-left>{leftText(o)}</span>
+                {o.url && <a class="fc-go" href={o.url} rel="noopener">View notice <span aria-hidden="true">↗</span></a>}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="fund-empty">No open calls right now. Check back tomorrow, or see the recently closed calls below.</p>
+      )}
+    </section>
+
+    {closed.length > 0 && (
+      <details class="fund-closed">
+        <summary><h2>Recently closed <span class="n">{closed.length}</span></h2><span class="toggle" aria-hidden="true"><span class="show">Show</span><span class="hide">Hide</span></span></summary>
+        <ul>
+          {closed.map((o) => (
+            <li>
+              <span class="fcl-date">{o.deadline ? dayMonth(o.deadline) : o.deadlineText}</span>
+              <span class="fcl-main">{o.url ? <a href={o.url} rel="noopener" set:html={o.title} /> : <span set:html={o.title} />}<small set:html={o.funder} /></span>
+            </li>
+          ))}
+        </ul>
+      </details>
+    )}
+
+    <section class="fund-info">
+      {rules.length > 0 && (
+        <div class="fund-rules">
+          <h2>How we list opportunities</h2>
+          <ul>{rules.map((r) => <li set:html={r} />)}</ul>
+        </div>
+      )}
+      <div class="fund-cta">
+        <h2>Funding Tracker</h2>
+        {trackerHtml && <p set:html={trackerHtml} />}
+        <p class="btns">
+          <a class="btn btn-green" href="/submit/">Submit a funding opportunity</a>
+          <a class="btn btn-ghost" href="/category/funding/">All funding coverage</a>
+        </p>
+      </div>
+    </section>
+
+    {creditHtml && <p class="fund-credit" set:html={creditHtml} />}
+  </div>
+
+  <script is:inline define:vars={{ buildToday: today }}>
+    (function () {
+      var today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Dhaka' }).format(new Date());
+      var diff = function (a, b) { return Math.round((Date.parse(b) - Date.parse(a)) / 86400000); };
+      var cards = [].slice.call(document.querySelectorAll('.fcard'));
+      var openN = 0, soonN = 0;
+      // Refresh countdowns and statuses for the reader's own date.
+      cards.forEach(function (c) {
+        var dl = c.getAttribute('data-deadline');
+        if (!dl) { openN++; return; }
+        var n = diff(today, dl), st = c.querySelector('[data-status]'), left = c.querySelector('[data-left]');
+        c.classList.remove('s-open', 's-soon', 's-closed');
+        if (n < 0) { c.classList.add('s-closed'); c.hidden = true; c.dataset.gone = '1'; return; }
+        openN++;
+        if (n <= 7) { soonN++; c.classList.add('s-soon'); st.textContent = 'Closing soon'; } else { c.classList.add('s-open'); st.textContent = 'Open'; }
+        left.textContent = n === 0 ? 'Closes today' : n === 1 ? 'Closes tomorrow' : n + ' days left';
+      });
+      if (today !== buildToday) {
+        document.querySelectorAll('[data-fstat="open"],[data-fstat="shown"]').forEach(function (e) { e.textContent = openN; });
+        document.querySelectorAll('[data-fstat="soon"]').forEach(function (e) { e.textContent = soonN; });
+      }
+      document.querySelectorAll('.cal-day').forEach(function (b) {
+        var d = b.getAttribute('data-day');
+        if (d < today) { b.classList.add('past'); b.disabled = true; }
+        if (d === today) b.classList.add('today');
+      });
+
+      // Filters: by type (chips) or by day (calendar). One of each can be active.
+      var type = 'all', day = null;
+      var note = document.querySelector('[data-filter-note]');
+      function apply() {
+        var shown = 0;
+        cards.forEach(function (c) {
+          if (c.dataset.gone) return;
+          var ok = (type === 'all' || c.getAttribute('data-type') === type) && (!day || c.getAttribute('data-deadline') === day);
+          c.hidden = !ok; if (ok) shown++;
+        });
+        document.querySelectorAll('[data-fstat="shown"]').forEach(function (e) { e.textContent = shown; });
+        document.querySelectorAll('.ff').forEach(function (b) { var on = b.getAttribute('data-type') === type; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+        document.querySelectorAll('.cal-day').forEach(function (b) { var on = b.getAttribute('data-day') === day; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+        if (day || type !== 'all') {
+          var bits = [];
+          if (day) bits.push('closing on ' + new Date(day + 'T12:00:00Z').toLocaleDateString('en-GB', { timeZone: 'UTC', weekday: 'long', day: 'numeric', month: 'long' }));
+          note.querySelector('span').textContent = 'Showing ' + shown + (shown === 1 ? ' call' : ' calls') + (bits.length ? ' ' + bits.join(' ') : '') + '.';
+          note.hidden = false;
+        } else note.hidden = true;
+      }
+      document.querySelectorAll('.ff').forEach(function (b) { b.addEventListener('click', function () { type = b.getAttribute('data-type'); apply(); }); });
+      document.querySelectorAll('.cal-day').forEach(function (b) {
+        b.addEventListener('click', function () {
+          day = day === b.getAttribute('data-day') ? null : b.getAttribute('data-day'); apply();
+          if (day) document.getElementById('open-h').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+      var clear = document.querySelector('[data-clear]');
+      if (clear) clear.addEventListener('click', function () { type = 'all'; day = null; apply(); });
+    })();
+  </script>
+</Base>

@@ -37,6 +37,7 @@ Repository `devlensbangladesh-stack/devlens-site`, branch `main`. Every push to 
 - Status labels: OPEN, CLOSING SOON (deadline within 7 days), UPCOMING, CLOSED. The page currently has two sections, "Open now" and "Recently closed"; add an "Upcoming" section only when there is an item for it.
 - Move items past their deadline to Recently closed. Update "Last checked: D Month YYYY."
 - Keep `home.json` `funding` and `pills.fundingOpen` in step.
+- `src/pages/funding.astro` reads these tables and shows them as cards with a deadline calendar. Keep the table layout: headings "Open now", "Upcoming" (optional), "Recently closed"; columns Opportunity (link, then `<br><small>` note), Funder, Size, Deadline ("30 Nov 2026" or "Rolling"), Status. The page works out status from the deadline, so a call past its deadline drops out of "Open now" on its own.
 
 ## Sectors and data
 - Recount sector numbers in `src/data/pages/sectors.json` from the tags of all posts, and update "N stories published · Counts updated D Month YYYY".
