@@ -1,0 +1,354 @@
+---
+// Research & Evidence. Laid out like the Funding page: hero with counts, a coverage timeline,
+// sector and type filters, and cards grouped by sector (or listed newest first).
+// Two sources feed it:
+//  1. The "Latest" table in src/data/pages/research-evidence.json (Title, Organisation, Date, Theme,
+//     optional Sector). The daily runs edit that table.
+//  2. Every published post in the Research category, plus every Devlens Research Summary
+//     (slug starting "devlens-research-summary"). Posts already linked from the table are not repeated.
+import Base from '../layouts/Base.astro';
+import { pages, posts, postUrl, dhakaToday, daysBetween, jobsData } from '../lib/data.js';
+import photoQueue from '../../photo-queue.json';
+
+const page = pages.find((p) => p.slug === 'research-evidence');
+const html = page?.content || '';
+const today = dhakaToday();
+
+const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, sept: 9, oct: 10, nov: 11, dec: 12 };
+// "2 Nov 2026" -> 2026-11-02; "Nov 2026" -> 2026-11 (month only).
+const toIso = (s) => {
+  const d = (s || '').match(/(\d{1,2})\s+([A-Za-z]{3})[A-Za-z]*\.?\s+(\d{4})/);
+  if (d && MONTHS[d[2].toLowerCase()]) return `${d[3]}-${String(MONTHS[d[2].toLowerCase()]).padStart(2, '0')}-${d[1].padStart(2, '0')}`;
+  const m = (s || '').match(/([A-Za-z]{3})[A-Za-z]*\.?\s+(\d{4})/);
+  if (m && MONTHS[m[1].toLowerCase()]) return `${m[2]}-${String(MONTHS[m[1].toLowerCase()]).padStart(2, '0')}`;
+  return null;
+};
+const text = (h = '') => h.replace(/<[^>]+>/g, ' ').replace(/&#8217;/g, '’').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+const norm = (s) => text(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+// Split the page into sections by its h2 headings.
+const sections = {};
+html.split(/<h2[^>]*>/i).slice(1).forEach((chunk) => {
+  const [head, ...rest] = chunk.split(/<\/h2>/i);
+  sections[text(head).toLowerCase()] = rest.join('</h2>');
+});
+const sectionFor = (...names) => Object.entries(sections).find(([k]) => names.some((n) => k.startsWith(n)))?.[1] || '';
+
+const slugFromUrl = (u = '') => u.match(/^\/\d{4}\/\d{2}\/\d{2}\/([^/]+)\/?$/)?.[1] || null;
+const postBySlug = Object.fromEntries(posts.map((p) => [p.slug, p]));
+
+// Read the table: columns matched by header text, so their order can change.
+const readTable = (block) => {
+  const heads = [...(block.match(/<tr[^>]*>([\s\S]*?)<\/tr>/i)?.[1] || '').matchAll(/<th[^>]*>([\s\S]*?)<\/th>/gi)].map((m) => text(m[1]).toLowerCase());
+  const col = (name) => heads.findIndex((h) => h.startsWith(name));
+  const rows = [];
+  for (const [, row] of block.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...row.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => m[1].trim());
+    if (!cells.length) continue;
+    const t = cells[col('title')] ?? cells[0];
+    const link = t.match(/<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    const url = link?.[1] || null;
+    const post = postBySlug[slugFromUrl(url)];
+    const dateText = text(cells[col('date')] || '');
+    rows.push({
+      kind: 'report',
+      title: link ? link[2] : t,
+      url, external: url && !post,
+      post,
+      org: text(cells[col('organisation')] || cells[col('organization')] || ''),
+      dateText, pubIso: toIso(dateText),
+      theme: text(cells[col('theme')] || ''),
+      sectorText: col('sector') > -1 ? text(cells[col('sector')]) : '',
+    });
+  }
+  return rows;
+};
+
+// The same report sometimes appears twice (once linked to our story, once to the original). Keep the first.
+const seen = new Set();
+const reports = readTable(sectionFor('latest')).filter((r) => {
+  const k = norm(r.title).replace(/\s+\d{4}$/, '');
+  if (seen.has(k)) return false;
+  seen.add(k); return true;
+});
+const tableSlugs = new Set(reports.map((r) => r.post?.slug).filter(Boolean));
+
+// Research stories and Devlens Research Summaries not already in the table.
+const isSummary = (p) => p.slug.startsWith('devlens-research-summary');
+const stories = posts
+  .filter((p) => (p.categories.includes('research') || isSummary(p)) && !tableSlugs.has(p.slug))
+  .map((p) => ({ kind: isSummary(p) ? 'summary' : 'story', title: p.title, url: postUrl(p), post: p, org: '', dateText: '', pubIso: null, theme: '', sectorText: '' }));
+
+// Type of item, from its title.
+const TYPES = [
+  ['summary', 'Research Summary', (o) => o.kind === 'summary'],
+  ['situation', 'Situation report', (o) => /\b(situation report|operation update|sitrep|protection (snapshot|update))\b/i.test(text(o.title))],
+  ['brief', 'Brief', (o) => /\bbrief\b/i.test(text(o.title))],
+  ['assessment', 'Assessment or review', (o) => /\b(assessment|review|evaluation|audit|atlas)\b/i.test(text(o.title))],
+  ['update', 'Outlook or update', (o) => /\b(development update|outlook|forecast|index|PMI)\b/i.test(text(o.title))],
+  ['report', 'Report or study', () => true],
+];
+const typeOf = (o) => TYPES.find(([, , test]) => test(o));
+
+// Sector: same sectors and colours as the jobs and funding pages. A "Sector" column wins;
+// otherwise keywords decide, with the Theme column counting most.
+const SECTOR_WORDS = {
+  'health-nutrition': /\b(health|nutrition|immunis\w*|vaccin\w*|measles|disease|hospital|maternal|newborn|medical|mental|diabetes|antimicrobial|AMR|cancer)\b/gi,
+  'humanitarian-rohingya-response': /\b(rohingya|humanitarian|refugees?|emergenc\w*|displaced|camps?|trafficking)\b/gi,
+  'gender-equality': /\b(women|woman|girls?|gender|gbv|child marriage)\b/gi,
+  education: /\b(education|schools?|students?|teachers?|youth|learning|literacy|maths|universit\w*)\b/gi,
+  'food-security-agriculture': /\b(food|agricultur\w*|farm\w*|fisher\w*|crops?|rice|wfp)\b/gi,
+  'livelihoods-microfinance': /\b(poverty|livelihoods?|income|financial inclusion|microfinance|jobs|labour|wages?|employment|workers?|garments?|migra\w*|social protection|safety nets?|ageing|industry|economy)\b/gi,
+  'governance-human-rights': /\b(governance|rights|digital|artificial intelligence|AI|ICT|data|justice|corruption|civic|expression|press|NGOs?)\b/gi,
+  'climate-disaster-resilience': /\b(climate|resilience|adaptation|disaster|environment\w*|energy|power|gas|pollution|lead|rivers?|salinity|cyclones?|floods?)\b/gi,
+  'development-cooperation': /\b(aid|assistance|donors?|localisation|development finance|cooperation)\b/gi,
+};
+const SECTORS = jobsData.sectors;
+const sectorOf = (o) => {
+  const pick = (o.sectorText || '').toLowerCase();
+  const named = pick && SECTORS.find((x) => x.id === pick || x.name.toLowerCase() === pick || x.name.toLowerCase().startsWith(pick));
+  if (named) return named.id;
+  const score = (str, re) => (str.match(re) || []).length;
+  let best = 'development-cooperation', top = 0;
+  for (const x of SECTORS) {
+    const re = SECTOR_WORDS[x.id]; if (!re) continue;
+    const n = score(o.theme, re) * 4 + score(text(o.title), re) * 2 + score(text(o.post?.excerpt || ''), re) + score((o.post?.tags || []).join(' ').replace(/-/g, ' '), re);
+    if (n > top) { top = n; best = x.id; }
+  }
+  return best;
+};
+const sectorById = Object.fromEntries(SECTORS.map((x) => [x.id, x]));
+
+// "Added" = when Devlens covered it (story date); for a report linked only to the original, its publication date.
+const addedOf = (o) => o.post?.date.slice(0, 10) || (o.pubIso?.length === 10 ? o.pubIso : o.pubIso ? o.pubIso + '-15' : null);
+const all = [...reports, ...stories].map((o) => {
+  const [type, typeName] = typeOf(o);
+  const added = addedOf(o);
+  const age = added ? daysBetween(added, today) : 999;
+  return { ...o, type, typeName, sector: sectorOf(o), added, isNew: age <= 7 };
+}).sort((a, b) => (b.added || '').localeCompare(a.added || ''));
+
+const lastUpdated = html.match(/Last updated:\s*([^<.]+)/i)?.[1]?.trim();
+const rules = [...(sectionFor('how we cover').match(/<li[^>]*>[\s\S]*?<\/li>/gi) || [])].map((li) => li.replace(/<\/?li[^>]*>/gi, '').trim());
+
+// Counts for the hero and the filters.
+const orgs = new Set(reports.map((r) => r.org.replace(/\s*\(.*?\)\s*/g, ' ').split(/,| with /)[0].trim()).filter(Boolean)).size;
+const summaries = all.filter((o) => o.type === 'summary').length;
+const newCount = all.filter((o) => o.isNew).length;
+const newest = all.find((o) => o.added);
+const typeCounts = TYPES.map(([id, name]) => ({ id, name, n: all.filter((o) => o.type === id).length })).filter((t) => t.n);
+const sectorGroups = SECTORS.map((x) => ({ ...x, items: all.filter((o) => o.sector === x.id) })).filter((g) => g.items.length)
+  .sort((a, b) => b.items.length - a.items.length || (b.items[0].added || '').localeCompare(a.items[0].added || ''));
+const rank = Object.fromEntries(all.map((o, i) => [o.url + o.title, i]));
+
+// Coverage timeline: one bar per week (Sunday to Saturday), from the first week with research
+// (at least 6 weeks, at most 12).
+const addDays = (iso, n) => new Date(Date.parse(iso + 'T12:00:00Z') + n * 86400000).toISOString().slice(0, 10);
+const weekStart = (iso) => addDays(iso, -new Date(iso + 'T12:00:00Z').getUTCDay());
+const thisWeek = weekStart(today);
+const firstAdded = all.filter((o) => o.added).map((o) => o.added).sort()[0] || today;
+const nWeeks = Math.min(12, Math.max(6, Math.round(daysBetween(weekStart(firstAdded), thisWeek) / 7) + 1));
+const weeks = Array.from({ length: nWeeks }, (_, i) => {
+  const start = addDays(thisWeek, (i - nWeeks + 1) * 7);
+  const items = all.filter((o) => o.added && weekStart(o.added) === start);
+  return { start, end: addDays(start, 6), items, current: i === nWeeks - 1 };
+});
+const maxPerWeek = Math.max(1, ...weeks.map((w) => w.items.length));
+const older = all.filter((o) => o.added && o.added < weeks[0].start).length;
+
+// Hero photo: a fixed aerial of Korail (free licence, credit read from photo-queue.json).
+// If that entry ever goes missing, the newest item with a credited photo is used instead.
+const credits = Object.fromEntries(photoQueue.filter((x) => x.path && x.credit).map((x) => [x.path, x]));
+const HERO = '/media/2026/11/photo-korail-settlement-aerial.jpg';
+const heroSrc = credits[HERO] ? HERO : all.find((o) => o.post?.image?.src && credits[o.post.image.src])?.post.image.src;
+const hero = heroSrc && { src: heroSrc, alt: credits[heroSrc].alt || '', credit: credits[heroSrc] };
+
+const fmt = (iso, opts) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { timeZone: 'UTC', ...opts });
+const dayMonth = (iso) => fmt(iso, { day: 'numeric', month: 'short' });
+const ago = (iso) => {
+  const n = daysBetween(iso, today);
+  return n <= 0 ? 'Added today' : n === 1 ? 'Added yesterday' : n < 30 ? `Added ${n} days ago` : `Added ${fmt(iso, { day: 'numeric', month: 'short' })}`;
+};
+const freshness = (o) => (o.added ? Math.max(4, 100 - Math.min(96, (daysBetween(o.added, today) / 60) * 100)) : 4);
+const summaryOf = (o) => text(o.post?.excerpt || '').replace(/\s*\[(…|\.\.\.)\]\s*$/, '');
+---
+<Base title="Bangladesh development research and reports" description={`${all.length} reports, evaluations, briefs and studies on Bangladesh's development and humanitarian sector, summarised with the author, date and a link to the original.`}>
+  <div class="wrap fund res">
+    <section class="fund-hero">
+      {hero && <img class="fund-hero-img" src={hero.src} alt="" width="1280" height="720" fetchpriority="high" />}
+      <div class="fund-hero-in">
+        <p class="eyebrow">Research &amp; Evidence</p>
+        <h1>Reports and studies on Bangladesh, in plain words</h1>
+        <p class="lede">Reports, evaluations, policy briefs and studies on Bangladesh, summarised with the author, date, method and a link to the original.</p>
+        <div class="stats">
+          <div><strong data-rstat="all">{all.length}</strong><span>reports and studies</span></div>
+          <div><strong>{newCount}</strong><span>added in the last 7 days</span></div>
+          <div><strong>{summaries}</strong><span>Devlens Research Summaries</span></div>
+          <div><strong>{orgs}</strong><span>organisations in the table</span></div>
+        </div>
+        <p class="checked">{newest && <>Latest added: <b>{dayMonth(newest.added)}</b>. </>}Table last updated: {lastUpdated || '—'}.</p>
+      </div>
+    </section>
+
+    <section class="fund-cal" aria-labelledby="tl-h">
+      <div class="fund-sec-head">
+        <h2 id="tl-h">Research covered, week by week</h2>
+        <p>Each bar is a week; taller bars mean more reports and studies covered that week. Select a week to see only those.</p>
+      </div>
+      <div class="cal-strip res-strip" role="group" aria-label="Research by week">
+        {weeks.map((w) => (
+          <button type="button" class={`cal-day${w.items.length ? ' has' : ''}${w.current ? ' hot' : ''}`} data-week={w.start} disabled={!w.items.length} aria-pressed="false"
+            aria-label={`Week of ${fmt(w.start, { day: 'numeric', month: 'long' })}: ${w.items.length} ${w.items.length === 1 ? 'item' : 'items'}`}
+            title={w.items.length ? w.items.map((o) => text(o.title)).join('\n') : undefined}>
+            <span class="bar" style={`--h:${w.items.length ? 24 + (w.items.length / maxPerWeek) * 76 : 6}%`}>{w.items.length > 0 && <b>{w.items.length}</b>}</span>
+            <span class="dn">{dayMonth(w.start)}</span>
+            <span class="mn">{w.current ? 'This week' : ''}</span>
+          </button>
+        ))}
+      </div>
+      <p class="cal-key">
+        <span><i class="k-hot"></i>This week</span><span><i class="k-has"></i>Earlier weeks</span>
+        {older > 0 && <span>+{older} before {dayMonth(weeks[0].start)}</span>}
+      </p>
+    </section>
+
+    <section aria-labelledby="open-h" class="fund-open">
+      <div class="fund-sec-head row">
+        <h2 id="open-h">All research <span class="n" data-rstat="shown">{all.length}</span></h2>
+        <div class="fund-view" role="group" aria-label="Arrange research">
+          <button type="button" class="fv on" data-view="sector" aria-pressed="true">By sector</button>
+          <button type="button" class="fv" data-view="deadline" aria-pressed="false">Newest first</button>
+        </div>
+      </div>
+
+      <div class="fund-sectors">
+        <div class="sec-bar" aria-hidden="true">
+          {sectorGroups.map((g) => <span style={`flex:${g.items.length};background:${g.color}`} title={`${g.name}: ${g.items.length}`}></span>)}
+        </div>
+        <div class="fund-chips" role="group" aria-label="Filter by sector">
+          <span class="fc-label">Sector</span>
+          <button type="button" class="fs on" data-sector="all" aria-pressed="true">All <span class="n">{all.length}</span></button>
+          {sectorGroups.map((g) => <button type="button" class="fs" data-sector={g.id} aria-pressed="false" style={`--sc:${g.color}`}><i></i>{g.name} <span class="n">{g.items.length}</span></button>)}
+        </div>
+        <div class="fund-chips" role="group" aria-label="Filter by type">
+          <span class="fc-label">Type</span>
+          <button type="button" class="ff on" data-type="all" aria-pressed="true">All <span class="n">{all.length}</span></button>
+          {typeCounts.map((t) => <button type="button" class="ff" data-type={t.id} aria-pressed="false">{t.name} <span class="n">{t.n}</span></button>)}
+        </div>
+      </div>
+      <p class="fund-filter-note" data-filter-note hidden><span></span> <button type="button" data-clear>Show all</button></p>
+
+      <div class="fund-groups view-sector" data-groups>
+        {sectorGroups.map((g) => (
+          <section class="fgroup" id={g.id} data-group={g.id} style={`--gc:${g.color}`}>
+            <h3 class="fgroup-h"><i></i>{g.name} <span class="n" data-group-count>{g.items.length}</span></h3>
+            <div class="fund-grid">
+              {g.items.map((o) => (
+                <article class={`fcard rcard ${o.isNew ? 's-soon' : 's-open'}${o.type === 'summary' ? ' is-summary' : ''}`} data-type={o.type} data-sector={o.sector} data-week={o.added ? weekStart(o.added) : ''} data-added={o.added || ''} style={`order:${rank[o.url + o.title]};--gc:${g.color}`}>
+                  <div class="fc-meter" aria-hidden="true"><i style={`width:${freshness(o)}%`}></i></div>
+                  <div class="fc-top">
+                    {o.isNew && <span class="fc-status">New</span>}
+                    <span class="fc-type">{o.typeName}</span>
+                  </div>
+                  <h3>{o.url ? <a href={o.url} rel={o.external ? 'noopener' : undefined} set:html={o.title} /> : <span set:html={o.title} />}</h3>
+                  {o.org && <p class="fc-funder">{o.org}</p>}
+                  <p class="fc-sector"><i></i>{g.name}</p>
+                  {summaryOf(o) && <p class="fc-note">{summaryOf(o)}</p>}
+                  <dl class="fc-facts">
+                    {o.kind === 'report'
+                      ? <><div><dt>Published</dt><dd>{o.dateText || 'Not stated'}</dd></div><div><dt>Theme</dt><dd>{o.theme || '—'}</dd></div></>
+                      : <><div><dt>Covered</dt><dd>{fmt(o.added, { day: 'numeric', month: 'short', year: 'numeric' })}</dd></div><div><dt>Format</dt><dd>{o.kind === 'summary' ? 'Plain-words summary' : 'News story'}</dd></div></>}
+                  </dl>
+                  <div class="fc-foot">
+                    <span class="fc-left">{o.added ? ago(o.added) : ''}</span>
+                    {o.url && <a class="fc-go" href={o.url} rel={o.external ? 'noopener' : undefined}>{o.external ? <>Original report <span aria-hidden="true">↗</span></> : o.kind === 'summary' ? 'Read summary' : 'Read story'}</a>}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+
+    <section class="fund-info">
+      {rules.length > 0 && (
+        <div class="fund-rules">
+          <h2>How we cover research</h2>
+          <ul>{rules.map((r) => <li set:html={r} />)}</ul>
+        </div>
+      )}
+      <div class="fund-cta">
+        <h2>Share your research</h2>
+        <p>Published a report, evaluation or study on Bangladesh? Send it to us with a link to the original and we will consider it for a summary.</p>
+        <p class="btns">
+          <a class="btn btn-green" href="/submit/">Submit research</a>
+          <a class="btn btn-ghost" href="/category/research/">All research coverage</a>
+        </p>
+      </div>
+    </section>
+
+    {hero && <p class="fund-credit">Top image: {hero.alt}. Photo: {hero.credit.credit.replace(/^File photo:\s*/i, '')}{hero.credit.creditUrl && <> (<a href={hero.credit.creditUrl} rel="noopener">source</a>)</>}.</p>}
+  </div>
+
+  <script is:inline define:vars={{ buildToday: today }}>
+    (function () {
+      var cards = [].slice.call(document.querySelectorAll('.rcard'));
+      var type = 'all', sector = 'all', week = null;
+      var note = document.querySelector('[data-filter-note]');
+      var groups = document.querySelector('[data-groups]');
+      var sectorName = function (id) { var b = document.querySelector('.fs[data-sector="' + id + '"]'); return b ? b.childNodes[1].textContent.trim() : ''; };
+      function press(sel, attr, val) {
+        document.querySelectorAll(sel).forEach(function (b) { var on = b.getAttribute(attr) === val; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+      }
+      function apply() {
+        var shown = 0;
+        cards.forEach(function (c) {
+          var ok = (type === 'all' || c.getAttribute('data-type') === type) && (sector === 'all' || c.getAttribute('data-sector') === sector) && (!week || c.getAttribute('data-week') === week);
+          c.hidden = !ok; if (ok) shown++;
+        });
+        document.querySelectorAll('.fgroup').forEach(function (g) {
+          var n = g.querySelectorAll('.fcard:not([hidden])').length;
+          g.hidden = !n; g.querySelector('[data-group-count]').textContent = n;
+        });
+        document.querySelectorAll('[data-rstat="shown"]').forEach(function (e) { e.textContent = shown; });
+        press('.ff', 'data-type', type); press('.fs', 'data-sector', sector); press('.cal-day', 'data-week', week);
+        if (week || type !== 'all' || sector !== 'all') {
+          var bits = [];
+          if (sector !== 'all') bits.push('in ' + sectorName(sector));
+          if (week) bits.push('covered in the week of ' + new Date(week + 'T12:00:00Z').toLocaleDateString('en-GB', { timeZone: 'UTC', day: 'numeric', month: 'long' }));
+          note.querySelector('span').textContent = 'Showing ' + shown + (shown === 1 ? ' item' : ' items') + (bits.length ? ' ' + bits.join(', ') : '') + '.';
+          note.hidden = false;
+        } else note.hidden = true;
+      }
+      function setView(v) {
+        if (!groups) return;
+        groups.className = 'fund-groups view-' + v; press('.fv', 'data-view', v);
+        try { localStorage.setItem('resView', v); } catch (e) {}
+      }
+      try { if (localStorage.getItem('resView') === 'deadline') setView('deadline'); } catch (e) {}
+      document.querySelectorAll('.fv').forEach(function (b) { b.addEventListener('click', function () { setView(b.getAttribute('data-view')); }); });
+      document.querySelectorAll('.ff').forEach(function (b) { b.addEventListener('click', function () { type = b.getAttribute('data-type'); apply(); }); });
+      document.querySelectorAll('.fs').forEach(function (b) { b.addEventListener('click', function () { sector = b.getAttribute('data-sector'); apply(); }); });
+      document.querySelectorAll('.cal-day').forEach(function (b) {
+        b.addEventListener('click', function () {
+          week = week === b.getAttribute('data-week') ? null : b.getAttribute('data-week'); apply();
+          if (week) document.getElementById('open-h').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+      var clear = document.querySelector('[data-clear]');
+      if (clear) clear.addEventListener('click', function () { type = 'all'; sector = 'all'; week = null; apply(); });
+      // A link to a sector (/research-evidence/#health-nutrition) filters to that sector.
+      var h = location.hash.slice(1);
+      if (h && document.querySelector('.fs[data-sector="' + h + '"]')) { sector = h; apply(); }
+      // "New" badges follow the reader's date, not the build date.
+      var today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Dhaka' }).format(new Date());
+      if (today !== buildToday) {
+        cards.forEach(function (c) {
+          var ad = c.getAttribute('data-added'); var st = c.querySelector('.fc-status');
+          if (st && ad && (Date.parse(today) - Date.parse(ad)) / 86400000 > 7) { st.remove(); c.classList.remove('s-soon'); c.classList.add('s-open'); }
+        });
+      }
+    })();
+  </script>
+</Base>

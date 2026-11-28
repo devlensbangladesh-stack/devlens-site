@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import { pages } from '../lib/data.js';
 import home from '../data/home.json';
 export function getStaticPaths() {
-  return pages.filter((p) => p.slug !== 'subscribe' && p.slug !== 'submit' && p.slug !== 'events' && p.slug !== 'sectors' && p.slug !== 'funding').map((p) => ({ params: { page: p.slug }, props: { p } }));
+  return pages.filter((p) => p.slug !== 'subscribe' && p.slug !== 'submit' && p.slug !== 'events' && p.slug !== 'sectors' && p.slug !== 'funding' && p.slug !== 'research-evidence').map((p) => ({ params: { page: p.slug }, props: { p } }));
 }
 const { p } = Astro.props;
 // Search-friendly titles for the main section pages (the on-page heading stays the same).

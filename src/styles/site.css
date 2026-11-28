@@ -1045,3 +1045,12 @@ h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 0.5em; 
   .fund-chips .fc-label { width: auto; flex: none; }
   .fund-chips button { flex: none; white-space: nowrap; }
 }
+
+/* Research & Evidence page: reuses the Funding page layout (.fund) */
+.res .fund-hero .stats > div:nth-child(2) { border-left-color: #f59e0b; }
+.res-strip .cal-day .dn { font-size: 11px; white-space: nowrap; }
+.res-strip .cal-day .mn { text-transform: none; letter-spacing: 0; font-weight: 700; }
+.rcard.is-summary { background: linear-gradient(180deg, #f3faf7 0, #fff 90px); }
+.rcard.is-summary .fc-type { background: var(--green-dark); color: #fff; }
+.rcard .fc-facts dd { overflow-wrap: anywhere; }
+@media (max-width: 700px) { .res-strip .cal-day .dn { font-size: 9px; } .res-strip .cal-day:nth-child(odd):not(:last-child) .dn { visibility: hidden; } }
